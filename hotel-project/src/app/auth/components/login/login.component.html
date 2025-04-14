@@ -1,1 +1,15 @@
-<p>login works!</p>
+<h2>تسجيل الدخول</h2>
+
+<form [formGroup]="loginForm" (ngSubmit)="login()">
+  <label>
+    البريد الإلكتروني:
+    <input type="email" formControlName="email" />
+  </label>
+
+  <label>
+    كلمة المرور:
+    <input type="password" formControlName="password" />
+  </label>
+
+  <button type="submit" [disabled]="!loginForm.valid">دخول</button>
+</form>
