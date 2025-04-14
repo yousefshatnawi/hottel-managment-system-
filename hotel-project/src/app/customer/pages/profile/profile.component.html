@@ -1,0 +1,32 @@
+<div class="container">
+    <h2>My Profile</h2>
+  
+    <div *ngIf="!isEditing">
+      <p><strong>Name:</strong> {{ customer.name }}</p>
+      <p><strong>Phone:</strong> {{ customer.phone }}</p>
+      <p><strong>Email:</strong> {{ customer.email }}</p>
+      <p><strong>Address:</strong> {{ customer.address }}</p>
+      <button (click)="enableEdit()">Edit</button>
+    </div>
+  
+    <div *ngIf="isEditing">
+      <label>
+        Name:
+        <input [(ngModel)]="customer.name" />
+      </label>
+      <label>
+        Phone:
+        <input [(ngModel)]="customer.phone" />
+      </label>
+      <label>
+        Email:
+        <input [(ngModel)]="customer.email" />
+      </label>
+      <label>
+        Address:
+        <input [(ngModel)]="customer.address" />
+      </label>
+      <button (click)="saveProfile()">Save</button>
+    </div>
+  </div>
+  
