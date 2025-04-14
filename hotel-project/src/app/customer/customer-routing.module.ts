@@ -4,6 +4,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { MyReservationsComponent } from './pages/my-reservations/my-reservations.component';
 import { BookRoomComponent } from './pages/book-room/book-room.component';
 import { RequestServiceComponent } from './pages/request-service/request-service.component';
+import { MyRequestsComponent } from './pages/my-requests/my-requests.component';
 
 const routes: Routes = [
   { path: 'profile', 
@@ -17,6 +18,9 @@ const routes: Routes = [
   },
   { path: 'request-service', 
     component: RequestServiceComponent 
+  },
+  { path:'my-requests',
+    component:MyRequestsComponent
   }
 ];
 

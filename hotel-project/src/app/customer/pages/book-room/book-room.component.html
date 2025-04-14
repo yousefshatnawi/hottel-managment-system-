@@ -1,1 +1,23 @@
-<p>book-room works!</p>
+<h2>احجز غرفة أو قاعة</h2>
+
+<form [formGroup]="bookingForm" (ngSubmit)="submitBooking()">
+  <label>
+    اختر غرفة أو قاعة:
+    <select formControlName="roomId">
+      <option value="" disabled>-- اختر --</option>
+      <option *ngFor="let room of rooms" [value]="room.id">{{ room.title }}</option>
+    </select>
+  </label>
+
+  <label>
+    تاريخ الحجز:
+    <input type="date" formControlName="date" />
+  </label>
+
+  <label>
+    قيمة الدفع:
+    <input type="number" formControlName="paymentAmount" />
+  </label>
+
+  <button type="submit" [disabled]="!bookingForm.valid">احجز الآن</button>
+</form>

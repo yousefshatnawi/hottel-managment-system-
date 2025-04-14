@@ -1,1 +1,24 @@
-<p>my-reservations works!</p>
+<h2>حجوزاتي</h2>
+
+<table border="1" cellpadding="8" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Room/Hall</th>
+      <th>Date</th>
+      <th>Status</th>
+      <th>Payment</th>
+      <th>Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let res of myReservations">
+      <td>{{ res.roomTitle }}</td>
+      <td>{{ res.date }}</td>
+      <td>
+        <span [ngClass]="res.approvalStatus">{{ res.approvalStatus }}</span>
+      </td>
+      <td>{{ res.paymentStatus }}</td>
+      <td>{{ res.paymentAmount }} JD</td>
+    </tr>
+  </tbody>
+</table>

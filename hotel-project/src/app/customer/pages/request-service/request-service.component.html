@@ -1,1 +1,20 @@
-<p>request-service works!</p>
+<h2>طلب خدمة الغرفة</h2>
+
+<form [formGroup]="requestForm" (ngSubmit)="submitRequest()">
+  <label>
+    نوع الخدمة:
+    <select formControlName="requestType">
+      <option value="" disabled>-- اختر نوع الخدمة --</option>
+      <option *ngFor="let type of requestTypes" [value]="type">
+        {{ type }}
+      </option>
+    </select>
+  </label>
+
+  <label>
+    ملاحظات (اختياري):
+    <textarea formControlName="note"></textarea>
+  </label>
+
+  <button type="submit" [disabled]="!requestForm.valid">إرسال الطلب</button>
+</form>

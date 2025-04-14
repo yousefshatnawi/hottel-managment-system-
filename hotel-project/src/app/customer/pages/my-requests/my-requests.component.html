@@ -1,0 +1,20 @@
+<h2>طلباتي السابقة</h2>
+
+<table border="1" cellpadding="8" cellspacing="0">
+  <thead>
+    <tr>
+      <th>نوع الخدمة</th>
+      <th>التاريخ</th>
+      <th>الحالة</th>
+      <th>الموظف المسؤول</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let req of myRequests">
+      <td>{{ req.requestType }}</td>
+      <td>{{ req.date }}</td>
+      <td [ngClass]="req.requestStatus">{{ req.requestStatus }}</td>
+      <td>{{ req.employeeName || '-' }}</td>
+    </tr>
+  </tbody>
+</table>
