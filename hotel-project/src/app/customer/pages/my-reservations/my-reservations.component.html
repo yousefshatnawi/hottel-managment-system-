@@ -1,1 +1,32 @@
-<p>my-reservations works!</p>
+<div class="reservations-container">
+  <h2>My Reservations</h2>
+
+  <table class="reservations-table" *ngIf="myReservations?.length > 0; else noReservations">
+    <thead>
+      <tr>
+        <th>Room / Hall</th>
+        <th>Date</th>
+        <th>Approval Status</th>
+        <th>Payment Status</th>
+        <th>Amount (JD)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let res of myReservations">
+        <td>{{ res.roomTitle }}</td>
+        <td>{{ res.date | date: 'mediumDate' }}</td>
+        <td>
+          <span [ngClass]="res.approvalStatus.toLowerCase()">
+            {{ res.approvalStatus }}
+          </span>
+        </td>
+        <td>{{ res.paymentStatus }}</td>
+        <td>{{ res.paymentAmount }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #noReservations>
+    <p class="no-reservations">You don’t have any reservations yet.</p>
+  </ng-template>
+</div>

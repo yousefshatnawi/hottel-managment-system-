@@ -1,1 +1,22 @@
-<p>request-service works!</p>
+<div class="service-request-container">
+  <h2>Room Service Request</h2>
+
+  <form [formGroup]="requestForm" (ngSubmit)="submitRequest()">
+    <label>
+      Service Type:
+      <select formControlName="requestType">
+        <option value="" disabled>-- Select Service Type --</option>
+        <option *ngFor="let type of requestTypes" [value]="type">
+          {{ type }}
+        </option>
+      </select>
+    </label>
+
+    <label>
+      Notes (Optional):
+      <textarea formControlName="note" placeholder="Add any additional details"></textarea>
+    </label>
+
+    <button type="submit" [disabled]="!requestForm.valid">Submit Request</button>
+  </form>
+</div>

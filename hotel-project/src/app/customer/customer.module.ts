@@ -6,7 +6,8 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { MyReservationsComponent } from './pages/my-reservations/my-reservations.component';
 import { BookRoomComponent } from './pages/book-room/book-room.component';
 import { RequestServiceComponent } from './pages/request-service/request-service.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MyRequestsComponent } from './pages/my-requests/my-requests.component';
 
 
 @NgModule({
@@ -14,12 +15,14 @@ import { FormsModule } from '@angular/forms';
     ProfileComponent,
     MyReservationsComponent,
     BookRoomComponent,
-    RequestServiceComponent
+    RequestServiceComponent,
+    MyRequestsComponent
   ],
   imports: [
     CommonModule,
     CustomerRoutingModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class CustomerModule { }

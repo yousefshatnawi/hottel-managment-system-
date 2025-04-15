@@ -1,1 +1,66 @@
-<p>signup works!</p>
+<div class="signup-container">
+  <h2>Create a New Account</h2>
+  <p>Fill in your information below to sign up</p>
+
+  <form [formGroup]="registerForm" (ngSubmit)="register()" class="signup-form">
+    <div class="form-group">
+      <label for="name">Full Name</label>
+      <input
+        id="name"
+        type="text"
+        formControlName="name"
+        placeholder="Enter your name"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone Number</label>
+      <input
+        id="phone"
+        type="text"
+        formControlName="phone"
+        placeholder="+962700000000"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="address">Address</label>
+      <input
+        id="address"
+        type="text"
+        formControlName="address"
+        placeholder="City, Country"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input
+        id="email"
+        type="email"
+        formControlName="email"
+        placeholder="example@email.com"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input
+        id="password"
+        type="password"
+        formControlName="password"
+        placeholder="Enter a strong password"
+      />
+    </div>
+
+    <div class="button-group">
+      <button type="submit" [disabled]="!registerForm.valid">
+        Sign Up
+      </button>
+
+      <button type="button" [routerLink]="['login']">
+        Already have an account? Login
+      </button>
+    </div>
+  </form>
+</div>
