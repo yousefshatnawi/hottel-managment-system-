@@ -25,7 +25,6 @@ import { Router } from '@angular/router';
       if (this.loginForm.valid) {
         const { email, password } = this.loginForm.value;
   
-        // مؤقتاً نحط if وهمي بدل backend
         if (email === 'admin@hotel.com') {
           localStorage.setItem('user', JSON.stringify({ email, userType: 'admin' }));
           this.router.navigate(['/admin']);

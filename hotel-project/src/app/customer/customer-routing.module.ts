@@ -20,21 +20,6 @@ const routes: Routes = [
       { path: 'profile', component: ProfileComponent },
     ]
   },
-  // { path: 'profile', 
-  //   component: ProfileComponent 
-  // },
-  // { path: 'my-reservations', 
-  //   component: MyReservationsComponent 
-  // },
-  // { path: 'book-room', 
-  //   component: BookRoomComponent 
-  // },
-  // { path: 'request-service', 
-  //   component: RequestServiceComponent 
-  // },
-  // { path:'my-requests',
-  //   component:MyRequestsComponent
-  // }
 ];
 
 @NgModule({

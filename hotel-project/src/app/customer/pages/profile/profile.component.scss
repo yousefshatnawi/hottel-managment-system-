@@ -1,0 +1,91 @@
+.profile-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background-color: #f9f9f9;
+    border-radius: 1rem;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  
+    h2 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 1.5rem;
+    }
+  
+    .profile-details {
+      p {
+        font-size: 1.1rem;
+        color: #333;
+        margin: 0.5rem 0;
+        strong {
+          font-weight: bold;
+          color: #34495e;
+        }
+      }
+  
+      .edit-button {
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 0.8rem 2rem;
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+  
+        &:hover {
+          background-color: #2980b9;
+        }
+      }
+    }
+  
+    .edit-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+  
+      label {
+        display: flex;
+        flex-direction: column;
+        font-size: 1.1rem;
+        color: #333;
+  
+        span {
+          margin-bottom: 0.5rem;
+          font-weight: bold;
+        }
+  
+        input {
+          padding: 0.8rem;
+          font-size: 1rem;
+          border: 1px solid #ddd;
+          border-radius: 5px;
+          outline: none;
+          transition: border-color 0.3s;
+  
+          &:focus {
+            border-color: #3498db;
+          }
+        }
+      }
+  
+      .save-button {
+        margin-top: 1rem;
+        padding: 0.8rem 2rem;
+        background-color: #27ae60;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: background-color 0.3s;
+  
+        &:hover {
+          background-color: #2ecc71;
+        }
+      }
+    }
+  }
+  
