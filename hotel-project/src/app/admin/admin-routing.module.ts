@@ -9,7 +9,7 @@ import { CustomerListComponent } from './pages/customer-list/customer-list.compo
 import { ReservationsReviewComponent } from './pages/reservations-review/reservations-review.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
+  {path: '', redirectTo: 'employee', pathMatch: 'full'},
   { path: 'dashboard', component: DashboardComponent },
   { path: 'employees', component: EmployeeListComponent },
   { path: 'add-employee', component: AddEmployeeComponent },
