@@ -1,1 +1,42 @@
-<p>request-details works!</p>
+
+
+  <div class="request-details-container">
+    <h2>Request Details</h2>
+    <div class="request-card" *ngIf="request && employee">
+      <div class="request-info">
+        <p><strong>Request ID:</strong> {{ request.id }}</p>
+        <p><strong>Date:</strong> {{ request.date }}</p>
+        <p><strong>Request Type:</strong> {{ request.requestType }}</p>
+        <p><strong>Current Status:</strong> {{ request.requestStatus }}</p>
+      </div>
+      <div class="employee-info">
+        <h3>Employee Information</h3>
+        <p><strong>Name:</strong> {{ employee.name }}</p>
+        <p><strong>Role:</strong> {{ employee.role }}</p>
+      </div>
+      <div class="status-update">
+        <h3>Update Status</h3>
+        <button class="status-btn" 
+                (click)="updateStatus('pending')" 
+                [disabled]="request.requestStatus === 'pending'"
+                [ngClass]="{'active': request.requestStatus === 'pending'}">
+          Pending
+        </button>
+        <button class="status-btn" 
+                (click)="updateStatus('progress')" 
+                [disabled]="request.requestStatus === 'progress'"
+                [ngClass]="{'active': request.requestStatus === 'progress'}">
+          In Progress
+        </button>
+        <button class="status-btn" 
+                (click)="updateStatus('done')" 
+                [disabled]="request.requestStatus === 'done'"
+                [ngClass]="{'active': request.requestStatus === 'done'}">
+          Done
+        </button>
+      </div>
+    </div>
+    <div class="not-found" *ngIf="!request">
+      <p>Request not found.</p>
+    </div>
+  </div>

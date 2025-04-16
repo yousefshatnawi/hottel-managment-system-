@@ -1,1 +1,27 @@
-<p>my-requests works!</p>
+<div class="requests-container">
+    <h2>My Requests</h2>
+    <table class="requests-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Date</th>
+          <th>Request Type</th>
+          <th>Status</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let req of myRequests">
+          <td>{{ req.id }}</td>
+          <td>{{ req.date }}</td>
+          <td>{{ req.requestType }}</td>
+          <td>{{ req.requestStatus }}</td>
+          <td>
+            <a [routerLink]="['/employee-request', req.id]" class="details-link">View</a>
+            
+
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
