@@ -11,34 +11,52 @@ import { CustomerService } from '../../services/customer.service';
 })
 export class ProfileComponent implements OnInit{
   isEditing = false;
-  customer: Customer | undefined;
+loading = false;
+loadingForGet = false;
+success: string = '';
+errors: string[] = [];
 
-  constructor(
-    private route: ActivatedRoute, 
-    private customerService: CustomerService
-  ) { }
+customer: Customer | undefined;
+customerData: any = {};
 
-  ngOnInit(): void {
-    const id = +this.route.snapshot.paramMap.get('id')!; 
-    this.customer = this.customerService.getcustomerByEmail(id);
-  }
+constructor(
+  private route: ActivatedRoute,
+  private customerService: CustomerService
+) {}
 
-  enableEdit() {
-    this.isEditing = true;
-  }
-
-  saveProfile() {
+ngOnInit(): void {
+  this.loadingForGet = true;
+  const id = +this.route.snapshot.paramMap.get('id')!;
+  setTimeout(() => {
+    this.customer = this.customerService.getcustomerById(id);
     if (this.customer) {
-      // قم بتحديث بيانات العميل في الخدمة (إذا كنت تريد تعديل البيانات)
-      // هذا الجزء يعتمد على كيفية تصميم خدمة العميل لديك
-      // مثال:
-      // this.customerService.updateCustomer(this.customer);
-
-      console.log('Saved', this.customer);
-      this.isEditing = false;
-    } else {
-      console.log('Customer data not found.');
+      this.customerData = { ...this.customer };
     }
-  }
+    this.loadingForGet = false;
+  }, 1000);
+}
+
+enableEdit() {
+  this.isEditing = true;
+}
+
+saveProfile() {
+  this.errors = [];
+  this.success = '';
+  this.loading = true;
+
+  this.customerService.updateCustomer(this.customerData)
+    .then((updated: Customer) => {
+      this.customer = updated;
+      this.success = 'Customer updated successfully!';
+      this.isEditing = false;
+      this.loading = false;
+    })
+    .catch((err: any) => {
+      this.errors.push(err);
+      this.loading = false;
+    });
+}
+
 }
 

@@ -1,30 +1,47 @@
 <div class="container">
-    <h2>My Profile</h2>
-  
-    <div *ngIf="!isEditing">
-      <p><strong>Name:</strong> {{ customer?.name }}</p>
-      <p><strong>Phone:</strong> {{ customer?.phone }}</p>
-      <p><strong>Email:</strong> {{ customer?.email }}</p>
-      <p><strong>Address:</strong> {{ customer?.address }}</p>
-      <button (click)="enableEdit()">Edit</button>
+  <h2>My Profile</h2>
+
+  <div *ngIf="loadingForGet">
+    <div class="success">
+      Getting customer details ...
     </div>
-  
-    <!-- <div *ngIf="isEditing">
-      <label>
-        Name:
-        <input [(ngModel)]="customer?.name" />
-      </label>
-      <label>
-        Phone:
-        <input [(ngModel)]="customer?.phone" />
-      </label>
-      <label>
-        Email:
-        <input [(ngModel)]="customer?.email" />
-      </label>
-      <label>
-        Address:
-        <input [(ngModel)]="customer?.address" />
-      </label>
-      <button (click)="saveProfile()">Save</button>
-    </div> -->
+  </div>
+
+  <div *ngIf="!isEditing && !loadingForGet">
+    <p><strong>Name:</strong> {{ customer?.name }}</p>
+    <p><strong>Phone:</strong> {{ customer?.phone }}</p>
+    <p><strong>Email:</strong> {{ customer?.email }}</p>
+    <p><strong>Address:</strong> {{ customer?.address }}</p>
+    <button (click)="enableEdit()">Edit</button>
+  </div>
+
+  <div *ngIf="isEditing">
+    <div class="success" *ngIf="loading">
+      Saving customer ...
+    </div>
+    <div class="success" *ngIf="success">
+      {{ success }}
+    </div>
+    <div class="error" *ngIf="errors.length">
+      <div *ngFor="let error of errors">{{ error }}</div>
+    </div>
+
+    <div class="form-control">
+      <label>Name:</label>
+      <input [(ngModel)]="customerData.name" />
+    </div>
+    <div class="form-control">
+      <label>Phone:</label>
+      <input [(ngModel)]="customerData.phone" />
+    </div>
+    <div class="form-control">
+      <label>Email:</label>
+      <input [(ngModel)]="customerData.email" />
+    </div>
+    <div class="form-control">
+      <label>Address:</label>
+      <input [(ngModel)]="customerData.address" />
+    </div>
+    <button (click)="saveProfile()">Save</button>
+  </div>
+</div>

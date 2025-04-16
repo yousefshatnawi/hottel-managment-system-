@@ -13,11 +13,13 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: { role: 'customer' },
     children: [
+      { path: '', component: BookRoomComponent },
       { path: 'book-room', component: BookRoomComponent },
       { path: 'my-requests', component: MyRequestsComponent },
       { path: 'request-service', component: RequestServiceComponent },
       { path: 'my-reservations', component: MyReservationsComponent },
       { path: 'profile/:id', component: ProfileComponent },
+      { path: 'profile', component: ProfileComponent }
     ]
   },
   // { path: 'profile', 

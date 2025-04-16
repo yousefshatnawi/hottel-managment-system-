@@ -28,9 +28,10 @@ import { User } from '../../../models/user.model';
     login() {
       if (this.loginForm.valid) {
         const { email, password } = this.loginForm.value;
-  
         this.authService.loginUser(email, password)
           .then((user: User) => {
+            console.log(user.email , user.password)
+
             localStorage.setItem('user', JSON.stringify(user));
   
             switch (user.userType) {
@@ -45,6 +46,7 @@ import { User } from '../../../models/user.model';
             }
           })
           .catch(error => {
+
             console.error(error);
             alert('Email or password is incorrect');
           });

@@ -8,6 +8,7 @@ import { BookRoomComponent } from './pages/book-room/book-room.component';
 import { RequestServiceComponent } from './pages/request-service/request-service.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MyRequestsComponent } from './pages/my-requests/my-requests.component';
+import { AuthRoutingModule } from '../auth/auth-routing.module';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { MyRequestsComponent } from './pages/my-requests/my-requests.component';
     CommonModule,
     CustomerRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AuthRoutingModule
   ]
 })
 export class CustomerModule { }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from '../../../models/user.model';
@@ -37,7 +37,7 @@ export class SignupComponent implements OnInit {
   
       this.authService.registerUser(customerData)
         .then(() => {
-          this.router.navigate(['/customer']);
+          this.router.navigate(['/auth/login']);
         })
         .catch(error => {
           alert(error); // مثلاً: "Email already exists"

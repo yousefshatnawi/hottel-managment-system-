@@ -3,9 +3,9 @@ import { Customer } from "../../models/customer.model";
  export const customers: Customer[] = [
     {
         id: 1,
-        name: 'Ahmad Al-Masri',
+        name: 'duaa ',
         phone: '0791234567',
-        email: 'ahmad.almasri@example.com',
+        email: 'duaa@gmail.com',
         address: 'Amman, Jordan',
     },
     {

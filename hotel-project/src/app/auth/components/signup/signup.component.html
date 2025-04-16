@@ -3,27 +3,27 @@
 <form [formGroup]="registerForm" (ngSubmit)="register()">
   <label>
     الاسم:
-    <input type="text" formControlName="name" />
+    <input type="text" formControlName="name" /> <br>
   </label>
 
   <label>
     رقم الهاتف:
-    <input type="text" formControlName="phone" />
+    <input type="text" formControlName="phone" /><br>
   </label>
 
   <label>
     العنوان:
-    <input type="text" formControlName="address" />
+    <input type="text" formControlName="address" /><br>
   </label>
 
   <label>
     البريد الإلكتروني:
-    <input type="email" formControlName="email" />
+    <input type="email" formControlName="email" /><br>
   </label>
 
   <label>
     كلمة المرور:
-    <input type="password" formControlName="password" />
+    <input type="password" formControlName="password" /> <br>
   </label>
 
   <button type="submit" [disabled]="!registerForm.valid">تسجيل</button>
