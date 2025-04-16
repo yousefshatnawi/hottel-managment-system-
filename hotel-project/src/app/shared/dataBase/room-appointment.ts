@@ -1,6 +1,6 @@
 import { RoomAppointment } from "../../models/room-appointment.model";
 
-const roomAppointments: RoomAppointment[] = [
+export const roomAppointments: RoomAppointment[] = [
     {
         id: 1,
         date: '2023-10-27T10:00:00Z',

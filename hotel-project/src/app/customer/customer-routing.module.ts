@@ -17,7 +17,7 @@ const routes: Routes = [
       { path: 'my-requests', component: MyRequestsComponent },
       { path: 'request-service', component: RequestServiceComponent },
       { path: 'my-reservations', component: MyReservationsComponent },
-      { path: 'profile', component: ProfileComponent },
+      { path: 'profile/:id', component: ProfileComponent },
     ]
   },
   // { path: 'profile', 

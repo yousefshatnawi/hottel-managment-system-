@@ -1,6 +1,6 @@
 import { EmployeeRequest } from "../../models/employee-request.model";
 
-const employeeRequests: EmployeeRequest[] = [
+export const employeeRequests: EmployeeRequest[] = [
     {
         id: 1,
         date: '2023-10-27T10:00:00Z',

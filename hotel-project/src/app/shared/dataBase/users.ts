@@ -1,6 +1,6 @@
 import { User } from "../../models/user.model";
 
-const users: User[] = [
+export const users: User[] = [
     {
         email: 'duaa01@gmail.com',
         password: '1722001',

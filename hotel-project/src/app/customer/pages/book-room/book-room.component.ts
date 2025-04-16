@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Room } from '../../../models/room.model';
+import { Rooms } from '../../../shared/dataBase/room';
+import { CustomerService } from '../../services/customer.service';
 
 @Component({
   selector: 'app-book-room',
@@ -16,10 +18,14 @@ export class BookRoomComponent implements OnInit {
   //   { id: 2, title: 'Hall A' },
   //   { id: 3, title: 'VIP Room' }
   // ];
-  
-  constructor(private fb: FormBuilder) {}
+ rooms: Room[] = [];
+
+
+  constructor(private fb: FormBuilder,    private roomService: CustomerService 
+  ) {}
 
   ngOnInit(): void {
+    this.rooms=Rooms;
     this.bookingForm = this.fb.group({
       roomId: ['', Validators.required],
       date: ['', Validators.required],
@@ -31,13 +37,20 @@ export class BookRoomComponent implements OnInit {
     if (this.bookingForm.valid) {
       const formData = {
         ...this.bookingForm.value,
-        customerId: 1, // مؤقتاً ثابت، لاحقًا نجيبه من auth
+        customerId: 1, 
         approvalStatus: 'pending',
         paymentStatus: 'unpaid'
       };
 
       console.log('Booking Submitted:', formData);
-      // لاحقًا نبعثه للسيرفر عن طريق service
+
+      this.roomService.addAppointment(formData)
+        .then((newBooking) => {
+          console.log('Booking successfully added:', newBooking);
+        })
+        .catch((error) => {
+          console.error('Error adding booking:', error);
+        });
     }
   }
 }

@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Customer } from '../../../models/customer.model';
+import { CustomerService } from '../../services/customer.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,28 +10,35 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './profile.component.scss'
 })
 export class ProfileComponent implements OnInit{
-  customer = {
-    id: 1,
-    name: 'Yousef',
-    phone: '0790000000',
-    email: 'yousef@example.com',
-    address: 'Amman, Jordan'
-  };
-
   isEditing = false;
+  customer: Customer | undefined;
 
-  constructor() {}
+  constructor(
+    private route: ActivatedRoute, 
+    private customerService: CustomerService
+  ) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const id = +this.route.snapshot.paramMap.get('id')!; 
+    this.customer = this.customerService.getcustomerByEmail(id);
+  }
 
   enableEdit() {
     this.isEditing = true;
   }
 
   saveProfile() {
-    // هون لاحقًا منربطها مع السيرفس
-    console.log('Saved', this.customer);
-    this.isEditing = false;
+    if (this.customer) {
+      // قم بتحديث بيانات العميل في الخدمة (إذا كنت تريد تعديل البيانات)
+      // هذا الجزء يعتمد على كيفية تصميم خدمة العميل لديك
+      // مثال:
+      // this.customerService.updateCustomer(this.customer);
+
+      console.log('Saved', this.customer);
+      this.isEditing = false;
+    } else {
+      console.log('Customer data not found.');
+    }
   }
 }
 

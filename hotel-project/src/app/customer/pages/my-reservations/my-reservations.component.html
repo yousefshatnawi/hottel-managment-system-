@@ -12,7 +12,6 @@
   </thead>
   <tbody>
     <tr *ngFor="let res of myReservations">
-      <td>{{ res.roomTitle }}</td>
       <td>{{ res.date }}</td>
       <td>
         <span [ngClass]="res.approvalStatus">{{ res.approvalStatus }}</span>

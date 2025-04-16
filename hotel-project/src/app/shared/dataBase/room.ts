@@ -1,6 +1,6 @@
 import { Room } from "../../models/room.model";
 
-const rooms: Room[] = [
+export const Rooms: Room[] = [
     {
         id: 1,
         title: 'Standard Double Room 101',
