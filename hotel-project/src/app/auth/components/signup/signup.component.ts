@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from '../../../models/user.model';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -12,7 +14,9 @@ export class SignupComponent implements OnInit {
 
   registerForm!: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router) {}
+  constructor(private fb: FormBuilder, private router: Router,  
+       private authService: AuthService,
+  ) {}
 
   ngOnInit(): void {
     this.registerForm = this.fb.group({
@@ -26,14 +30,19 @@ export class SignupComponent implements OnInit {
 
   register() {
     if (this.registerForm.valid) {
-      const customerData = {
+      const customerData: User = {
         ...this.registerForm.value,
         userType: 'customer',
       };
-
-      // مؤقتاً نخزنه في localStorage
-      localStorage.setItem('user', JSON.stringify(customerData));
-      this.router.navigate(['/customer']);
+  
+      this.authService.registerUser(customerData)
+        .then(() => {
+          this.router.navigate(['/customer']);
+        })
+        .catch(error => {
+          alert(error); // مثلاً: "Email already exists"
+        });
     }
   }
+  
 }

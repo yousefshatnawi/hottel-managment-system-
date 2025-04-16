@@ -22,12 +22,12 @@ import { EditRoomComponent } from './pages/edit-room/edit-room.component';
 })
 export class RoomsModule { }
 
-export interface Room {
-  id: number;
-  title: string;
-  roomType: 'room' | 'hall';
-  floor: number;
-  building: string;
-  details: string;
-  bookedStatus: boolean;
-}
+// export interface Room {
+//   id: number;
+//   title: string;
+//   roomType: 'room' | 'hall';
+//   floor: number;
+//   building: string;
+//   details: string;
+//   bookedStatus: boolean;
+// }

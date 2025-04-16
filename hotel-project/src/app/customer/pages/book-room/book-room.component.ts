@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Room } from '../../../models/room.model';
 
 @Component({
   selector: 'app-book-room',
@@ -10,12 +11,12 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class BookRoomComponent implements OnInit {
 
   bookingForm!: FormGroup;
-  rooms = [
-    { id: 1, title: 'Room 101' },
-    { id: 2, title: 'Hall A' },
-    { id: 3, title: 'VIP Room' }
-  ];
-
+  // rooms = [
+  //   { id: 1, title: 'Room 101' },
+  //   { id: 2, title: 'Hall A' },
+  //   { id: 3, title: 'VIP Room' }
+  // ];
+  
   constructor(private fb: FormBuilder) {}
 
   ngOnInit(): void {
