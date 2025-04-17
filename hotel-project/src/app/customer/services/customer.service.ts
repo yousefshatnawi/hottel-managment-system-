@@ -31,7 +31,7 @@ export class CustomerService {
       try {
         const newAppointment: RoomAppointment = {
           ...appointmentData,
-          id: allRooms.length + 1 // أو أي منطق مناسب لتوليد ID
+          id: allRooms.length + 1  
         };
 
         allRooms.push(newAppointment);
