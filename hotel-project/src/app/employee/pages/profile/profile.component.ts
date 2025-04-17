@@ -9,7 +9,7 @@ import { Employee } from '../../../models/employee.model';
 })
 export class ProfileComponent implements OnInit {
  
-  employee: Employee | null = null; // لتفادي الخطأ عند عدم العثور على الموظف
+  employee: Employee | null = null; 
   employees: Employee[] = [];
 
   constructor() {}

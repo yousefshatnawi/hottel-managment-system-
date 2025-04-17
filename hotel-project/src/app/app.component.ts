@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   ngOnInit(): void {
-    // إنشاء داتا وهمية للمستخدم الحالي (الموظف)
+    
     const currentUser = {
       email: 'employee1@example.com',
       password: '123456',
@@ -17,7 +17,7 @@ export class AppComponent {
   
     localStorage.setItem('currentUser', JSON.stringify(currentUser));
   
-    // إنشاء داتا وهمية للموظفين
+   
     const employees = [
       {
         id: 1,
@@ -35,7 +35,7 @@ export class AppComponent {
   
     localStorage.setItem('employees', JSON.stringify(employees));
   
-    // إنشاء داتا وهمية لطلبات الموظف
+    
     const employeeRequests = [
       {
         id: 101,

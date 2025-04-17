@@ -21,15 +21,12 @@ export class RequestDetailsComponent implements OnInit {
     const allEmployees = JSON.parse(localStorage.getItem('employees') || '[]');
   
     if (requestId) {
-      // نبحث عن الطلب أولاً
       const foundRequest = allRequests.find((req: EmployeeRequest) => req.id === +requestId);
       if (foundRequest) {
         this.request = foundRequest;
   
-        // نحفظ employeeId في متغير
         const employeeId = foundRequest.employeeId;
   
-        // ثم نبحث عن الموظف باستخدام المتغير المؤقت
         this.employee = allEmployees.find((emp: Employee) => emp.id === employeeId) || null;
       }
     }
