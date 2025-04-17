@@ -19,5 +19,6 @@ import { FormsModule } from '@angular/forms';
     EmployeeRoutingModule,
     FormsModule,
   ]
+  
 })
 export class EmployeeModule { }

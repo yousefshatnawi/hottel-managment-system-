@@ -6,6 +6,9 @@ import { RoomListComponent } from './component/room-list/room-list.component';
 import { RoomDetailsComponent } from './component/room-details/room-details.component';
 import { AddRoomComponent } from './pages/add-room/add-room.component';
 import { EditRoomComponent } from './pages/edit-room/edit-room.component';
+import { RoomComponent } from './room/room.component';
+import { HeaderComponent } from '../layout/header/header.component';
+import { FooterComponent } from '../layout/footer/footer.component';
 
 
 @NgModule({
@@ -13,7 +16,8 @@ import { EditRoomComponent } from './pages/edit-room/edit-room.component';
     RoomListComponent,
     RoomDetailsComponent,
     AddRoomComponent,
-    EditRoomComponent
+    EditRoomComponent,
+    RoomComponent,
   ],
   imports: [
     CommonModule,
