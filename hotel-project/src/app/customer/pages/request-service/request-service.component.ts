@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { CustomerService } from '../../services/customer.service';
+import { StorageService } from '../../../shared/service/storage.service';
+const CUSTOMERS_KEY = 'CUSTOMERS_KEY';
 
 @Component({
   selector: 'app-request-service',
@@ -12,7 +15,9 @@ export class RequestServiceComponent implements OnInit{
   requestForm!: FormGroup;
   requestTypes = ['cleaning', 'tv maintenance', 'bathroom maintenance'];
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder , 
+      private customerService: CustomerService,
+    private Storage : StorageService  ) {}
 
   ngOnInit(): void {
     this.requestForm = this.fb.group({
@@ -21,17 +26,22 @@ export class RequestServiceComponent implements OnInit{
     });
   }
   submitRequest() {
+    const randomEmployeeId = Math.floor(Math.random() * 10) + 1;
+    const user = JSON.parse(localStorage.getItem('user') || '{}');
+    const customer = JSON.parse(localStorage.getItem('customer') || '{}');
+
+
+    
     if (this.requestForm.valid) {
       const formData = {
         ...this.requestForm.value,
-        customerId: 1, // مؤقتاً ثابت
-        employeeId: null, // يتم التعيين لاحقاً من قبل الادمن أو النظام
+        customerId: customer.id,
+        employeeId: randomEmployeeId,
         date: new Date().toISOString(),
         requestStatus: 'pending'
       };
-
-      console.log('Request Sent:', formData);
-      // لاحقاً نستخدم service لإرسال الطلب
+  
+      this.customerService.addRequest(formData);
     }
   }
 }

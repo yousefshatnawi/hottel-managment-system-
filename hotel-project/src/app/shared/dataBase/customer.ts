@@ -12,7 +12,7 @@ import { Customer } from "../../models/customer.model";
         id: 2,
         name: 'Lina Haddad',
         phone: '0789876543',
-        email: 'lina.haddad@example.com',
+        email: 'yousef25@gmail.com',
         address: 'Irbid, Jordan',
     },
     {
@@ -31,9 +31,9 @@ import { Customer } from "../../models/customer.model";
     },
     {
         id: 5,
-        name: 'Yousef Mahmoud',
+        name: 'reema',
         phone: '0781122334',
-        email: 'yousef.mahmoud@example.com',
+        email: 'reema2@gmail.com',
         address: 'Madaba, Jordan',
     },
     {

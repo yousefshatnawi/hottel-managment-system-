@@ -4,13 +4,13 @@ import { CustomerService } from '../../services/customer.service';
 import { EmployeeRequest } from '../../../models/employee-request.model';
 
 
-interface RoomServiceRequest {
-  id: number;
-  date: string;
-  requestType: string;
-  requestStatus: 'pending' | 'progress' | 'done';
-  employeeName?: string;
-}
+// interface RoomServiceRequest {
+//   id: number;
+//   date: string;
+//   requestType: string;
+//   requestStatus: 'pending' | 'progress' | 'done';
+//   employeeName?: string;
+// }
 
 
 @Component({

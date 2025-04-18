@@ -9,6 +9,7 @@ import { RequestServiceComponent } from './pages/request-service/request-service
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MyRequestsComponent } from './pages/my-requests/my-requests.component';
 import { AuthRoutingModule } from '../auth/auth-routing.module';
+import { CustomerService } from './services/customer.service';
 
 
 @NgModule({
@@ -24,7 +25,9 @@ import { AuthRoutingModule } from '../auth/auth-routing.module';
     CustomerRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    AuthRoutingModule
-  ]
+    AuthRoutingModule,
+    
+  ],
+  
 })
 export class CustomerModule { }

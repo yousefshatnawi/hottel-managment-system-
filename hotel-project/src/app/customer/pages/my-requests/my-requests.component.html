@@ -3,17 +3,16 @@
 <table border="1" cellpadding="8" cellspacing="0">
   <thead>
     <tr>
-      <th>نوع الخدمة</th>
-      <th>التاريخ</th>
-      <th>الحالة</th>
-      <th>الموظف المسؤول</th>
+      <th>request Type</th>
+      <th>date</th>
+      <th>requestStatus</th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let req of myRequests">
       <td>{{ req.requestType }}</td>
       <td>{{ req.date }}</td>
-      <td [ngClass]="req.requestStatus">{{ req.requestStatus }}</td>
+      <td>{{req.requestStatus}}</td>
     </tr>
   </tbody>
 </table>

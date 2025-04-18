@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { User } from '../../../models/user.model';
+import { CustomerService } from '../../../customer/services/customer.service';
 
 @Component({
   selector: 'app-login',
@@ -17,6 +18,7 @@ import { User } from '../../../models/user.model';
     constructor(
       private fb: FormBuilder,
       private authService: AuthService,
+       private customerService: CustomerService,
       private router: Router
     ) {}  
     ngOnInit(): void {
@@ -33,7 +35,8 @@ import { User } from '../../../models/user.model';
             console.log(user.email , user.password)
 
             localStorage.setItem('user', JSON.stringify(user));
-  
+              const customer = this.customerService.getCustomerByemail(user.email);
+              localStorage.setItem('customer', JSON.stringify(customer));
             switch (user.userType) {
               case 'admin':
                 this.router.navigate(['/admin']);

@@ -4,7 +4,8 @@ export const users: User[] = [
     {
         email: 'duaa01@gmail.com',
         password: '1722001',
-        userType: 'admin' 
+        userType: 'admin' ,
+        
     },
     {
         email: 'reema@gmail.com',
@@ -39,7 +40,7 @@ export const users: User[] = [
     {
         email: 'reema2@gmail.com',
         password: '123456',
-        userType: 'employee' 
+        userType: 'customer' 
     },
     {
         email: 'yousef12@gmail.com',
@@ -59,7 +60,7 @@ export const users: User[] = [
     {
         email: 'yousef25@gmail.com',
         password: '101010',
-        userType: 'admin' 
+        userType: 'customer' 
     }
 ]
 

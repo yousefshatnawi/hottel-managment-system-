@@ -27,13 +27,24 @@ constructor(
 ngOnInit(): void {
   this.loadingForGet = true;
   const id = +this.route.snapshot.paramMap.get('id')!;
+  if(id){
+    this.loadingForGet = true;
+
   setTimeout(() => {
     this.customer = this.customerService.getcustomerById(id);
     if (this.customer) {
       this.customerData = { ...this.customer };
     }
     this.loadingForGet = false;
-  }, 1000);
+  }, 1000);}
+  else{
+    this.loadingForGet = false;
+
+    const customer = JSON.parse(localStorage.getItem('customer') || '{}');
+    console.log('customer is ' , customer)
+
+    this.customerData = customer;
+  }
 }
 
 enableEdit() {

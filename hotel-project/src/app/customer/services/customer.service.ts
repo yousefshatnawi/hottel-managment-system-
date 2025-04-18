@@ -4,8 +4,7 @@ import { RoomAppointment } from '../../models/room-appointment.model';
 import { roomAppointments } from '../../shared/dataBase/room-appointment';
 import { EmployeeRequest } from '../../models/employee-request.model';
 import { employeeRequests } from '../../shared/dataBase/employee-request';
-import { User } from '../../models/user.model';
-import { users } from '../../shared/dataBase/users';
+
 import { customers } from '../../shared/dataBase/customer';
 const CUSTOMERS_KEY = 'CUSTOMERS_KEY';
 
@@ -24,7 +23,7 @@ export class CustomerService {
   getAllRoomsApp(): RoomAppointment[] {
     return roomAppointments;
   }
-  addAppointment(appointmentData: any): Promise<RoomAppointment> {
+  addRoomAppointment(appointmentData: any): Promise<RoomAppointment> {
     const allRooms: RoomAppointment[] = this.getAllRoomsApp();
 
     return new Promise((resolve, reject) => {
@@ -59,6 +58,29 @@ export class CustomerService {
         }
       }, 1500);
     });
+  }
+      private requests: RoomAppointment[] = roomAppointments;
+
+  addRequest(request: RoomAppointment) {
+
+    const newId = this.requests.length > 0 ? Math.max(...this.requests.map(r => r.id)) + 1 : 1;
+
+    const newRequest = {
+      ...request,
+      id: newId,
+      paymentStatus: false,
+      paymentAmount: 0
+    };
+
+    this.requests.push(newRequest);
+    console.log('تمت إضافة الطلب:', newRequest);
+  }
+
+  getAllEmployeeRequests() {
+    return this.requests;
+  }
+  getCustomerByemail(email: string): Customer | undefined {
+    return customers.find(c => c.email=== email);
   }
   
 }

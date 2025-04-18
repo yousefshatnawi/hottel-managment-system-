@@ -44,7 +44,7 @@ export class BookRoomComponent implements OnInit {
 
       console.log('Booking Submitted:', formData);
 
-      this.roomService.addAppointment(formData)
+      this.roomService.addRoomAppointment(formData)
         .then((newBooking) => {
           console.log('Booking successfully added:', newBooking);
         })
