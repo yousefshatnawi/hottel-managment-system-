@@ -12,6 +12,7 @@
           <th>Type</th>
           <th>Floor</th>
           <th>Building</th>
+          <th>Datalist</th>
           <th>Booked?</th>
           <th>Actions</th>
         </tr>
@@ -23,6 +24,7 @@
           <td>{{ room.roomType }}</td>
           <td>{{ room.floor }}</td>
           <td>{{ room.building }}</td>
+          <td>{{room.details}}</td>
           <td>{{ room.bookedStatus ? 'Yes' : 'No' }}</td>
           <td>
             <button
