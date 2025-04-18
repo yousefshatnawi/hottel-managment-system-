@@ -1,1 +1,43 @@
-<p>rooms-list works!</p>
+<div class="list-container">
+    <div class="top-bar">
+    <button class="back-btn" routerLink="/admin/dashboard">🏠 Dashboard</button>
+  </div>
+  <h2>Room List</h2>
+  <div class="table-wrapper">
+    <table *ngIf="rooms.length; else noRooms">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Title</th>
+          <th>Type</th>
+          <th>Floor</th>
+          <th>Building</th>
+          <th>Booked?</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let room of rooms">
+          <td>{{ room.id }}</td>
+          <td>{{ room.title }}</td>
+          <td>{{ room.roomType }}</td>
+          <td>{{ room.floor }}</td>
+          <td>{{ room.building }}</td>
+          <td>{{ room.bookedStatus ? 'Yes' : 'No' }}</td>
+          <td>
+            <button
+              class="btn"
+              [ngClass]="room.bookedStatus ? 'cancel' : 'book'"
+              (click)="toggleBooking(room)"
+            >
+              {{ room.bookedStatus ? 'Cancel' : 'Book' }}
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <ng-template #noRooms>
+    <p class="no-data">No rooms have been added yet.</p>
+  </ng-template>
+</div>
