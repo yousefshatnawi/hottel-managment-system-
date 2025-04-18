@@ -10,41 +10,26 @@ import { Router } from '@angular/router';
   styleUrl: './add-room.component.scss'
 })
 export class AddRoomComponent { 
-  room: Room = {
-    booked: '',            
-    id: 0,                  
+  newRoom: Room = {
+    id: 0,
     title: '',
-    roomType: 'room',       
-    floor: '',             
+    roomType: 'room',
+    floor: '',
     building: '',
     details: '',
-    bookedStatus: false    
+    bookedStatus: false,
+    booked: undefined,
   };
 
-  constructor(private adminService: AdminService , private router: Router) { }
+  constructor(private adminService: AdminService, private router: Router) {}
 
-  onSubmit(): void {
+  addRoom() {
+    const existing = this.adminService.getRooms();
+    const newId = existing.length > 0 ? Math.max(...existing.map(r => r.id)) + 1 : 1;
+    this.newRoom.id = newId;
 
-    this.room.booked       = this.room.booked       ?? '';
-    this.room.bookedStatus = this.room.bookedStatus ?? false;
-
-    this.adminService.addRoom(this.room).then(() => {
-      alert('Room added successfully!');
-    
-      this.room = {
-        booked: '',
-        id: 0,
-        title: '',
-        roomType: 'room',
-        floor: '',
-        building: '',
-        details: '',
-        bookedStatus: false
-      };
-    });
-        this.adminService.addRoom(this.room).then(() => {
-      this.router.navigate(['/admin/rooms']);
-  });
+    this.adminService.addRoom(this.newRoom);
+    this.router.navigate(['/admin/rooms']);
   }
 
 }

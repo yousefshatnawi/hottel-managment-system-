@@ -10,24 +10,25 @@ import { Employee } from '../../../models/employee.model';
   styleUrl: './add-employee.component.scss'
 })
 export class AddEmployeeComponent { 
-   name: string = '';
-  role: string = '';
+ newEmployee: Employee = {
+    id: 0,
+    name: '',
+    role: 'employee'
+  };
 
   constructor(private adminService: AdminService, private router: Router) {}
 
-  saveEmployee() {
-    const newEmployee: Employee = {
-      id:0,
-      name: this.name,
-      role: this.role
-    };
-
-    this.adminService.addEmployee(newEmployee).then(() => {
-      this.router.navigate(['/admin/employees']);
-    });
-  }
+  addEmployee() {
+    const currentEmployees = this.adminService.getEmployees();
+const ids = currentEmployees.map(e => e.id || 0); 
+const maxId = ids.length > 0 ? Math.max(...ids) : 0;
+this.newEmployee.id = maxId + 1;
+    this.adminService.addEmployee(this.newEmployee);
+    this.router.navigate(['/admin/employees']);
+  }}
+  
 
 
 
 
-}
+

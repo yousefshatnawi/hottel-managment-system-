@@ -9,17 +9,11 @@ import { Employee } from '../../../models/employee.model';
   styleUrl: './employee-list.component.scss'
 })
 export class EmployeeListComponent {
-   employees: Employee[] = [];
+ employees: Employee[] = [];
 
   constructor(private adminService: AdminService) {}
 
   ngOnInit(): void {
-    this.loadEmployees();
-  }
-
-  loadEmployees(): void {
-    this.adminService.getEmployees().then(data => {
-      this.employees = data;
-    });
+    this.employees = this.adminService.getEmployees();
   }
 }

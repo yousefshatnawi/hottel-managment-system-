@@ -9,7 +9,7 @@ import { Customer } from '../../../models/customer.model';
   styleUrl: './customer-list.component.scss'
 })
 export class CustomerListComponent { 
-   customers: Customer[] = [];
+    customers: Customer[] = [];
 
   constructor(private adminService: AdminService) {}
 

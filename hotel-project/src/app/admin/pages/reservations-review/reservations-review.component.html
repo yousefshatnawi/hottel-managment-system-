@@ -1,1 +1,27 @@
-<p>reservations-review works!</p>
+<div class="top-bar">
+    <button class="back-btn" routerLink="/admin/dashboard">🏠 Dashboard</button>
+  </div>
+<h2>📋 All Reservations</h2>
+
+<ul *ngIf="appointments.length > 0; else noData">
+  <li *ngFor="let a of appointments" class="appointment-item">
+    🆔 ID: {{ a.id }} |
+    📅 Date: {{ a.date | date: 'medium' }} |
+    👤 Customer ID: {{ a.customerId }} |
+    💰 Amount: {{ a.paymentAmount }} |
+    ✅ Status: {{ a.approvalStatus }} |
+    💳 Payment: {{ a.paymentStatus ? 'Paid' : 'Unpaid' }}
+
+    <button *ngIf="a.approvalStatus === 'pending'" (click)="approveReservation(a.id)">
+      ✅ Approve
+    </button>
+
+    <button *ngIf="a.approvalStatus === 'pending'" (click)="rejectReservation(a.id)">
+      ❌ Reject
+    </button>
+  </li>
+</ul>
+
+<ng-template #noData>
+  <p>🚫 No reservations found.</p>
+</ng-template>

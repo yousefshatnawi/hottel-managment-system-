@@ -3,6 +3,11 @@ import { Room } from '../../../models/room.model';
 import { Employee } from '../../../models/employee.model';
 import { StorageService } from '../localstroge..service';
 import { Customer } from '../../../models/customer.model';
+import { rooms } from '../dataBase/room';
+import { employees } from '../dataBase/employee';
+import { customers } from '../dataBase/customer';
+import { roomAppointments } from '../dataBase/room-appointment';
+import { RoomAppointment } from '../../../models/room-appointment.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,64 +15,67 @@ import { Customer } from '../../../models/customer.model';
 export class AdminService {
 
   private EMPLOYEES_KEY = 'employees'; 
-private readonly ROOMS_KEY = 'rooms';
+  private roomKey = 'rooms';
   private customerKey = 'customers';
+  private appointmentKey = 'roomAppointments';
 
 
-  constructor(private storageService: StorageService) { }
 
-  addEmployee(employee: Employee): Promise<Employee> {
-    return new Promise((resolve) => {
-      const employees: Employee[] = JSON.parse(localStorage.getItem(this.EMPLOYEES_KEY) || '[]');
-  
-      const maxId = employees.length > 0 ? Math.max(...employees.map(e => Number(e.id))) : 0;
-      employee.id = maxId + 1;
-  
-      employees.push(employee);
-      localStorage.setItem(this.EMPLOYEES_KEY, JSON.stringify(employees));
-      resolve(employee);
-    });
+  constructor(private storageService: StorageService) { 
+     const stored = localStorage.getItem(this.roomKey);
+    if (!stored) {
+      localStorage.setItem(this.roomKey, JSON.stringify(rooms));
+    }
+  } 
+     addEmployee(newEmp: Employee): void {
+    this.employeeList.push(newEmp);
   }
   
+    private employeeList: Employee[] = employees;
 
-  getEmployees(): Promise<Employee[]> {
-    return new Promise((resolve) => {
-      const employees = JSON.parse(localStorage.getItem(this.EMPLOYEES_KEY) || '[]');
-      resolve(employees);
-    });
+  getEmployees(): Employee[] {
+    return this.employeeList;
   }
     getRooms(): Room[] {
-    return JSON.parse(localStorage.getItem(this.ROOMS_KEY) || '[]');
+    return JSON.parse(localStorage.getItem(this.roomKey) || '[]');
   }
 
-   addRoom(room: Room): Promise<Room> {
-    return new Promise(resolve => {
-      const rooms = this.getRooms();
-      room.id = rooms.length + 1;
+  addRoom(room: Room): void {
+    const current = this.getRooms();
+    current.push(room);
+    localStorage.setItem(this.roomKey, JSON.stringify(current));
+  }
+ 
+    private customerList: Customer[] = customers;
 
-     
-      room.booked       = room.booked       ?? '';
-      room.bookedStatus = room.bookedStatus ?? false;
+  getCustomers(): Customer[] { 
+    return this.customerList;
+  }
+  bookRoomById(id: number): void {
+  const currentRooms = this.getRooms();
+  const room = currentRooms.find(r => r.id === id);
+  if (room && !room.bookedStatus) {
+    room.bookedStatus = true;
+    localStorage.setItem('rooms', JSON.stringify(currentRooms));
+  }
+  }
+ 
+    private appointments: RoomAppointment[] = roomAppointments;
 
-      rooms.push(room);
-      localStorage.setItem(this.ROOMS_KEY, JSON.stringify(rooms));
-      resolve(room);
-    }); 
-    
+
+ getAppointments(): RoomAppointment[] {
+    return this.appointments;
   }
 
-updateRoom(updated: Room): Promise<void> {
-    return new Promise(resolve => {
-      const rooms = this.getRooms();
-      const idx = rooms.findIndex(r => r.id === updated.id);
-      if (idx > -1) {
-        rooms[idx] = { ...updated };
-        localStorage.setItem(this.ROOMS_KEY, JSON.stringify(rooms));
-      }
-      resolve();
-    });
-  } 
-getCustomers(): Customer[] {
-    return JSON.parse(localStorage.getItem(this.customerKey) || '[]');
+  getAppointmentsByCustomerId(customerId: number): RoomAppointment[] {
+    return this.appointments.filter(a => a.customerId === customerId);
   }
+
+  updateApprovalStatus(id: number, status: 'approved' | 'rejected'): void {
+    const index = this.appointments.findIndex(a => a.id === id);
+    if (index !== -1) {
+      this.appointments[index].approvalStatus = status;
+    }
+  }
+  
 } 

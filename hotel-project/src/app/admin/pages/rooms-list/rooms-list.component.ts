@@ -9,23 +9,17 @@ import { Room } from '../../../models/room.model';
   styleUrl: './rooms-list.component.scss'
 })
 export class RoomsListComponent { 
-     rooms: Room[] = [];
+  rooms: Room[] = [];
 
   constructor(private adminService: AdminService) {}
 
   ngOnInit(): void {
-    this.loadRooms();
-  }
-
-  private loadRooms(): void {
     this.rooms = this.adminService.getRooms();
   }
 
-  toggleBooking(room: Room): void {
-    room.bookedStatus = !room.bookedStatus;
-    this.adminService.updateRoom(room).then(() => {
-      this.loadRooms();
-    });
+  bookRoom(id: number): void {
+    this.adminService.bookRoomById(id);
+    this.rooms = this.adminService.getRooms();
   }
 
 

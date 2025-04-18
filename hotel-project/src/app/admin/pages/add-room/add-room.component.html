@@ -1,31 +1,29 @@
-  <div class="top-bar">
+<div class="top-bar">
     <button class="back-btn" routerLink="/admin/dashboard">🏠 Dashboard</button>
   </div>
-<h2>Add New Room</h2>
-
-<form (ngSubmit)="onSubmit()" #roomForm="ngForm">
- 
+<h2>➕ Add Room / Hall</h2>
+<form (ngSubmit)="addRoom()">
   <label>Title:</label>
-  <input type="text" name="title" [(ngModel)]="room.title" required>
+  <input type="text" [(ngModel)]="newRoom.title" name="title" required>
 
- <label>Room Type:</label>
-<select name="roomType" [(ngModel)]="room.roomType" required>
-  <option value="room">Room</option>
-  <option value="hall">Hall</option>
-</select>
+  <label>Type:</label>
+  <select [(ngModel)]="newRoom.roomType" name="roomType">
+    <option value="room">Room</option>
+    <option value="hall">Hall</option>
+  </select>
 
   <label>Floor:</label>
-  <input type="number" name="floor" [(ngModel)]="room.floor" required>
+  <input type="text" [(ngModel)]="newRoom.floor" name="floor" required>
 
   <label>Building:</label>
-  <input type="text" name="building" [(ngModel)]="room.building" required>
-   
-    <label>Details:</label>
-  <input type="text" name="building" [(ngModel)]="room.details" required>
-  <label>
-    <input type="checkbox" name="booked" [(ngModel)]="room.booked">
+  <input type="text" [(ngModel)]="newRoom.building" name="building" required>
+
+  <label>Details:</label>
+  <textarea [(ngModel)]="newRoom.details" name="details"></textarea>
+   <label>
+    <input type="checkbox" name="booked" [(ngModel)]="newRoom.booked">
     Booked?
   </label>
 
-  <button type="submit">Add Room</button>
+  <button type="submit">➕ Add</button>
 </form>

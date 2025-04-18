@@ -1,38 +1,14 @@
-<div class="list-container">
-  <div class="top-bar">
+ <div class="top-bar">
     <button class="back-btn" routerLink="/admin/dashboard">🏠 Dashboard</button>
   </div>
-<div class="form-container">
-  <h2>📋 Add Employee</h2>
+<h2>➕ Add New Employee</h2>
 
-  <form (ngSubmit)="saveEmployee()" #form="ngForm">
-    <div class="form-group">
-      <label for="name">اName Of Employee</label>
-      <input
-        id="name"
-        type="text"
-        class="form-control"
-        [(ngModel)]="name"
-        name="name"
-        required
-        placeholder="Enter name"
-      />
-    </div>
+<form (ngSubmit)="addEmployee()">
+  <label for="name">Name:</label><br />
+  <input type="text" id="name" [(ngModel)]="newEmployee.name" name="name" required /><br /><br />
 
-    <div class="form-group">
-      <label for="role">job</label>
-      <input
-        id="role"
-        type="text"
-        class="form-control"
-        [(ngModel)]="role"
-        name="role"
-        required
-      />
-    </div>
+  <label for="role">Role:</label><br />
+  <input type="text" id="role" [(ngModel)]="newEmployee.role" name="role" required /><br /><br />
 
-    <button type="submit" class="btn" [disabled]="form.invalid">
-      ➕ Add Employee
-    </button>
-  </form>
-</div>
+  <button type="submit">Add Employee</button>
+</form>
