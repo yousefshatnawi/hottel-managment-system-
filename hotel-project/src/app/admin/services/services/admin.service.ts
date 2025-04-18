@@ -67,9 +67,7 @@ updateRoom(updated: Room): Promise<void> {
       resolve();
     });
   } 
-
-    getCustomers(): Customer[] {
-    const data = localStorage.getItem(this.customerKey);
-    return data ? JSON.parse(data) : [];
+getCustomers(): Customer[] {
+    return JSON.parse(localStorage.getItem(this.customerKey) || '[]');
   }
 } 
