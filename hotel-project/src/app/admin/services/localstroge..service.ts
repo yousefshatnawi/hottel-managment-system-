@@ -11,7 +11,7 @@ export class StorageService {
  
   }
 
-  addItem(key: string, value: any): void {
+  addItem(key: string, value: string): void {
     localStorage.setItem(key, value)
 }
 
