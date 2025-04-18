@@ -9,6 +9,7 @@ import { AddRoomComponent } from './pages/add-room/add-room.component';
 import { RoomsListComponent } from './pages/rooms-list/rooms-list.component';
 import { CustomerListComponent } from './pages/customer-list/customer-list.component';
 import { ReservationsReviewComponent } from './pages/reservations-review/reservations-review.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { ReservationsReviewComponent } from './pages/reservations-review/reserva
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule ,
+    FormsModule
   ]
 })
 export class AdminModule { }
