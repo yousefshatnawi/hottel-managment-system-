@@ -1,1 +1,28 @@
-<p>customer-list works!</p>
+<div class="container">
+      <div class="top-bar">
+    <button class="back-btn" routerLink="/admin/dashboard">🏠 Dashboard</button>
+  </div>
+  <h2>Customer List</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+        <th>Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let customer of customers">
+        <td>{{ customer.id }}</td>
+        <td>{{ customer.name }}</td>
+        <td>{{ customer.phone }}</td>
+        <td>{{ customer.email }}</td>
+        <td>{{ customer.address }}</td>
+        <td>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

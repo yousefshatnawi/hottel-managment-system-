@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Room } from '../../../models/room.model';
 import { Employee } from '../../../models/employee.model';
 import { StorageService } from '../localstroge..service';
+import { Customer } from '../../../models/customer.model';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,8 @@ export class AdminService {
 
   private EMPLOYEES_KEY = 'employees'; 
 private readonly ROOMS_KEY = 'rooms';
+  private customerKey = 'customers';
+
 
   constructor(private storageService: StorageService) { }
 
@@ -63,5 +66,10 @@ updateRoom(updated: Room): Promise<void> {
       }
       resolve();
     });
+  } 
+
+    getCustomers(): Customer[] {
+    const data = localStorage.getItem(this.customerKey);
+    return data ? JSON.parse(data) : [];
   }
-}
+} 
