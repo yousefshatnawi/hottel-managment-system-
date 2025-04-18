@@ -1,1 +1,31 @@
-<p>add-room works!</p>
+  <div class="top-bar">
+    <button class="back-btn" routerLink="/admin/dashboard">🏠 Dashboard</button>
+  </div>
+<h2>Add New Room</h2>
+
+<form (ngSubmit)="onSubmit()" #roomForm="ngForm">
+ 
+  <label>Title:</label>
+  <input type="text" name="title" [(ngModel)]="room.title" required>
+
+ <label>Room Type:</label>
+<select name="roomType" [(ngModel)]="room.roomType" required>
+  <option value="room">Room</option>
+  <option value="hall">Hall</option>
+</select>
+
+  <label>Floor:</label>
+  <input type="number" name="floor" [(ngModel)]="room.floor" required>
+
+  <label>Building:</label>
+  <input type="text" name="building" [(ngModel)]="room.building" required>
+   
+    <label>Details:</label>
+  <input type="text" name="building" [(ngModel)]="room.details" required>
+  <label>
+    <input type="checkbox" name="booked" [(ngModel)]="room.booked">
+    Booked?
+  </label>
+
+  <button type="submit">Add Room</button>
+</form>
