@@ -9,11 +9,15 @@
     🏢 {{ room.building }} |
     📍 {{ room.floor }} |
     📝 {{ room.details }} |
-📌 Status:
+    📌 Status:
 <span [ngClass]="room.bookedStatus ? 'status booked' : 'status available'">
   {{ room.bookedStatus ? 'Booked' : 'Available' }}
+   <button 
+      [disabled]="room.bookedStatus"
+      (click)="bookRoom(room.id)">
+    </button>
 </span>
-  </li>
+
 </ul>
 
 
