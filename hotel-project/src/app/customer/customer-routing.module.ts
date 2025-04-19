@@ -6,6 +6,8 @@ import { BookRoomComponent } from './pages/book-room/book-room.component';
 import { RequestServiceComponent } from './pages/request-service/request-service.component';
 import { MyRequestsComponent } from './pages/my-requests/my-requests.component';
 import { AuthGuard } from '../auth/guard/auth.guard';
+import { RoomListComponent } from './pages/room-list/room-list.component';
+import { RoomDetailsComponent } from './pages/room-details/room-details.component';
 
 const routes: Routes = [
   {
@@ -19,7 +21,10 @@ const routes: Routes = [
       { path: 'request-service', component: RequestServiceComponent },
       { path: 'my-reservations', component: MyReservationsComponent },
       { path: 'profile/:id', component: ProfileComponent },
-      { path: 'profile', component: ProfileComponent }
+      { path: 'profile', component: ProfileComponent },
+      { path: 'room', component:RoomListComponent  },
+      { path: 'room/:id', component: RoomDetailsComponent }
+
     ]
   },
   // { path: 'profile', 

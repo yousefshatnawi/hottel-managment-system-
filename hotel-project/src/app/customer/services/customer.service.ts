@@ -34,6 +34,7 @@ export class CustomerService {
         };
 
         allRooms.push(newAppointment);
+        console.log('all rooms',allRooms)
         resolve(newAppointment);
       } catch (error) {
         reject('Failed to add appointment');
@@ -96,5 +97,38 @@ export class CustomerService {
   getCustomerByemail(email: string): Customer | undefined {
     return customers.find(c => c.email=== email);
   }
+  getRequestsByEmployee(): EmployeeRequest[] {
+    const customerString = localStorage.getItem('customer');
+    
+    if (!customerString) {
+      return [];
+    }
   
+    try {
+      const customer = JSON.parse(customerString);
+      const id = customer.id;
+  
+      return employeeRequests.filter(req => req.customerId === id);
+    } catch (error) {
+      console.error('Error parsing user from localStorage:', error);
+      return [];
+    }
+  }
+  getResrvtionByEmployee(): RoomAppointment[] {
+    const customerString = localStorage.getItem('customer');
+    
+    if (!customerString) {
+      return [];
+    }
+  
+    try {
+      const customer = JSON.parse(customerString);
+      const id = customer.id;
+  
+      return roomAppointments.filter(req => req.customerId === id);
+    } catch (error) {
+      console.error('Error parsing user from localStorage:', error);
+      return [];
+    }
+  }
 }

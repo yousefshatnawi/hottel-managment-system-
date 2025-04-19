@@ -25,6 +25,8 @@ constructor(private requestService: CustomerService){}
 myRequests:  EmployeeRequest[] = [];
   ngOnInit(): void {
     this.myRequests=employeeRequests;  
+    this.myRequests = this.requestService.getRequestsByEmployee();
+
       // this.myRequests = [
     //   {
     //     id: 1,

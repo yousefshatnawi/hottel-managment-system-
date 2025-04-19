@@ -4,6 +4,7 @@ import { roomAppointments } from '../../../shared/dataBase/room-appointment';
 import { CustomerModule } from '../../customer.module';
 import { customers } from '../../../shared/dataBase/customer';
 import { Customer } from '../../../models/customer.model';
+import { CustomerService } from '../../services/customer.service';
 
 
 
@@ -14,10 +15,10 @@ import { Customer } from '../../../models/customer.model';
   styleUrl: './my-reservations.component.scss'
 })
 export class MyReservationsComponent implements OnInit {
-
+constructor(private requestService: CustomerService){}
  myReservations: RoomAppointment[] = [];
   ngOnInit(): void {
 
- this.myReservations = roomAppointments;  
+ this.myReservations = this.requestService.getResrvtionByEmployee();  
   }
 }
