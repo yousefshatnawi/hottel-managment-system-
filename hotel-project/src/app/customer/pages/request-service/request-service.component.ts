@@ -17,7 +17,7 @@ export class RequestServiceComponent implements OnInit{
 
   constructor(private fb: FormBuilder , 
       private customerService: CustomerService,
-    private Storage : StorageService  ) {}
+     ) {}
 
   ngOnInit(): void {
     this.requestForm = this.fb.group({
@@ -41,7 +41,7 @@ export class RequestServiceComponent implements OnInit{
         requestStatus: 'pending'
       };
   
-      this.customerService.addRequest(formData);
+      this.customerService.addRequestemps(formData);
     }
   }
 }

@@ -73,9 +73,23 @@ export class CustomerService {
     };
 
     this.requests.push(newRequest);
+    console.log('تمت إضافة الطلب:', newRequest , typeof(newRequest));
+  }
+  private requestsEmp: EmployeeRequest[] = employeeRequests;
+
+  addRequestemps(request: EmployeeRequest) {
+
+    const newId = this.requestsEmp.length > 0 ? Math.max(...this.requestsEmp.map(r => r.id)) + 1 : 1;
+
+    const newRequest = {
+      ...request,
+      id: newId,
+    
+    };
+
+    this.requestsEmp.push(newRequest);
     console.log('تمت إضافة الطلب:', newRequest);
   }
-
   getAllEmployeeRequests() {
     return this.requests;
   }
