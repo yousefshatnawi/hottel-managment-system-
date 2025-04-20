@@ -9,7 +9,7 @@ import { EmployeeService } from '../../services/employee.service';
   styleUrl: './profile.component.scss'
 })
 export class ProfileComponent implements OnInit {
-  employeeData: Employee = { id: 0, name: '', role: '', email: '', password: '' }; 
+  employeeData: Employee = { id: 0, name: '', role: '',email:'' }; 
   isEditing = false;
   loading = false;
   success = '';

@@ -14,7 +14,7 @@ import { Employee } from '../../../models/employee.model';
 export class MyRequestsComponent implements OnInit {
 
 
-  employeeData: Employee = { id: 0, name: '', role: '', email: '', password: '' };
+  employeeData: Employee = { id: 0, name: '', role: '',email:'' };
     requests: EmployeeRequest[] = [];
     loading: boolean = true;
   

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { employeeRequests } from '../../../shared/dataBase/employee-request';
 import { CustomerService } from '../../services/customer.service';
 import { EmployeeRequest } from '../../../models/employee-request.model';
+import { Customer } from '../../../models/customer.model';
+import { customers } from '../../../shared/dataBase/customer';
 
 
 // interface RoomServiceRequest {
@@ -23,9 +25,17 @@ export class MyRequestsComponent implements OnInit{
 
 constructor(private requestService: CustomerService){}
 myRequests:  EmployeeRequest[] = [];
+customers: Customer[]=[];
   ngOnInit(): void {
-    this.myRequests=employeeRequests;  
-    this.myRequests = this.requestService.getRequestsByEmployee();
+    this.myRequests=[] ; 
+    if(localStorage.getItem('employeeRequests')) {
+      this.myRequests = JSON.parse(localStorage.getItem('employeeRequests') || '[]');
+      // this.customers = this.myRequests.filter((req: any) => req.customerId === this.customers.);
+    }
+    else{
+      this.myRequests = this.requestService.getRequestsByEmployee();
+
+    }
 
       // this.myRequests = [
     //   {

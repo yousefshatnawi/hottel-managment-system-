@@ -6,6 +6,8 @@ import { EmployeeRequest } from '../../models/employee-request.model';
 import { employeeRequests } from '../../shared/dataBase/employee-request';
 
 import { customers } from '../../shared/dataBase/customer';
+import { Employee } from '../../models/employee.model';
+import { employees } from '../../shared/dataBase/employee';
 const CUSTOMERS_KEY = 'CUSTOMERS_KEY';
 
 @Injectable({
@@ -96,6 +98,9 @@ export class CustomerService {
   }
   getCustomerByemail(email: string): Customer | undefined {
     return customers.find(c => c.email=== email);
+  }
+  getEmployeeByemail(email: string): Employee | undefined {
+    return employees.find(c => c.email=== email);
   }
   getRequestsByEmployee(): EmployeeRequest[] {
     const customerString = localStorage.getItem('customer');

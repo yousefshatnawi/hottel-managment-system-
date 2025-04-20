@@ -36,16 +36,20 @@ import { CustomerService } from '../../../customer/services/customer.service';
 
             localStorage.setItem('user', JSON.stringify(user));
               const customer = this.customerService.getCustomerByemail(user.email);
-              localStorage.setItem('customer', JSON.stringify(customer));
             switch (user.userType) {
               case 'admin':
                 this.router.navigate(['/admin']);
                 break;
               case 'employee':
                 this.router.navigate(['/employee']);
+                const employee = this.customerService.getEmployeeByemail(user.email);
+                localStorage.setItem('employee', JSON.stringify(employee));
+
                 break;
               default:
                 this.router.navigate(['/customer']);
+                localStorage.setItem('customer', JSON.stringify(customer));
+
             }
           })
           .catch(error => {

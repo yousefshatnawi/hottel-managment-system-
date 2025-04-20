@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Employee } from '../../models/employee.model';
-import { employees as dummyEmployees, employees } from '../../database/employees';
 import { EmployeeRequest } from '../../models/employee-request.model';
-import { employeeRequests } from '../../database/employee-request';
 import { Customer } from '../../models/customer.model';
-import { customers } from '../../database/customer';
+import { customers } from '../../shared/dataBase/customer';
+import { employees } from '../../shared/dataBase/employee';
+import { employeeRequests } from '../../shared/dataBase/employee-request';
 
 
 
@@ -24,23 +24,24 @@ export class EmployeeService {
 
   
   getRequestsByEmployee(): any[] {
-    const currentUser = JSON.parse(localStorage.getItem('user') || '{}');// loggedInUser ->user
+    const currentUser = JSON.parse(localStorage.getItem('employee') || '{}');// loggedInUser ->user
     // const allRequests: EmployeeRequest[] = JSON.parse(localStorage.getItem('employeeRequests') || '[]');
     const allRequests: EmployeeRequest[] = employeeRequests;
     //localStorage  ->database
     // const allCustomers = JSON.parse(localStorage.getItem('customers') || '[]');
-    const allCustomers :Customer[]= customers;
-    //customers ->customer  
     const requests = allRequests.filter(req => req.employeeId === currentUser.id);
+    return requests;
+    // const allCustomers :Customer[]= customers;
+    // //customers ->customer  
   
     
-    return requests.map(req => {
-      const customer = allCustomers.find((c: any) => c.id === req.customerId);
-      return {
-        ...req,
-        customerName: customer ? customer.name : 'Unknown'
-      };
-    });
+    // return requests.map(req => {
+    //   const customer = allCustomers.find((c: any) => c.id === req.customerId);
+    //   return {
+    //     ...req,
+    //     customerName: customer ? customer.name : 'Unknown'
+    //   };
+    // });
   }
   
 
@@ -53,13 +54,16 @@ export class EmployeeService {
     return employeeRequests.find(request => request.id === id);
   }
 
-updateRequestStatus(requestId: number, newStatus: 'done' | 'pending' | 'progress'): void {
-  const request = employeeRequests.find(r => r.id === requestId);
-  if (request) {
-    request.requestStatus = newStatus;
-    console.log('Request status updated:', request);
+  updateRequestStatus(requestId: number, newStatus: 'pending' | 'progress' | 'done') {
+    const requests = employeeRequests;
+  
+    const index = requests.findIndex((r: any) => r.id === requestId);
+    if (index !== -1) {
+      requests[index].requestStatus = newStatus;
+      console.log(requests[index])
+      localStorage.setItem('employeeRequests', JSON.stringify(requests));
+    }
   }
-}
 addRequest(request: EmployeeRequest) {
   const newId = employeeRequests.length > 0 ? Math.max(...employeeRequests.map(r => r.id)) + 1 : 1;
 

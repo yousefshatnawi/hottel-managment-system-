@@ -34,19 +34,19 @@
       </p>
       <div class="action-buttons">
         <button class="action-btn pending-btn animate__animated animate__bounceIn" 
-                (click)="updateRequestStatus('pending')" 
+                (click)="updateRequestStatus(request?.id,'pending')" 
                 [disabled]="request?.requestStatus === 'pending'"
                 style="animation-delay: 0.2s;">
           <i class="fas fa-hourglass-half"></i> Set to Pending
         </button>
         <button class="action-btn progress-btn animate__animated animate__bounceIn" 
-                (click)="updateRequestStatus('progress')" 
+                (click)="updateRequestStatus(request?.id,'progress')" 
                 [disabled]="request?.requestStatus === 'progress'"
                 style="animation-delay: 0.4s;">
           <i class="fas fa-spinner"></i> Set to Progress
         </button>
         <button class="action-btn done-btn animate__animated animate__bounceIn" 
-                (click)="updateRequestStatus('done')" 
+                (click)="updateRequestStatus(request?.id,'done')" 
                 [disabled]="request?.requestStatus === 'done'"
                 style="animation-delay: 0.6s;">
           <i class="fas fa-check-circle"></i> Set to Done

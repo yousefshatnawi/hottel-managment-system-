@@ -65,7 +65,7 @@ $dark-gray: #333;
       transition: background-color 0.3s ease;
 
       &:disabled {
-        background-color: lighten($primary-color, 30%);
+        // background-color: lighten($primary-color, 30%);
         cursor: not-allowed;
       }
     }

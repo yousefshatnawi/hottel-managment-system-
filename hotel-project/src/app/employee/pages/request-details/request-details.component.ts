@@ -34,17 +34,14 @@ export class RequestDetailsComponent implements OnInit {
     this.loading = false;
   }
 
-  updateRequestStatus(newStatus: 'pending' | 'progress' | 'done'): void {
-    if (this.request) {
-      
-      const allowedStatuses: ('pending' | 'progress' | 'done')[] = ['pending', 'progress', 'done'];
-
-      if (allowedStatuses.includes(newStatus)) {
-        this.employeeService.updateRequestStatus(this.request.id, newStatus);
-        this.request.requestStatus = newStatus;
-      } else {
-        console.error('Invalid request status:', newStatus);  
-      }
+  updateRequestStatus(requestId: number |undefined, newStatus: 'pending' | 'progress' | 'done') {
+    const requests = JSON.parse(localStorage.getItem('employeeRequests') || '[]');
+  
+    const index = requests.findIndex((r: any) => r.id === requestId);
+    if (index !== -1) {
+      requests[index].requestStatus = newStatus;
+      localStorage.setItem('employeeRequests', JSON.stringify(requests));
     }
   }
+  
 }
