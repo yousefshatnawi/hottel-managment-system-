@@ -1,6 +1,16 @@
 <div class="service-request-container">
   <h2>Room Service Request</h2>
 
+<form [formGroup]="requestForm" (ngSubmit)="submitRequest()">
+  <label>
+    نوع الخدمة:
+    <select formControlName="requestType">
+      <option value="" disabled>-- اختر نوع الخدمة --</option>
+      <option *ngFor="let type of requestTypes" [value]="type">
+        {{ type}}
+      </option>
+    </select>
+  </label>
   <form [formGroup]="requestForm" (ngSubmit)="submitRequest()">
     <label>
       Service Type:
