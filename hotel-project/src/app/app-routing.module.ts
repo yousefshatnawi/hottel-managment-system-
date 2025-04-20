@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthRoutingModule } from './auth/auth-routing.module';
 import { HomeComponent } from './home/home.component';
 import { AppComponent } from './app.component';
 import { RoomComponent } from './rooms/room/room.component';
@@ -29,17 +30,15 @@ const routes: Routes = [
       path: 'employee', 
       loadChildren: () => import('./employee/employee.module').then(m => m.EmployeeModule) 
   },
-  {   
-      path:'request', 
-      loadChildren: () => import('./requests/requests.module').then(m => m.RequestsModule)},
-  {   
-      path:'reservations', 
-      loadChildren: () => import('./reservation/reservation.module').then(m => m.ReservationModule)
+  
+  {
+    path: 'auth',
+    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
-  { 
-      path:'room', 
-      loadChildren: () => import('./rooms/rooms.module').then(m => m.RoomsModule)
-  },
+  {
+    path: 'customer',
+    loadChildren: () => import('./customer/customer.module').then(m => m.CustomerModule)
+  }
 
   {
     path: '',
@@ -68,7 +67,8 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

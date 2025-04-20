@@ -29,7 +29,7 @@ import { ContactComponent } from './contact/contact.component';
     EmployeeModule,
     AuthModule,
     AdminModule,
-    RoomsModule
+   
     
   ],
   providers: [],

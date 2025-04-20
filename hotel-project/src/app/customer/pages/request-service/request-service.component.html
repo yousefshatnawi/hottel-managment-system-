@@ -1,22 +1,21 @@
-<div class="service-request-container">
-  <h2>Room Service Request</h2>
+<h2>طلب خدمة الغرفة</h2>
 
-  <form [formGroup]="requestForm" (ngSubmit)="submitRequest()">
-    <label>
-      Service Type:
-      <select formControlName="requestType">
-        <option value="" disabled>-- Select Service Type --</option>
-        <option *ngFor="let type of requestTypes" [value]="type">
-          {{ type }}
-        </option>
-      </select>
-    </label>
+<form [formGroup]="requestForm" (ngSubmit)="submitRequest()">
+  <label>
+    نوع الخدمة:
+    <select formControlName="requestType">
+      <option value="" disabled>-- اختر نوع الخدمة --</option>
+      <option *ngFor="let type of requestTypes" [value]="type">
+        {{ type}}
+      </option>
+    </select>
+  </label>
 
-    <label>
-      Notes (Optional):
-      <textarea formControlName="note" placeholder="Add any additional details"></textarea>
-    </label>
+  <label>
+    ملاحظات (اختياري):
+    <textarea formControlName="note"></textarea>
+  </label>
 
-    <button type="submit" [disabled]="!requestForm.valid">Submit Request</button>
-  </form>
-</div>
+  <button type="submit" [disabled]="!requestForm.valid">إرسال الطلب</button>
+</form>
+<button [routerLink]="['/customer/my-requests']">my reservtion </button>

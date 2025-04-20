@@ -1,0 +1,19 @@
+<div class="room-list">
+    <div *ngFor="let room of roomList" class="room-card">
+      <!-- <img [src]="room.imageUrl" alt="{{ room.title }}" class="room-image" /> -->
+      <h3>{{ room.title }}</h3>
+      <p><strong>Type:</strong> {{ room.roomType }}</p>
+      <p><strong>Floor:</strong> {{ room.floor }}</p>
+      <p><strong>Building:</strong> {{ room.building }}</p>
+      <p><strong>Details:</strong> {{ room.details }}</p>
+      <p><strong>Status:</strong> 
+        <span [ngClass]="{ 'booked': room.bookedStatus, 'available': !room.bookedStatus }">
+          {{ room.bookedStatus ? 'Booked' : 'Available' }}
+        </span>
+      </p>
+      <button [routerLink]="['/customer/room', room.id]" class="btn btn-primary">
+        Details
+      </button>
+    </div>
+  </div>
+  

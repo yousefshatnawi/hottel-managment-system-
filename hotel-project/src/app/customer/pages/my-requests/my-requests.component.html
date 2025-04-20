@@ -1,26 +1,18 @@
-<div class="requests-container">
-  <h2>My Previous Requests</h2>
+<h2>طلباتي السابقة</h2>
 
-  <table class="requests-table">
-    <thead>
-      <tr>
-        <th>Service Type</th>
-        <th>Date</th>
-        <th>Status</th>
-        <th>Assigned Employee</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let req of myRequests">
-        <td>{{ req.requestType | titlecase }}</td>
-        <td>{{ req.date | date: 'mediumDate' }}</td>
-        <td [ngClass]="req.requestStatus.toLowerCase()">{{ req.requestStatus }}</td>
-        <td>{{ req.employeeName || '-' }}</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <p *ngIf="!myRequests?.length" class="no-requests">
-    You have no requests yet.
-  </p>
-</div>
+<table border="1" cellpadding="8" cellspacing="0">
+  <thead>
+    <tr>
+      <th>request Type</th>
+      <th>date</th>
+      <th>requestStatus</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let req of myRequests">
+      <td>{{ req.requestType }}</td>
+      <td>{{ req.date }}</td>
+      <td>{{req.requestStatus}}</td>
+    </tr>
+  </tbody>
+</table>

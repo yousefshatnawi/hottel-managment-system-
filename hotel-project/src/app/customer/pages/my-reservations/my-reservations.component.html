@@ -1,32 +1,26 @@
 <div class="reservations-container">
   <h2>My Reservations</h2>
 
-  <table class="reservations-table" *ngIf="myReservations?.length > 0; else noReservations">
-    <thead>
-      <tr>
-        <th>Room / Hall</th>
-        <th>Date</th>
-        <th>Approval Status</th>
-        <th>Payment Status</th>
-        <th>Amount (JD)</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let res of myReservations">
-        <td>{{ res.roomTitle }}</td>
-        <td>{{ res.date | date: 'mediumDate' }}</td>
-        <td>
-          <span [ngClass]="res.approvalStatus.toLowerCase()">
-            {{ res.approvalStatus }}
-          </span>
-        </td>
-        <td>{{ res.paymentStatus }}</td>
-        <td>{{ res.paymentAmount }}</td>
-      </tr>
-    </tbody>
-  </table>
+<table border="1" cellpadding="8" cellspacing="0">
+  <thead>
+    <tr>
+      <th>Room/Hall</th>
+      <th>Date</th>
+      <th>Status</th>
+      <th>Payment</th>
+      <th>Amount</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let res of myReservations">
+      <td>{{ res.date }}</td>
+      <td>
+        <span [ngClass]="res.approvalStatus">{{ res.approvalStatus }}</span>
+      </td>
+      <td>{{ res.paymentStatus }}</td>
+      <td>{{ res.paymentAmount }} JD</td>
+    </tr>
+    <!-- <a [routerLink]="['/customer', customer.id]">عرض البروفايل</a> -->
 
-  <ng-template #noReservations>
-    <p class="no-reservations">You don’t have any reservations yet.</p>
-  </ng-template>
-</div>
+  </tbody>
+</table>

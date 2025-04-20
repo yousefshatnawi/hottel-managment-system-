@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Customer } from '../../../models/customer.model';
+import { CustomerService } from '../../services/customer.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,28 +10,64 @@ import { Component, OnInit } from '@angular/core';
   styleUrl: './profile.component.scss'
 })
 export class ProfileComponent implements OnInit{
-  customer = {
-    id: 1,
-    name: 'Yousef',
-    phone: '0790000000',
-    email: 'yousef@example.com',
-    address: 'Amman, Jordan'
-  };
-
   isEditing = false;
+loading = false;
+loadingForGet = false;
+success: string = '';
+errors: string[] = [];
 
-  constructor() {}
+customer: Customer | undefined;
+customerData: any = {};
 
-  ngOnInit(): void {}
+constructor(
+  private route: ActivatedRoute,
+  private customerService: CustomerService
+) {}
 
-  enableEdit() {
-    this.isEditing = true;
+ngOnInit(): void {
+  this.loadingForGet = true;
+  const id = +this.route.snapshot.paramMap.get('id')!;
+  if(id){
+    this.loadingForGet = true;
+
+  setTimeout(() => {
+    this.customer = this.customerService.getcustomerById(id);
+    if (this.customer) {
+      this.customerData = { ...this.customer };
+    }
+    this.loadingForGet = false;
+  }, 1000);}
+  else{
+    this.loadingForGet = false;
+
+    const customer = JSON.parse(localStorage.getItem('customer') || '{}');
+    console.log('customer is ' , customer)
+
+    this.customerData = customer;
   }
+}
 
-  saveProfile() {
-    // هون لاحقًا منربطها مع السيرفس
-    console.log('Saved', this.customer);
-    this.isEditing = false;
-  }
+enableEdit() {
+  this.isEditing = true;
+}
+
+saveProfile() {
+  this.errors = [];
+  this.success = '';
+  this.loading = true;
+
+  this.customerService.updateCustomer(this.customerData)
+    .then((updated: Customer) => {
+      this.customer = updated;
+      this.success = 'Customer updated successfully!';
+      this.isEditing = false;
+      this.loading = false;
+    })
+    .catch((err: any) => {
+      this.errors.push(err);
+      this.loading = false;
+    });
+}
+
 }
 
