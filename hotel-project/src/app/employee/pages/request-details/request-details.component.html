@@ -1,1 +1,57 @@
-<p>request-details works!</p>
+<div class="container">
+  <!-- Sidebar -->
+  <app-sidebar></app-sidebar>
+
+  <!-- Main Content Area -->
+  <div class="dashboard-container">
+    <!-- Header -->
+    <div class="header animate__animated animate__zoomIn">
+      <h2>Employee Profile</h2>
+     
+    </div>
+  <!-- Request Details Content -->
+  <div class="request-details-container animate__animated animate__fadeIn">
+    <h2>Request Details</h2>
+    <div class="request-details animate__animated animate__fadeInUp" *ngIf="!loading">
+      <p>
+        <i class="fas fa-id-badge"></i>
+        <strong>Request ID:</strong> {{ request?.id }}
+      </p>
+      <p>
+        <i class="fas fa-tasks"></i>
+        <strong>Request Type:</strong> {{ request?.requestType }}
+      </p>
+      <p>
+        <i class="fas fa-info-circle"></i>
+        <strong>Status:</strong>
+        <span class="status-badge" [ngClass]="{
+          'pending': request?.requestStatus === 'pending',
+          'progress': request?.requestStatus === 'progress',
+          'done': request?.requestStatus === 'done'
+        }">
+          {{ request?.requestStatus }}
+        </span>
+      </p>
+      <div class="action-buttons">
+        <button class="action-btn pending-btn animate__animated animate__bounceIn" 
+                (click)="updateRequestStatus('pending')" 
+                [disabled]="request?.requestStatus === 'pending'"
+                style="animation-delay: 0.2s;">
+          <i class="fas fa-hourglass-half"></i> Set to Pending
+        </button>
+        <button class="action-btn progress-btn animate__animated animate__bounceIn" 
+                (click)="updateRequestStatus('progress')" 
+                [disabled]="request?.requestStatus === 'progress'"
+                style="animation-delay: 0.4s;">
+          <i class="fas fa-spinner"></i> Set to Progress
+        </button>
+        <button class="action-btn done-btn animate__animated animate__bounceIn" 
+                (click)="updateRequestStatus('done')" 
+                [disabled]="request?.requestStatus === 'done'"
+                style="animation-delay: 0.6s;">
+          <i class="fas fa-check-circle"></i> Set to Done
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

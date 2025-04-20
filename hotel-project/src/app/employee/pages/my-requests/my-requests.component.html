@@ -1,1 +1,40 @@
-<p>my-requests works!</p>
+<div class="container">
+  <!-- Sidebar -->
+  <app-sidebar></app-sidebar>
+
+  <!-- Main Content Area -->
+  <div class="dashboard-container">
+    <!-- Header -->
+    <div class="header animate__animated animate__zoomIn">
+      <h2>Employee Profile</h2>
+      <div class="user-info">
+        <span><i class="fas fa-user-circle"></i> Hello, {{ employeeData.name }}</span>
+      </div>
+    </div>
+
+
+  
+  <div class="requests-container" *ngIf="!loading">
+    <h2 class="animate__animated animate__fadeIn">My Requests</h2>
+    <div class="requests-grid">
+      <div *ngFor="let request of requests; let i = index"
+       class="request-card animate__animated animate__fadeInUp" [style.animation-delay]="i * 0.1 + 's'">
+        <p><i class="fas fa-id-badge"></i> <strong>Request ID:</strong> {{ request.id }}</p>
+        <p><i class="fas fa-tasks"></i> <strong>Request Type:</strong> {{ request.requestType }}</p>
+        <p>
+          <i class="fas fa-info-circle"></i> <strong>Status:</strong>
+          <span class="status-badge" [ngClass]="{
+            'pending': request.requestStatus === 'pending',
+            'progress': request.requestStatus === 'progress',
+            'done': request.requestStatus === 'done'
+          }">
+            {{ request.requestStatus }}
+          </span>
+        </p>
+        <button class="action-btn" [routerLink]="['/employee/request', request.id]">
+          <i class="fas fa-eye"></i> View Details
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
