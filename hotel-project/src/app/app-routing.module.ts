@@ -7,7 +7,6 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 
 const routes: Routes = [
-<<<<<<< HEAD
 
   {   path: '', 
     redirectTo: 'auth/login', 
@@ -42,7 +41,6 @@ const routes: Routes = [
       loadChildren: () => import('./rooms/rooms.module').then(m => m.RoomsModule)
   },
 
-=======
   {
     path: '',
     component:HomeComponent
@@ -67,7 +65,6 @@ const routes: Routes = [
     path:'contact',
     component: ContactComponent
   }
->>>>>>> reema
 ];
 
 @NgModule({

@@ -14,11 +14,6 @@ export class RequestDetailsComponent implements OnInit {
   request: EmployeeRequest | undefined;
   loading: boolean = true;
   requestId: number = 0;
-
-<<<<<<< HEAD
-  
-}
-=======
  
 
   constructor(
@@ -53,4 +48,3 @@ export class RequestDetailsComponent implements OnInit {
     }
   }
 }
->>>>>>> reema

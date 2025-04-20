@@ -1,11 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-<<<<<<< HEAD
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-=======
-import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
->>>>>>> reema
+
 
 @Component({
   selector: 'app-login',
@@ -13,7 +10,6 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
-<<<<<<< HEAD
 
   export class LoginComponent implements OnInit {
     loginForm!: FormGroup;
@@ -45,6 +41,3 @@ import { AuthService } from '../../services/auth.service';
     }
 
 }
-=======
-export class LoginComponent {}
->>>>>>> reema
