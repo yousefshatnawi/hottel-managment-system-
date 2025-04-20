@@ -28,7 +28,7 @@ export class EmployeeService {
   
     const requests = allRequests.filter(req => req.employeeId === currentUser.id);
   
-    // دمج كل طلب مع اسم الزبون الخاص فيه
+    
     return requests.map(req => {
       const customer = allCustomers.find((c: any) => c.id === req.customerId);
       return {
@@ -78,7 +78,7 @@ addEmployee(employee: Employee) {
   };
   employees.push(newEmployee);
   
-  // تخزين البيانات في localStorage بعد إضافة الموظف
+
   localStorage.setItem('employee', JSON.stringify(newEmployee));
   console.log('Employee added:', newEmployee);
 }
