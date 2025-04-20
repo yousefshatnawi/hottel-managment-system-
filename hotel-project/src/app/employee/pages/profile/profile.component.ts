@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from '../../../models/employee.model';
+import { EmployeeService } from '../../services/employee.service';
 
 @Component({
   selector: 'app-profile',
@@ -8,30 +9,38 @@ import { Employee } from '../../../models/employee.model';
   styleUrl: './profile.component.scss'
 })
 export class ProfileComponent implements OnInit {
- 
-  employee: Employee | null = null; 
-  employees: Employee[] = [];
+  employeeData: Employee = { id: 0, name: '', role: '', email: '', password: '' }; 
+  isEditing = false;
+  loading = false;
+  success = '';
+  errors: string[] = [];
 
-  constructor() {}
+  constructor(private employeeService: EmployeeService) {}
 
   ngOnInit(): void {
-    const currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
-    this.employees = JSON.parse(localStorage.getItem('employees') || '[]');
-
-    const found = this.employees.find(emp => emp.email === currentUser.email);
-    if (found) {
-      this.employee = { ...found };
-    }
+    const employee = JSON.parse(localStorage.getItem('employee') || '{}');
+    this.employeeData = { ...employee }; 
   }
 
-  updateProfile(): void {
-    if (!this.employee) return;
+  enableEdit() {
+    this.isEditing = true;
+  }
 
-    const index = this.employees.findIndex(emp => emp.id === this.employee!.id);
-    if (index !== -1) {
-      this.employees[index] = { ...this.employee };
-      localStorage.setItem('employees', JSON.stringify(this.employees));
-      alert('Profile updated successfully!');
-    }
+  saveProfile() {
+    this.errors = [];
+    this.success = '';
+    this.loading = true;
+
+    this.employeeService
+      .updateEmployee(this.employeeData)
+      .then((updated: Employee) => {
+        this.success = 'Profile updated successfully!';
+        this.isEditing = false;
+        this.loading = false;
+      })
+      .catch((err) => {
+        this.errors.push(err);
+        this.loading = false;
+      });
   }
 }

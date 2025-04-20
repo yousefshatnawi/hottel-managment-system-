@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeRequest } from '../../../models/employee-request.model';
+import { EmployeeService } from '../../services/employee.service';
+import { Router } from '@angular/router';
+import { AuthService } from '../../../auth/services/auth.service';
+import { Employee } from '../../../models/employee.model';
 
 @Component({
   selector: 'app-my-requests',
@@ -9,19 +13,28 @@ import { EmployeeRequest } from '../../../models/employee-request.model';
 })
 export class MyRequestsComponent implements OnInit {
 
-  myRequests: EmployeeRequest[] = [];
 
-  constructor() {}
-
-  ngOnInit(): void {
-    const currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
-    const allRequests = JSON.parse(localStorage.getItem('employeeRequests') || '[]');
-    const employees = JSON.parse(localStorage.getItem('employees') || '[]');
-
-    const employee = employees.find((emp: any) => emp.email === currentUser.email);
-
-    if (employee) {
-      this.myRequests = allRequests.filter((req: any) => req.employeeId === employee.id);
+  employeeData: Employee = { id: 0, name: '', role: '', email: '', password: '' };
+    requests: EmployeeRequest[] = [];
+    loading: boolean = true;
+  
+    constructor(
+      private employeeService: EmployeeService,
+      private authService: AuthService,
+      private router: Router
+    ) {}
+  
+    ngOnInit(): void {
+      this.employeeData = JSON.parse(localStorage.getItem('employee') || '{}');
+      this.loadRequests();
     }
+  
+    loadRequests() {
+      this.loading = true;
+      const allRequests = this.employeeService.getRequestsByEmployee();
+      this.requests = allRequests;
+      this.loading = false;
+    }
+  
+   
   }
-}

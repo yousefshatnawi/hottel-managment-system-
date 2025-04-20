@@ -4,31 +4,23 @@ import { MyRequestsComponent } from './pages/my-requests/my-requests.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { RequestDetailsComponent } from './pages/request-details/request-details.component';
 import { authGuard } from '../auth/guard/auth.guard';
+import { DashboardEmployeeComponent } from './pages/dashboard-employee/dashboard-employee.component';
+import { LoginComponent } from '../auth/components/login/login.component';
 
 const routes: Routes = [
   {
     path: '',
     canActivate: [authGuard],
-    data: { role: 'employee' },
+    data: { role: 'employee' }, 
     children: [
-  
-  { path: 'profile', 
-    component: ProfileComponent 
-  },
-  { path: 'employee/my-requests', 
-    component: MyRequestsComponent, 
-    canActivate: [authGuard] 
-  },
-
-  { path: 'employee-request/:id',
-     component: RequestDetailsComponent, 
-     canActivate: [authGuard]
-    
+      { path: 'employee/dashboard', component: DashboardEmployeeComponent },
+      { path: 'employee/profile', component: ProfileComponent },
+      { path: 'employee/request', component: MyRequestsComponent },
+      { path: 'request/:id', component: RequestDetailsComponent },
+      { path: '', redirectTo: 'profile', pathMatch: 'full' },
+      { path: 'login', component: LoginComponent },
+    ]
   }
-
-
-]
-  },
 ];
 
 @NgModule({

@@ -1,42 +1,57 @@
+<div class="container">
+  <!-- Sidebar -->
+  <app-sidebar></app-sidebar>
 
-
-  <div class="request-details-container">
-    <h2>Request Details</h2>
-    <div class="request-card" *ngIf="request && employee">
-      <div class="request-info">
-        <p><strong>Request ID:</strong> {{ request.id }}</p>
-        <p><strong>Date:</strong> {{ request.date }}</p>
-        <p><strong>Request Type:</strong> {{ request.requestType }}</p>
-        <p><strong>Current Status:</strong> {{ request.requestStatus }}</p>
-      </div>
-      <div class="employee-info">
-        <h3>Employee Information</h3>
-        <p><strong>Name:</strong> {{ employee.name }}</p>
-        <p><strong>Role:</strong> {{ employee.role }}</p>
-      </div>
-      <div class="status-update">
-        <h3>Update Status</h3>
-        <button class="status-btn" 
-                (click)="updateStatus('pending')" 
-                [disabled]="request.requestStatus === 'pending'"
-                [ngClass]="{'active': request.requestStatus === 'pending'}">
-          Pending
-        </button>
-        <button class="status-btn" 
-                (click)="updateStatus('progress')" 
-                [disabled]="request.requestStatus === 'progress'"
-                [ngClass]="{'active': request.requestStatus === 'progress'}">
-          In Progress
-        </button>
-        <button class="status-btn" 
-                (click)="updateStatus('done')" 
-                [disabled]="request.requestStatus === 'done'"
-                [ngClass]="{'active': request.requestStatus === 'done'}">
-          Done
-        </button>
-      </div>
+  <!-- Main Content Area -->
+  <div class="dashboard-container">
+    <!-- Header -->
+    <div class="header animate__animated animate__zoomIn">
+      <h2>Employee Profile</h2>
+     
     </div>
-    <div class="not-found" *ngIf="!request">
-      <p>Request not found.</p>
+  <!-- Request Details Content -->
+  <div class="request-details-container animate__animated animate__fadeIn">
+    <h2>Request Details</h2>
+    <div class="request-details animate__animated animate__fadeInUp" *ngIf="!loading">
+      <p>
+        <i class="fas fa-id-badge"></i>
+        <strong>Request ID:</strong> {{ request?.id }}
+      </p>
+      <p>
+        <i class="fas fa-tasks"></i>
+        <strong>Request Type:</strong> {{ request?.requestType }}
+      </p>
+      <p>
+        <i class="fas fa-info-circle"></i>
+        <strong>Status:</strong>
+        <span class="status-badge" [ngClass]="{
+          'pending': request?.requestStatus === 'pending',
+          'progress': request?.requestStatus === 'progress',
+          'done': request?.requestStatus === 'done'
+        }">
+          {{ request?.requestStatus }}
+        </span>
+      </p>
+      <div class="action-buttons">
+        <button class="action-btn pending-btn animate__animated animate__bounceIn" 
+                (click)="updateRequestStatus('pending')" 
+                [disabled]="request?.requestStatus === 'pending'"
+                style="animation-delay: 0.2s;">
+          <i class="fas fa-hourglass-half"></i> Set to Pending
+        </button>
+        <button class="action-btn progress-btn animate__animated animate__bounceIn" 
+                (click)="updateRequestStatus('progress')" 
+                [disabled]="request?.requestStatus === 'progress'"
+                style="animation-delay: 0.4s;">
+          <i class="fas fa-spinner"></i> Set to Progress
+        </button>
+        <button class="action-btn done-btn animate__animated animate__bounceIn" 
+                (click)="updateRequestStatus('done')" 
+                [disabled]="request?.requestStatus === 'done'"
+                style="animation-delay: 0.6s;">
+          <i class="fas fa-check-circle"></i> Set to Done
+        </button>
+      </div>
     </div>
   </div>
+</div>

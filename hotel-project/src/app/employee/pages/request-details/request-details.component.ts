@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EmployeeRequest } from '../../../models/employee-request.model';
 import { Employee } from '../../../models/employee.model';
+import { EmployeeService } from '../../services/employee.service';
 
 @Component({
   selector: 'app-request-details',
@@ -10,41 +11,41 @@ import { Employee } from '../../../models/employee.model';
   styleUrl: './request-details.component.scss'
 })
 export class RequestDetailsComponent implements OnInit {
+  request: EmployeeRequest | undefined;
+  loading: boolean = true;
+  requestId: number = 0;
 
-  request: EmployeeRequest | null = null;
-  employee: Employee | null = null;
+ 
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(
+    private route: ActivatedRoute,
+    private employeeService: EmployeeService
+  ) {}
+
+  
   ngOnInit(): void {
-    const requestId = this.route.snapshot.paramMap.get('id');
-    const allRequests = JSON.parse(localStorage.getItem('employeeRequests') || '[]');
-    const allEmployees = JSON.parse(localStorage.getItem('employees') || '[]');
-  
-    if (requestId) {
-      const foundRequest = allRequests.find((req: EmployeeRequest) => req.id === +requestId);
-      if (foundRequest) {
-        this.request = foundRequest;
-  
-        const employeeId = foundRequest.employeeId;
-  
-        this.employee = allEmployees.find((emp: Employee) => emp.id === employeeId) || null;
-      }
-    }
+    this.route.paramMap.subscribe(params => {
+      this.requestId = +params.get('id')!;
+      this.loadRequestDetails();
+    });
   }
 
+  loadRequestDetails(): void {
+    this.request = this.employeeService.getRequestById(this.requestId);
+    this.loading = false;
+  }
 
-  updateStatus(newStatus: "pending" | "progress" | "done"): void {
+  updateRequestStatus(newStatus: 'pending' | 'progress' | 'done'): void {
     if (this.request) {
-      const allRequests: EmployeeRequest[] = JSON.parse(localStorage.getItem('employeeRequests') || '[]');
-  
-      const index = allRequests.findIndex(req => req.id === this.request!.id);
-      if (index !== -1) {
-        allRequests[index].requestStatus = newStatus;
-        localStorage.setItem('employeeRequests', JSON.stringify(allRequests));
-  
+      
+      const allowedStatuses: ('pending' | 'progress' | 'done')[] = ['pending', 'progress', 'done'];
+
+      if (allowedStatuses.includes(newStatus)) {
+        this.employeeService.updateRequestStatus(this.request.id, newStatus);
         this.request.requestStatus = newStatus;
-        alert('✅ Request status has been updated!');
+      } else {
+        console.error('Invalid request status:', newStatus);  
       }
     }
   }
-}  
+}
