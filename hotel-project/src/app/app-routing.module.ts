@@ -3,7 +3,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthRoutingModule } from './auth/auth-routing.module';
 import { HomeComponent } from './home/home.component';
 import { AppComponent } from './app.component';
-import { RoomComponent } from './rooms/room/room.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 
@@ -38,7 +37,7 @@ const routes: Routes = [
   {
     path: 'customer',
     loadChildren: () => import('./customer/customer.module').then(m => m.CustomerModule)
-  }
+  },
 
   {
     path: '',
@@ -49,11 +48,7 @@ const routes: Routes = [
     path:'home',
     component: HomeComponent
   }
-  ,
-  {
-    path:'room',
-    component: RoomComponent
-  }
+ 
   ,
   {
     path:'about-us',
