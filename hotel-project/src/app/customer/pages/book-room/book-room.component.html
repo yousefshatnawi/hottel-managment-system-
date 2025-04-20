@@ -1,42 +1,46 @@
 <div class="booking-container">
-  <h2>Book a Room or Hall</h2>
-  <p>Please fill out the form below to complete your reservation.</p>
+  <h2>احجز غرفة أو قاعة</h2>
+  <p>يرجى تعبئة النموذج أدناه لإتمام الحجز.</p>
 
   <form [formGroup]="bookingForm" (ngSubmit)="submitBooking()" class="booking-form">
     <div class="form-group">
-      <label for="roomId">Select Room or Hall:</label>
+      <label for="roomId">اختر غرفة أو قاعة:</label>
       <select id="roomId" formControlName="roomId">
-        <option value="" disabled>-- Select --</option>
-        <option *ngFor="let room of rooms" [value]="room.id">
-          {{ room.title }}
-        </option>
+        <option value="" disabled>-- اختر --</option>
+        <option *ngFor="let room of rooms" [value]="room.id">{{ room.title }}</option>
       </select>
     </div>
 
     <div class="form-group">
-      <label for="date">Booking Date:</label>
+      <label for="date">تاريخ الحجز:</label>
       <input
         id="date"
         type="date"
         formControlName="date"
-        placeholder="Select a date"
+        placeholder="اختر التاريخ"
       />
     </div>
 
     <div class="form-group">
-      <label for="paymentAmount">Payment Amount:</label>
+      <label for="paymentAmount">قيمة الدفع:</label>
       <input
         id="paymentAmount"
         type="number"
         formControlName="paymentAmount"
-        placeholder="Enter the payment amount"
+        placeholder="أدخل قيمة الدفع"
       />
     </div>
 
     <div class="form-actions">
       <button type="submit" [disabled]="!bookingForm.valid">
-        Book Now
+        احجز الآن
       </button>
     </div>
   </form>
+
+  <div class="form-actions">
+    <button [routerLink]="['/customer/my-reservations']">
+      حجوزاتي
+    </button>
+  </div>
 </div>
