@@ -30,9 +30,31 @@ import { CustomerService } from '../../../customer/services/customer.service';
     login() {
       if (this.loginForm.valid) {
         const { email, password } = this.loginForm.value;
-  
-       
-    
+        this.authService.loginUser(email, password)
+          .then((user: User) => {
+            console.log(user.email , user.password)
+
+            localStorage.setItem('user', JSON.stringify(user));
+              const customer = this.customerService.getCustomerByemail(user.email);
+              localStorage.setItem('customer', JSON.stringify(customer));
+            switch (user.userType) {
+              case 'admin':
+                this.router.navigate(['/admin']);
+                break;
+              case 'employee':
+                this.router.navigate(['/employee']);
+                break;
+              default:
+                this.router.navigate(['/customer']);
+            }
+          })
+          .catch(error => {
+
+            console.error(error);
+            alert('Email or password is incorrect');
+          });
+      }
+    }
   
     
 }
