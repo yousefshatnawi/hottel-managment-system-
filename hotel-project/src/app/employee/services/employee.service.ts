@@ -3,6 +3,8 @@ import { Employee } from '../../models/employee.model';
 import { employees as dummyEmployees, employees } from '../../database/employees';
 import { EmployeeRequest } from '../../models/employee-request.model';
 import { employeeRequests } from '../../database/employee-request';
+import { Customer } from '../../models/customer.model';
+import { customers } from '../../database/customer';
 
 
 
@@ -20,12 +22,15 @@ export class EmployeeService {
     return employees;
   }
 
- 
-  getRequestsByEmployee(): any[] {
-    const currentUser = JSON.parse(localStorage.getItem('loggedInUser') || '{}');
-    const allRequests: EmployeeRequest[] = JSON.parse(localStorage.getItem('employeeRequests') || '[]');
-    const allCustomers = JSON.parse(localStorage.getItem('customers') || '[]');
   
+  getRequestsByEmployee(): any[] {
+    const currentUser = JSON.parse(localStorage.getItem('user') || '{}');// loggedInUser ->user
+    // const allRequests: EmployeeRequest[] = JSON.parse(localStorage.getItem('employeeRequests') || '[]');
+    const allRequests: EmployeeRequest[] = employeeRequests;
+    //localStorage  ->database
+    // const allCustomers = JSON.parse(localStorage.getItem('customers') || '[]');
+    const allCustomers :Customer[]= customers;
+    //customers ->customer  
     const requests = allRequests.filter(req => req.employeeId === currentUser.id);
   
     
