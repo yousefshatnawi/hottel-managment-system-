@@ -40,9 +40,9 @@ export class MyRequestsComponent implements OnInit{
     this.myRequests = this.requestService.getRequestsByEmployee();
     
     if (updataStatus && updataStatus.id) {
-      const updataStatusId = this.myRequests.findIndex(r => r.id === updataStatus.id);
-      if (updataStatusId !== -1) {
-        this.myRequests[updataStatusId] = updataStatus;
+      const idx = this.myRequests.findIndex(r => r.id === updataStatus.id);
+      if (idx !== -1) {
+        this.myRequests[idx] = updataStatus;
       } else {
         this.myRequests.push(updataStatus);
       }
