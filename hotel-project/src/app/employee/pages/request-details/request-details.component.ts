@@ -43,7 +43,7 @@ export class RequestDetailsComponent implements OnInit {
     }
     const updated = this.employeeService.updateRequestStatus(requestId, newStatus);
     if (updated) {
-      this.loadRequestDetails(); // إعادة تحميل الطلب لتحديث الواجهة
+      this.loadRequestDetails();
       this.errorMessage = '';
     } else {
       this.errorMessage = `Failed to update request with ID ${requestId}.`;

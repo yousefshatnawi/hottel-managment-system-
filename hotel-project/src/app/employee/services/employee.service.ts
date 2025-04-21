@@ -14,7 +14,7 @@ const EMPLOYEES_KEY = 'EMPLOYEES_KEY';
   providedIn: 'root'
 })
 export class EmployeeService {
-  
+  private requests: EmployeeRequest[] = [...employeeRequests];
   constructor() { }
 
  
@@ -50,25 +50,24 @@ export class EmployeeService {
     return employeeRequests.filter(req => req.employeeId === employeeId);
   }
  
-
   getRequestById(id: number): EmployeeRequest | undefined {
-    return employeeRequests.find(request => request.id === id);
+    return this.requests.find(request => request.id === id);
   }
 
   updateRequestStatus(requestId: number, newStatus: 'pending' | 'progress' | 'done') {
-    const index = employeeRequests.findIndex((r: EmployeeRequest) => r.id === requestId);
+    const index = this.requests.findIndex((r: EmployeeRequest) => r.id === requestId);
     if (index !== -1) {
-      employeeRequests[index].requestStatus = newStatus;
-      console.log('Updated request:', employeeRequests[index]);
+      this.requests[index].requestStatus = newStatus;
+      console.log('Updated request:', this.requests[index]);
       return true;
     } else {
       console.error('Request not found:', requestId);
       return false;
     }
   }
-  // دالة لجلب كل الطلبات (اختياري، لو بدك تستخدمها في مكان تاني)
+
   getAllRequests(): EmployeeRequest[] {
-    return employeeRequests;
+    return this.requests;
   }
 
 addRequest(request: EmployeeRequest) {

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, HostListener, OnInit } from '@angular/core';
 import { employeeRequests } from '../../../shared/dataBase/employee-request';
 import { CustomerService } from '../../services/customer.service';
 import { EmployeeRequest } from '../../../models/employee-request.model';
@@ -29,7 +29,8 @@ export class MyRequestsComponent implements OnInit{
   constructor(
     private requestService: CustomerService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
@@ -43,7 +44,13 @@ export class MyRequestsComponent implements OnInit{
 
   loadRequests(): void {
     this.myRequests = this.requestService.getRequestsByEmployee();
-    console.log('Loaded requests:', this.myRequests);
+    console.log('Loaded requests:', JSON.stringify(this.myRequests, null, 2));
+    this.cdr.detectChanges(); // إجبار تحديث الواجهة
+  }
+
+  @HostListener('window:focus', ['$event'])
+  onFocus(event: Event): void {
+    this.loadRequests();
   }
 
   private getCustomerId(): number {
@@ -51,6 +58,8 @@ export class MyRequestsComponent implements OnInit{
     return customer.id || 0;
   }
 }
+
+
       // this.myRequests = [
     //   {
     //     id: 1,

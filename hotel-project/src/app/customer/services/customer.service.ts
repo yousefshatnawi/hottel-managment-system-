@@ -8,6 +8,7 @@ import { employeeRequests } from '../../shared/dataBase/employee-request';
 import { customers } from '../../shared/dataBase/customer';
 import { Employee } from '../../models/employee.model';
 import { employees } from '../../shared/dataBase/employee';
+import { EmployeeService } from '../../employee/services/employee.service';
 const CUSTOMERS_KEY = 'CUSTOMERS_KEY';
 
 @Injectable({
@@ -15,7 +16,7 @@ const CUSTOMERS_KEY = 'CUSTOMERS_KEY';
 })
 export class CustomerService {
 
-  constructor() { }
+  constructor(private employeeService: EmployeeService) { }
   getAllCustomers(): Customer[] {
     return customers;
   }
@@ -135,12 +136,13 @@ export class CustomerService {
         console.warn('Customer ID is missing');
         return [];
       }
-      const requests = employeeRequests.filter(req => req.customerId === id);
-      console.log('Filtered requests for customer', id, ':', requests); // للتصحيح
+      const requests = this.employeeService.getAllRequests().filter(req => req.customerId === id);
+      console.log('Filtered requests for customer', id, ':', JSON.stringify(requests, null, 2));
       return requests;
     } catch (error) {
       console.error('Error parsing customer from localStorage:', error);
       return [];
     }
   }
+
 }
