@@ -22,7 +22,7 @@ const routes: Routes = [
         component: MyRequestsComponent 
       },
       { 
-        path: 'request-details/:id', 
+        path: 'employee/request-details/:id', 
         component: RequestDetailsComponent 
       }
     ]

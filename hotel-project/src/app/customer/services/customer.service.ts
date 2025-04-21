@@ -102,23 +102,7 @@ export class CustomerService {
   getEmployeeByemail(email: string): Employee | undefined {
     return employees.find(c => c.email=== email);
   }
-  getRequestsByEmployee(): EmployeeRequest[] {
-    const customerString = localStorage.getItem('customer');
-    
-    if (!customerString) {
-      return [];
-    }
-  
-    try {
-      const customer = JSON.parse(customerString);
-      const id = customer.id;
-  
-      return employeeRequests.filter(req => req.customerId === id);
-    } catch (error) {
-      console.error('Error parsing user from localStorage:', error);
-      return [];
-    }
-  }
+ 
   getResrvtionByEmployee(): RoomAppointment[] {
     const customerString = localStorage.getItem('customer');
     
@@ -133,6 +117,29 @@ export class CustomerService {
       return roomAppointments.filter(req => req.customerId === id);
     } catch (error) {
       console.error('Error parsing user from localStorage:', error);
+      return [];
+    }
+  }
+
+  getRequestsByEmployee(): EmployeeRequest[] {
+    const customerString = localStorage.getItem('customer');
+    if (!customerString) {
+      console.warn('No customer found in localStorage');
+      return [];
+    }
+
+    try {
+      const customer = JSON.parse(customerString);
+      const id = customer.id;
+      if (!id) {
+        console.warn('Customer ID is missing');
+        return [];
+      }
+      const requests = employeeRequests.filter(req => req.customerId === id);
+      console.log('Filtered requests for customer', id, ':', requests); // للتصحيح
+      return requests;
+    } catch (error) {
+      console.error('Error parsing customer from localStorage:', error);
       return [];
     }
   }

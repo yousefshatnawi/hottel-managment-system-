@@ -1,59 +1,36 @@
 .requests-container {
-    max-width: 900px;
-    margin: 2rem auto;
-    padding: 1.5rem;
-    background-color: #fdfdfd;
-    border-radius: 1rem;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.05);
-  
-    h2 {
-      text-align: center;
-      margin-bottom: 1.5rem;
-      color: #333;
-    }
-  
-    .requests-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 1rem;
-      background-color: #fff;
-  
-      th, td {
-        padding: 1rem;
-        text-align: left;
-        border-bottom: 1px solid #ddd;
-      }
-  
-      th {
-        background-color: #f5f5f5;
-        color: #555;
-      }
-  
-      tr:hover {
-        background-color: #f9f9f9;
-      }
-  
-      .pending {
-        color: #f39c12;
-        font-weight: bold;
-      }
-  
-      .progress {
-        color: #3498db;
-        font-weight: bold;
-      }
-  
-      .done {
-        color: #27ae60;
-        font-weight: bold;
-      }
-    }
-  
-    .no-requests {
-      text-align: center;
-      color: #999;
-      margin-top: 2rem;
-      font-style: italic;
-    }
-  }
-  
+  padding: 20px;
+}
+.refresh-btn {
+  margin-bottom: 10px;
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.no-requests {
+  color: red;
+  font-weight: bold;
+}
+.request-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+.status-badge {
+  padding: 5px 10px;
+  border-radius: 12px;
+  color: white;
+}
+.pending {
+  background-color: #ffc107;
+}
+.progress {
+  background-color: #17a2b8;
+}
+.done {
+  background-color: #28a745;
+}

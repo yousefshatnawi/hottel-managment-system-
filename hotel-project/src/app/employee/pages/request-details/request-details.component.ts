@@ -14,14 +14,13 @@ export class RequestDetailsComponent implements OnInit {
   request: EmployeeRequest | undefined;
   loading: boolean = true;
   requestId: number = 0;
- 
+  errorMessage: string = '';
 
   constructor(
     private route: ActivatedRoute,
     private employeeService: EmployeeService
   ) {}
 
-  
   ngOnInit(): void {
     this.route.paramMap.subscribe(params => {
       this.requestId = +params.get('id')!;
@@ -32,16 +31,22 @@ export class RequestDetailsComponent implements OnInit {
   loadRequestDetails(): void {
     this.request = this.employeeService.getRequestById(this.requestId);
     this.loading = false;
-  }
-
-  updateRequestStatus(requestId: number |undefined, newStatus: 'pending' | 'progress' | 'done') {
-    const requests = JSON.parse(localStorage.getItem('employeeRequests') || '[]');
-  
-    const index = requests.findIndex((r: any) => r.id === requestId);
-    if (index !== -1) {
-      requests[index].requestStatus = newStatus;
-      localStorage.setItem('employeeRequests', JSON.stringify(requests));
+    if (!this.request) {
+      this.errorMessage = `Request with ID ${this.requestId} not found.`;
     }
   }
-  
+
+  updateRequestStatus(requestId: number | undefined, newStatus: 'pending' | 'progress' | 'done') {
+    if (!requestId) {
+      this.errorMessage = 'Invalid request ID.';
+      return;
+    }
+    const updated = this.employeeService.updateRequestStatus(requestId, newStatus);
+    if (updated) {
+      this.loadRequestDetails(); // إعادة تحميل الطلب لتحديث الواجهة
+      this.errorMessage = '';
+    } else {
+      this.errorMessage = `Failed to update request with ID ${requestId}.`;
+    }
+  }
 }

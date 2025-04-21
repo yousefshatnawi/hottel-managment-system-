@@ -49,21 +49,28 @@ export class EmployeeService {
   getRequestsByEmployeeId(employeeId: number): EmployeeRequest[] {
     return employeeRequests.filter(req => req.employeeId === employeeId);
   }
+ 
 
   getRequestById(id: number): EmployeeRequest | undefined {
     return employeeRequests.find(request => request.id === id);
   }
 
   updateRequestStatus(requestId: number, newStatus: 'pending' | 'progress' | 'done') {
-    const requests = employeeRequests;
-  
-    const index = requests.findIndex((r: any) => r.id === requestId);
+    const index = employeeRequests.findIndex((r: EmployeeRequest) => r.id === requestId);
     if (index !== -1) {
-      requests[index].requestStatus = newStatus;
-      console.log(requests[index])
-      localStorage.setItem('employeeRequests', JSON.stringify(requests));
+      employeeRequests[index].requestStatus = newStatus;
+      console.log('Updated request:', employeeRequests[index]);
+      return true;
+    } else {
+      console.error('Request not found:', requestId);
+      return false;
     }
   }
+  // دالة لجلب كل الطلبات (اختياري، لو بدك تستخدمها في مكان تاني)
+  getAllRequests(): EmployeeRequest[] {
+    return employeeRequests;
+  }
+
 addRequest(request: EmployeeRequest) {
   const newId = employeeRequests.length > 0 ? Math.max(...employeeRequests.map(r => r.id)) + 1 : 1;
 

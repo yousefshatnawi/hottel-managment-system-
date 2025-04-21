@@ -4,6 +4,8 @@ import { CustomerService } from '../../services/customer.service';
 import { EmployeeRequest } from '../../../models/employee-request.model';
 import { Customer } from '../../../models/customer.model';
 import { customers } from '../../../shared/dataBase/customer';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs';
 
 
 // interface RoomServiceRequest {
@@ -22,21 +24,33 @@ import { customers } from '../../../shared/dataBase/customer';
   styleUrl: './my-requests.component.scss'
 })
 export class MyRequestsComponent implements OnInit{
+  myRequests: EmployeeRequest[] = [];
 
-constructor(private requestService: CustomerService){}
-myRequests:  EmployeeRequest[] = [];
-customers: Customer[]=[];
+  constructor(
+    private requestService: CustomerService,
+    private router: Router,
+    private route: ActivatedRoute
+  ) {}
+
   ngOnInit(): void {
-    this.myRequests=[] ; 
-    if(localStorage.getItem('employeeRequests')) {
-      this.myRequests = JSON.parse(localStorage.getItem('employeeRequests') || '[]');
-      // this.customers = this.myRequests.filter((req: any) => req.customerId === this.customers.);
-    }
-    else{
-      this.myRequests = this.requestService.getRequestsByEmployee();
+    this.loadRequests();
+    this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(() => {
+      this.loadRequests();
+    });
+  }
 
-    }
+  loadRequests(): void {
+    this.myRequests = this.requestService.getRequestsByEmployee();
+    console.log('Loaded requests:', this.myRequests);
+  }
 
+  private getCustomerId(): number {
+    const customer = JSON.parse(localStorage.getItem('customer') || '{}');
+    return customer.id || 0;
+  }
+}
       // this.myRequests = [
     //   {
     //     id: 1,
@@ -60,6 +74,4 @@ customers: Customer[]=[];
     //   }
     // ];
 
-  }
-}
-
+  
