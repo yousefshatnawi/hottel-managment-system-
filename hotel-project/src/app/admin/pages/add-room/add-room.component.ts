@@ -42,7 +42,14 @@ export class AddRoomComponent {
 
   saveRoom(): void {
     if (this.isEditMode) {
-      this.adminService.updateRoom(this.room.id, this.room);
+     this.adminService.updateRoom(this.room.id, this.room)
+  .then(() => {
+    console.log('Room updated successfully');
+  })
+  .catch(error => {
+    console.error('Error updating room:', error);
+  });
+
     } else {
       this.room.id = Date.now(); 
       this.adminService.addRoom(this.room);

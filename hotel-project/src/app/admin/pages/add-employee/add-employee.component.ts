@@ -23,25 +23,48 @@ export class AddEmployeeComponent {
     const idParam = this.route.snapshot.paramMap.get('id');
     if (idParam) {
       this.id = +idParam;
-      const emp = this.adminService.getEmployees().find(e => e.id === this.id);
-      if (emp) {
-        this.newEmployee = { ...emp }; 
-      }
+this.adminService.getEmployees()
+  .then(employees => {
+    console.log('Employees:', employees);
+    const emp = employees.find(e => e.id === this.id);
+    if (emp) {
+      this.newEmployee = { ...emp }; 
+    }
+  })
+  .catch(error => {
+    console.error('Error fetching employees:', error);
+  });
+    
     }
   }
 
  addEmployee(): void {
   if (this.id) {
-    this.adminService.updateEmployee(this.id, this.newEmployee);
+    this.adminService.updateEmployee(this.id, this.newEmployee)
+  .then(() => {
+    console.log('Employee updated successfully');
+  })
+  .catch(error => {
+    console.error('Error updating employee:', error);
+  });
   } else {
 
-    const currentEmployees = this.adminService.getEmployees();
+  this.adminService.getEmployees()
+    .then(employees => {
+      console.log('Employees:', employees);
 
-    const newId = currentEmployees.length > 0
-      ? Math.max(...currentEmployees.map(e => e.id || 0)) + 1
-      : 1;
+      const newId = employees.length > 0
+        ? Math.max(...employees.map((e: Employee) => e.id || 0)) + 1
+        : 1;
 
-    this.newEmployee.id = newId;
+      this.newEmployee.id = newId;
+      this.adminService.addEmployee(this.newEmployee);
+      this.router.navigate(['/admin/employees']);
+    })
+    .catch(error => {
+      console.error('Error fetching employees:', error);
+    });
+
 
     this.adminService.addEmployee(this.newEmployee);
   }

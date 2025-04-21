@@ -26,9 +26,12 @@ export class AdminService {
   } 
 
 
-   getEmployees(): Employee[] {
-    return this.employeeList;
-  }
+ getEmployees(): Promise<Employee[]> {
+  return new Promise((resolve) => {
+    resolve(this.employeeList);
+  });
+}
+
 
      addEmployee(newEmp: Employee): void {
     this.employeeList.push(newEmp);
@@ -39,11 +42,16 @@ export class AdminService {
     this.employeeList = this.employeeList.filter(emp => emp.id !== id);
     }
 
- updateEmployee(id: number, updated: Employee): void {
-  const index = this.employeeList.findIndex(e => e.id === id);
-  if (index !== -1) {
-    this.employeeList[index] = { ...updated };
-  }
+updateEmployee(id: number, updated: Employee): Promise<void> {
+  return new Promise((resolve, reject) => {
+    const index = this.employeeList.findIndex(e => e.id === id);
+    if (index !== -1) {
+      this.employeeList[index] = { ...updated };
+      resolve();
+    } else {
+      reject(`Employee with ID ${id} not found.`);
+    }
+  });
 }
 
 
@@ -63,12 +71,18 @@ addRoom(room: Room): void {
   this.rooms.push(room);
 }
 
-updateRoom(id: number, updatedRoom: Room): void {
-  const index = this.rooms.findIndex(room => room.id === id);
-  if (index !== -1) {
-    this.rooms[index] = { ...updatedRoom };
-  }
+updateRoom(id: number, updatedRoom: Room): Promise<void> {
+  return new Promise((resolve, reject) => {
+    const index = this.rooms.findIndex(room => room.id === id);
+    if (index !== -1) {
+      this.rooms[index] = { ...updatedRoom };
+      resolve();
+    } else {
+      reject(`Room with ID ${id} not found.`);
+    }
+  });
 }
+
 
 releaseRoom(roomId: number) {
   const rooms = this.getRooms();
