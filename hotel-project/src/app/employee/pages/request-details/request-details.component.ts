@@ -25,6 +25,8 @@ export class RequestDetailsComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.requestId = +params.get('id')!;
       this.loadRequestDetails();
+      const employee = JSON.parse(localStorage.getItem('employee') || '{}');
+
     });
   }
 
@@ -37,11 +39,13 @@ export class RequestDetailsComponent implements OnInit {
   }
 
   updateRequestStatus(requestId: number | undefined, newStatus: 'pending' | 'progress' | 'done') {
+    const employee = JSON.parse(localStorage.getItem('employee') || '{}');
+
     if (!requestId) {
       this.errorMessage = 'Invalid request ID.';
       return;
     }
-    const updated = this.employeeService.updateRequestStatus(requestId, newStatus);
+    const updated = this.employeeService.updateRequestStatus(requestId, newStatus ,employee.id);
     if (updated) {
       this.loadRequestDetails();
       this.errorMessage = '';

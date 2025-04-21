@@ -6,6 +6,7 @@ import { Customer } from '../../../models/customer.model';
 import { customers } from '../../../shared/dataBase/customer';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs';
+import { ThisReceiver } from '@angular/compiler';
 
 
 // interface RoomServiceRequest {
@@ -34,53 +35,24 @@ export class MyRequestsComponent implements OnInit{
   ) {}
 
   ngOnInit(): void {
-    this.loadRequests();
-    this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
-    ).subscribe(() => {
-      this.loadRequests();
-    });
-  }
+    const updataStatus = JSON.parse(localStorage.getItem('updatedRequest') || '{}');
 
-  loadRequests(): void {
     this.myRequests = this.requestService.getRequestsByEmployee();
-    console.log('Loaded requests:', JSON.stringify(this.myRequests, null, 2));
-    this.cdr.detectChanges(); // إجبار تحديث الواجهة
+    
+    if (updataStatus && updataStatus.id) {
+      const updataStatusId = this.myRequests.findIndex(r => r.id === updataStatus.id);
+      if (updataStatusId !== -1) {
+        this.myRequests[updataStatusId] = updataStatus;
+      } else {
+        this.myRequests.push(updataStatus);
+      }
+    }
+    
+    
   }
 
-  @HostListener('window:focus', ['$event'])
-  onFocus(event: Event): void {
-    this.loadRequests();
-  }
-
-  private getCustomerId(): number {
-    const customer = JSON.parse(localStorage.getItem('customer') || '{}');
-    return customer.id || 0;
-  }
+ 
 }
 
 
-      // this.myRequests = [
-    //   {
-    //     id: 1,
-    //     date: '2025-04-10',
-    //     requestType: 'cleaning',
-    //     requestStatus: 'done',
-    //     employeeName: 'Ahmad'
-    //   },
-    //   {
-    //     id: 2,
-    //     date: '2025-04-12',
-    //     requestType: 'tv maintenance',
-    //     requestStatus: 'progress',
-    //     employeeName: 'Sara'
-    //   },
-    //   {
-    //     id: 3,
-    //     date: '2025-04-13',
-    //     requestType: 'bathroom maintenance',
-    //     requestStatus: 'pending'
-    //   }
-    // ];
-
-  
+      

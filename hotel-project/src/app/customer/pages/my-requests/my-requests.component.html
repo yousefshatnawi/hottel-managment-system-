@@ -1,18 +1,18 @@
-<div class="requests-container">
-  <h2>My Requests</h2>
-  <button (click)="loadRequests()" class="refresh-btn">Refresh Requests</button>
-  <div *ngIf="myRequests.length === 0" class="no-requests">No requests found.</div>
-  <div *ngFor="let request of myRequests" class="request-item">
-    <p><strong>Request ID:</strong> {{ request.id }}</p>
-    <p><strong>Type:</strong> {{ request.requestType }}</p>
-    <p><strong>Status:</strong> 
-      <span class="status-badge" [ngClass]="{
-        'pending': request.requestStatus === 'pending',
-        'progress': request.requestStatus === 'progress',
-        'done': request.requestStatus === 'done'
-      }">
-        {{ request.requestStatus }}
-      </span>
-    </p>
-  </div>
-</div>
+<h2>طلباتي السابقة</h2>
+
+<table border="1" cellpadding="8" cellspacing="0">
+  <thead>
+    <tr>
+      <th>request Type</th>
+      <th>date</th>
+      <th>requestStatus</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let req of myRequests">
+      <td>{{ req.requestType }}</td>
+      <td>{{ req.date }}</td>
+      <td>{{req.requestStatus}}</td>
+    </tr>
+  </tbody>
+</table>

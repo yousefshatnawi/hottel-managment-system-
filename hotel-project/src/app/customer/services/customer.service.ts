@@ -124,23 +124,18 @@ export class CustomerService {
 
   getRequestsByEmployee(): EmployeeRequest[] {
     const customerString = localStorage.getItem('customer');
+    
     if (!customerString) {
-      console.warn('No customer found in localStorage');
       return [];
     }
-
+  
     try {
       const customer = JSON.parse(customerString);
       const id = customer.id;
-      if (!id) {
-        console.warn('Customer ID is missing');
-        return [];
-      }
-      const requests = this.employeeService.getAllRequests().filter(req => req.customerId === id);
-      console.log('Filtered requests for customer', id, ':', JSON.stringify(requests, null, 2));
-      return requests;
+  
+      return employeeRequests.filter(req => req.customerId === id);
     } catch (error) {
-      console.error('Error parsing customer from localStorage:', error);
+      console.error('Error parsing user from localStorage:', error);
       return [];
     }
   }

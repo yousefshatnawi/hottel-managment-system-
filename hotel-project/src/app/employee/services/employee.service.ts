@@ -53,11 +53,19 @@ export class EmployeeService {
   getRequestById(id: number): EmployeeRequest | undefined {
     return this.requests.find(request => request.id === id);
   }
-
-  updateRequestStatus(requestId: number, newStatus: 'pending' | 'progress' | 'done') {
+  updateRequestStatus(
+    requestId: number,
+    newStatus: 'pending' | 'progress' | 'done',
+    employeeId: number
+  ) {
     const index = this.requests.findIndex((r: EmployeeRequest) => r.id === requestId);
+    
     if (index !== -1) {
       this.requests[index].requestStatus = newStatus;
+  
+      const updatedRequest = { ...this.requests[index] };
+      localStorage.setItem('updatedRequest', JSON.stringify(updatedRequest));
+  
       console.log('Updated request:', this.requests[index]);
       return true;
     } else {
@@ -65,6 +73,31 @@ export class EmployeeService {
       return false;
     }
   }
+  
+  // updateRequestStatus(
+  //   requestId: number,
+  //   newStatus: 'pending' | 'progress' | 'done',
+  //   employeeId: number
+  // ) {
+  //   const index = this.requests.findIndex((r: EmployeeRequest) => r.id === requestId);
+    
+  //   if (index !== -1) {
+  //     this.requests[index].requestStatus = newStatus;
+  
+  //     // نجيب كل الطلبات الخاصة بالموظف
+  //     const currentRequests = this.requests.filter(r => r.employeeId === employeeId);
+  
+  //     // نحدث الـ localStorage مع الكل
+  //     localStorage.setItem('employeeRequest', JSON.stringify([...currentRequests]));
+  
+  //     console.log('Updated request:', this.requests[index]);
+  //     return true;
+  //   } else {
+  //     console.error('Request not found:', requestId);
+  //     return false;
+  //   }
+  // }
+  
 
   getAllRequests(): EmployeeRequest[] {
     return this.requests;
