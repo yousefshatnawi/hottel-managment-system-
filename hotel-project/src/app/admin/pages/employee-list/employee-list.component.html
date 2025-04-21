@@ -1,15 +1,18 @@
-<div class="list-container">
-  <div class="top-bar">
-    <button class="back-btn" routerLink="/admin/dashboard">🏠 Dashboard</button>
+<div class="page-container">
+  <div class="sidebar">
+    <app-dashboard></app-dashboard>
   </div>
-    <h2>👥 Employee list </h2>
-  
+
+  <div class="main-content">
+    <h2>👥 Employee List</h2>
+
     <table class="employee-table" *ngIf="employees.length > 0">
       <thead>
         <tr>
-          <th>ID</th>
-          <th>Name</th> 
-          <th>Job</th>
+          <th>#ID</th>
+          <th>👤 Name</th>
+          <th>💼 Job</th>
+          <th>⚙️ Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -17,10 +20,12 @@
           <td>{{ emp.id }}</td>
           <td>{{ emp.name }}</td>
           <td>{{ emp.role }}</td>
+          <td>
+          <button routerLink="/admin/edit/{{emp.id}}">✏️ Edit</button>
+            <button *ngIf="emp.id !== undefined" (click)="deleteEmployee(emp.id)">🗑️ Delete</button>
+          </td>
         </tr>
       </tbody>
     </table>
-  
-   
   </div>
-  
+</div>

@@ -13,44 +13,78 @@ import { RoomAppointment } from '../../../models/room-appointment.model';
   providedIn: 'root'
 })
 export class AdminService {
+ private appointmentKey = 'roomAppointments';
 
-  private EMPLOYEES_KEY = 'employees'; 
-  private roomKey = 'rooms';
-  private customerKey = 'customers';
-  private appointmentKey = 'roomAppointments';
+ private employeeList: Employee[] = [...employees]; 
 
+ private customers: Customer[] = [...customers]; 
+
+  private rooms: Room[] = [...rooms];
 
 
   constructor(private storageService: StorageService) { 
-     const stored = localStorage.getItem(this.roomKey);
-    if (!stored) {
-      localStorage.setItem(this.roomKey, JSON.stringify(rooms));
-    }
   } 
+
+
+   getEmployees(): Employee[] {
+    return this.employeeList;
+  }
+
      addEmployee(newEmp: Employee): void {
     this.employeeList.push(newEmp);
   }
-  
-    private employeeList: Employee[] = employees;
 
-  getEmployees(): Employee[] {
-    return this.employeeList;
+
+    deleteEmployee(id: number): void {
+    this.employeeList = this.employeeList.filter(emp => emp.id !== id);
+    }
+
+ updateEmployee(id: number, updated: Employee): void {
+  const index = this.employeeList.findIndex(e => e.id === id);
+  if (index !== -1) {
+    this.employeeList[index] = { ...updated };
   }
-    getRooms(): Room[] {
-    return JSON.parse(localStorage.getItem(this.roomKey) || '[]');
+}
+
+
+  getCustomers(): Customer[] {
+    return this.customers;
   }
 
-  addRoom(room: Room): void {
-    const current = this.getRooms();
-    current.push(room);
-    localStorage.setItem(this.roomKey, JSON.stringify(current));
+  deleteCustomer(id: number): void {
+    this.customers = this.customers.filter(c => c.id !== id);
   }
- 
-    private customerList: Customer[] = customers;
+   
+ getRoomById(id: number): Room | undefined {
+  return this.rooms.find(r => r.id === id);
+}
 
-  getCustomers(): Customer[] { 
-    return this.customerList;
+addRoom(room: Room): void {
+  this.rooms.push(room);
+}
+
+updateRoom(id: number, updatedRoom: Room): void {
+  const index = this.rooms.findIndex(room => room.id === id);
+  if (index !== -1) {
+    this.rooms[index] = { ...updatedRoom };
   }
+}
+
+releaseRoom(roomId: number) {
+  const rooms = this.getRooms();
+  const room = rooms.find(r => r.id === roomId);
+
+  if (room) {
+    room.bookedStatus = false; 
+    localStorage.setItem('rooms', JSON.stringify(rooms));
+  }
+}
+
+
+  getRooms(): Room[] {
+    return this.rooms;
+  }
+
   bookRoomById(id: number): void {
   const currentRooms = this.getRooms();
   const room = currentRooms.find(r => r.id === id);
@@ -59,7 +93,7 @@ export class AdminService {
     localStorage.setItem('rooms', JSON.stringify(currentRooms));
   }
   }
- 
+
     private appointments: RoomAppointment[] = roomAppointments;
 
 
@@ -76,6 +110,6 @@ export class AdminService {
     if (index !== -1) {
       this.appointments[index].approvalStatus = status;
     }
-  }
-  
+  } 
+
 } 

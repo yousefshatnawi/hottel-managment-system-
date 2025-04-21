@@ -9,7 +9,7 @@ import { Customer } from '../../../models/customer.model';
   styleUrl: './customer-list.component.scss'
 })
 export class CustomerListComponent { 
-    customers: Customer[] = [];
+   customers: Customer[] = [];
 
   constructor(private adminService: AdminService) {}
 
@@ -19,6 +19,17 @@ export class CustomerListComponent {
 
   loadCustomers(): void {
     this.customers = this.adminService.getCustomers();
+  } 
+
+ deleteCustomer(id: number): void {
+    const customer = this.customers.find(c => c.id === id);
+    const confirmDelete = confirm(`User ${customer?.name} deleted successfully`);
+  if (confirmDelete) {
+    this.adminService.deleteCustomer(id);
+    this.loadCustomers(); 
   }
+}
+
+
 
 }

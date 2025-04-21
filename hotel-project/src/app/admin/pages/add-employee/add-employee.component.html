@@ -1,14 +1,26 @@
- <div class="top-bar">
-    <button class="back-btn" routerLink="/admin/dashboard">🏠 Dashboard</button>
+<div class="container">
+  <div class="sidebar">
+<app-dashboard></app-dashboard>
   </div>
-<h2>➕ Add New Employee</h2>
 
-<form (ngSubmit)="addEmployee()">
-  <label for="name">Name:</label><br />
-  <input type="text" id="name" [(ngModel)]="newEmployee.name" name="name" required /><br /><br />
+  <div class="main-content">
+    <h3>Employee {{id ? 'Edit': 'Add'}}</h3>
 
-  <label for="role">Role:</label><br />
-  <input type="text" id="role" [(ngModel)]="newEmployee.role" name="role" required /><br /><br />
+    <form (ngSubmit)="addEmployee()" class="employee-form card">
+      
+      <div class="form-group">
+        <label for="name">👤 Name:</label>
+        <input type="text" id="name" [(ngModel)]="newEmployee.name" name="name" required />
+      </div>
 
-  <button type="submit">Add Employee</button>
-</form>
+      <div class="form-group">
+        <label for="role">🛠️ Role:</label>
+        <input type="text" id="role" [(ngModel)]="newEmployee.role" name="role" required />
+      </div>
+
+<button type="submit" class="submit-btn">
+  {{ id ? '✏️ Update Employee' : '➕ Add Employee' }}
+</button>
+    </form>
+  </div>
+</div>

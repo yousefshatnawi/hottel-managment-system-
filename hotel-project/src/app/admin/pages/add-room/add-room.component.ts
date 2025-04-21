@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Room } from '../../../models/room.model';
 import { AdminService } from '../../services/services/admin.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-room',
@@ -10,26 +10,44 @@ import { Router } from '@angular/router';
   styleUrl: './add-room.component.scss'
 })
 export class AddRoomComponent { 
-  newRoom: Room = {
+ room: Room = {
     id: 0,
     title: '',
-    roomType: 'room',
-    floor: '',
     building: '',
+    floor: '',
     details: '',
+    roomType: 'room',
     bookedStatus: false,
-    booked: undefined,
+    booked: undefined
   };
 
-  constructor(private adminService: AdminService, private router: Router) {}
+  isEditMode = false;
 
-  addRoom() {
-    const existing = this.adminService.getRooms();
-    const newId = existing.length > 0 ? Math.max(...existing.map(r => r.id)) + 1 : 1;
-    this.newRoom.id = newId;
+  constructor(
+    private adminService: AdminService,
+    private route: ActivatedRoute,
+    private router: Router
+  ) {}
 
-    this.adminService.addRoom(this.newRoom);
-    this.router.navigate(['/admin/rooms']);
+  ngOnInit(): void {
+    const roomId = Number(this.route.snapshot.paramMap.get('id'));
+    if (roomId) {
+      const existingRoom = this.adminService.getRoomById(roomId);
+      if (existingRoom) {
+        this.room = { ...existingRoom };
+        this.isEditMode = true;
+      }
+    }
   }
 
+  saveRoom(): void {
+    if (this.isEditMode) {
+      this.adminService.updateRoom(this.room.id, this.room);
+    } else {
+      this.room.id = Date.now(); 
+      this.adminService.addRoom(this.room);
+    }
+
+    this.router.navigate(['/admin/rooms']);
+  }
 }
