@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+
+
 import { AuthRoutingModule } from './auth/auth-routing.module';
 import { HomeComponent } from './home/home.component';
 import { AppComponent } from './app.component';
@@ -58,7 +60,14 @@ const routes: Routes = [
   {
     path:'contact',
     component: ContactComponent
-  }
+  },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'auth',
+     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
+  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
+  { path: 'customer', loadChildren: () => import('./customer/customer.module').then(m => m.CustomerModule) },
+  { path: 'employee', loadChildren: () => import('./employee/employee.module').then(m => m.EmployeeModule) },
+  {path:'room', loadChildren: () => import('./rooms/rooms.module').then(m => m.RoomsModule)},
 ];
 
 @NgModule({

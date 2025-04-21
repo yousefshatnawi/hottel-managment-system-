@@ -1,1 +1,34 @@
-<p>customer-list works!</p>
+<div class="page-container">
+  <div class="sidebar">
+<app-dashboard></app-dashboard> 
+ </div>
+
+  <div class="main-content">
+    <h2>👥 Customer List</h2>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>#ID</th>
+          <th>👤 Name</th>
+          <th>📞 Phone</th>
+          <th>📧 Email</th>
+          <th>🏠 Address</th>
+          <th>⚙️ Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let customer of customers">
+          <td>{{ customer.id }}</td>
+          <td>{{ customer.name }}</td>
+          <td>{{ customer.phone }}</td>
+          <td>{{ customer.email }}</td>
+          <td>{{ customer.address }}</td>
+          <td>
+            <button (click)="deleteCustomer(customer.id)">🗑️ Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

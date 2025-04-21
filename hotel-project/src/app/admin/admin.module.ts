@@ -9,6 +9,12 @@ import { AddRoomComponent } from './pages/add-room/add-room.component';
 import { RoomsListComponent } from './pages/rooms-list/rooms-list.component';
 import { CustomerListComponent } from './pages/customer-list/customer-list.component';
 import { ReservationsReviewComponent } from './pages/reservations-review/reservations-review.component';
+import { FormsModule } from '@angular/forms'; 
+
+// import { MatFormFieldModule } from '@angular/material/form-field';
+// import { MatInputModule } from '@angular/material/input';
+// import { MatDatepickerModule } from '@angular/material/datepicker';
+// import { MatNativeDateModule } from '@angular/material/core';
 
 
 @NgModule({
@@ -23,7 +29,14 @@ import { ReservationsReviewComponent } from './pages/reservations-review/reserva
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule ,
+    FormsModule ,
+    // MatFormFieldModule,
+    // MatInputModule,
+    // MatDatepickerModule,
+    // MatNativeDateModule,
+    
+
   ]
 })
 export class AdminModule { }

@@ -17,37 +17,18 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: { role: 'admin' }, 
     children: [
-      {
-        path: 'add-employee',
-        component: AddEmployeeComponent
-      },
-      {
-        path: 'add-room',
-        component: AddRoomComponent
-      },
-      {
-        path: 'customer-list',
-        component: CustomerListComponent
-      },
-      {
-        path: 'dashboard',
-        component: DashboardComponent
-      },
-      {
-        path: 'employee-list',
-        component: EmployeeListComponent
-      },
-      {
-        path: 'reservations-review',
-        component: ReservationsReviewComponent
-      },
-      {
-        path: 'rooms-list',
-        component: RoomsListComponent
-      }
+      { path: 'dashboard', component: DashboardComponent },
+      { path: 'employees', component: EmployeeListComponent },
+      { path: 'add-employee', component: AddEmployeeComponent },
+      {path:'edit/:id', component: AddEmployeeComponent},
+      { path: 'rooms', component: RoomsListComponent},
+      { path: 'add-room', component: AddRoomComponent },
+      {path:'editRoom/:id', component: AddRoomComponent},
+      { path: 'custmouer-list', component: CustomerListComponent},
+      {path: 'reservations-review', component: ReservationsReviewComponent}
     ]
   }
-];
+]
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

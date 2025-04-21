@@ -1,1 +1,52 @@
-<p>add-room works!</p>
+<div class="container">
+  <div class="sidebar">
+   <app-dashboard></app-dashboard>
+  </div>
+
+  <div class="main-content">
+    <h3>Room {{ isEditMode ? 'Edit' : 'Add' }}</h3>
+
+    <form (ngSubmit)="saveRoom()" class="room-form card">
+      <div class="form-group">
+        <label>🏷️ Title:</label>
+        <input type="text" [(ngModel)]="room.title" name="title" required />
+      </div>
+        <div class="form-group">
+        <label>🏷️ Room Type:</label>
+        <select [(ngModel)]="room.roomType" name="roomType">
+          <option value="room">Room</option>
+          <option value="hall">Hall</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>🏢 Building:</label>
+        <input type="text" [(ngModel)]="room.building" name="building" required />
+      </div>
+
+      <div class="form-group">
+        <label>📍 Floor:</label>
+        <input type="text" [(ngModel)]="room.floor" name="floor" required />
+      </div>
+
+      <div class="form-group">
+        <label>📝 Details:</label>
+        <textarea [(ngModel)]="room.details" name="details" rows="3"></textarea>
+      </div>
+
+    
+
+      <div class="form-group">
+        <label>📌 Status:</label>
+        <select [(ngModel)]="room.bookedStatus" name="bookedStatus">
+          <option [value]="false">Available</option>
+          <option [value]="true">Booked</option>
+        </select>
+      </div>
+
+      <button type="submit" class="submit-btn">
+        {{ isEditMode ? '💾 Edit Room' : '➕ Add Room' }}
+      </button>
+    </form>
+  </div>
+</div>

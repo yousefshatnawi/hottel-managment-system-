@@ -1,1 +1,39 @@
-<p>rooms-list works!</p>
+<div class="page-container">
+  <div class="sidebar">
+<app-dashboard></app-dashboard>  </div>
+
+  <div class="main-content">
+    <h2>📋 Room / Hall List</h2>
+
+    <div class="card-grid" *ngIf="rooms.length > 0">
+      <div class="room-card" *ngFor="let room of rooms">
+        <h3>🏷️ {{ room.title }}</h3>
+        <p><strong>🏢 Building:</strong> {{ room.building }}</p>
+        <p><strong>📍 Floor:</strong> {{ room.floor }}</p>
+        <p><strong>📝 Details:</strong> {{ room.details }}</p>
+        <p><strong>📌 Status:</strong>
+          <span [class.booked]="room.bookedStatus" [class.available]="!room.bookedStatus">
+            {{ room.bookedStatus ? 'Booked' : 'Available' }}
+          </span>
+        </p>
+       <button 
+        [disabled]="room.bookedStatus"
+        (click)="bookRoom(room.id)"
+        [ngClass]="{
+       'booked-btn': room.bookedStatus,
+       'available-btn': !room.bookedStatus
+       }">
+       🛎️ Book Room
+       </button>
+
+        <button (click)="makeAvailable(room.id)" class="btn btn-warning">
+          ♻️ Make Available
+       </button>
+        <button 
+          [disabled]="room.bookedStatus"
+        (click)="goToEditRoom(room.id)">✏️ Edit Room
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

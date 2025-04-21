@@ -1,1 +1,31 @@
-<p>reservations-review works!</p>
+<div class="page-container">
+  <div class="sidebar">
+<app-dashboard></app-dashboard> 
+ </div>
+
+  <div class="main-content">
+    <h2>📋 All Reservations</h2>
+
+    <div class="card-grid" *ngIf="appointments.length > 0; else noData">
+      <div class="reservation-card" *ngFor="let a of appointments">
+        <p><strong>🆔 ID:</strong> {{ a.id }}</p>
+        <p><strong>📅 Date:</strong> {{ a.date | date: 'medium' }}</p>
+        <p><strong>👤 Customer ID:</strong> {{ a.customerId }}</p>
+        <p><strong>💰 Amount:</strong> {{ a.paymentAmount }}</p>
+        <p><strong>✅ Status:</strong> {{ a.approvalStatus }}</p>
+        <p>
+          <strong>💳 Payment:</strong> 
+          <span [class.paid]="a.paymentStatus" [class.unpaid]="!a.paymentStatus">
+            {{ a.paymentStatus ? 'Paid' : 'Unpaid' }}
+          </span>
+        </p>
+
+        <div class="actions" *ngIf="a.approvalStatus === 'pending'">
+          <button class="approve-btn" (click)="approveReservation(a.id)">✅ Approve</button>
+          <button class="reject-btn" (click)="rejectReservation(a.id)">❌ Reject</button>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #noData>
+      <p>🚫 No reservations found

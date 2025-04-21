@@ -5,12 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EmployeeModule } from './employee/employee.module';
 import { AuthModule } from './auth/auth.module';
-import { AdminModule } from './admin/admin.module';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './layout/header/header.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
+import { AdminModule } from './admin/admin.module';
 
 
 @NgModule({
@@ -27,8 +27,7 @@ import { ContactComponent } from './contact/contact.component';
     AppRoutingModule,
     EmployeeModule,
     AuthModule,
-    AdminModule,
-   
+AdminModule   
     
   ],
   providers: [],
