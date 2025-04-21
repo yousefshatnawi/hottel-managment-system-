@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrl: './rooms-list.component.scss'
 })
 export class RoomsListComponent { 
-   rooms: Room[] = [];
+  rooms: Room[] = [];
    editingRoom: Room | null = null;
 
   constructor(private adminService: AdminService , private router: Router) {}

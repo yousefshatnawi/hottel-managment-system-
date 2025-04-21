@@ -6,7 +6,7 @@ import { EmployeeListComponent } from './pages/employee-list/employee-list.compo
 import { AddRoomComponent } from './pages/add-room/add-room.component';
 import { CustomerListComponent } from './pages/customer-list/customer-list.component';
 import { ReservationsReviewComponent } from './pages/reservations-review/reservations-review.component';
-import { RoomListComponent } from '../rooms/component/room-list/room-list.component';
+import { RoomsListComponent } from './pages/rooms-list/rooms-list.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'dashboard', pathMatch: 'full'},
@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: 'employees', component: EmployeeListComponent },
   { path: 'add-employee', component: AddEmployeeComponent },
   {path:'edit/:id', component: AddEmployeeComponent},
-  { path: 'rooms', component: RoomListComponent },
+  { path: 'rooms', component: RoomsListComponent},
   { path: 'add-room', component: AddRoomComponent },
   {path:'editRoom/:id', component: AddRoomComponent},
   { path: 'custmouer-list', component: CustomerListComponent},
