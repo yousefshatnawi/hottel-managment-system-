@@ -3,11 +3,12 @@ import { Room } from '../../../models/room.model';
 import { Employee } from '../../../models/employee.model';
 import { StorageService } from '../localstroge..service';
 import { Customer } from '../../../models/customer.model';
-import { rooms } from '../dataBase/room';
-import { employees } from '../dataBase/employee';
-import { customers } from '../dataBase/customer';
-import { roomAppointments } from '../dataBase/room-appointment';
+
 import { RoomAppointment } from '../../../models/room-appointment.model';
+import { customers } from '../../../shared/dataBase/customer';
+import { employees } from '../../../shared/dataBase/employee';
+import { roomAppointments } from '../../../shared/dataBase/room-appointment';
+import { Rooms } from '../../../shared/dataBase/room';
 
 @Injectable({
   providedIn: 'root'
@@ -19,7 +20,7 @@ export class AdminService {
 
  private customers: Customer[] = [...customers]; 
 
-  private rooms: Room[] = [...rooms];
+  private room: Room[] = Rooms;
 
 
   constructor(private storageService: StorageService) { 
@@ -64,18 +65,18 @@ updateEmployee(id: number, updated: Employee): Promise<void> {
   }
    
  getRoomById(id: number): Room | undefined {
-  return this.rooms.find(r => r.id === id);
+  return this.room.find(r => r.id === id);
 }
 
 addRoom(room: Room): void {
-  this.rooms.push(room);
+  this.room.push(room);
 }
 
 updateRoom(id: number, updatedRoom: Room): Promise<void> {
   return new Promise((resolve, reject) => {
-    const index = this.rooms.findIndex(room => room.id === id);
+    const index = this.room.findIndex(room => room.id === id);
     if (index !== -1) {
-      this.rooms[index] = { ...updatedRoom };
+      this.room[index] = { ...updatedRoom };
       resolve();
     } else {
       reject(`Room with ID ${id} not found.`);
@@ -96,7 +97,7 @@ releaseRoom(roomId: number) {
 
 
   getRooms(): Room[] {
-    return this.rooms;
+    return this.room;
   }
 
   bookRoomById(id: number): void {

@@ -11,7 +11,7 @@ import { Employee } from '../../../models/employee.model';
 })
 export class AddEmployeeComponent { 
  id: number | null = null;
-  newEmployee: Employee = { id: 0, name: '', role: '' };
+  newEmployee: Employee = { id: 0, name: '', role: '', email:'' };
 
   constructor(
     private route: ActivatedRoute,

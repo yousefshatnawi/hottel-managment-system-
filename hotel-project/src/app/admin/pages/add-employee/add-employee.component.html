@@ -1,26 +1,33 @@
 <div class="container">
-  <div class="sidebar">
-<app-dashboard></app-dashboard>
-  </div>
+    <app-dashboard></app-dashboard>
+  
 
   <div class="main-content">
-    <h3>Employee {{id ? 'Edit': 'Add'}}</h3>
+    <div class="form-header">
+      <h2>{{ id ? '✏️ Edit Employee' : '➕ Add New Employee' }}</h2>
+      <p>Please fill in the employee details below.</p>
+    </div>
 
-    <form (ngSubmit)="addEmployee()" class="employee-form card">
+    <form (ngSubmit)="addEmployee()" class="employee-form card animate-fade">
       
       <div class="form-group">
         <label for="name">👤 Name:</label>
-        <input type="text" id="name" [(ngModel)]="newEmployee.name" name="name" required />
+        <input type="text" id="name" [(ngModel)]="newEmployee.name" name="name" required placeholder="Enter full name" />
       </div>
 
       <div class="form-group">
         <label for="role">🛠️ Role:</label>
-        <input type="text" id="role" [(ngModel)]="newEmployee.role" name="role" required />
+        <select id="role" [(ngModel)]="newEmployee.role" name="role" required>
+          <option value="">-- Select Role --</option>
+          <option value="employee">Employee</option>
+          <option value="admin">Admin</option>
+        </select>
       </div>
+      
 
-<button type="submit" class="submit-btn">
-  {{ id ? '✏️ Update Employee' : '➕ Add Employee' }}
-</button>
+      <button type="submit" class="submit-btn">
+        {{ id ? '✔️ Update Employee' : '➕ Add Employee' }}
+      </button>
     </form>
   </div>
 </div>

@@ -18,8 +18,8 @@ employees: Employee[] = [];
     this.loadEmployees();
   }
 
-  loadEmployees(): void {
-    this.employees = this.adminService.getEmployees();
+  async loadEmployees(): Promise<void> {
+    this.employees = await this.adminService.getEmployees();
   }
 
   deleteEmployee(id: number): void { 
@@ -33,7 +33,7 @@ employees: Employee[] = [];
 
 
   editEmployee(id: number): void {
-    const updatedEmployee: Employee = { id, name: 'Updated Name', role: 'Updated Role' };  
+    const updatedEmployee: Employee = { id, name: 'Updated Name', role: 'Updated Role' , email:'updated E-mail'};  
     this.adminService.updateEmployee(id, updatedEmployee);
     this.loadEmployees(); }
 

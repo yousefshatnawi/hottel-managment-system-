@@ -1,4 +1,4 @@
-
+<!-- 
 
 <div class="sidebar">
   <h2>📊 Dashboard</h2>
@@ -79,4 +79,69 @@
 
  
   
+ -->
 
+ <div class="sidebar">
+  <h2>📊 Dashboard</h2>
+  <nav>
+    <a routerLink="/admin/dashboard" routerLinkActive="active">🏠 Home</a>
+    <a routerLink="/admin/add-room" routerLinkActive="active">🛏️ Add Room</a>
+    <a routerLink="/admin/add-employee" routerLinkActive="active">👨‍💼 Add Employee</a>
+    <a routerLink="/admin/custmouer-list" routerLinkActive="active">👥 Customer List</a>
+    <a routerLink="/admin/employees" routerLinkActive="active">🧑‍💼 Employee List</a>
+    <a routerLink="/admin/rooms" routerLinkActive="active">🚪 Room List</a>
+    <a routerLink="/admin/reservations-review" routerLinkActive="active">📋 Reservation Review</a>
+  </nav>
+</div>
+
+<div class="main">
+  <div class="header d-flex-header">
+    <h1>Welcome to the Admin Dashboard</h1>
+    <button class="logout-btn" (click)="logout()">🚪 Logout</button>
+  </div>
+
+  <!-- <div class="cards">
+    <div class="card">
+      <h3>Total Employees</h3>
+      <p>{{ employeeCount }}</p>
+    </div>
+    <div class="card">
+      <h3>Customers</h3>
+      <p>{{ customerCount }}</p>
+    </div>
+    <div class="card">
+      <h3>Rooms</h3>
+      <p>{{ roomCount }}</p>
+    </div>
+    <div class="card">
+      <h3>Users</h3>
+      <p>{{ userCount }}</p>
+    </div>
+  </div> -->
+
+  <div *ngIf="isDashboardPage" class="calendar-todo-wrapper">
+    <div class="calendar-card">
+      <h3>📅 Calendar</h3>
+      <mat-form-field appearance="fill" class="calendar-field">
+        <mat-label>Select Date</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div class="todo-card">
+      <h2 class="mb-4 text-center">📝 To-Do List</h2>
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Enter a new task" [(ngModel)]="newTask">
+        <button class="btn btn-primary" (click)="addTask()">➕ Add</button>
+      </div>
+      <ul class="list-group">
+        <li *ngFor="let task of tasks; let i = index" class="list-group-item d-flex justify-content-between align-items-center">
+          {{ task }}
+          <button class="btn btn-sm btn-danger" (click)="removeTask(i)">🗑️</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

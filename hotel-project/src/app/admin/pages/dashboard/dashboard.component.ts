@@ -23,7 +23,10 @@ export class DashboardComponent {
   {}
        
   ngOnInit(): void {
-    this.employeeCount = this.adminService.getEmployees().length;
+    // this.employeeCount = this.adminService.getEmployees().length;
+    this.adminService.getEmployees().then(employees => {
+      this.employeeCount = employees.length;
+    });
     this.customerCount = this.adminService.getCustomers().length;
     this.roomCount = this.adminService.getRooms().length;
     //this.userCount = this.adminService.getUsers().length;

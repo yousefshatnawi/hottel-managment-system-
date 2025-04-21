@@ -16,7 +16,8 @@ const routes: Routes = [
     path: '',
     canActivate: [AuthGuard],
     data: { role: 'admin' }, 
-    children: [
+    children: [      // lazyloding
+      { path: '', component: DashboardComponent },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'employees', component: EmployeeListComponent },
       { path: 'add-employee', component: AddEmployeeComponent },

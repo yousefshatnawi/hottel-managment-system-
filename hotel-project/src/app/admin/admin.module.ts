@@ -11,10 +11,10 @@ import { CustomerListComponent } from './pages/customer-list/customer-list.compo
 import { ReservationsReviewComponent } from './pages/reservations-review/reservations-review.component';
 import { FormsModule } from '@angular/forms'; 
 
-// import { MatFormFieldModule } from '@angular/material/form-field';
-// import { MatInputModule } from '@angular/material/input';
-// import { MatDatepickerModule } from '@angular/material/datepicker';
-// import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 @NgModule({
@@ -31,10 +31,10 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     AdminRoutingModule ,
     FormsModule ,
-    // MatFormFieldModule,
-    // MatInputModule,
-    // MatDatepickerModule,
-    // MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
     
 
   ]
