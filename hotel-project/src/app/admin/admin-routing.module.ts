@@ -9,7 +9,7 @@ import { EmployeeListComponent } from './pages/employee-list/employee-list.compo
 import { ReservationsReviewComponent } from './pages/reservations-review/reservations-review.component';
 import { RoomsListComponent } from './pages/rooms-list/rooms-list.component';
 
-
+ 
 
 const routes: Routes = [
   {
@@ -17,7 +17,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: { role: 'admin' }, 
     children: [      // lazyloding
-      { path: '', component: DashboardComponent },
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'employees', component: EmployeeListComponent },
       { path: 'add-employee', component: AddEmployeeComponent },
