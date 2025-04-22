@@ -632,6 +632,7 @@ ul, ol {
 }
 .about-pic img {
 	min-width: 100%;
+	border-radius: 0px;
 }
 /*---------------------
   Service Section

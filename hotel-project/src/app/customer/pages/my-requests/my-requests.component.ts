@@ -2,11 +2,8 @@ import { ChangeDetectorRef, Component, HostListener, OnInit } from '@angular/cor
 import { employeeRequests } from '../../../shared/dataBase/employee-request';
 import { CustomerService } from '../../services/customer.service';
 import { EmployeeRequest } from '../../../models/employee-request.model';
-import { Customer } from '../../../models/customer.model';
-import { customers } from '../../../shared/dataBase/customer';
+
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
-import { filter } from 'rxjs';
-import { ThisReceiver } from '@angular/compiler';
 
 
 // interface RoomServiceRequest {

@@ -15,7 +15,14 @@ export class CustomerListComponent {
 
   ngOnInit(): void {
     this.loadCustomers();
+    const newCustomers = JSON.parse(localStorage.getItem('newCustomer') || '{}');
+    this.customers = this.adminService.getCustomers();
+    if (newCustomers) {
+      {
+        this.customers.push(newCustomers);
+      }
   }
+}
 
   loadCustomers(): void {
     this.customers = this.adminService.getCustomers();

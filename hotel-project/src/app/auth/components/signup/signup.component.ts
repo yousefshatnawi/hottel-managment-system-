@@ -34,7 +34,7 @@ export class SignupComponent implements OnInit {
         ...this.registerForm.value,
         userType: 'customer',
       };
-  
+      localStorage.setItem('newCustomer',JSON.stringify('customerData'));
       this.authService.registerUser(customerData)
         .then(() => {
           this.router.navigate(['/auth/login']);
