@@ -39,9 +39,6 @@ export class AdminService {
   }
 
 
-    deleteEmployee(id: number): void {
-    this.employeeList = this.employeeList.filter(emp => emp.id !== id);
-    }
 
 updateEmployee(id: number, updated: Employee): Promise<void> {
   return new Promise((resolve, reject) => {

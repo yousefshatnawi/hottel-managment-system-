@@ -14,7 +14,6 @@
           <th>📞 Phone</th>
           <th>📧 Email</th>
           <th>🏠 Address</th>
-          <th>⚙️ Actions</th>
         </tr>
       </thead>
       <tbody>
@@ -24,9 +23,7 @@
           <td>{{ customer.phone }}</td>
           <td>{{ customer.email }}</td>
           <td>{{ customer.address }}</td>
-          <td>
-            <button (click)="deleteCustomer(customer.id)">🗑️ Delete</button>
-          </td>
+         
         </tr>
       </tbody>
     </table>
