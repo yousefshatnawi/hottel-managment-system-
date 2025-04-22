@@ -1,78 +1,153 @@
-.booking-container {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 2rem;
-    background-color: #f9f9f9;
-    border-radius: 1rem;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+// .booking-container {
+//     max-width: 500px;
+//     margin: 0 auto;
+//     padding: 2rem;
+//     background-color: #f9f9f9;
+//     border-radius: 1rem;
+//     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    
   
-    h2 {
-      text-align: center;
-      margin-bottom: 0.5rem;
-      color: #333;
-    }
+//     h2 {
+//       text-align: center;
+//       margin-bottom: 0.5rem;
+//       color: #333;
+//     }
   
-    p {
-      text-align: center;
-      color: #666;
-      margin-bottom: 1.5rem;
-    }
+//     p {
+//       text-align: center;
+//       color: #666;
+//       margin-bottom: 1.5rem;
+//     }
   
-    .booking-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1.25rem;
+//     .booking-form {
+//       display: flex;
+//       flex-direction: column;
+//       gap: 1.25rem;
   
-      .form-group {
-        display: flex;
-        flex-direction: column;
+//       .form-group {
+//         display: flex;
+//         flex-direction: column;
   
-        label {
-          font-weight: 600;
-          margin-bottom: 0.5rem;
-          color: #444;
-        }
+//         label {
+//           font-weight: 600;
+//           margin-bottom: 0.5rem;
+//           color: #444;
+//         }
   
-        input,
-        select {
-          padding: 0.75rem;
-          border-radius: 0.5rem;
-          border: 1px solid #ccc;
-          font-size: 1rem;
-          transition: border 0.3s;
+//         input,
+//         select {
+//           padding: 0.75rem;
+//           border-radius: 0.5rem;
+//           border: 1px solid #ccc;
+//           font-size: 1rem;
+//           transition: border 0.3s;
   
-          &:focus {
-            outline: none;
-            border-color: #3f51b5;
-          }
-        }
-      }
+//           &:focus {
+//             outline: none;
+//             border-color: #3f51b5;
+//           }
+//         }
+//       }
   
-      .form-actions {
-        display: flex;
-        justify-content: center;
+//       .form-actions {
+//         display: flex;
+//         justify-content: center;
   
-        button {
-          padding: 0.75rem 1.5rem;
-          border: none;
-          border-radius: 0.5rem;
-          background-color: #3f51b5;
-          color: #fff;
-          font-weight: 600;
-          font-size: 1rem;
-          cursor: pointer;
-          transition: background-color 0.3s;
+//         button {
+//           padding: 0.75rem 1.5rem;
+//           border: none;
+//           border-radius: 0.5rem;
+//           background-color: #3f51b5;
+//           color: #fff;
+//           font-weight: 600;
+//           font-size: 1rem;
+//           cursor: pointer;
+//           transition: background-color 0.3s;
   
-          &:hover:not(:disabled) {
-            background-color: #303f9f;
-          }
+//           &:hover:not(:disabled) {
+//             background-color: #303f9f;
+//           }
   
-          &:disabled {
-            background-color: #ccc;
-            cursor: not-allowed;
-          }
-        }
-      }
-    }
+//           &:disabled {
+//             background-color: #ccc;
+//             cursor: not-allowed;
+//           }
+//         }
+//       }
+//     }
+//   }
+  
+
+
+  .booking-form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    width: 110%;
+    margin: auto;
+    font-family: 'Segoe UI', sans-serif;
   }
-  
+
+  .booking-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #444;
+  }
+
+  .booking-form input,
+  .booking-form select {
+    width: 100%;
+    padding: 10px 14px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 15px;
+    transition: 0.3s ease;
+  }
+
+  .booking-form input:focus,
+  .booking-form select:focus {
+    border-color: #dfa974;
+    outline: none;
+    box-shadow: 0 0 5px #dfa974;
+  }
+
+  /* Date Picker Icon Styling (Chrome/Edge) */
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(22%) sepia(84%) saturate(510%) hue-rotate(15deg) brightness(95%) contrast(108%);
+    cursor: pointer;
+  }
+
+  .booking-form button {
+    background-color: #dfa974;
+    color: white;
+    padding: 12px;
+    width: 100%;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  .booking-form button:hover {
+    background-color: #dfa974;
+  }
+
+  .booking-form h2 {
+    text-align: center;
+    color: #dfa974;
+    margin-bottom: 10px;
+  }
+ 
+
+  .booking-form p {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+  }

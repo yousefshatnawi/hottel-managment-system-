@@ -13,6 +13,7 @@ import { CustomerService } from './services/customer.service';
 import { RoomListComponent } from './pages/room-list/room-list.component';
 import { RoomDetailsComponent } from './pages/room-details/room-details.component';
 import { BrowserModule } from '@angular/platform-browser';
+import { SharedModule } from '../layout/shared.module';
 
 
 @NgModule({
@@ -32,7 +33,17 @@ import { BrowserModule } from '@angular/platform-browser';
     ReactiveFormsModule,
     AuthRoutingModule,
     CommonModule,
+    SharedModule
     
+  ],
+  exports: [
+    ProfileComponent, 
+    MyReservationsComponent,
+    BookRoomComponent,
+    RequestServiceComponent,
+    MyRequestsComponent,
+    RoomListComponent,
+    RoomDetailsComponent
   ],
   
 })

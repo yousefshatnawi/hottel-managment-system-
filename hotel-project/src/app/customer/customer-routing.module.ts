@@ -6,8 +6,9 @@ import { BookRoomComponent } from './pages/book-room/book-room.component';
 import { RequestServiceComponent } from './pages/request-service/request-service.component';
 import { AuthGuard } from '../auth/guard/auth.guard';
 import { MyRequestsComponent } from './pages/my-requests/my-requests.component';
-import { RoomsListComponent } from '../admin/pages/rooms-list/rooms-list.component';
+
 import { RoomDetailsComponent } from './pages/room-details/room-details.component';
+import { RoomListComponent } from './pages/room-list/room-list.component';
 
 const routes: Routes = [
   {
@@ -22,7 +23,7 @@ const routes: Routes = [
       { path: 'my-reservations', component: MyReservationsComponent },
       { path: 'profile/:id', component: ProfileComponent },
       { path: 'profile', component: ProfileComponent },
-      { path: 'room', component:RoomsListComponent  },
+      { path: 'room', component:RoomListComponent  },
       { path: 'room/:id', component: RoomDetailsComponent }
 
     ]

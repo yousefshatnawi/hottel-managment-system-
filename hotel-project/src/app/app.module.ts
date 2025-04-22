@@ -11,24 +11,33 @@ import { FooterComponent } from './layout/footer/footer.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { AdminModule } from './admin/admin.module';
+import { CustomerModule } from './customer/customer.module';
+import { SharedModule } from './layout/shared.module';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    HeaderComponent,
-    FooterComponent,
+    
     AboutComponent,
     ContactComponent,
+   
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     EmployeeModule,
     AuthModule,
-AdminModule   
+AdminModule   ,
+CustomerModule,
+SharedModule
     
+  ],
+  exports: [
+   
+    AboutComponent,
+    ContactComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

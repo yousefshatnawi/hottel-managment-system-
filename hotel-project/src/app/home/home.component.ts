@@ -21,15 +21,27 @@ export class HomeComponent implements OnInit, AfterViewInit {
   testimonials = [
     {
       text: 'After a construction project took longer than expected... we absolutely love our vacation at Sona Hotel.',
-      author: 'Alexander Vasquez',
+      author: 'yousef shatnawi',
       rating: 4.5,
-      image: 'assets/img/testimonial-logo.png'
+      image: 'assets/img/yousef.png'
     },
     {
       text: 'Great experience, lovely view and friendly staff. Will visit again!',
-      author: 'Jessica Smith',
+      author: 'Reema Bshara',
       rating: 5,
-      image: 'assets/img/testimonial-logo.png'
+      image: 'assets/img/reema2.png'
+    },
+    {
+      text: 'After a construction project took longer than expected... we absolutely love our vacation at Sona Hotel.',
+      author: 'Duaa Mehdawi',
+      rating: 4.5,
+      image: 'assets/img/duaa.png'
+    },
+    {
+      text: 'Great experience, lovely view and friendly staff. Will visit again!',
+      author: 'Anagheem Alraba',
+      rating: 5,
+      image: 'assets/img/anagheem.jpeg'
     }
   ];
   currentTestimonialIndex = 0;
