@@ -66,7 +66,6 @@ this.adminService.getEmployees()
     });
 
 
-    this.adminService.addEmployee(this.newEmployee);
   }
 
   this.router.navigate(['/admin/employees']); 
