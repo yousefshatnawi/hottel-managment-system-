@@ -28,14 +28,7 @@ export class CustomerListComponent {
     this.customers = this.adminService.getCustomers();
   } 
 
- deleteCustomer(id: number): void {
-    const customer = this.customers.find(c => c.id === id);
-    const confirmDelete = confirm(`User ${customer?.name} deleted successfully`);
-  if (confirmDelete) {
-    this.adminService.deleteCustomer(id);
-    this.loadCustomers(); 
-  }
-}
+
 
 
 

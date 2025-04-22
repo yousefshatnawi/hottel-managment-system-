@@ -15,6 +15,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { SharedModule } from '../layout/shared.module';
+import { SidebarComponent } from './pages/sidebar/sidebar.component';
 
 
 @NgModule({
@@ -25,7 +27,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     AddRoomComponent,
     RoomsListComponent,
     CustomerListComponent,
-    ReservationsReviewComponent
+    ReservationsReviewComponent ,
+    SidebarComponent
   ],
   imports: [
     CommonModule,
@@ -35,6 +38,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    SharedModule
     
 
   ]
