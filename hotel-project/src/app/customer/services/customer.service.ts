@@ -37,6 +37,8 @@ export class CustomerService {
         };
 
         allRooms.push(newAppointment);
+        localStorage.setItem('new-reservations', JSON.stringify(newAppointment))
+
         console.log('all rooms',allRooms)
         resolve(newAppointment);
       } catch (error) {

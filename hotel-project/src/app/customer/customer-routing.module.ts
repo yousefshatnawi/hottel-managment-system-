@@ -9,6 +9,7 @@ import { MyRequestsComponent } from './pages/my-requests/my-requests.component';
 
 import { RoomDetailsComponent } from './pages/room-details/room-details.component';
 import { RoomListComponent } from './pages/room-list/room-list.component';
+import { HomeComponent } from '../home/home.component';
 
 const routes: Routes = [
   {
@@ -16,7 +17,7 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: { role: 'customer' },
     children: [
-      { path: '', component: BookRoomComponent },
+      { path: '', component: HomeComponent },
       { path: 'book-room', component: BookRoomComponent },
       { path: 'my-requests', component: MyRequestsComponent },
       { path: 'request-service', component: RequestServiceComponent },

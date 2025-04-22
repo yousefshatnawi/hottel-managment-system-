@@ -9,6 +9,8 @@ import { customers } from '../../../shared/dataBase/customer';
 import { employees } from '../../../shared/dataBase/employee';
 import { roomAppointments } from '../../../shared/dataBase/room-appointment';
 import { Rooms } from '../../../shared/dataBase/room';
+import { User } from '../../../models/user.model';
+import { users } from '../../../shared/dataBase/users';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +24,7 @@ export class AdminService {
 
   private room: Room[] = Rooms;
 
+  private users: User[] =users;
 
   constructor(private storageService: StorageService) { 
   } 
@@ -57,6 +60,9 @@ updateEmployee(id: number, updated: Employee): Promise<void> {
     return this.customers;
   }
 
+  getAllUser(): User[] {
+    return this.users;
+  }
   deleteCustomer(id: number): void {
     this.customers = this.customers.filter(c => c.id !== id);
   }
@@ -122,6 +128,7 @@ releaseRoom(roomId: number) {
     if (index !== -1) {
       this.appointments[index].approvalStatus = status;
     }
+    localStorage.setItem('new-reservations', JSON.stringify(this.appointments[index]));
   } 
 
 } 

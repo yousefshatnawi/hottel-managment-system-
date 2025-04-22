@@ -21,7 +21,9 @@ export class BookRoomComponent implements OnInit {
  rooms: Room[] = [];
 
 
-  constructor(private fb: FormBuilder,    private roomService: CustomerService 
+  constructor(
+      private fb: FormBuilder, 
+       private roomService: CustomerService 
   ) {}
 
   ngOnInit(): void {
@@ -29,7 +31,7 @@ export class BookRoomComponent implements OnInit {
     this.bookingForm = this.fb.group({
       roomId: ['', Validators.required],
       date: ['', Validators.required],
-      paymentAmount: ['', [Validators.required, Validators.min(1)]]
+      // paymentAmount: ['', [Validators.required, Validators.min(1)]]
     });
   }
 
@@ -41,17 +43,17 @@ export class BookRoomComponent implements OnInit {
         approvalStatus: 'pending',
         paymentStatus: 'unpaid'
       };
-
-      console.log('Booking Submitted:', formData);
-
+      console.log('Booking Submitted:',);
       this.roomService.addRoomAppointment(formData)
         .then((newBooking) => {
           console.log('Booking successfully added:', newBooking);
+          this.bookingForm.reset();
         })
         .catch((error) => {
           console.error('Error adding booking:', error);
         });
     }
+
   }
 }
 

@@ -19,6 +19,12 @@ constructor(private requestService: CustomerService){}
  myReservations: RoomAppointment[] = [];
   ngOnInit(): void {
 
+const newReservtion = JSON.parse(localStorage.getItem('new-reservations') || '{}');
  this.myReservations = this.requestService.getResrvtionByEmployee();  
+ if (newReservtion) {
+  {
+    this.myReservations.push(newReservtion);
   }
+}
+}
 }

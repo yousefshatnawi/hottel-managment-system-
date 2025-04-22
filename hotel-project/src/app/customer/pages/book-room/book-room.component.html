@@ -1,146 +1,3 @@
-<!-- <div class="booking-container">
-  <h2>احجز غرفة أو قاعة</h2>
-  <p>يرجى تعبئة النموذج أدناه لإتمام الحجز.</p>
-
-  <form [formGroup]="bookingForm" (ngSubmit)="submitBooking()" class="booking-form">
-    <div class="form-group">
-      <label for="roomId">اختر غرفة أو قاعة:</label>
-      <select id="roomId" formControlName="roomId">
-        <option value="" disabled>-- اختر --</option>
-        <option *ngFor="let room of rooms" [value]="room.id">{{ room.title }}</option>
-      </select>
-    </div>
-
-    <div class="form-group">
-      <label for="date">تاريخ الحجز:</label>
-      <input
-        id="date"
-        type="date"
-        formControlName="date"
-        placeholder="اختر التاريخ"
-      />
-    </div>
-
-    <div class="form-group">
-      <label for="paymentAmount">قيمة الدفع:</label>
-      <input
-        id="paymentAmount"
-        type="number"
-        formControlName="paymentAmount"
-        placeholder="أدخل قيمة الدفع"
-      />
-    </div>
-
-    <div class="form-actions">
-      <button type="submit" [disabled]="!bookingForm.valid">
-        احجز الآن
-      </button>
-    </div>
-  </form>
-
-  <div class="form-actions">
-    <button [routerLink]="['/customer/my-reservations']">
-      حجوزاتي
-    </button>
-  </div>
-</div> -->
-
-
-
-
-
-<!-- 
-<form [formGroup]="bookingForm" (ngSubmit)="submitBooking()">
-  <div class="check-date">
-    <label for="date">Booking Date:</label>
-    <input type="date" class="date-input" id="date" formControlName="date" />
-  </div>
-
-  <div class="select-option">
-    <label for="room">Room or Hall:</label>
-    <select id="room" formControlName="roomId">
-      <option value="" disabled selected>-- Select --</option>
-      <option *ngFor="let room of rooms" [value]="room.id">
-        {{ room.title }}
-      </option>
-    </select>
-  </div>
-
-  <div class="select-option">
-    <label for="paymentAmount">Payment Amount:</label>
-    <input
-      type="number"
-      id="paymentAmount"
-      formControlName="paymentAmount"
-      placeholder="Enter payment amount"
-    />
-  </div>
-
-  <button type="submit" [disabled]="!bookingForm.valid">Book Now</button>
-</form> -->
-
-
-
-<!-- <div class="col-xl-4 col-lg-5 offset-xl-2 offset-lg-1">
-  <div class="booking-form" >
-      <h3>Booking Your Hotel</h3>
-     
-      <form [formGroup]="bookingForm" (ngSubmit)="submitBooking()" class="booking-form">
-  
-        <p>Please fill in the form below to complete your booking.</p>
-      
-        <label for="date">Booking Date:</label>
-        <input type="date" id="date" class="date-input" formControlName="date" />
-      
-        <label for="room">Room or Hall:</label>
-        <select id="room" formControlName="roomId">
-          <option value="" disabled selected>-- Select --</option>
-          <option *ngFor="let room of rooms" [value]="room.id">{{ room.title }}</option>
-        </select>
-      
-        <label for="paymentAmount">Payment Amount:</label>
-        <input
-          type="number"
-          id="paymentAmount"
-          formControlName="paymentAmount"
-          placeholder="Enter payment amount"
-        />
-      
-        <button type="submit" [disabled]="!bookingForm.valid">Book Now</button>
-      </form>
-      
-  </div>
-</div> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   <div class="booking-form-container">
     
     <form [formGroup]="bookingForm" (ngSubmit)="submitBooking()" class="booking-form">
@@ -156,15 +13,17 @@
         <option *ngFor="let room of rooms" [value]="room.id">{{ room.title }}</option>
       </select>
 
-      <label for="paymentAmount">Payment Amount:</label>
+      <!-- <label for="paymentAmount">Payment Amount:</label>
       <input
         type="number"
         id="paymentAmount"
         formControlName="paymentAmount"
         placeholder="Enter payment amount"
-      />
+      /> -->
 
       <button type="submit" [disabled]="!bookingForm.valid">Book Now</button>
+      <!-- <button type="submit" [routerLink]='["/customer/my-reservations"]'> my reservtion</button> -->
+
     </form>
   </div>
 

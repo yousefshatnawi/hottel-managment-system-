@@ -77,19 +77,16 @@
                                 <a href="#"><i class="fa fa-tripadvisor"></i></a>
                                 <a href="#"><i class="fa fa-instagram"></i></a>
                             </div>
-                            <a href="#" class="bk-btn">Booking Now</a>
-                            <div class="language-option">
-                                <img src="assets/img/flag.jpg" alt="Flag" width="100">
+                            <a *ngIf="!isLoggedIn" routerLink="/auth/login" class="bk-btn">Login</a>
+
+                            <!-- إذا في مستخدم مسجل دخول -->
+                            <a *ngIf="isLoggedIn" routerLink='/customer/profile' class="bk-btn">My Profile</a>                             <div class="language-option">
 
 
 
-                                <span>EN <i class="fa fa-angle-down"></i></span>
-                                <div class="flag-dropdown">
-                                    <ul>
-                                        <li><a href="#">Zi</a></li>
-                                        <li><a href="#">Fr</a></li>
-                                    </ul>
-                                </div>
+                                <!-- <span >Logout <i class="fa fa-angle-down"></i></span> -->
+                                <a *ngIf="isLoggedIn" (click)="logout()" class="fa fa-sign-out" style="font-size: 26px;"></a>
+
                             </div>
                         </div>
                     </div>
@@ -113,21 +110,12 @@
                                     <li class="active"><a routerLink="/home" routerLinkActive="active">Home</a></li>
                                     <li><a routerLink="/room" routerLinkActive="active" >Rooms</a></li>
                                     <li><a routerLink="/about-us" routerLinkActive="active">About Us</a></li>
-                                    <li><a routerLink="/pages" routerLinkActive="active">Pages</a>
-                                        <ul class="dropdown">
-                                            <li><a routerLink="/details/:id" routerLinkActive="active">Room Details</a></li>
-                                            <li><a routerLink="/blog" routerLinkActive="active">Blog Details</a></li>
-                                            <li><a href="#">Family Room</a></li>
-                                            <li><a href="#">Premium Room</a></li>
-                                        </ul>
+                                    <li><a routerLink="/pages" routerLinkActive="active">Gallery</a>
                                     </li>
-                                    <li><a href="./blog.html">News</a></li>
                                     <li><a routerLink="/contact">Contact</a></li>
                                 </ul>
                             </nav>
-                            <div class="nav-right search-switch">
-                                <i class="icon_search"></i>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>

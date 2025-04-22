@@ -16,7 +16,7 @@ import { SidebarComponent } from './pages/sidebar/sidebar.component';
     MyRequestsComponent,
     RequestDetailsComponent,
     DashboardEmployeeComponent,
-    // SidebarComponent
+    SidebarComponent
   ],
   imports: [
     CommonModule,

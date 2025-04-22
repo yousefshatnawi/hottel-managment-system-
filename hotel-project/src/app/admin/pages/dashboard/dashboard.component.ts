@@ -29,8 +29,7 @@ export class DashboardComponent {
     });
     this.customerCount = this.adminService.getCustomers().length;
     this.roomCount = this.adminService.getRooms().length;
-    //this.userCount = this.adminService.getUsers().length;
-
+    this.userCount = this.adminService.getAllUser().length;
     this.isDashboardPage = this.router.url.includes('dashboard');
         const saved = localStorage.getItem('tasks');
 
