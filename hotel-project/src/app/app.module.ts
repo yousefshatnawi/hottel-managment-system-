@@ -31,7 +31,8 @@ import { SharedModule } from './layout/shared.module';
     AuthModule,
 AdminModule   ,
 CustomerModule,
-SharedModule
+SharedModule,
+
     
   ],
   exports: [

@@ -10,43 +10,80 @@ import { Router } from '@angular/router';
   styleUrl: './dashboard-employee.component.scss'
 })
 export class DashboardEmployeeComponent implements OnInit {
-  employee: any = {}; 
-  pendingRequests: EmployeeRequest[] = [];
-  inProgressRequests: EmployeeRequest[] = [];
-  completedRequests: EmployeeRequest[] = [];
-  recentRequests: EmployeeRequest[] = [];
 
-  constructor(private employeeService: EmployeeService , private router: Router ) {}
 
-  ngOnInit(): void {
-    this.employee = JSON.parse(localStorage.getItem('employee') || '{}');
-    this.loadRequests();
+employee: any = {};
+pendingRequests: EmployeeRequest[] = [];
+inProgressRequests: EmployeeRequest[] = [];
+completedRequests: EmployeeRequest[] = [];
+recentRequests: EmployeeRequest[] = [];
+todaysRequests: EmployeeRequest[] = [];
+notifications: any[] = [];
+activityLog: any[] = [];
+
+today: string = new Date().toISOString().split('T')[0];
+
+constructor(private employeeService: EmployeeService, private router: Router) {}
+
+ngOnInit(): void {
+  this.employee = JSON.parse(localStorage.getItem('employee') || '{}');
+  this.loadRequests();
+}
+
+loadRequests() {
+  const allRequests = this.employeeService.getRequestsByEmployee();
+
+  this.pendingRequests = allRequests.filter(req => req.requestStatus === 'pending');
+  this.inProgressRequests = allRequests.filter(req => req.requestStatus === 'progres');
+  this.completedRequests = allRequests.filter(req => req.requestStatus === 'done');
+  this.recentRequests = allRequests.slice(0, 5);
+  this.todaysRequests = allRequests.filter(req => {
+    const reqDate = new Date(req.date).toISOString().split('T')[0];
+    return reqDate === this.today;
   }
+  );
 
-  loadRequests() {
-    // محاكاة تحميل البيانات
-    const allRequests = this.employeeService.getRequestsByEmployee();
-    
-    this.pendingRequests = allRequests.filter(req => req.requestStatus === 'pending');
-    this.inProgressRequests = allRequests.filter(req => req.requestStatus === 'progres');
-    this.completedRequests = allRequests.filter(req => req.requestStatus === 'done');
-    
-    // الحصول على الطلبات الأخيرة
-    this.recentRequests = allRequests.slice(0, 5);  // عرض 5 طلبات أخيرة
-  }
+  this.generateNotifications(allRequests);
+  this.generateActivityLog(allRequests);
+}
 
-  viewRequestDetails(requestId: number) {
-    // توجيه المستخدم إلى تفاصيل الطلب
-    console.log(`Viewing details for request #${requestId}`);
-  }
-   
-  logout() {
-    localStorage.clear();
-    this.router.navigate(['/login'])
-  }
+generateNotifications(requests: EmployeeRequest[]) {
+  this.notifications = requests
+    .filter(req => req.requestStatus === 'pending' || req.requestStatus === 'progres')
+    .map(req => ({
+      message: `Request #${req.id} is now "${req.requestStatus}"`,
+      date: req.date
+    }))
+    .slice(-5)
+    .reverse();
+}
 
 
-  displayedColumns: string[] = ['id', 'requestType', 'status', 'actions'];
+
+generateActivityLog(requests: EmployeeRequest[]) {
+  this.activityLog = requests
+    .filter(req => req.requestStatus === 'done')
+    .map(req => ({
+      date: req.date,
+      message: `You completed request #${req.id}`
+    }))
+    .slice(-5)
+    .reverse();
+}
+
+
+
+
+viewRequestDetails(requestId: number) {
+  this.router.navigate(['/employee/request-details', requestId]);
+}
+
+logout() {
+  localStorage.clear();
+  this.router.navigate(['/login']);
+}
+
+displayedColumns: string[] = ['id', 'requestType', 'status', 'actions'];
 
 getChipColor(status: string): string {
   switch (status) {
@@ -60,5 +97,4 @@ getChipColor(status: string): string {
       return '';
   }
 }
-
 }
