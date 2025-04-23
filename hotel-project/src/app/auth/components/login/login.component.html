@@ -1,38 +1,32 @@
-
-
-<div class="login-container">
-  <h2>Welcome Back 👋</h2>
-  <p>Please sign in to continue</p>
-
+<div class="login-form-container">
   <form [formGroup]="loginForm" (ngSubmit)="login()" class="login-form">
-    <div class="form-group">
-      <label for="email">E-mail</label>
-      <input
-        id="email"
-        type="email"
-        formControlName="email"
-        placeholder="example@email.com"
-      />
-    </div>
+    <h2>Welcome Back 👋</h2>
+    <p>Please sign in to continue</p>
 
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input
-        id="password"
-        type="password"
-        formControlName="password"
-        placeholder="Enter your password"
-      />
-    </div>
+    <label for="email">Email Address:</label>
+    <input
+      id="email"
+      type="email"
+      formControlName="email"
+      placeholder="you@example.com"
+    />
 
-    <div class="button-group">
-      <button type="submit" [disabled]="!loginForm.valid">
-        Login
-      </button>
+    <label for="password">Password:</label>
+    <input
+      id="password"
+      type="password"
+      formControlName="password"
+      placeholder="Enter your password"
+    />
 
-      <button type="button" [routerLink]="['/signup']">
-        Create Account
-      </button>
-    </div>
+    <button type="submit" [disabled]="!loginForm.valid">Login</button>
+
+    <button
+      type="button"
+      class="secondary-btn"
+      [routerLink]="['/signup']"
+    >
+      Create Account
+    </button>
   </form>
 </div>

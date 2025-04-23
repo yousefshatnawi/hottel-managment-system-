@@ -22,8 +22,7 @@
         <div class="col-lg-4 col-md-6" *ngFor="let room of roomList; let i = index">
           <div class="room-item">
             <!-- استخدام صور ثابتة من assets/img/room/room-1.jpg إلى room-6.jpg -->
-            <img [src]="'assets/img/room/room-' + i  + '.jpg'" alt="{{ room.title }}" />
-  
+            <img [src]="'assets/img/room/room-' + (i + 1) + '.jpg'" alt="{{ room.title }}" />  
             <div class="ri-text">
               <h4>{{ room.title }}</h4>
   

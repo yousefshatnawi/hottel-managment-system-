@@ -9,67 +9,29 @@ import { RoomListComponent } from './customer/pages/room-list/room-list.componen
 
 const routes: Routes = [
 
-  {   path: '', 
-    redirectTo: 'auth/login', 
-    pathMatch: 'full' 
+  {    path: '', 
+       redirectTo: 'home', 
+       pathMatch: 'full' 
   },
-  // {
-  //     path: 'auth',
-  //     component: AuthLayoutComponent,
-  //     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) 
-  // },
-  // {   
-  //     path: 'admin', 
-  //     loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) 
-  // },
-  // {  
-  //     path:'custom',
-  //     loadChildren:()=>import('./customer/customer.module').then(m=>m.CustomerModule)
-  // },
+  {    path:'home',  component: HomeComponent},
+  {    path:'about-us',  component: AboutComponent},
+  {    path:'contact-us', component: ContactComponent},
+  {    path:'room',  component: RoomListComponent},
   {
       path: 'employee', 
       loadChildren: () => import('./employee/employee.module').then(m => m.EmployeeModule) 
   },
-  
   {
-    path: 'auth',
-    loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+      path: 'auth',
+      loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
   },
   {
-    path: 'customer',
-    loadChildren: () => import('./customer/customer.module').then(m => m.CustomerModule)
+      path: 'customer',
+      loadChildren: () => import('./customer/customer.module').then(m => m.CustomerModule)
   },
-
-  // {
-  //   path: '',
-  //   component:HomeComponent
-  // },
-  
-  {
-    path:'home',
-    component: HomeComponent
-  }
- 
-  ,
-  {
-    path:'about-us',
-    component: AboutComponent
-  }
-  ,
-  {
-    path:'contact',
-    component: ContactComponent
-  },
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'auth',
-     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule) },
-  { path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
-  { path: 'customer', loadChildren: () => import('./customer/customer.module').then(m => m.CustomerModule) },
-  { path: 'employee', loadChildren: () => import('./employee/employee.module').then(m => m.EmployeeModule) },
-  {
-    path:'room',
-    component: RoomListComponent
-  }
+  {   
+      path: 'admin',
+      loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule) },
 ];
 
 @NgModule({

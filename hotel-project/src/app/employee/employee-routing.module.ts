@@ -4,6 +4,7 @@ import { MyRequestsComponent } from './pages/my-requests/my-requests.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { RequestDetailsComponent } from './pages/request-details/request-details.component';
 import { AuthGuard } from '../auth/guard/auth.guard';
+import { DashboardEmployeeComponent } from './pages/dashboard-employee/dashboard-employee.component';
 
 
 
@@ -14,6 +15,14 @@ const routes: Routes = [
     data: { role: 'employee' }, 
     children: [
       { 
+        path: '', 
+        component: DashboardEmployeeComponent 
+      },
+      { 
+        path: 'dashboard', 
+        component: DashboardEmployeeComponent 
+      },
+      { 
         path: 'profile', 
         component: ProfileComponent 
       },
@@ -22,7 +31,7 @@ const routes: Routes = [
         component: MyRequestsComponent 
       },
       { 
-        path: 'employee/request-details/:id', 
+        path: 'request-details/:id', 
         component: RequestDetailsComponent 
       }
     ]
