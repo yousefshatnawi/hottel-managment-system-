@@ -5,7 +5,7 @@ import { HeaderComponent } from './header/header.component';
 import { RouterModule } from '@angular/router';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 
-import { NgChartsModule } from 'ng2-charts';
+//import { NgChartsModule } from 'ng2-charts';
 import { ChartComponent } from './chart/chart.component'; // Importing the standalone component
 
 @NgModule({
@@ -18,8 +18,7 @@ import { ChartComponent } from './chart/chart.component'; // Importing the stand
   imports: [
     CommonModule,
     RouterModule,
-    NgChartsModule,
-     // Importing the standalone component here
+   // NgChartsModule
   ],
   exports: [
     HeaderComponent,  
