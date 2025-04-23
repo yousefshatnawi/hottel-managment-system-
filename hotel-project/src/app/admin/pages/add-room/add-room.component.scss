@@ -1,14 +1,13 @@
-/* خلفية الصفحة بنفسجية جذابة */
 .form-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   padding: 40px 20px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: white;
 }
 
-/* كرت الفورم */
+
 .form-card {
   background-color: #ffffff;
   padding: 30px 40px;
@@ -69,7 +68,6 @@
     }
   }
 
-  /* زر الحجز (متاح / محجوز) */
   .status-buttons {
     display: flex;
     gap: 10px;
@@ -104,9 +102,8 @@
     border-color: #ef4444;
   }
 
-  /* زر الإرسال */
   .formbold-btn {
-    background:white;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: #fff;
     padding: 1rem 2.5rem;
     font-size: 1.05rem;
