@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AdminService } from '../../services/services/admin.service';
 import { Customer } from '../../../models/customer.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-customer-list',
@@ -11,7 +12,7 @@ import { Customer } from '../../../models/customer.model';
 export class CustomerListComponent { 
    customers: Customer[] = [];
 
-  constructor(private adminService: AdminService) {}
+  constructor(private adminService: AdminService ,private router:Router) {}
 
   ngOnInit(): void {
     this.loadCustomers();
@@ -28,7 +29,10 @@ export class CustomerListComponent {
     this.customers = this.adminService.getCustomers();
   } 
 
-
+logout() {
+  localStorage.clear();
+  this.router.navigate(['/login'])
+}
 
 
 

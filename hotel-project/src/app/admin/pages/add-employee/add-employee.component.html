@@ -1,7 +1,11 @@
- <div class="sidebar">
+ <!--<div class="sidebar">
    <app-main-layout></app-main-layout>
   </div> 
 <div class="formbold-main-wrapper">
+   <div class="header d-flex-header">
+    <h1> Admin Dashboard</h1>
+    <button class="logout-btn" (click)="logout()">🚪 Logout</button>
+  </div>
   <div class="formbold-form-wrapper">
     <h2>➕ Add New Employee</h2>
     <p>Please fill in the employee details below.</p>
@@ -38,5 +42,56 @@
       </div>
     </form>
   </div>
-</div>
+</div>-->
 
+<div class="dashboard-container">
+  <div class="sidebar">
+    <app-main-layout></app-main-layout>
+  </div>
+
+  <div class="formbold-main-wrapper">
+    <div class="header d-flex-header">
+      <h1>Admin Dashboard</h1>
+      <button class="logout-btn" (click)="logout()">🚪 Logout</button>
+    </div>
+
+    <div class="formbold-form-wrapper">
+      <h2>➕ Add New Employee</h2>
+      <p>Please fill in the employee details below.</p>
+
+      <form (ngSubmit)="addEmployee()">
+        <div class="formbold-mb-3">
+          <label for="name" class="formbold-form-label">👤 Full Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            [(ngModel)]="newEmployee.name"
+            placeholder="Enter full Name"
+            class="formbold-form-input"
+            required
+          />
+        </div>
+
+        <div class="formbold-mb-3">
+          <label for="role" class="formbold-form-label">🛠️ Role</label>
+          <select
+            id="role"
+            name="role"
+            [(ngModel)]="newEmployee.role"
+            class="formbold-form-input"
+            required
+          >
+            <option value="" disabled selected>Choose role</option>
+            <option value="employee">Employee</option>
+            <option value="admin">Admin</option>
+          </select>
+        </div>
+
+        <div class="formbold-mb-3 formbold-pt-3">
+          <button type="submit" class="formbold-btn">➕ Add Employee</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

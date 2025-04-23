@@ -2,8 +2,12 @@
   <div class="sidebar">
     <app-main-layout></app-main-layout>
   </div>
-
+  
   <div class="main-content">
+    <div class="header d-flex-header">
+      <h1>Admin Dashboard</h1>
+      <button class="logout-btn" (click)="logout()">🚪 Logout</button>
+    </div>
     <h2>👥 Employee List</h2>
 
     <div class="table-container" *ngIf="employees.length > 0">
