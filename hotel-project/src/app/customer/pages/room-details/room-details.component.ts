@@ -11,6 +11,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class RoomDetailsComponent {
   room: Room | undefined;
+  isBooking:boolean =false;
   constructor(private route: ActivatedRoute){}
   ngOnInit(): void {
     const roomId = +this.route.snapshot.paramMap.get('id')!;

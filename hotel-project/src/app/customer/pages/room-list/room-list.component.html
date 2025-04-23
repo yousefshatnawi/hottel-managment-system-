@@ -47,7 +47,9 @@
                   <tr>
                     <td class="r-o">Status:</td>
                     <td>
-                      <span [ngClass]="{ 'booked': room.bookedStatus, 'available': !room.bookedStatus }">
+                      <span [ngClass]="{ 'booked': room.bookedStatus, 'available': !room.bookedStatus }"
+                      [ngStyle]="{ 'color': room.bookedStatus ? 'red' : 'green' }"
+                      style="font-weight: bold;">
                         {{ room.bookedStatus ? 'Booked' : 'Available' }}
                       </span>
                     </td>
