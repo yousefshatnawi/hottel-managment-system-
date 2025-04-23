@@ -1,6 +1,12 @@
 <div class="container">
  <div class="sidebar">
-<app-sidebar></app-sidebar>
+<app-main-layout></app-main-layout> 
+  </div>  
+
+  <div class="header d-flex-header">
+    <h1>👨‍💼 Employee Dashboard</h1>
+    <span><i class="fas fa-user-circle"></i> Hello, {{ newEmployee.name }}</span>
+    <button class="logout-btn" (click)="logout()">🚪 Logout</button>
  </div>  
 
   <div class="main-content">

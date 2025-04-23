@@ -70,6 +70,12 @@ this.adminService.getEmployees()
 
   this.router.navigate(['/admin/employees']); 
 }
+
+
+logout() {
+  localStorage.clear();
+  this.router.navigate(['/login'])
+}
 }
   
 

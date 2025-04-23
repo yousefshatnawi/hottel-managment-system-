@@ -4,6 +4,6 @@ export interface EmployeeRequest {
     customerId: number;
     employeeId: number;
     requestType: 'cleaning' | 'tv maintenance' | 'bathroom maintenance';
-    requestStatus: 'pending' | 'progress' | 'done';
+    requestStatus: 'pending' | 'progres' | 'done';
   }
   

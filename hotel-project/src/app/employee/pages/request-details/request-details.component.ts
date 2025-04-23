@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { EmployeeRequest } from '../../../models/employee-request.model';
 import { Employee } from '../../../models/employee.model';
 import { EmployeeService } from '../../services/employee.service';
@@ -11,14 +11,16 @@ import { EmployeeService } from '../../services/employee.service';
   styleUrl: './request-details.component.scss'
 })
 export class RequestDetailsComponent implements OnInit {
+  employee: any = {}; 
   request: EmployeeRequest | undefined;
   loading: boolean = true;
   requestId: number = 0;
   errorMessage: string = '';
-
+ 
   constructor(
     private route: ActivatedRoute,
-    private employeeService: EmployeeService
+    private employeeService: EmployeeService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -38,7 +40,7 @@ export class RequestDetailsComponent implements OnInit {
     }
   }
 
-  updateRequestStatus(requestId: number | undefined, newStatus: 'pending' | 'progress' | 'done') {
+  updateRequestStatus(requestId: number | undefined, newStatus: 'pending' | 'progres' | 'done') {
     const employee = JSON.parse(localStorage.getItem('employee') || '{}');
 
     if (!requestId) {
@@ -52,5 +54,10 @@ export class RequestDetailsComponent implements OnInit {
     } else {
       this.errorMessage = `Failed to update request with ID ${requestId}.`;
     }
+  }
+
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['/login'])
   }
 }

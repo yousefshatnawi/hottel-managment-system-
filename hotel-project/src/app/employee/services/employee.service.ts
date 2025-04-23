@@ -55,7 +55,7 @@ export class EmployeeService {
   }
   updateRequestStatus(
     requestId: number,
-    newStatus: 'pending' | 'progress' | 'done',
+    newStatus: 'pending' | 'progres' | 'done',
     employeeId: number
   ) {
     const index = this.requests.findIndex((r: EmployeeRequest) => r.id === requestId);

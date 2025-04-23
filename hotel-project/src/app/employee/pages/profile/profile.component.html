@@ -1,45 +1,94 @@
-<div class="container">
-  <!-- Sidebar -->
-  <app-sidebar></app-sidebar>
+<!-- 
+<div class="page-container">
+  <div class="sidebar">
+    <app-main-layout></app-main-layout>
+  </div>
 
-  <!-- Main Content Area -->
-  <div class="dashboard-container">
-    <!-- Header -->
-    <div class="header animate__animated animate__zoomIn">
-      <h2>Employee Profile</h2>
-      <div class="user-info">
-        <span><i class="fas fa-user-circle"></i> Hello, {{ employeeData.name }}</span>
-      </div>
+  <div class="main-content">
+    <div class="d-flex-header">
+      <h1>Employee Dashboard</h1>
+      <span>
+            <button class="logout-btn" (click)="logout()">🚪 Logout</button>
+      </span>
+     
     </div>
 
-    <!-- Profile Content -->
-    <div class="profile-container animate__animated animate__slideInUp">
-      <h2>My Profile</h2>
-      <form *ngIf="employeeData" (ngSubmit)="saveProfile()" class="profile-form">
-        <div class="form-group animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
-          <label><i class="fas fa-user"></i> Name</label>
-          <input [(ngModel)]="employeeData.name" name="name" type="text" [readonly]="!isEditing" required />
-        </div>
-        <div class="form-group animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
-          <label><i class="fas fa-briefcase"></i> Role</label>
-          <input [(ngModel)]="employeeData.role" name="role" type="text" [readonly]="!isEditing" required />
-        </div>
-        <div class="form-actions animate__animated animate__fadeInUp" style="animation-delay: 0.6s;">
-          <button type="button" class="action-btn edit-btn" (click)="enableEdit()" *ngIf="!isEditing">
-            <i class="fas fa-edit"></i> Edit
-          </button>
-          <button type="submit" class="action-btn save-btn" *ngIf="isEditing">
-            <i class="fas fa-save"></i> Save
-          </button>
-        </div>
-      </form>
-
-      <p class="success-alert animate__animated animate__slideInRight" *ngIf="success">
-        <i class="fas fa-check-circle"></i> {{ success }}
-      </p>
-      <div class="error-alert animate__animated animate__slideInRight" *ngFor="let error of errors">
-        <i class="fas fa-exclamation-circle"></i> {{ error }}
+  <div class="profile-container animate__animated animate__slideInUp">
+    <h2>My Profile</h2>
+    <form *ngIf="employeeData" (ngSubmit)="saveProfile()" class="profile-form">
+      <div class="form-group animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+        <label><i class="fas fa-user"></i> Name</label>
+        <input [(ngModel)]="employeeData.name" name="name" type="text" [readonly]="!isEditing" required />
       </div>
+      <div class="form-group animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+        <label><i class="fas fa-briefcase"></i> Role</label>
+        <input [(ngModel)]="employeeData.role" name="role" type="text" [readonly]="!isEditing" required />
+      </div>
+      <div class="form-actions animate__animated animate__fadeInUp" style="animation-delay: 0.6s;">
+        <button type="button" class="action-btn edit-btn" (click)="enableEdit()" *ngIf="!isEditing">
+          <i class="fas fa-edit"></i> Edit
+        </button>
+        <button type="submit" class="action-btn save-btn" *ngIf="isEditing">
+          <i class="fas fa-save"></i> Save
+        </button>
+      </div>
+    </form>
+
+    <p class="success-alert animate__animated animate__slideInRight" *ngIf="success">
+      <i class="fas fa-check-circle"></i> {{ success }}
+    </p>
+    <div class="error-alert animate__animated animate__slideInRight" *ngFor="let error of errors">
+      <i class="fas fa-exclamation-circle"></i> {{ error }}
     </div>
   </div>
-</div>
+</div> -->
+
+
+
+<div class="container-d">
+  <div class="sidebar">
+   <app-main-layout></app-main-layout>
+  </div>
+
+    <!-- المحتوى الرئيسي -->
+    <div class="main-content">
+      <div class="d-flex-header">
+        <h1>Employee Dashboard</h1>
+        <span>
+              <button class="logout-btn" (click)="logout()">🚪 Logout</button>
+        </span>
+       
+      </div>
+
+    
+      <div class="profile-container animate__animated animate__slideInUp">
+        <form *ngIf="employeeData" (ngSubmit)="saveProfile()" class="profile-form">
+          <h2>My Profile</h2>
+          <div class="form-group animate__animated animate__fadeInUp" style="animation-delay: 0.2s;">
+            <label><i class="fas fa-user"></i> Name</label>
+            <input [(ngModel)]="employeeData.name" name="name" type="text" [readonly]="!isEditing" required />
+          </div>
+          <div class="form-group animate__animated animate__fadeInUp" style="animation-delay: 0.4s;">
+            <label><i class="fas fa-briefcase"></i> Role</label>
+            <input [(ngModel)]="employeeData.role" name="role" type="text" [readonly]="!isEditing" required />
+          </div>
+          <div class="form-actions animate__animated animate__fadeInUp" style="animation-delay: 0.6s;">
+            <button type="button" class="btn btn-secondary" (click)="enableEdit()" *ngIf="!isEditing">
+              <i class="fas fa-edit"></i> Edit
+            </button>
+            <button type="submit" class="btn btn-primary" *ngIf="isEditing">
+              <i class="fas fa-save"></i> Save
+            </button>
+          </div>
+        </form>
+
+        <p class="success-alert animate__animated animate__slideInRight" *ngIf="success">
+          <i class="fas fa-check-circle"></i> {{ success }}
+        </p>
+        <div class="error-alert animate__animated animate__slideInRight" *ngFor="let error of errors">
+          <i class="fas fa-exclamation-circle"></i> {{ error }}
+        </div>
+      </div>
+
+    </div>
+  

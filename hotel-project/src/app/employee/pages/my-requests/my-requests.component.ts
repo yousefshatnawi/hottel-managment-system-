@@ -12,8 +12,7 @@ import { Employee } from '../../../models/employee.model';
   styleUrl: './my-requests.component.scss'
 })
 export class MyRequestsComponent implements OnInit {
-
-
+ 
   employeeData: Employee = { id: 0, name: '', role: '',email:'' };
     requests: EmployeeRequest[] = [];
     loading: boolean = true;
@@ -36,5 +35,10 @@ export class MyRequestsComponent implements OnInit {
       this.loading = false;
     }
   
-   
+    logout() {
+      localStorage.clear();
+      this.router.navigate(['/login'])
+    }
+
+    
   }

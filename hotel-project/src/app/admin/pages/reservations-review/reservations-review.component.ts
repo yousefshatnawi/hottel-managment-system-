@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RoomAppointment } from '../../../models/room-appointment.model';
 import { AdminService } from '../../services/services/admin.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reservations-review',
@@ -11,7 +12,7 @@ import { AdminService } from '../../services/services/admin.service';
 export class ReservationsReviewComponent { 
    appointments: RoomAppointment[] = [];
 
-  constructor(private adminService: AdminService) {}
+  constructor(private adminService: AdminService , private router: Router ) {}
 
   ngOnInit(): void {
   const newReservtion = JSON.parse(localStorage.getItem('new-reservations') || '{}');
@@ -31,5 +32,8 @@ export class ReservationsReviewComponent {
   rejectReservation(id: number): void {
     this.adminService.updateApprovalStatus(id, 'rejected');
   }
-
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['/login'])
+  }
 }

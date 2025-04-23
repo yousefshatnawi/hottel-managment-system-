@@ -7,7 +7,9 @@ import { MyRequestsComponent } from './pages/my-requests/my-requests.component';
 import { RequestDetailsComponent } from './pages/request-details/request-details.component';
 import { FormsModule } from '@angular/forms';
 import { DashboardEmployeeComponent } from './pages/dashboard-employee/dashboard-employee.component';
-import { SidebarComponent } from './pages/sidebar/sidebar.component';
+import { SharedModule } from "../layout/shared.module";
+
+
 
 
 @NgModule({
@@ -16,13 +18,14 @@ import { SidebarComponent } from './pages/sidebar/sidebar.component';
     MyRequestsComponent,
     RequestDetailsComponent,
     DashboardEmployeeComponent,
-    SidebarComponent
+    
   ],
   imports: [
     CommonModule,
     EmployeeRoutingModule,
     FormsModule,
-  ]
+    SharedModule
+]
   
 })
 export class EmployeeModule { }

@@ -1,57 +1,66 @@
-<div class="container">
-  <app-sidebar></app-sidebar>
-  <div class="dashboard-container">
-    <div class="header animate__animated animate__zoomIn">
-      <h2>Employee Profile</h2>
-    </div>
-    <div class="request-details-container animate__animated animate__fadeIn">
-      <h2>Request Details</h2>
-      <!-- عرض رسالة الخطأ إذا وجدت -->
-      <div *ngIf="errorMessage" class="error-message">
-        {{ errorMessage }}
+<div class="container-d">
+  <div class="sidebar">
+   <app-main-layout></app-main-layout>
+  </div>
+
+    <!-- المحتوى الرئيسي -->
+    <div class="main-content">
+      <div class="d-flex-header">
+        <h1>Employee Dashboard</h1>
+        <span>
+              <button class="logout-btn" (click)="logout()">🚪 Logout</button>
+        </span>
+       
       </div>
-      <div class="request-details animate__animated animate__fadeInUp" *ngIf="!loading && request">
-        <p>
-          <i class="fas fa-id-badge"></i>
-          <strong>Request ID:</strong> {{ request.id }}
-        </p>
-        <p>
-          <i class="fas fa-tasks"></i>
-          <strong>Request Type:</strong> {{ request.requestType }}
-        </p>
-        <p>
-          <i class="fas fa-info-circle"></i>
-          <strong>Status:</strong>
-          <span class="status-badge" [ngClass]="{
-            'pending': request.requestStatus === 'pending',
-            'progress': request.requestStatus === 'progress',
-            'done': request.requestStatus === 'done'
-          }">
-            {{ request.requestStatus }}
-          </span>
-        </p>
-        <div class="action-buttons">
-          <button class="action-btn pending-btn animate__animated animate__bounceIn" 
-                  (click)="updateRequestStatus(request.id, 'pending')" 
-                  [disabled]="request.requestStatus === 'pending'"
-                  style="animation-delay: 0.2s;">
-            <i class="fas fa-hourglass-half"></i> Set to Pending
-          </button>
-          <button class="action-btn progress-btn animate__animated animate__bounceIn" 
-                  (click)="updateRequestStatus(request.id, 'progress')" 
-                  [disabled]="request.requestStatus === 'progress'"
-                  style="animation-delay: 0.4s;">
-            <i class="fas fa-spinner"></i> Set to Progress
-          </button>
-          <button class="action-btn done-btn animate__animated animate__bounceIn" 
-                  (click)="updateRequestStatus(request.id, 'done')" 
-                  [disabled]="request.requestStatus === 'done'"
-                  style="animation-delay: 0.6s;">
-            <i class="fas fa-check-circle"></i> Set to Done
-          </button>
+ 
+    <div class="cards">
+      
+      <div class="card">
+        <div *ngIf="errorMessage" class=" error-message">
+          {{ errorMessage }}
+        </div>
+        <div  *ngIf="!loading && request">
+          <p>
+            <i class="fas fa-id-badge"></i>
+            <strong>Request ID:</strong> {{ request.id }}
+          </p>
+          <p>
+            <i class="fas fa-tasks"></i>
+            <strong>Request Type:</strong> {{ request.requestType }}
+          </p>
+          <p>
+            <i class="fas fa-info-circle"></i>
+            <strong>Status:</strong>
+            <span class="status-badge" [ngClass]="{
+              'pending': request.requestStatus === 'pending',
+              'progres': request.requestStatus === 'progres',
+              'done': request.requestStatus === 'done'
+            }">
+              {{ request.requestStatus }}
+            </span>
+          </p>
+          <div class="action-buttons">
+            <button class="action-btn pending-btn animate__animated animate__bounceIn" 
+                    (click)="updateRequestStatus(request.id, 'pending')" 
+                    [disabled]="request.requestStatus === 'pending'"
+                    style="animation-delay: 0.2s;">
+              <i class="fas fa-hourglass-half"></i> Set to Pending
+            </button>
+            <button class="action-btn progres-btn animate__animated animate__bounceIn" 
+                    (click)="updateRequestStatus(request.id, 'progres')" 
+                    [disabled]="request.requestStatus === 'progres'"
+                    style="animation-delay: 0.4s;">
+              <i class="fas fa-spinner"></i> Set to Progress
+            </button>
+            <button class="action-btn done-btn animate__animated animate__bounceIn" 
+                    (click)="updateRequestStatus(request.id, 'done')" 
+                    [disabled]="request.requestStatus === 'done'"
+                    style="animation-delay: 0.6s;">
+              <i class="fas fa-check-circle"></i> Set to Done
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+      </div>
+     
   </div>
-</div>
-
