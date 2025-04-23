@@ -63,6 +63,10 @@
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   }
 }
+
+  .card {
+    width: 34%;
+}
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -154,6 +158,7 @@ button:hover:not([disabled]) {
   justify-content: space-between;
   margin-top: 10px;
   gap: 10px;
+  
 }
 
 /* Responsive */
@@ -190,7 +195,10 @@ button:hover:not([disabled]) {
   }
 }
 
-
+strong {
+  font-weight: bolder;
+  padding: 5px;
+}
 
 .error-message {
   color: red;
@@ -214,7 +222,9 @@ button:hover:not([disabled]) {
 .request-details strong {
   font-weight: 600;
   color: #007bff;
+  
 }
+
 .request-details i {
   font-size: 18px;
   color: #007bff;
@@ -246,6 +256,9 @@ button:hover:not([disabled]) {
   gap: 15px;
   justify-content: center;
   margin-top: 20px;
+  
+    width: 50%;
+
 }
 .action-btn {
   padding: 10px 20px;
