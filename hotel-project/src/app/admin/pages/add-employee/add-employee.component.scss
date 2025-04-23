@@ -50,7 +50,7 @@
   border-color: #667eea;
   box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
 }
-
+ 
 .formbold-btn {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   color: #fff;
@@ -75,4 +75,24 @@
 
 .formbold-pt-3 {
   padding-top: 1rem;
+}
+.formbold-main-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  padding: 3rem 1rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* حتى يكون الفورم دائمًا بأسفل الصفحة */
+.formbold-form-wrapper {
+  max-width: 450px;
+  width: 100%;
+  background: #ffffff;
+  padding: 2.5rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin: 0 auto auto auto; /* هذا يضعه في الأسفل */
 }

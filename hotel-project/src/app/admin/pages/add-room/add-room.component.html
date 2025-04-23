@@ -1,52 +1,66 @@
-<div class="container">
-  <div class="sidebar">
-   <app-main-layout></app-main-layout>
-  </div>
+<div class="app-container">
+  <aside class="sidebar">
+    <app-main-layout></app-main-layout>
+  </aside>
 
-  <div class="main-content">
-    <h3>Room {{ isEditMode ? 'Edit' : 'Add' }}</h3>
+  <section class="content">
+    <div class="form-wrapper">
+      <div class="form-card">
+        <h3>➕ {{ isEditMode ? 'Edit' : 'Add' }} Room</h3>
+        <p>Fill in the details below</p>
+        <form (ngSubmit)="saveRoom()">
+          <div class="field">
+            <label for="title">🏷️ Title</label>
+            <input id="title" type="text" name="title" [(ngModel)]="room.title" placeholder="Conference 101" required />
+          </div>
 
-    <form (ngSubmit)="saveRoom()" class="room-form card">
-      <div class="form-group">
-        <label>🏷️ Title:</label>
-        <input type="text" [(ngModel)]="room.title" name="title" required />
-      </div>
-        <div class="form-group">
-        <label>🏷️ Room Type:</label>
-        <select [(ngModel)]="room.roomType" name="roomType">
-          <option value="room">Room</option>
-          <option value="hall">Hall</option>
-        </select>
-      </div>
+          <div class="field">
+            <label for="type">🏷️ Room Type</label>
+            <select id="type" name="roomType" [(ngModel)]="room.roomType">
+              <option value="room">Room</option>
+              <option value="hall">Hall</option>
+            </select>
+          </div>
 
-      <div class="form-group">
-        <label>🏢 Building:</label>
-        <input type="text" [(ngModel)]="room.building" name="building" required />
-      </div>
-
-      <div class="form-group">
-        <label>📍 Floor:</label>
-        <input type="text" [(ngModel)]="room.floor" name="floor" required />
-      </div>
-
-      <div class="form-group">
+          <div class="field two-cols">
+            <div>
+              <label for="building">🏢 Building</label>
+              <input id="building" type="text" name="building" [(ngModel)]="room.building" placeholder="Main Tower" required />
+            </div>
+            <div>
+              <label for="floor">📍 Floor</label>
+              <input id="floor" type="text" name="floor" [(ngModel)]="room.floor" placeholder="3rd Floor" required />
+            </div>
+          </div>
+          
+          <div class="form-group">
         <label>📝 Details:</label>
-        <textarea [(ngModel)]="room.details" name="details" rows="3"></textarea>
+        <textarea  [(ngModel)]="room.details" name="details" rows="3"></textarea>
       </div>
-
-    
-
-      <div class="form-group">
-        <label>📌 Status:</label>
-        <select [(ngModel)]="room.bookedStatus" name="bookedStatus">
-          <option [value]="false">Available</option>
-          <option [value]="true">Booked</option>
-        </select>
-      </div>
-
-      <button type="submit" class="submit-btn">
-        {{ isEditMode ? '💾 Save edit' : '➕ Add Room' }}
-      </button>
-    </form>
+<div class="form-group">
+  <label>📌 Status:</label>
+  <div class="status-buttons">
+    <button type="button"
+            [class.active-available]="room.bookedStatus === false"
+            (click)="room.bookedStatus = false">
+      ✅ Available
+    </button>
+    <button type="button"
+            [class.active-booked]="room.bookedStatus === true"
+            (click)="room.bookedStatus = true">
+      🚫 Booked
+    </button>
   </div>
+</div>
+
+
+        <div class="formbold-mb-3 formbold-pt-3">
+            <button type="submit" class="formbold-btn">
+              {{ isEditMode ? '💾 Save Changes' : '➕ Add Room' }}
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
 </div>
