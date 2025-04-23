@@ -1,8 +1,14 @@
 <div class="page-container">
   <div class="sidebar">
-<app-sidebar></app-sidebar>  </div>
+    <app-main-layout></app-main-layout>
+  </div>
 
   <div class="main-content">
+     <div class=" aaa">
+      <h1>Admin Dashboard</h1>
+      <button class="logout-btn" (click)="logout()">🚪 Logout</button>
+    </div>
+
     <h2>📋 Room / Hall List</h2>
 
     <div class="card-grid" *ngIf="rooms.length > 0">
@@ -18,22 +24,21 @@
             {{ room.bookedStatus ? 'Booked' : 'Available' }}
           </span>
         </p>
-       <button 
-        [disabled]="room.bookedStatus"
-        (click)="bookRoom(room.id)"
-        [ngClass]="{
-       'booked-btn': room.bookedStatus,
-       'available-btn': !room.bookedStatus
-       }">
-       🛎️ Book Room
-       </button>
 
-        <button (click)="makeAvailable(room.id)" class="btn btn-warning">
-          ♻️ Make Available
-       </button>
         <button 
           [disabled]="room.bookedStatus"
-        (click)="goToEditRoom(room.id)">✏️ Edit Room
+          (click)="bookRoom(room.id)"
+          [ngClass]="{ 'booked-btn': room.bookedStatus, 'available-btn': !room.bookedStatus }">
+          🛎️ Book Room
+        </button>
+
+        <button (click)="makeAvailable(room.id)" class="action-btn warning">♻️ Make Available</button>
+
+        <button  
+          [disabled]="room.bookedStatus"
+          (click)="goToEditRoom(room.id)" 
+          class="action-btn edit">
+          ✏️ Edit Room
         </button>
       </div>
     </div>

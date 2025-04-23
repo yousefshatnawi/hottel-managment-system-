@@ -1,0 +1,42 @@
+<div class="layout-container">
+    <!-- Sidebar based on user type -->
+    <ng-container *ngIf="currentUser as user">
+      
+      <!-- Admin Sidebar -->
+      <div *ngIf="user.userType === 'admin'" class="sidebar">
+        <h2>📊 Dashboard</h2>
+        <nav>
+          <a routerLink="/admin/dashboard" routerLinkActive="active">🏠 Home</a>
+          <a routerLink="/admin/add-room" routerLinkActive="active">🛏️ Add Room</a>
+          <a routerLink="/admin/add-employee" routerLinkActive="active">👨‍💼 Add Employee</a>
+          <a routerLink="/admin/custmouer-list" routerLinkActive="active">👥 Customer List</a>
+          <a routerLink="/admin/employees" routerLinkActive="active">🧑 Employee List</a>
+          <a routerLink="/admin/rooms" routerLinkActive="active">🚪 Room List</a>
+          <a routerLink="/admin/reservations-review" routerLinkActive="active">📋 Reservation Review</a>
+        </nav>
+      </div>
+  
+      <!-- Employee Sidebar -->
+      <div *ngIf="user.userType === 'employee'" class="sidebar" [class.active]="isSidebarOpen">
+        <div class="sidebar-header">
+          <h2>📋 Employee Dashboard</h2>
+          <!-- <button class="toggle-btn" (click)="toggleSidebar()">☰</button> -->
+        </div>
+        <nav>
+          <a routerLink="/employee/dashboard" routerLinkActive="active">📊 Dashboard</a>
+          <a routerLink="/employee/profile" routerLinkActive="active">👤 View Profile</a>
+          <a routerLink="/employee/my-requests" routerLinkActive="active">📝 My Requests</a>
+          <a  routerLink="/employee/chart" routerLinkActive="active"><i class="fas fa-chart-pie"></i> charts</a>
+        </nav>
+      </div>
+      
+       
+    
+    </ng-container>
+  
+    <!-- Main Content -->
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+  

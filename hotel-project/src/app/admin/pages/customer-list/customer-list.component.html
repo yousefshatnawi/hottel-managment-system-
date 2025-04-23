@@ -1,29 +1,36 @@
 <div class="page-container">
   <div class="sidebar">
-<app-sidebar></app-sidebar>
- </div>
+    <app-main-layout></app-main-layout>
+  </div>
 
-  <div class="main-content">
-    <h2>👥 Customer List</h2>
+  <div class="main-wrapper">
+    <div class="header d-flex-header">
+      <h1>Admin Dashboard</h1>
+      <button class="logout-btn" (click)="logout()">🚪 Logout</button>
+    </div>
 
-    <table class="table">
-      <thead>
-        <tr>
-          <th>👤 Name</th>
-          <th>📞 Phone</th>
-          <th>📧 Email</th>
-          <th>🏠 Address</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let customer of customers">
-          <td>{{ customer.name }}</td>
-          <td>{{ customer.phone }}</td>
-          <td>{{ customer.email }}</td>
-          <td>{{ customer.address }}</td>
-         
-        </tr>
-      </tbody>
-    </table>
+    <div class="main-content">
+      <h2>👥 Customer List</h2>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>👤 Name</th>
+              <th>📞 Phone</th>
+              <th>📧 Email</th>
+              <th>🏠 Address</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let customer of customers">
+              <td>{{ customer.name }}</td>
+              <td>{{ customer.phone }}</td>
+              <td>{{ customer.email }}</td>
+              <td>{{ customer.address }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
   </div>
 </div>

@@ -58,5 +58,10 @@ export class AddRoomComponent {
     }
 
     this.router.navigate(['/admin/rooms']);
-  }
+  } 
+  
+logout() {
+  localStorage.clear();
+  this.router.navigate(['/login'])
+}
 }

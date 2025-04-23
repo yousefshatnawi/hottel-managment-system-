@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Employee } from '../../../models/employee.model';
 import { EmployeeService } from '../../services/employee.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-profile',
@@ -15,7 +16,7 @@ export class ProfileComponent implements OnInit {
   success = '';
   errors: string[] = [];
 
-  constructor(private employeeService: EmployeeService) {}
+  constructor(private employeeService: EmployeeService , private router: Router) {}
 
   ngOnInit(): void {
     const employee = JSON.parse(localStorage.getItem('employee') || '{}');
@@ -42,5 +43,9 @@ export class ProfileComponent implements OnInit {
         this.errors.push(err);
         this.loading = false;
       });
+  }
+  logout() {
+    localStorage.clear();
+    this.router.navigate(['/login'])
   }
 }

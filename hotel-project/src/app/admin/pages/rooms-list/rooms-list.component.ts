@@ -47,5 +47,9 @@ goToEditRoom(id: number): void {
     this.rooms = this.adminService.getRooms();
   }
 
+ logout() {
+  localStorage.clear();
+  this.router.navigate(['/login'])
+}
 
 }

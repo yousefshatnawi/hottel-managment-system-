@@ -5,6 +5,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 import { RequestDetailsComponent } from './pages/request-details/request-details.component';
 import { AuthGuard } from '../auth/guard/auth.guard';
 import { DashboardEmployeeComponent } from './pages/dashboard-employee/dashboard-employee.component';
+import { ChartComponent } from '../layout/chart/chart.component';
 
 
 
@@ -33,6 +34,10 @@ const routes: Routes = [
       { 
         path: 'request-details/:id', 
         component: RequestDetailsComponent 
+      },
+      { 
+        path: 'chart', 
+        component: ChartComponent 
       }
     ]
   },

@@ -3,20 +3,29 @@ import { CommonModule } from '@angular/common';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { RouterModule } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { MainLayoutComponent } from './main-layout/main-layout.component';
+
+import { NgChartsModule } from 'ng2-charts';
+import { ChartComponent } from './chart/chart.component'; // Importing the standalone component
+
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
+    MainLayoutComponent,
+    ChartComponent
   ],
   imports: [
     CommonModule,
     RouterModule,
-    FormsModule
+    NgChartsModule
   ],
   exports: [
     HeaderComponent,  
     FooterComponent,
+    MainLayoutComponent,
+    ChartComponent
+    
   ],
 })
 export class SharedModule { }

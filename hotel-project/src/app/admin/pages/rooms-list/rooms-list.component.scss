@@ -9,12 +9,46 @@
   background-color: #f4f4f4;
   padding: 15px;
   border-right: 1px solid #ddd;
-}
+}  
+
+
 
 .main-content {
   flex: 1;
   padding: 30px;
   background-color: #fff;
+}
+.aaa {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  background: #f9f9f9;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.logout-btn {
+  background: #ff4d4f;
+  color: white;
+  font-size: 14px;
+  border: none;
+  border-radius: 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+  background: #d9363e;
+}
+
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
 h2 {
@@ -82,8 +116,10 @@ button:hover:not([disabled]) {
   color: green;
   font-weight: bold;
 }
+
+/* زر الحجز - أحمر */
 .available-btn {
-  background-color: #28a745; 
+  background-color: #dc3545; /* أحمر */
   color: white;
   border: none;
   padding: 10px 20px;
@@ -93,15 +129,25 @@ button:hover:not([disabled]) {
 }
 
 .available-btn:hover {
-  background-color: #218838;
+  background-color: #c82333; /* أحمر غامق عند المرور */
 }
 
-.booked-btn {
-  background-color: #dc3545; 
+/* زر إتاحة الغرفة - أخضر */
+.action-btn.warning {
+  background-color: #28a745; /* أخضر */
   color: white;
   border: none;
   padding: 10px 20px;
   border-radius: 8px;
-  cursor: not-allowed;
-  opacity: 0.8;
+  cursor: pointer;
+  margin-top: 10px;
+  width: 100%;
+  transition: background-color 0.3s ease;
 }
+
+.action-btn.warning:hover {
+  background-color: #218838; /* أخضر غامق */
+}
+
+
+

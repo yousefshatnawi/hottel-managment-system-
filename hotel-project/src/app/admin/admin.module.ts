@@ -16,7 +16,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { SharedModule } from '../layout/shared.module';
-import { SidebarComponent } from './pages/sidebar/sidebar.component';
 
 
 @NgModule({
@@ -28,7 +27,7 @@ import { SidebarComponent } from './pages/sidebar/sidebar.component';
     RoomsListComponent,
     CustomerListComponent,
     ReservationsReviewComponent ,
-    SidebarComponent
+  
   ],
   imports: [
     CommonModule,
