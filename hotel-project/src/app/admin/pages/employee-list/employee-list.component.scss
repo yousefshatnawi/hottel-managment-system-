@@ -1,66 +1,76 @@
-.page-container {
-  display: flex;
-  min-height: 100vh;
-  font-family: Arial, sans-serif;
-}
 
-.sidebar {
-  width: 250px;
-  background-color: #f4f4f4;
-  padding: 15px;
-  border-right: 1px solid #ddd;
-}
+  .page-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: #f8fafc;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
 
-.main-content {
-  flex: 1;
-  padding: 30px;
-  background-color: #fff;
-}
+  .sidebar {
+    width: 240px;
+    background-color: #1e293b;
+    color: #fff;
+    padding: 20px;
+  }
 
-h2 {
-  margin-bottom: 20px;
-  color: #333;
-}
+  .main-content {
+    flex: 1;
+    padding: 40px;
+    background-color: #f8fafc;
+  }
 
-.employee-table {
-  width: 100%;
-  border-collapse: collapse;
-  background-color: #fafafa;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-}
+  h2 {
+    font-size: 26px;
+    color: #1e293b;
+    margin-bottom: 30px;
+  }
 
-.employee-table th,
-.employee-table td {
-  border: 1px solid #ccc;
-  padding: 12px;
-  text-align: left;
-}
+  .table-container {
+    background: white;
+    border-radius: 16px;
+    padding: 24px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    overflow-x: auto;
+  }
 
-.employee-table th {
-  background-color: #f0f0f0;
-  font-weight: bold;
-}
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 12px;
+  }
 
-.employee-table button {
-  padding: 6px 12px;
-  margin: 0 4px;
-  border: none;
-  border-radius: 6px;
-  font-size: 14px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-}
+  thead th {
+    text-align: left;
+    font-weight: 600;
+    color: #475569;
+    padding: 12px 20px;
+    background-color: #f1f5f9;
+    border-radius: 8px 8px 0 0;
+  }
 
-.employee-table button:hover {
-  transform: scale(1.05);
-}
+  tbody tr {
+    background-color: #ffffff;
+    transition: 0.3s;
+    border-radius: 12px;
+  }
 
-.employee-table button:nth-child(1) {
-  background-color: #4CAF50; 
-  color: white;
-}
+  tbody tr:hover {
+    background-color: #f9fafb;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+  }
 
-.employee-table button:nth-child(2) {
-  background-color: #f44336; 
-  color: white;
-}
+  td {
+    padding: 14px 20px;
+    color: #334155;
+    font-size: 14px;
+  }
+
+  td:last-child {
+    text-align:start;
+  }
+
+
+
+
+
+

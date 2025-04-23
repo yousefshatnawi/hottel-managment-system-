@@ -1,13 +1,5 @@
 <div class="page-container">
-  <div class="sidebar">
-<app-main-layout></app-main-layout>
-  </div>
-
-  <div class="header">
-    <h1>👥 Customer List</h1>
-    <button class="logout-btn" (click)="logout()">🚪 Logout</button>
-  </div>
-
+  
   <div class="sidebar">
     <app-main-layout></app-main-layout>
  </div>
@@ -15,7 +7,7 @@
   <div class="main-content">
     <h2>📋 All Reservations</h2>
 
-    <div class="card-grid" *ngIf="appointments.length > 0; else noData">
+    <div class="card-grid" *ngIf="appointments.length > 0">
       <div class="reservation-card" *ngFor="let a of appointments">
         <p><strong>🆔 ID:</strong> {{ a.id }}</p>
         <p><strong>📅 Date:</strong> {{ a.date | date: 'medium' }}</p>
@@ -36,5 +28,4 @@
       </div>
     </div>
 
-    <ng-template #noData>
-      <p>🚫 No reservations found
+
