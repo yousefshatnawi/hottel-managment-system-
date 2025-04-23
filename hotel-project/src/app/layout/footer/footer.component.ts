@@ -7,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrl: './footer.component.css'
 })
 export class FooterComponent {
+subscribeNewsletter() {
+throw new Error('Method not implemented.');
+}
+newsletterEmail: any;
 
 }

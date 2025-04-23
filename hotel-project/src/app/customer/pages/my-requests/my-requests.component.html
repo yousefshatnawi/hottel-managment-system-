@@ -1,18 +1,22 @@
-<h2>طلباتي السابقة</h2>
+<h3 class="section-title">My Previous Requests</h3>
 
-<table border="1" cellpadding="8" cellspacing="0">
-  <thead>
-    <tr>
-      <th>request Type</th>
-      <th>date</th>
-      <th>requestStatus</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let req of myRequests">
-      <td>{{ req.requestType }}</td>
-      <td>{{ req.date }}</td>
-      <td>{{req.requestStatus}}</td>
-    </tr>
-  </tbody>
-</table>
+<div class="table-responsive">
+  <table class="table table-bordered text-center">
+    <thead class="thead-light">
+      <tr>
+        <th>ID request</th>
+        <th>Request Type</th>
+        <th>Date</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let req of myRequests">
+        <td>{{ req.id }}</td>
+        <td>{{ req.requestType }}</td>
+        <td>{{ req.date }}</td>
+        <td>{{ req.requestStatus }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,36 +1,42 @@
-.requests-container {
-  padding: 20px;
+.section-title {
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  color: #19191a;
 }
-.refresh-btn {
-  margin-bottom: 10px;
-  padding: 8px 16px;
-  background-color: #007bff;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-.no-requests {
-  color: red;
-  font-weight: bold;
-}
-.request-item {
-  border: 1px solid #ccc;
-  padding: 10px;
-  margin-bottom: 10px;
-  border-radius: 4px;
-}
-.status-badge {
-  padding: 5px 10px;
-  border-radius: 12px;
-  color: white;
-}
-.pending {
-  background-color: #ffc107;
-}
-.progress {
-  background-color: #17a2b8;
-}
-.done {
-  background-color: #28a745;
+
+.table {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+
+  th {
+    background-color: #dfa974;
+    color: white;
+  }
+
+  td, th {
+    vertical-align: middle;
+    font-size: 14px;
+  }
+
+  span {
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-weight: 500;
+    color: white;
+
+    &.approved {
+      background-color: #28a745;
+    }
+
+    &.pending {
+      background-color: #ffc107;
+    }
+
+    &.rejected {
+      background-color: #dc3545;
+    }
+  }
 }

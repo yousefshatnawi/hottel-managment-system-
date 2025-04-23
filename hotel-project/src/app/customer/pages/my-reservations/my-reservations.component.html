@@ -1,24 +1,26 @@
-<div class="reservations-container">
-  <h2>My Reservations</h2>
+ <h3 class="section-title">My Reservations</h3>
 
-<table border="1" cellpadding="8" cellspacing="0">
-  <thead>
-    <tr>
-      <th>Room/Hall</th>
-      <th>Date</th>
-      <th>Status</th>
-      <th>Payment</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let res of myReservations">
-      <td>{{ res.date }}</td>
-      <td>
-        <span [ngClass]="res.approvalStatus">{{ res.approvalStatus }}</span>
-      </td>
-      <td>{{ res.paymentStatus }}</td>
-    </tr>
-    <!-- <a [routerLink]="['/customer', customer.id]">عرض البروفايل</a> -->
-
-  </tbody>
-</table>
+<div class="table-responsive">
+  <table class="table table-bordered text-center">
+    <thead class="thead-light">
+      <tr>
+        <th>Room / Hall</th>
+        <th>Date</th>
+        <th>Status</th>
+        <th>Payment</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let res of myReservations">
+        <td>{{ res.roomType }}</td>
+        <td>{{ res.date }}</td>
+        <td>
+          <span [ngClass]="res.approvalStatus">{{ res.approvalStatus }}</span>
+        </td>
+        <td [ngStyle]="{ color: res.paymentStatus ? 'green' : 'red' }">
+          {{ res.paymentStatus ? '✅' : '❌' }}
+        </td>
+       </tr>
+    </tbody>
+  </table>
+</div>

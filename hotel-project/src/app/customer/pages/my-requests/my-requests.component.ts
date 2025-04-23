@@ -26,9 +26,9 @@ export class MyRequestsComponent implements OnInit{
 
   constructor(
     private requestService: CustomerService,
-    private router: Router,
-    private route: ActivatedRoute,
-    private cdr: ChangeDetectorRef
+    // private router: Router,
+    // private route: ActivatedRoute,
+    // private cdr: ChangeDetectorRef
   ) {}
 
   ngOnInit(): void {
