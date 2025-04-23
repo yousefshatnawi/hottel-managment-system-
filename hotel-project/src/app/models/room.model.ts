@@ -7,4 +7,6 @@ export interface Room {
     building: string;
     details: string;
     bookedStatus: boolean;
+    paymentAmount: number,
+
   }

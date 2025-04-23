@@ -10,7 +10,9 @@
         <h3>🏷️ {{ room.title }}</h3>
         <p><strong>🏢 Building:</strong> {{ room.building }}</p>
         <p><strong>📍 Floor:</strong> {{ room.floor }}</p>
+        <p><strong>📝 Amount :</strong> {{ room.paymentAmount }} $</p>
         <p><strong>📝 Details:</strong> {{ room.details }}</p>
+
         <p><strong>📌 Status:</strong>
           <span [class.booked]="room.bookedStatus" [class.available]="!room.bookedStatus">
             {{ room.bookedStatus ? 'Booked' : 'Available' }}

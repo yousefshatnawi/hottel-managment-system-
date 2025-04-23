@@ -41,6 +41,10 @@
                     <td>{{ room.building }}</td>
                   </tr>
                   <tr>
+                    <td class="r-o">Amount:</td>
+                    <td>{{ room.paymentAmount }} $</td>
+                  </tr>
+                  <tr>
                     <td class="r-o">Details:</td>
                     <td>{{ room.details }}</td>
                   </tr>
@@ -55,7 +59,7 @@
                 </tbody>
               </table>
   
-              <a [routerLink]="['/customer/room', room.id]" class="primary-btn">More Details</a>
+              <a [routerLink]="['/customer/room', i+1]" class="primary-btn">More Details</a>
             </div>
           </div>
         </div>

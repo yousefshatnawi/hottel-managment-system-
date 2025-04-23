@@ -8,6 +8,7 @@
 
     <form (ngSubmit)="saveRoom()" class="room-form card">
       <div class="form-group">
+        
         <label>🏷️ Title:</label>
         <input type="text" [(ngModel)]="room.title" name="title" required />
       </div>
@@ -28,11 +29,15 @@
         <label>📍 Floor:</label>
         <input type="text" [(ngModel)]="room.floor" name="floor" required />
       </div>
-
+      <div class="form-group">
+        <label>📝 paymant:</label>
+        <input [(ngModel)]="room.paymentAmount" name="payment" />
+      </div>
       <div class="form-group">
         <label>📝 Details:</label>
         <textarea [(ngModel)]="room.details" name="details" rows="3"></textarea>
       </div>
+     
 
     
 

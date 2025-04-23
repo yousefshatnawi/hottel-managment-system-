@@ -18,7 +18,9 @@ export class AddRoomComponent {
     details: '',
     roomType: 'room',
     bookedStatus: false,
-    booked: undefined
+    booked: undefined,
+           paymentAmount: 0,
+
   };
 
   isEditMode = false;

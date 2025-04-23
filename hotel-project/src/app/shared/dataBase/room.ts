@@ -11,7 +11,9 @@ export const Rooms: Room[] = [
         building: 'Main Building',
         details: 'Double bed, city view, non-smoking.',
         bookedStatus: false,
-        booked: undefined
+        booked: undefined,
+        paymentAmount: 90,
+
     },
     {
         id: 2,
@@ -21,7 +23,9 @@ export const Rooms: Room[] = [
         building: 'Annex Building',
         details: 'Seats 100, projector, sound system.',
         bookedStatus: true,
-        booked: undefined
+        booked: undefined,
+        paymentAmount: 90,
+
     },
     {
         id: 3,
@@ -31,7 +35,9 @@ export const Rooms: Room[] = [
         building: 'Main Building',
         details: 'King bed, living room, balcony, ocean view.',
         bookedStatus: false,
-        booked: undefined
+        booked: undefined,
+        paymentAmount: 90,
+
     },
         {
             id: 4,
@@ -42,6 +48,8 @@ export const Rooms: Room[] = [
             details: 'Two single beds, garden view, non-smoking.',
             bookedStatus: true,
             booked: undefined
+        ,        paymentAmount: 90,
+
         },
     {
         id: 5,
@@ -52,6 +60,8 @@ export const Rooms: Room[] = [
         details: 'Seats 200, stage, dance floor, bar.',
         bookedStatus: false,
         booked: undefined
+        ,        paymentAmount: 90,
+
     },
     {
         id: 6,
@@ -62,6 +72,8 @@ export const Rooms: Room[] = [
         details: 'Single bed, city view, mini-fridge.',
         bookedStatus: false,
         booked: undefined
+        ,        paymentAmount: 90,
+
     },
     {
         id: 7,
@@ -72,6 +84,8 @@ export const Rooms: Room[] = [
         details: 'Seats 20, whiteboard, conference phone.',
         bookedStatus: true,
         booked: undefined
+        ,        paymentAmount: 90,
+
     },
     {
         id: 8,
@@ -82,6 +96,8 @@ export const Rooms: Room[] = [
         details: "Two double beds, city view, family friendly",
         bookedStatus: false,
         booked: undefined
+        ,        paymentAmount: 90,
+
     }
 
 ];
