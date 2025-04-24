@@ -1,6 +1,6 @@
 /*  ---------------------------------------------------
-    Template Name: Sona
-    Description: Sona Hotel Html Template
+    Template Name: casa serene
+    Description: casa serene Hotel Html Template
     Author: Colorlib
     Author URI: https://colorlib.com
     Version: 1.0

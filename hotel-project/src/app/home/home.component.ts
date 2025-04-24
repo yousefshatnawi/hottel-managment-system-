@@ -23,25 +23,25 @@ export class HomeComponent implements OnInit, AfterViewInit {
       text: 'After a construction project took longer than expected... we absolutely love our vacation at Sona Hotel.',
       author: 'yousef shatnawi',
       rating: 4.5,
-      image: 'assets/img/yousef.png'
+      image: 'assets/img/room/avatar/avatar-1.jpg'
     },
     {
       text: 'Great experience, lovely view and friendly staff. Will visit again!',
       author: 'Reema Bshara',
       rating: 5,
-      image: 'assets/img/reema2.png'
+      image: 'assets/img/room/avatar/avatar-2.jpg'
     },
     {
       text: 'After a construction project took longer than expected... we absolutely love our vacation at Sona Hotel.',
       author: 'Duaa Mehdawi',
       rating: 4.5,
-      image: 'assets/img/duaa.png'
+      image: 'assets/img/room/avatar/avatar-2.jpg'
     },
     {
       text: 'Great experience, lovely view and friendly staff. Will visit again!',
       author: 'Anagheem Alraba',
       rating: 5,
-      image: 'assets/img/anagheem.jpeg'
+      image: 'assets/img/room/avatar/avatar-2.jpg'
     }
   ];
   currentTestimonialIndex = 0;

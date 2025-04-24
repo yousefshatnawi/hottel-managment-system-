@@ -699,6 +699,7 @@ ul, ol {
 	height: 600px;
 	margin-right: -15px;
 	position: relative;
+	
 	overflow: hidden;
 }
 .hp-room-items .hp-room-item:hover .hr-text {
@@ -715,6 +716,8 @@ ul, ol {
 	-webkit-transition: all 0.5s;
 	-o-transition: all 0.5s;
 	transition: all 0.5s;
+	/* background-color: #999;
+box-shadow: 18px -20px 17px 17px rgba(16, 35, 16, 0.25); */
 }
 .hp-room-items .hp-room-item .hr-text h3 {
 	color: #ffffff;
@@ -727,6 +730,7 @@ ul, ol {
 	-webkit-transition: all 0.2s;
 	-o-transition: all 0.2s;
 	transition: all 0.2s;
+	
 }
 .hp-room-items .hp-room-item .hr-text h2 span {
 	font-family: "Cabin", sans-serif;
@@ -736,15 +740,18 @@ ul, ol {
 }
 .hp-room-items .hp-room-item .hr-text table {
 	margin-bottom: 30px;
+	/* background-color: #19191a; */
 }
 .hp-room-items .hp-room-item .hr-text table tbody tr td {
 	font-size: 16px;
 	color: #ffffff;
 	line-height: 36px;
+	
 }
 .hp-room-items .hp-room-item .hr-text table tbody tr td.r-o {
 	width: 120px;
 }
+
 .hp-room-items .hp-room-item .hr-text .primary-btn:after {
 	background: #ffffff;
 }

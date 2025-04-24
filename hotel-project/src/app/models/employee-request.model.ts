@@ -5,5 +5,6 @@ export interface EmployeeRequest {
     employeeId: number;
     requestType: 'cleaning' | 'tv maintenance' | 'bathroom maintenance';
     requestStatus: 'pending' | 'progres' | 'done';
+    
   }
   

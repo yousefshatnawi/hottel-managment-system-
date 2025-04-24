@@ -1,5 +1,16 @@
 import { RoomAppointment } from "../../models/room-appointment.model";
 
+const roomNames = [
+  'Standard Double Room 101',
+  'Conference Hall A',
+  'Executive Suite 302',
+  'Twin Room 102',
+  'Banquet Hall B',
+  'Deluxe Single Room 205',
+  'Meeting Room C',
+  'Quadruple Room 103'
+];
+
 export const roomAppointments: RoomAppointment[] = [
   {
     id: 1,
@@ -9,6 +20,7 @@ export const roomAppointments: RoomAppointment[] = [
     paymentStatus: true,
     paymentAmount: 250,
     roomType: 'hall',
+    roomName: roomNames[Math.floor(Math.random() * roomNames.length)],
   },
   {
     id: 2,
@@ -18,6 +30,7 @@ export const roomAppointments: RoomAppointment[] = [
     paymentStatus: false,
     paymentAmount: 500,
     roomType: 'room',
+    roomName: roomNames[Math.floor(Math.random() * roomNames.length)],
   },
   {
     id: 3,
@@ -27,6 +40,7 @@ export const roomAppointments: RoomAppointment[] = [
     paymentStatus: false,
     paymentAmount: 100,
     roomType: 'hall',
+    roomName: roomNames[Math.floor(Math.random() * roomNames.length)],
   },
   {
     id: 4,
@@ -36,6 +50,7 @@ export const roomAppointments: RoomAppointment[] = [
     paymentStatus: true,
     paymentAmount: 300,
     roomType: 'room',
+    roomName: roomNames[Math.floor(Math.random() * roomNames.length)],
   },
   {
     id: 5,
@@ -45,6 +60,7 @@ export const roomAppointments: RoomAppointment[] = [
     paymentStatus: false,
     paymentAmount: 750,
     roomType: 'hall',
+    roomName: roomNames[Math.floor(Math.random() * roomNames.length)],
   },
   {
     id: 6,
@@ -54,6 +70,7 @@ export const roomAppointments: RoomAppointment[] = [
     paymentStatus: true,
     paymentAmount: 400,
     roomType: 'room',
+    roomName: roomNames[Math.floor(Math.random() * roomNames.length)],
   },
   {
     id: 7,
@@ -63,6 +80,7 @@ export const roomAppointments: RoomAppointment[] = [
     paymentStatus: false,
     paymentAmount: 200,
     roomType: 'hall',
+    roomName: roomNames[Math.floor(Math.random() * roomNames.length)],
   },
   {
     id: 8,
@@ -72,6 +90,7 @@ export const roomAppointments: RoomAppointment[] = [
     paymentStatus: true,
     paymentAmount: 350,
     roomType: 'room',
+    roomName: roomNames[Math.floor(Math.random() * roomNames.length)],
   },
   {
     id: 9,
@@ -81,6 +100,7 @@ export const roomAppointments: RoomAppointment[] = [
     paymentStatus: false,
     paymentAmount: 275,
     roomType: 'hall',
+    roomName: roomNames[Math.floor(Math.random() * roomNames.length)],
   },
   {
     id: 10,
@@ -90,6 +110,7 @@ export const roomAppointments: RoomAppointment[] = [
     paymentStatus: true,
     paymentAmount: 500,
     roomType: 'room',
+    roomName: roomNames[Math.floor(Math.random() * roomNames.length)],
   },
   {
     id: 11,
@@ -99,6 +120,7 @@ export const roomAppointments: RoomAppointment[] = [
     paymentStatus: false,
     paymentAmount: 450,
     roomType: 'hall',
+    roomName: roomNames[Math.floor(Math.random() * roomNames.length)],
   },
   {
     id: 12,
@@ -108,6 +130,7 @@ export const roomAppointments: RoomAppointment[] = [
     paymentStatus: false,
     paymentAmount: 150,
     roomType: 'room',
+    roomName: roomNames[Math.floor(Math.random() * roomNames.length)],
   },
   {
     id: 13,
@@ -117,6 +140,7 @@ export const roomAppointments: RoomAppointment[] = [
     paymentStatus: true,
     paymentAmount: 600,
     roomType: 'hall',
+    roomName: roomNames[Math.floor(Math.random() * roomNames.length)],
   },
   {
     id: 14,
@@ -126,6 +150,7 @@ export const roomAppointments: RoomAppointment[] = [
     paymentStatus: false,
     paymentAmount: 120,
     roomType: 'room',
+    roomName: roomNames[Math.floor(Math.random() * roomNames.length)],
   },
   {
     id: 15,
@@ -135,5 +160,6 @@ export const roomAppointments: RoomAppointment[] = [
     paymentStatus: false,
     paymentAmount: 90,
     roomType: 'hall',
+    roomName: roomNames[Math.floor(Math.random() * roomNames.length)],
   }
 ];

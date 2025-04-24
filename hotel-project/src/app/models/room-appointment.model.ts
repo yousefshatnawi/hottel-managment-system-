@@ -6,4 +6,5 @@ export interface RoomAppointment {
     approvalStatus: 'pending' | 'approved' | 'rejected';
     paymentStatus: boolean;
     paymentAmount: number;
+    roomName? :string
   }
