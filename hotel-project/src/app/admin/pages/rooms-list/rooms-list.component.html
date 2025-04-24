@@ -28,7 +28,8 @@
         <button 
           [disabled]="room.bookedStatus"
           (click)="bookRoom(room.id)"
-          [ngClass]="{ 'booked-btn': room.bookedStatus, 'available-btn': !room.bookedStatus }">
+          [ngClass]="{ 'booked-btn': room.bookedStatus, 'available-btn': !room.bookedStatus }"
+          (click)="bookRoom(room.id)">
           🛎️ Book Room
         </button>
 

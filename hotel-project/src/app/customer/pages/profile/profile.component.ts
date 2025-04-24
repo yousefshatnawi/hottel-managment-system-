@@ -32,31 +32,29 @@ constructor(
 
 ngOnInit(): void {
   this.loadingForGet = true;
+
+  const storedImage = localStorage.getItem('profileImage');
+  if (storedImage) {
+    this.profileImage = storedImage;
+  }
+
   const id = +this.route.snapshot.paramMap.get('id')!;
-  if(id){
-    this.loadingForGet = true;
-    
-    const storedImage = localStorage.getItem('profileImage');
-    if (storedImage) {
-      this.profileImage = storedImage;
-    }
-
-  setTimeout(() => {
-    this.customer = this.customerService.getcustomerById(id);
-    if (this.customer) {
-      this.customerData = { ...this.customer };
-    }
+  if (id) {
+    setTimeout(() => {
+      this.customer = this.customerService.getcustomerById(id);
+      if (this.customer) {
+        this.customerData = { ...this.customer };
+      }
+      this.loadingForGet = false;
+    }, 1500);
+  } else {
     this.loadingForGet = false;
-  }, 1500);}
-  else{
-    this.loadingForGet = false;
-
     const customer = JSON.parse(localStorage.getItem('customer') || '{}');
-    console.log('customer is ' , customer)
-
+    console.log('customer is ', customer);
     this.customerData = customer;
   }
 }
+
 toggleRequests() {
   this.showRequests = !this.showRequests;
 }

@@ -61,10 +61,11 @@
                 </tbody>
               </table>
   
-              <a [routerLink]="['/customer/room', i+1]" class="primary-btn">More Details</a>
+              <a [routerLink]="['/customer/room', room.id]" [queryParams]="{ img: i + 1 }" class="primary-btn">More Details</a>
             </div>
           </div>
         </div>
+        
       </div>
     </div>
   </section>

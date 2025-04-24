@@ -73,6 +73,7 @@ updateEmployee(id: number, updated: Employee): Promise<void> {
 
 addRoom(room: Room): void {
   this.room.push(room);
+  localStorage.setItem('newRom',JSON.stringify(room))
 }
 
 updateRoom(id: number, updatedRoom: Room): Promise<void> {
@@ -80,6 +81,8 @@ updateRoom(id: number, updatedRoom: Room): Promise<void> {
     const index = this.room.findIndex(room => room.id === id);
     if (index !== -1) {
       this.room[index] = { ...updatedRoom };
+      localStorage.setItem('updateRoom',JSON.stringify(this.room[index]))
+
       resolve();
     } else {
       reject(`Room with ID ${id} not found.`);
@@ -94,7 +97,7 @@ releaseRoom(roomId: number) {
 
   if (room) {
     room.bookedStatus = false; 
-    localStorage.setItem('rooms', JSON.stringify(rooms));
+    localStorage.setItem('updateRoom', JSON.stringify(room));
   }
 }
 
@@ -108,7 +111,7 @@ releaseRoom(roomId: number) {
   const room = currentRooms.find(r => r.id === id);
   if (room && !room.bookedStatus) {
     room.bookedStatus = true;
-    localStorage.setItem('rooms', JSON.stringify(currentRooms));
+    localStorage.setItem('updateRoom', JSON.stringify(room));
   }
   }
 

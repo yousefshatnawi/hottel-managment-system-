@@ -4,19 +4,19 @@
     <section class="hero-section">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6">
+                <div class="col-lg-7">
                     <div class="hero-text">
-                        <h1>Sona A Luxury Hotel</h1>
+                        <h1>Casa Serene A Luxury Hotel</h1>
                         <p>Here are the best hotel booking sites, including recommendations for international
                             travel and for finding low-priced hotel rooms.</p>
                         <a routerLink="/about-us" class="primary-btn">Discover Now</a>
                     </div>
                 </div>
                 
-<div class="col-xl-4 col-lg-5 offset-xl-2 offset-lg-1">
+<!-- <div class="col-xl-4 col-lg-5 offset-xl-2 offset-lg-1">
     
                 <app-book-room></app-book-room>
-</div>
+</div> -->
             </div>
         </div>
         <div class="hero-slider" [style.backgroundImage]="'url(' + heroImages[currentHeroIndex] + ')'">
@@ -35,7 +35,7 @@
                             <span>About Us</span>
                             <h2>Intercontinental LA <br />Westlake Hotel</h2>
                         </div>
-                        <p class="f-para">Sona.com is a leading online accommodation site. We’re passionate about
+                        <p class="f-para">casa serene.com is a leading online accommodation site. We’re passionate about
                             travel. Every day, we inspire and reach millions of travelers across 90 local websites in 41
                             languages.</p>
                         <p class="s-para">So when it comes to booking the perfect hotel, vacation rental, resort,
@@ -59,7 +59,12 @@
         </div>
     </section>
     <!-- About Us Section End -->
-
+  <section class="video-section">
+        <video #hotelVideo autoplay muted loop playsinline class="w-100" style="height: 500px; object-fit: cover;">
+            <source src="assets/img/hoom-video.mp4" type="video/mp4" />
+        </video>
+        
+      </section>
     <!-- Services Section End -->
     <section class="services-section spad">
         <div class="container">
@@ -124,9 +129,9 @@
         </div>
     </section>
     <!-- Services Section End -->
-
+  
     <!-- Home Room Section Begin -->
-    <section class="hp-room-section">
+    <section class="hp-room-section" style="margin: 100px;">
         <div class="container-fluid">
             <div class="hp-room-items">
                 <div class="row">

@@ -19,7 +19,7 @@ export class AddRoomComponent {
     roomType: 'room',
     bookedStatus: false,
     booked: undefined,
-           paymentAmount: 0,
+    paymentAmount: 0,
 
   };
 
@@ -40,6 +40,11 @@ export class AddRoomComponent {
         this.isEditMode = true;
       }
     }
+    const updatedRoom = JSON.parse(localStorage.getItem('updateRoom') || '{}');
+    // if (newCustomers) {
+    //   {
+    //     this.customers.push(newCustomers);
+    //   }
   }
 
   saveRoom(): void {

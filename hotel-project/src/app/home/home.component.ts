@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import Swiper from 'swiper';
 
 @Component({
@@ -10,7 +10,8 @@ import Swiper from 'swiper';
 export class HomeComponent implements OnInit, AfterViewInit {
 
   Math = Math;
-  
+  @ViewChild('hotelVideo') hotelVideo!: ElementRef<HTMLVideoElement>;
+
   heroImages = [
     'assets/img/hero/hero-1.jpg',
     'assets/img/hero/hero-2.jpg',
@@ -20,7 +21,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   testimonials = [
     {
-      text: 'After a construction project took longer than expected... we absolutely love our vacation at Sona Hotel.',
+      text: 'After a construction project took longer than expected... we absolutely love our vacation at casa serene Hotel.',
       author: 'yousef shatnawi',
       rating: 4.5,
       image: 'assets/img/room/avatar/avatar-1.jpg'
@@ -32,7 +33,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       image: 'assets/img/room/avatar/avatar-2.jpg'
     },
     {
-      text: 'After a construction project took longer than expected... we absolutely love our vacation at Sona Hotel.',
+      text: 'After a construction project took longer than expected... we absolutely love our vacation at casa serene Hotel.',
       author: 'Duaa Mehdawi',
       rating: 4.5,
       image: 'assets/img/room/avatar/avatar-2.jpg'
@@ -76,6 +77,15 @@ export class HomeComponent implements OnInit, AfterViewInit {
         el: '.swiper-pagination',
         clickable: true,
       },
+    });
+    const videoElement = this.hotelVideo.nativeElement;
+
+    // تغيير سرعة التشغيل
+    videoElement.playbackRate =3.5; // أو 2 مثلاً حسب رغبتك
+
+    // في حال احتجت تتأكد من التشغيل
+    videoElement.play().catch(error => {
+      console.error('Video failed to play:', error);
     });
   }
 }

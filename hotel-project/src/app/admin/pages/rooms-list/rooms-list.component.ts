@@ -17,14 +17,22 @@ export class RoomsListComponent {
 
   ngOnInit(): void {
     this.rooms = this.adminService.getRooms();
+    const newRom = JSON.parse(localStorage.getItem('newRom') || '{}');
+    if(newRom && newRom.id){
+      this.rooms.push(newRom);
+    }
+    const updatedRoom = JSON.parse(localStorage.getItem('updateRoom') || '{}');
+    if ( updatedRoom.id) {
+      const index = this.rooms.findIndex(room => room.id === updatedRoom.id);
+      if (index !== -1) {
+        this.rooms[index] = updatedRoom;
+      }
+    
+    }
   } 
  
 
-
-  bookRoom(id: number): void {
-    this.adminService.bookRoomById(id);
-    this.rooms = this.adminService.getRooms();
-  } 
+ 
 
   
 
@@ -42,6 +50,11 @@ goToEditRoom(id: number): void {
   cancelEdit(): void {
     this.editingRoom = null;
   } 
+  
+  bookRoom(id: number): void {
+    this.adminService.bookRoomById(id);
+    this.rooms = this.adminService.getRooms();
+  }
   makeAvailable(roomId: number) {
     this.adminService.releaseRoom(roomId);
     this.rooms = this.adminService.getRooms();

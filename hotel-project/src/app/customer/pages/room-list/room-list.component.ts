@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CustomerService } from '../../services/customer.service';
 import { Room } from '../../../models/room.model';
 import { Rooms } from '../../../shared/dataBase/room';
@@ -9,9 +9,24 @@ import { Rooms } from '../../../shared/dataBase/room';
   templateUrl: './room-list.component.html',
   styleUrl: './room-list.component.scss'
 })
-export class RoomListComponent {
+export class RoomListComponent implements OnInit {
+  roomList :Room []= Rooms
 
 constructor( serviceCustomer:CustomerService){}
-roomList :Room []= Rooms
+  ngOnInit(): void {
+    const newRom = JSON.parse(localStorage.getItem('newRom') || '{}');
+    if(newRom && newRom.id){
+      this.roomList.push(newRom);
+    }
+    const updatedRoom = JSON.parse(localStorage.getItem('updateRoom') || '{}');
+    if ( updatedRoom.id) {
+      const index = this.roomList.findIndex(room => room.id === updatedRoom.id);
+      if (index !== -1) {
+        this.roomList[index] = updatedRoom;
+      }
+    
+    }
+    console.log(this.roomList)
+  }
  
 }
