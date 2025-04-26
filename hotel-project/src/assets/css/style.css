@@ -394,7 +394,7 @@ ul, ol {
 	-o-transition: all 0.3s;
 	transition: all 0.3s;
 }
-.menu-item .nav-menu .mainmenu li a:after {
+.menu-item .nav-menu .mainmenu  li a:after {
 	position: absolute;
 	left: 0;
 	top: 52px;

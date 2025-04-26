@@ -6,14 +6,15 @@ import { RouterModule } from '@angular/router';
 import { MainLayoutComponent } from './main-layout/main-layout.component';
 
 import { NgChartsModule } from 'ng2-charts';
-import { ChartComponent } from './chart/chart.component'; // Importing the standalone component
+import { ChartComponent } from './chart/chart.component';
 
 @NgModule({
   declarations: [
     HeaderComponent,
     FooterComponent,
     MainLayoutComponent,
-    ChartComponent
+    ChartComponent,
+    
   ],
   imports: [
     CommonModule,
