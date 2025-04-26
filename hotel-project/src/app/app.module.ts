@@ -13,6 +13,7 @@ import { ContactComponent } from './contact/contact.component';
 import { AdminModule } from './admin/admin.module';
 import { CustomerModule } from './customer/customer.module';
 import { SharedModule } from './layout/shared.module';
+import { PolicyComponent } from './policy/policy.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { SharedModule } from './layout/shared.module';
     
     AboutComponent,
     ContactComponent,
+    PolicyComponent,
    
   ],
   imports: [

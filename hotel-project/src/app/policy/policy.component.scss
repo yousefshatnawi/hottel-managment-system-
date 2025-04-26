@@ -1,0 +1,74 @@
+// policy.component.scss
+.policy-container {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 2rem;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+  
+    .policy-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid #ccc;
+      padding-bottom: 1rem;
+    }
+  
+    h2 {
+      font-size: 1.3rem;
+      margin: 2rem 0 1rem;
+      color: #444;
+    }
+  
+    h3 {
+      font-size: 1.2rem;
+      margin: 1.5rem 0 0.8rem;
+      color: #555;
+    }
+  
+    h4 {
+      font-size: 1.1rem;
+      margin: 1rem 0 0.5rem;
+      color: #666;
+    }
+  
+    ul {
+      margin: 0.5rem 0 1rem;
+      padding-left: 2rem;
+      list-style-type: square;
+    }
+  
+    p {
+      margin: 0.5rem 0;
+      text-align: justify;
+    }
+  
+    .contact-section {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid #ccc;
+      text-align: center;
+      font-style: italic;
+    }
+  
+    @media (max-width: 768px) {
+      padding: 1rem;
+      
+      .policy-title {
+        font-size: 1.5rem;
+      }
+      
+      h2 {
+        font-size: 1.2rem;
+      }
+      
+      h3 {
+        font-size: 1.1rem;
+      }
+      
+      ul {
+        padding-left: 1.5rem;
+      }
+    }
+  }
