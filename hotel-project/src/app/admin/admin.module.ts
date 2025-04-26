@@ -16,6 +16,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { SharedModule } from '../layout/shared.module';
+import { NgChartsModule } from 'ng2-charts';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { SharedModule } from '../layout/shared.module';
     MatInputModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    SharedModule
+    SharedModule,
+    NgChartsModule
     
 
   ]

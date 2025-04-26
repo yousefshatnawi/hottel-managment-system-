@@ -29,6 +29,34 @@
     </div>
   </div> 
 
+  
+  <div class="dashboard-container">
+   
+  
+    <!-- Charts Area -->
+    <div class="charts-container">
+      <div style="width: 45%;">
+        <canvas baseChart
+          [data]="barChartData"
+          [options]="chartOptions"
+          chartType="bar">
+        </canvas>
+      </div>
+  
+      <div style="width: 45%;">
+        <canvas baseChart
+          [data]="doughnutChartData"
+          [options]="chartOptions"
+          chartType="doughnut">
+        </canvas>
+      </div>
+      
+    </div>
+  
+   
+   
+  
+  
   <div *ngIf="isDashboardPage" class="calendar-todo-wrapper">
     <div class="calendar-card">
       <h3>📅 Calendar</h3>
@@ -55,3 +83,6 @@
     </div>
   </div>
 </div>
+
+
+

@@ -469,3 +469,36 @@
     flex-direction: column;
   }
 }
+
+
+
+.dashboard-container {
+  padding: 20px;
+}
+
+.charts-container {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+
+
+.tasks-section {
+  margin-bottom: 30px;
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  li {
+    margin-bottom: 10px;
+  }
+
+  button {
+    margin-left: 10px;
+    padding: 3px 8px;
+  }
+}
