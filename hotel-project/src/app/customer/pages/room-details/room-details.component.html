@@ -35,7 +35,7 @@
                     <i class="icon_star"></i>
                     <i class="icon_star-half_alt"></i>
                   </div>
-                  <a *ngIf="!isBooking" (click)="isBooking = !isBooking" >Booking Now</a>
+                  <a *ngIf="!isBooking" (click)="isBooking = !isBooking"  >Booking Now</a>
                 </div>
               </div>
   
@@ -73,13 +73,12 @@
             </div>
           </div>
   
-          <!-- يمكنك ترك جزء الريفيو كما هو، أو ربطه لاحقًا ببيانات حقيقية -->
-          <!-- ... (نفس الكود تبع الريفيو والتعليقات يلي عطيتيني ياه) ... -->
   
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-4" [ngStyle]="{ 'pointer-events': room.bookedStatus ? 'none' : 'auto', 'opacity': room.bookedStatus ? '0.5' : '1' }">
           <app-book-room *ngIf="isBooking"></app-book-room>
         </div>
+        
       </div>
     </div>
   </section>

@@ -47,12 +47,32 @@ ngOnInit(): void {
       }
       this.loadingForGet = false;
     }, 1500);
-  } else {
+  } else  {
     this.loadingForGet = false;
-    const customer = JSON.parse(localStorage.getItem('customer') || '{}');
-    console.log('customer is ', customer);
-    this.customerData = customer;
+  
+    const newCustomer = JSON.parse(localStorage.getItem('newCustomer') || '{}');
+    console.log(newCustomer)
+    let customer ={};
+    try{
+       customer = JSON.parse(localStorage.getItem('customer') || '{}') ?? {};
+
+    }
+    catch (e){
+
+    }
+  
+    if (Object.keys(newCustomer).length > 0) {
+      console.log('newCustomer is', newCustomer);
+      this.customerData = newCustomer;
+    } else if (true){
+      console.log('customer is');
+    }
+    //  else if (Object.keys(customer).length > 0) {
+    //   console.log('customer is', customer);
+    //   this.customerData = customer;
+    // }
   }
+  
 }
 
 toggleRequests() {

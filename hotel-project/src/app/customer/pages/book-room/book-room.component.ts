@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Room } from '../../../models/room.model';
 import { Rooms } from '../../../shared/dataBase/room';
@@ -11,6 +11,7 @@ import { CustomerService } from '../../services/customer.service';
   styleUrl: './book-room.component.scss'
 })
 export class BookRoomComponent implements OnInit {
+  @Input() disabled: boolean = false;
 
   bookingForm!: FormGroup;
   // rooms = [

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Room } from '../../../models/room.model';
 import { Rooms } from '../../../shared/dataBase/room';
 import { ActivatedRoute } from '@angular/router';
@@ -12,6 +12,7 @@ import { ActivatedRoute } from '@angular/router';
 export class RoomDetailsComponent {
   room: Room | undefined;
   isBooking:boolean =false;
+
   i :number=1;
   constructor(private route: ActivatedRoute){}
   ngOnInit(): void {
