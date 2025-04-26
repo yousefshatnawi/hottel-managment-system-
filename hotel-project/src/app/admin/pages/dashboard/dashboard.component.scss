@@ -469,21 +469,26 @@
     flex-direction: column;
   }
 }
-
-
-
-.dashboard-container {
-  padding: 20px;
-}
-
 .charts-container {
   display: flex;
-  justify-content: space-around;
-  margin-bottom: 40px;
   flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+  margin-top: 30px;
 }
 
+.chart {
+  width: 350px; /* 👈 نفس العرض للدائري والمدرج */
+  height: 350px; /* 👈 نفس الطول */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
 
 .tasks-section {
   margin-bottom: 30px;
@@ -501,4 +506,44 @@
     margin-left: 10px;
     padding: 3px 8px;
   }
+}
+.stats-todo-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px; /* المسافة بين العناصر */
+  flex-wrap: wrap; /* يسمح للعناصر بالانتقال إلى السطر التالي إذا كانت الشاشة صغيرة */
+}
+
+.stats-table {
+  flex: 1;
+  min-width: 300px; /* الحد الأدنى لعرض الجدول */
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.todo-card {
+  flex: 1;
+  min-width: 300px; /* الحد الأدنى لعرض قائمة المهام */
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #f4f4f4;
+}
+
+td {
+  text-align: center;
 }

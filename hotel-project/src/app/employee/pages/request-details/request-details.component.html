@@ -6,10 +6,13 @@
     <!-- المحتوى الرئيسي -->
     <div class="main-content">
       <div class="d-flex-header">
-        <h1>Employee Dashboard</h1>
-        <span>
-              <button class="logout-btn" (click)="logout()">🚪 Logout</button>
-        </span>
+        <h1> <span><i class="fas fa-user-circle"></i> Hello, {{ employee.name }}</span></h1>
+      
+      
+        <button class="logout-btn" (click)="logout()">
+          <i class="fas fa-sign-out-alt"></i> Logout
+        </button>
+    
        
       </div>
  
