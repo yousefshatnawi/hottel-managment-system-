@@ -1,5 +1,7 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import Swiper from 'swiper';
+import { Room } from '../models/room.model';
+import { Rooms } from '../shared/dataBase/room';
 
 @Component({
   selector: 'app-home',
@@ -8,7 +10,7 @@ import Swiper from 'swiper';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit, AfterViewInit {
-
+room :Room []= Rooms
   Math = Math;
   @ViewChild('hotelVideo') hotelVideo!: ElementRef<HTMLVideoElement>;
 

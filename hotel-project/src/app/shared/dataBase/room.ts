@@ -5,7 +5,7 @@ import { Room } from "../../models/room.model";
 export const Rooms: Room[] = [
     {
         id: 101,
-        title: 'Standard Double Room 101',
+        title: 'Standard Double Room',
         roomType: 'room',
         floor: '1st',
         building: 'Main Building',

@@ -135,36 +135,38 @@
         <div class="container-fluid">
             <div class="hp-room-items">
                 <div class="row">
-                    <div class="col-lg-3 col-md-6">
-                        <div class="hp-room-item set-bg" data-setbg="assets/img/room/room-b1.jpg">
+                    <div class="col-lg-3 col-md-6"*ngFor="let room of room.slice(0,4); let i = index" >
+                        <div class="hp-room-item" [ngStyle]="{'background-image': 'url(assets/img/room/room-b' + (i + 1) + '.jpg)' }">
                             <div class="hr-text">
-                                <h3>Double Room</h3>
-                                <h2>199$<span>/Pernight</span></h2>
+                                <h3>{{ room.title }}</h3>
+                                <h2>{{ room.paymentAmount }}<span>/Pernight</span></h2>
                                 <table>
                                     <tbody>
                                         <tr>
-                                            <td class="r-o">Size:</td>
-                                            <td>30 ft</td>
+                                            <td class="r-o">Room Type</td>
+                                            <td>
+                                                {{room.roomType}}
+                                            </td>
                                         </tr>
                                         <tr>
-                                            <td class="r-o">Capacity:</td>
-                                            <td>Max persion 5</td>
+                                            <td class="r-o">Floor:</td>
+                                            <td>{{room.floor}}</td>
+                                        </tr>
+                                        <!-- <tr>
+                                            <td class="r-o">Building:</td>
+                                            <td>{{room.building}}</td>
                                         </tr>
                                         <tr>
-                                            <td class="r-o">Bed:</td>
-                                            <td>King Beds</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="r-o">Services:</td>
-                                            <td>Wifi, Television, Bathroom,...</td>
-                                        </tr>
+                                            <td class="r-o"><Details></Details>:</td>
+                                            <td>{{room.details}}</td>
+                                        </tr> -->
                                     </tbody>
                                 </table>
                                 <a routerLink="/customer/room" class="primary-btn">More Details</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6">
+                    <!-- <div class="col-lg-3 col-md-6">
                         <div class="hp-room-item set-bg" data-setbg="assets/img/room/room-b2.jpg">
                             <div class="hr-text">
                                 <h3>Premium King Room</h3>
@@ -250,7 +252,7 @@
                                 <a routerLink="/customer/room" class="primary-btn">More Details</a>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
