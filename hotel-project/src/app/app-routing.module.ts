@@ -6,6 +6,7 @@ import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { RoomListComponent } from './customer/pages/room-list/room-list.component';
+import { PolicyComponent } from './policy/policy.component';
 
 const routes: Routes = [
 
@@ -17,6 +18,7 @@ const routes: Routes = [
   {    path:'about-us',  component: AboutComponent},
   {    path:'contact-us', component: ContactComponent},
   {    path:'room',  component: RoomListComponent},
+  {    path:'policy',  component: PolicyComponent},
   {
       path: 'employee', 
       loadChildren: () => import('./employee/employee.module').then(m => m.EmployeeModule) 
