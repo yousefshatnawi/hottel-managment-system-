@@ -145,7 +145,7 @@
         <div class="card" *ngFor="let request of requests; let i = index">
           <div class="card-content">
             <p><strong>Request ID:</strong> {{ request.id }}</p>
-            <p><strong>Customer Name:</strong> {{ request.employee?.name }}</p>
+            <p><strong>Customer Name:</strong> {{ request.customer?.name }}</p>
 
             <p><strong>Type:</strong> {{ request.requestType }}</p>
             <p class="request-status">

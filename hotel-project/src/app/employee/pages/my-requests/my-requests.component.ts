@@ -36,6 +36,8 @@ export class MyRequestsComponent implements OnInit {
       this.loading = true;
       const allRequests = this.employeeService.getRequestsByEmployee();
       this.requests = allRequests;
+      console.log(allRequests)
+      console.log(this.requests)
       this.requests = this.requests.map((emp: EmployeeRequest) => {
         return {
           ...emp,
