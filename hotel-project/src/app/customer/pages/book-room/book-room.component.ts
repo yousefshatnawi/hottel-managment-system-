@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Room } from '../../../models/room.model';
 import { Rooms } from '../../../shared/dataBase/room';
 import { CustomerService } from '../../services/customer.service';
@@ -14,25 +14,19 @@ export class BookRoomComponent implements OnInit {
   @Input() disabled: boolean = false;
 
   bookingForm!: FormGroup;
-  // rooms = [
-  //   { id: 1, title: 'Room 101' },
-  //   { id: 2, title: 'Hall A' },
-  //   { id: 3, title: 'VIP Room' }
-  // ];
- rooms: Room[] = [];
-
+  rooms: Room[] = [];
 
   constructor(
-      private fb: FormBuilder, 
-       private roomService: CustomerService 
+    private roomService: CustomerService
   ) {}
 
   ngOnInit(): void {
-    this.rooms=Rooms;
-    this.bookingForm = this.fb.group({
-      roomId: ['', Validators.required],
-      date: ['', Validators.required],
-      // paymentAmount: ['', [Validators.required, Validators.min(1)]]
+    this.rooms = Rooms;
+    // هنا استخدمنا FormGroup و FormControl بدون FormBuilder
+    this.bookingForm = new FormGroup({
+      roomId: new FormControl('', Validators.required),
+      date: new FormControl('', Validators.required),
+      // paymentAmount: new FormControl('', [Validators.required, Validators.min(1)])
     });
   }
 
@@ -40,11 +34,11 @@ export class BookRoomComponent implements OnInit {
     if (this.bookingForm.valid) {
       const formData = {
         ...this.bookingForm.value,
-        customerId: 1, 
+        customerId: 1,
         approvalStatus: 'pending',
         paymentStatus: 'unpaid'
       };
-      console.log('Booking Submitted:',);
+      console.log('Booking Submitted:', formData);
       this.roomService.addRoomAppointment(formData)
         .then((newBooking) => {
           console.log('Booking successfully added:', newBooking);
@@ -54,7 +48,5 @@ export class BookRoomComponent implements OnInit {
           console.error('Error adding booking:', error);
         });
     }
-
   }
 }
-

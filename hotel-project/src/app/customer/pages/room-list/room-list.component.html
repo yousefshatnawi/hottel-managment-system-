@@ -7,10 +7,23 @@
             <div class="col-lg-12">
                 <div class="breadcrumb-text">
                     <h2>Our Rooms </h2>
-                    <div class="bt-option">
-                        <a routerLink="/home">Home</a>
-                        <span>Rooms</span>
+                    <div>
+                      <span
+                      class="clickable"
+                      (click)="filterdata('')"
+                       [ngClass]="{'active': selectedType === ''}">
+                      All>
+                      </span>
+                      <span 
+                        (click)="filterdata('room')" 
+                        class="clickable" 
+                        [ngClass]="{'active': selectedType === 'room'}">Rooms></span>
+                      <span 
+                        (click)="filterdata('hall')" 
+                        class="clickable" 
+                        [ngClass]="{'active': selectedType === 'hall'}">Halls</span>
                     </div>
+                    
                 </div>
             </div>
         </div>

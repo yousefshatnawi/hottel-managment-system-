@@ -9,18 +9,27 @@
 
         <th>Date</th>
         <th>Status</th>
+        <th>Requset service</th>
         <th>Payment</th>
+
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let res of myReservations">
         <td>{{ res.roomType }}</td>
         <td>{{ res.roomName }}</td>
-
         <td>{{ res.date }}</td>
         <td>
           <span [ngClass]="res.approvalStatus">{{ res.approvalStatus }}</span>
         </td>
+        <td>
+          <button class="site-btn mt-3"
+            [ngClass]="res.approvalStatus" 
+            [disabled]="res.approvalStatus !== 'approved'">
+           Request service
+          </button>
+        </td>
+        
         <td [ngStyle]="{ color: res.paymentStatus ? 'green' : 'red' }">
           {{ res.paymentStatus ? '✅' : '❌' }}
         </td>

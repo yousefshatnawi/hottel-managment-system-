@@ -6,14 +6,6 @@ import { EmployeeRequest } from '../../../models/employee-request.model';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 
 
-// interface RoomServiceRequest {
-//   id: number;
-//   date: string;
-//   requestType: string;
-//   requestStatus: 'pending' | 'progress' | 'done';
-//   employeeName?: string;
-// }
-
 
 @Component({
   selector: 'app-my-requests',
@@ -26,9 +18,7 @@ export class MyRequestsComponent implements OnInit{
 
   constructor(
     private requestService: CustomerService,
-    // private router: Router,
-    // private route: ActivatedRoute,
-    // private cdr: ChangeDetectorRef
+  
   ) {}
 
   ngOnInit(): void {
@@ -44,6 +34,26 @@ export class MyRequestsComponent implements OnInit{
         this.myRequests.push(updataStatus);
       }
     }
+    const Employee=this.requestService.getAllEmployee();
+    this.myRequests= this.myRequests.map((app:EmployeeRequest)=>{
+      return {
+        ...app,
+        employee:Employee.find((Employee) => Employee.id === app.id)
+      }
+    })
+
+    /*
+    const customers=this.customerService.getAllCustomers();
+    
+     this.appointments= this.appointments.map((app:RoomAppointment)=>{
+        return {
+          ...app,
+          customer:customers.find((customer) => customer.id === app.customerId)
+        }
+      })
+      co
+    
+    */
     
     
   }

@@ -10,9 +10,11 @@ import { Rooms } from '../../../shared/dataBase/room';
   styleUrl: './room-list.component.scss'
 })
 export class RoomListComponent implements OnInit {
-  roomList :Room []= Rooms
 
-constructor( serviceCustomer:CustomerService){}
+  roomList :Room []= Rooms
+  selectedType: string='';
+
+constructor( private serviceCustomer:CustomerService){}
   ngOnInit(): void {
     const newRom = JSON.parse(localStorage.getItem('newRom') || '{}');
     if(newRom && newRom.id){
@@ -28,5 +30,11 @@ constructor( serviceCustomer:CustomerService){}
     }
     console.log(this.roomList)
   }
- 
+  filterdata(type: string) {
+    this.selectedType = type;
+   this.roomList= this.serviceCustomer.filterData(type);
+    }
+  // filterRooms():Room{
+  //   const room=this.serviceCustomer.getAllRoomsApp();
+  // }
 }

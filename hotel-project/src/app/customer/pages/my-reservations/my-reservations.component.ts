@@ -20,11 +20,13 @@ constructor(private requestService: CustomerService){}
   ngOnInit(): void {
 
 const newReservtion = JSON.parse(localStorage.getItem('new-reservations') || '{}');
- this.myReservations = this.requestService.getResrvtionByEmployee();  
- if (newReservtion) {
+ this.myReservations = this.requestService.getResrvtionByCustomer();  
+ if (newReservtion && newReservtion.id) {
   {
     this.myReservations.push(newReservtion);
   }
+  
 }
 }
+
 }

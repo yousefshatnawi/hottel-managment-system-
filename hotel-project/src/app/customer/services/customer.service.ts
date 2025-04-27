@@ -9,6 +9,8 @@ import { customers } from '../../shared/dataBase/customer';
 import { Employee } from '../../models/employee.model';
 import { employees } from '../../shared/dataBase/employee';
 import { EmployeeService } from '../../employee/services/employee.service';
+import { Rooms } from '../../shared/dataBase/room';
+import { Room } from '../../models/room.model';
 const CUSTOMERS_KEY = 'CUSTOMERS_KEY';
 
 @Injectable({
@@ -19,6 +21,9 @@ export class CustomerService {
   constructor(private employeeService: EmployeeService) { }
   getAllCustomers(): Customer[] {
     return customers;
+  }
+  getAllEmployee(): Employee[] {
+    return employees;
   }
   getAllRequests(): EmployeeRequest[] {
     return employeeRequests;
@@ -106,7 +111,7 @@ export class CustomerService {
     return employees.find(c => c.email=== email);
   }
  
-  getResrvtionByEmployee(): RoomAppointment[] {
+  getResrvtionByCustomer(): RoomAppointment[] {
     const customerString = localStorage.getItem('customer');
     
     if (!customerString) {
@@ -141,5 +146,17 @@ export class CustomerService {
       return [];
     }
   }
-
+  filterData(type: string) {
+    let data = Rooms;
+  
+    if (type === 'room') {
+      data = data.filter((room: Room) => room.roomType=== 'room');
+    } else if (type === 'hall') {
+      data = data.filter((room: Room) => room.roomType === 'hall');
+    }
+  
+    return data;
+  }
+  
 }
+

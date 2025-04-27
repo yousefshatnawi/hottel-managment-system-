@@ -4,6 +4,9 @@ import { EmployeeService } from '../../services/employee.service';
 import { Router } from '@angular/router';
 import { AuthService } from '../../../auth/services/auth.service';
 import { Employee } from '../../../models/employee.model';
+import { employees } from '../../../shared/dataBase/employee';
+import { customers } from '../../../shared/dataBase/customer';
+import { CustomerService } from '../../../customer/services/customer.service';
 
 @Component({
   selector: 'app-my-requests',
@@ -24,14 +27,22 @@ export class MyRequestsComponent implements OnInit {
     ) {}
   
     ngOnInit(): void {
-      this.employeeData = JSON.parse(localStorage.getItem('employee') || '{}');
+
+     
       this.loadRequests();
     }
-  
+
     loadRequests() {
       this.loading = true;
       const allRequests = this.employeeService.getRequestsByEmployee();
       this.requests = allRequests;
+      this.requests = this.requests.map((emp: EmployeeRequest) => {
+        return {
+          ...emp,
+          customer: customers.find((customer) => customer.id === emp.customerId)
+        }
+      });
+        console.log(this.requests)
       this.loading = false;
     }
   

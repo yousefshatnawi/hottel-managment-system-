@@ -23,7 +23,7 @@ export class EmployeeService {
   }
 
   
-  getRequestsByEmployee(): any[] {
+  getRequestsByEmployee(): EmployeeRequest[] {
     const currentUser = JSON.parse(localStorage.getItem('employee') || '{}');// loggedInUser ->user
     // const allRequests: EmployeeRequest[] = JSON.parse(localStorage.getItem('employeeRequests') || '[]');
     const allRequests: EmployeeRequest[] = employeeRequests;
