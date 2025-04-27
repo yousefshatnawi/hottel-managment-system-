@@ -81,3 +81,31 @@
     }
   }
 }
+/* حاوية الشروط */
+.terms {
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+/* تصميم الـ checkbox */
+.terms input[type="checkbox"] {
+  margin-right: 0.5rem;
+}
+
+/* تصميم الرابط داخل الشروط */
+.terms a {
+  color: #007bff;
+  text-decoration: underline;
+}
+
+.terms a:hover {
+  color: #0056b3;
+}
+
+/* رسالة الخطأ في حالة عدم قبول الشروط */
+.error {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}

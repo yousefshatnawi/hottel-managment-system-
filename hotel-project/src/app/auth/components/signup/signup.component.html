@@ -18,6 +18,27 @@
     <label for="password">Password</label>
     <input id="password" type="password" formControlName="password" placeholder="Enter a strong password" />
 
+
+    <div class="terms">
+      <label for="acceptTerms">
+        <input
+          id="acceptTerms"
+          type="checkbox"
+          formControlName="acceptTerms"
+        />
+        I agree to the 
+        <!-- <a [routerLink]="['/policy']">Terms and Conditions</a> -->
+        <a href="javascript:void(0);" (click)="openPolicyModal()">Terms and Conditions</a>
+
+      </label>
+    </div>
+    
+
+    <div *ngIf="registerForm.get('acceptTerms')?.touched && registerForm.get('acceptTerms')?.invalid" class="error">
+      You must accept the terms and conditions.
+    </div>
+
+
     <button type="submit" [disabled]="!registerForm.valid">Sign Up</button>
     <button type="button" [routerLink]="['/login']">Already have an account? Login</button>
   </form>
