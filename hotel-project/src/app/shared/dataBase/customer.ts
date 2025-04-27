@@ -12,7 +12,7 @@ import { Customer } from "../../models/customer.model";
         id: 2,
         name: 'Lina Haddad',
         phone: '0789876543',
-        email: 'yousef25@gmail.com', // تم تعديل الإيميل ليتطابق مع مستخدم
+        email: 'yousef25@gmail.com', 
         address: 'Irbid, Jordan',
       },
       {
