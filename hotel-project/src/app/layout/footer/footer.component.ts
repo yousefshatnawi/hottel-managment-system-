@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { PolicyComponent } from '../../policy/policy.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-footer',
@@ -6,7 +8,23 @@ import { Component } from '@angular/core';
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.css'
 })
-export class FooterComponent {
+export class FooterComponent implements OnInit {
+
+  constructor(
+    private dialog: MatDialog
+  ) {}
+
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
+
+  openModal() {
+    this.dialog.open(PolicyComponent, {
+          width: '1000px',  // عرض المودال
+          height: '650px'  // ارتفاع المودال
+        });
+  }
+  
 subscribeNewsletter() {
 throw new Error('Method not implemented.');
 }

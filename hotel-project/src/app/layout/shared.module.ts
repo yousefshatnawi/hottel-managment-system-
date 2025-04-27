@@ -7,6 +7,7 @@ import { MainLayoutComponent } from './main-layout/main-layout.component';
 
 import { NgChartsModule } from 'ng2-charts';
 import { ChartComponent } from './chart/chart.component';
+import {  MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ChartComponent } from './chart/chart.component';
   imports: [
     CommonModule,
     RouterModule,
-    NgChartsModule
+    NgChartsModule,
+    MatDialogModule
   ],
   exports: [
     HeaderComponent,  
