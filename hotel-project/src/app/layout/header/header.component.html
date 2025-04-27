@@ -18,8 +18,9 @@
                 <a href="#"><i class="fa fa-instagram"></i></a>
               </div>
   
-              <a *ngIf="!isLoggedIn" routerLink="/auth/login" class="bk-btn">Login</a>
-  
+              <!-- <a *ngIf="!isLoggedIn" routerLink="/auth/login" class="bk-btn">Login</a> -->
+              <a *ngIf="!isLoggedIn" (click)="openLoginDialog()" class="bk-btn">Login</a>
+
               <a *ngIf="isLoggedIn" routerLink='/customer/profile' class="bk-btn">My Profile</a>
   
               <a *ngIf="isLoggedIn" (click)="logout()" class="fa fa-sign-out ms-3" style="font-size: 28px; padding: 10px;" title="Logout"></a>

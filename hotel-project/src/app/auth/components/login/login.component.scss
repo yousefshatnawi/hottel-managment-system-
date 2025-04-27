@@ -80,3 +80,39 @@
     }
   }
 }
+/* حاوية الشروط */
+.terms {
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: #444;
+  line-height: 1.4;
+  
+  label {
+    display: flex;
+    align-items: center;
+    gap: 4px; /* مسافة صغيرة جدا بين التشيك بوكس والنص */
+    cursor: pointer; /* عشان لما تكبس عالنص كمان يفعل */
+  }
+
+  input[type="checkbox"] {
+    margin: 0; /* مافي مسافة زيادة حوالين التشيك */
+    width: 18px;
+    height: 18px;
+  }
+
+  a {
+    color: #007bff;
+    text-decoration: underline;
+  }
+
+  a:hover {
+    color: #0056b3;
+  }
+}
+
+/* رسالة الخطأ */
+.error {
+  color: red;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
