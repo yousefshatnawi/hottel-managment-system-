@@ -33,12 +33,18 @@
           🛎️ Book Room
         </button>
 
-        <button (click)="makeAvailable(room.id)" class="action-btn warning">♻️ Make Available</button>
+        <button (click)="makeAvailable(room.id)"
+        [disabled]="!room.bookedStatus"
+        class="action-btn warning"
+        [ngClass]="{ 'booked-btn':!room.bookedStatus, 'available-btn': room.bookedStatus }"
+
+        >♻️ Make Available</button>
 
         <button  
           [disabled]="room.bookedStatus"
           (click)="goToEditRoom(room.id)" 
-          class="action-btn edit">
+          class="action-btn edit"
+          >
           ✏️ Edit Room
         </button>
       </div>

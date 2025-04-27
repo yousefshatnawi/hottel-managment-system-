@@ -104,8 +104,9 @@ button[disabled] {
 }
 
 button:hover:not([disabled]) {
-  background-color: #0056b3;
+  background-color: #f1f3f5;
 }
+
 
 .booked {
   color: red;
@@ -144,8 +145,10 @@ button:hover:not([disabled]) {
   width: 100%;
   transition: background-color 0.3s ease;
 }
-
-.action-btn.warning:hover {
+.action-btn.warning[disabled]{
+  background-color: #ece6e6;
+}
+.action-btn.warning:hover:not([disabled])  {
   background-color: #218838; /* أخضر غامق */
 }
 
