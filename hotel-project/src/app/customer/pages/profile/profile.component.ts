@@ -55,6 +55,7 @@ ngOnInit(): void {
     let customer ={};
     try{
        customer = JSON.parse(localStorage.getItem('customer') || '{}') ?? {};
+       this.customerData = customer;
 
     }
     catch (e){
