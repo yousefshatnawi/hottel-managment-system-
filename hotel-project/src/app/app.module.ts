@@ -14,6 +14,8 @@ import { AdminModule } from './admin/admin.module';
 import { CustomerModule } from './customer/customer.module';
 import { SharedModule } from './layout/shared.module';
 import { PolicyComponent } from './policy/policy.component';
+import { BlogComponent } from './blog/blog.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -24,6 +26,7 @@ import { PolicyComponent } from './policy/policy.component';
     AboutComponent,
     ContactComponent,
     PolicyComponent,
+    BlogComponent,
    
   ],
   imports: [
@@ -34,6 +37,7 @@ import { PolicyComponent } from './policy/policy.component';
 AdminModule   ,
 CustomerModule,
 SharedModule,
+ReactiveFormsModule
 
     
   ],
