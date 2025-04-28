@@ -3,22 +3,46 @@
     <h2>Create a New Account</h2>
     <p>Fill in your information below to sign up</p>
 
+    <!-- Name -->
     <label for="name">Full Name</label>
     <input id="name" type="text" formControlName="name" placeholder="Enter your name" />
+    <div class="error" *ngIf="name.invalid && (name.dirty || name.touched)">
+      <div *ngIf="name.errors?.['required']">Full name is required.</div>
+    </div>
 
+    <!-- Phone -->
     <label for="phone">Phone Number</label>
     <input id="phone" type="text" formControlName="phone" placeholder="+962700000000" />
+    <div class="error" *ngIf="phone.invalid && (phone.dirty || phone.touched)">
+      <div *ngIf="phone.errors?.['required']">Phone number is required.</div>
+      <div *ngIf="phone.errors?.['pattern']">0700000000</div>
 
+    </div>
+
+    <!-- Address -->
     <label for="address">Address</label>
     <input id="address" type="text" formControlName="address" placeholder="City, Country" />
+    <div class="error" *ngIf="address.invalid && (address.dirty || address.touched)">
+      <div *ngIf="address.errors?.['required']">Address is required.</div>
+    </div>
 
+    <!-- Email -->
     <label for="email">Email</label>
     <input id="email" type="email" formControlName="email" placeholder="example@email.com" />
+    <div class="error" *ngIf="email.invalid && (email.dirty || email.touched)">
+      <div *ngIf="email.errors?.['required']">Email is required.</div>
+      <div *ngIf="email.errors?.['email']">Enter a valid email address.</div>
+    </div>
 
+    <!-- Password -->
     <label for="password">Password</label>
     <input id="password" type="password" formControlName="password" placeholder="Enter a strong password" />
+    <div class="error" *ngIf="password.invalid && (password.dirty || password.touched)">
+      <div *ngIf="password.errors?.['required']">Password is required.</div>
+      <div *ngIf="password.errors?.['minlength']">Password must be at least 6 characters.</div>
+    </div>
 
-
+    <!-- Terms and Conditions -->
     <div class="terms">
       <label for="acceptTerms">
         <input
@@ -27,17 +51,12 @@
           formControlName="acceptTerms"
         />
         I agree to the 
-        <!-- <a [routerLink]="['/policy']">Terms and Conditions</a> -->
         <a href="javascript:void(0);" (click)="openPolicyModal()">Terms and Conditions</a>
-
       </label>
     </div>
-    
-
-    <div *ngIf="registerForm.get('acceptTerms')?.touched && registerForm.get('acceptTerms')?.invalid" class="error">
+    <div *ngIf="acceptTerms.invalid && acceptTerms.touched" class="error">
       You must accept the terms and conditions.
     </div>
-
 
     <button type="submit" [disabled]="!registerForm.valid">Sign Up</button>
     <button type="button" [routerLink]="['/login']">Already have an account? Login</button>

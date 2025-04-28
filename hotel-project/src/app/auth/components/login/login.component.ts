@@ -25,12 +25,18 @@ export class LoginComponent implements OnInit {
     private dialog: MatDialog,
     private dialogRef: MatDialogRef<LoginComponent>
   ) {}
-
+  get email() {
+    return this.loginForm.get('email')!;
+  }
+  
+  get password() {
+    return this.loginForm.get('password')!;
+  }
+  
   ngOnInit(): void {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', Validators.required),
-      // acceptTerms: new FormControl(false, Validators.requiredTrue) // أضفنا هذا الحقل
     });
   }
   openPolicyModal() {

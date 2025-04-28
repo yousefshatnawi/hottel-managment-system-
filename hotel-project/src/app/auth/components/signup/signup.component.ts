@@ -38,12 +38,42 @@ export class SignupComponent implements OnInit {
       phone: new FormControl('', [Validators.required, Validators.pattern(/^07[0-9]{8}$/)]),
       address: new FormControl(''),
       email: new FormControl('', [Validators.required, Validators.email]),
-      password: new FormControl('', [Validators.required, Validators.minLength(6)])
+      password: new FormControl('', [Validators.required, Validators.minLength(6)]),
+      acceptTerms: new FormControl(false, Validators.requiredTrue)
+
     });
   }
-
+  get name() {
+    return this.registerForm.get('name')!;
+  }
+  
+  get phone() {
+    return this.registerForm.get('phone')!;
+  }
+  
+  get address() {
+    return this.registerForm.get('address')!;
+  }
+  
+  get email() {
+    return this.registerForm.get('email')!;
+  }
+  
+  get password() {
+    return this.registerForm.get('password')!;
+  }
+  
+  get acceptTerms() {
+    return this.registerForm.get('acceptTerms')!;
+  }
+  
   register() {
+    if (this.registerForm.invalid) {
+      this.registerForm.markAllAsTouched(); // ⭐ تلمس كل الحقول اجباري
+      return; // ⛔ ما تكمل التسجيل اذا الفورم مش صحيح
+    }
     if (this.registerForm.valid) {
+      
       const customerData: User = {
         ...this.registerForm.value,
         userType: 'customer',
