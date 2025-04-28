@@ -1,17 +1,10 @@
-<div class="page-container">
+<div class="app-container">
   <div class="sidebar">
     <app-main-layout></app-main-layout>
   </div>
   
-  <div class="main-content">
-    <div class="header d-flex-header">
-      <h1>Admin Dashboard</h1>
-      <span>
-        <button class="logout-btn" (click)="logout()">
-          <i class="fas fa-sign-out-alt"></i> Logout
-        </button>
-      </span>
-    </div>
+  <div class="main">
+    <app-header-dash></app-header-dash>
     <h2>👥 Employee List</h2>
 
     <div class="table-container" *ngIf="employees.length > 0">

@@ -87,10 +87,7 @@ viewRequestDetails(requestId: number) {
   this.router.navigate(['/employee/request-details', requestId]);
 }
 
-logout() {
-  localStorage.clear();
-  this.router.navigate(['/login']);
-}
+
 
 displayedColumns: string[] = ['id', 'requestType', 'status', 'actions'];
 

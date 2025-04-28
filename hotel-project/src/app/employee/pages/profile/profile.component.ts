@@ -44,8 +44,5 @@ export class ProfileComponent implements OnInit {
         this.loading = false;
       });
   }
-  logout() {
-    localStorage.clear();
-    this.router.navigate(['/login'])
-  }
+ 
 }

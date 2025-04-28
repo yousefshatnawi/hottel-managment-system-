@@ -48,10 +48,6 @@ export class MyRequestsComponent implements OnInit {
       this.loading = false;
     }
   
-    logout() {
-      localStorage.clear();
-      this.router.navigate(['/login'])
-    }
-
+    
     
   }

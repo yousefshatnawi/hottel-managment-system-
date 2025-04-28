@@ -51,7 +51,6 @@ ngOnInit(): void {
     this.loadingForGet = false;
   
     const newCustomer = JSON.parse(localStorage.getItem('newCustomer') || '{}');
-    console.log(newCustomer)
     let customer ={};
     try{
        customer = JSON.parse(localStorage.getItem('customer') || '{}') ?? {};

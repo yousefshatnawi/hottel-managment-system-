@@ -23,10 +23,7 @@ employees: Employee[] = [];
     this.employees = await this.adminService.getEmployees();
   }
 
-logout() {
-  localStorage.clear();
-  this.router.navigate(['/login'])
-}
+
 
 
 }

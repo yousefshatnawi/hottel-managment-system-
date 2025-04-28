@@ -54,6 +54,7 @@ export class CustomerService {
   getcustomerById(id: number): Customer | undefined {
     return customers.find(customers => customers.id === id);
   }
+  
   updateCustomer(customerUpdate: Customer): Promise<Customer> {
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -70,7 +71,10 @@ export class CustomerService {
       }, 1500);
     });
   }
-      private requests: RoomAppointment[] = roomAppointments;
+    
+  
+  
+  private requests: RoomAppointment[] = roomAppointments;
 
   addRequest(request: RoomAppointment) {
 

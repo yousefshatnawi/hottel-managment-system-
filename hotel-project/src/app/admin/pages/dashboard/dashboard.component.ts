@@ -98,8 +98,5 @@ export class DashboardComponent {
     localStorage.setItem('tasks', JSON.stringify(this.tasks));
   }
 
-  logout() {
-    localStorage.clear();
-    this.router.navigate(['/login']);
-  }
+ 
 }

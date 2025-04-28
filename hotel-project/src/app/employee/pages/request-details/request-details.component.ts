@@ -58,8 +58,5 @@ export class RequestDetailsComponent implements OnInit {
     }
   }
 
-  logout() {
-    localStorage.clear();
-    this.router.navigate(['/login'])
-  }
+
 }

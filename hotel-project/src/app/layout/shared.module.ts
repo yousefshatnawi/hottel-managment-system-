@@ -8,6 +8,7 @@ import { MainLayoutComponent } from './main-layout/main-layout.component';
 import { NgChartsModule } from 'ng2-charts';
 import { ChartComponent } from './chart/chart.component';
 import {  MatDialogModule } from '@angular/material/dialog';
+import { HeaderDashComponent } from './header-dash/header-dash.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,7 @@ import {  MatDialogModule } from '@angular/material/dialog';
     FooterComponent,
     MainLayoutComponent,
     ChartComponent,
+    HeaderDashComponent,
     
   ],
   imports: [
@@ -27,7 +29,8 @@ import {  MatDialogModule } from '@angular/material/dialog';
     HeaderComponent,  
     FooterComponent,
     MainLayoutComponent,
-    ChartComponent
+    ChartComponent,
+    HeaderDashComponent,
     
   ],
 })

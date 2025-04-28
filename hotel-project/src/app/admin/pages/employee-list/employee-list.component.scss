@@ -1,16 +1,16 @@
-.page-container {
-  display: flex;
-  min-height: 100vh;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f8fafc;
-}
 
+.main {
+  margin-left: 260px;
+  padding: 0;
+}
 .sidebar {
   width: 240px;
   background-color: #1e293b;
   color: #fff;
   padding: 20px;
 }
+
+
 
 .main-wrapper {
   flex: 1;
@@ -19,34 +19,7 @@
   background-color: #f8fafc;
 }
 
-.header {
-  background-color: #ffffff;
-  padding: 1rem 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: start;
-  border-bottom: 1px solid #e2e8f0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-}
 
-.logout-btn {
-  background-color: #ef4444;
-  color: #ffffff;
-  border: none;
-  padding: 10px 20px;
-  font-weight: bold;
-  border-radius: 999px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.logout-btn:hover {
-  background-color: #dc2626;
-}
-.main-content {
-  flex: 1;
-  padding: 40px;
-}
 
 h2 {
   font-size: 26px;

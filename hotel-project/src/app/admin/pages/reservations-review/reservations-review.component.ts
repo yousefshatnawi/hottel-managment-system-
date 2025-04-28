@@ -43,8 +43,5 @@ export class ReservationsReviewComponent {
   rejectReservation(id: number): void {
     this.adminService.updateApprovalStatus(id, 'rejected');
   }
-  logout() {
-    localStorage.clear();
-    this.router.navigate(['/login'])
-  }
+ 
 }

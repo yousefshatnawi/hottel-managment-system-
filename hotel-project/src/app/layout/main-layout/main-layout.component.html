@@ -4,7 +4,8 @@
       
       <!-- Admin Sidebar -->
       <div *ngIf="user.userType === 'admin'" class="sidebar">
-        <h2>📊 Dashboard</h2>
+        <img src="assets/img/logo2.png" alt="Casa Hotel Logo" />
+        
         <nav>
           <a routerLink="/admin/dashboard" routerLinkActive="active">🏠 Home</a>
           <a routerLink="/admin/add-room" routerLinkActive="active">🛏️ Add Room</a>
@@ -19,8 +20,7 @@
       <!-- Employee Sidebar -->
       <div *ngIf="user.userType === 'employee'" class="sidebar" [class.active]="isSidebarOpen">
         <div class="sidebar-header">
-          <h2>📋 Employee Dashboard</h2>
-          <!-- <button class="toggle-btn" (click)="toggleSidebar()">☰</button> -->
+          <img src="assets/img/logo2.png" alt="Casa Hotel Logo" />
         </div>
         <nav>
           <a routerLink="/employee/dashboard" routerLinkActive="active">📊 Dashboard</a>

@@ -5,14 +5,7 @@
  </div>
 
   <div class="main-content">
-    <div class="header d-flex-header">
-      <h1>Admin Dashboard</h1>
-      <span>
-        <button class="logout-btn" (click)="logout()">
-          <i class="fas fa-sign-out-alt"></i> Logout
-        </button>
-      </span>
-    </div>
+    <app-header-dash></app-header-dash>
     <h2>📋 All Reservations</h2>
 
     <div class="card-grid" *ngIf="appointments.length > 0">

@@ -29,11 +29,6 @@ export class CustomerListComponent {
     this.customers = this.adminService.getCustomers();
   } 
 
-logout() {
-  localStorage.clear();
-  this.router.navigate(['/login'])
-}
-
 
 
 }

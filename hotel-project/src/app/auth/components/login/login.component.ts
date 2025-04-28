@@ -27,15 +27,15 @@ export class LoginComponent implements OnInit {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', Validators.required),
-      acceptTerms: new FormControl(false, Validators.requiredTrue) // أضفنا هذا الحقل
+      // acceptTerms: new FormControl(false, Validators.requiredTrue) // أضفنا هذا الحقل
     });
   }
-  openPolicyModal() {
-    this.dialog.open(PolicyComponent, {
-      width: '800px',  // عرض المودال
-      height: '650px'  // ارتفاع المودال
-    });
-  }
+  // openPolicyModal() {
+  //   this.dialog.open(PolicyComponent, {
+  //     width: '800px',  // عرض المودال
+  //     height: '650px'  // ارتفاع المودال
+  //   });
+  // }
 
   login() {
     if (this.loginForm.valid) {

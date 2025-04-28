@@ -68,9 +68,14 @@ updateEmployee(id: number, updated: Employee): Promise<void> {
 }
 
 
-  getCustomers(): Customer[] {
-    return this.customers;
+getCustomers(): Customer[] {
+  const customersString = localStorage.getItem('CUSTOMERS_KEY');
+  if (customersString) {
+    return JSON.parse(customersString);
   }
+  return this.customers;
+}
+
 
   getAllUser(): User[] {
     return this.users;

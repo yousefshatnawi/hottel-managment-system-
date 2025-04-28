@@ -1,70 +1,45 @@
-
-
 .container-d {
   display: flex;
-  max-width: 1200px; /* عرض أقصى للمحتوى الكلي */
-  margin: 0 auto; /* توسيط الـ container */
-  min-height: 100vh;
+  max-width: 100%;
+  margin: 0 0;
+  min-height: 100%;
   font-family: 'Segoe UI', sans-serif;
   padding: 20px;
   box-sizing: border-box;
-  background: none; /* إزالة الخلفية */
+  background: none;
 }
 
 /* الـ Sidebar */
 .sidebar {
-  width: 250px;
-  background: none; /* إزالة اللون الأبيض */
+  width: 220px;
+  background: none;
   padding: 15px;
-  border-right: 1px solid #ddd; /* الحفاظ على الحد الأيمن */
+  border-right: 1px solid #ddd;
 }
 
-/* الـ Header */
-.d-flex-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: white;
-  padding: 20px 30px;
-  border-radius: 12px;
-  margin-bottom: 30px;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
-}
-
-/* زر الـ Logout */
-.logout-btn {
-  background-color: #e74c3c;
-  border: none;
-  color: white;
-  padding: 10px 18px;
-  font-weight: 600;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-
-.logout-btn:hover {
-  background-color: #c0392b;
-}
-
-/* الـ Main Content */
-.main-content {
+.main {
   flex: 1;
-  max-width: 800px; /* عرض محدود للمحتوى الرئيسي */
-  margin: 0 auto; /* توسيط الـ main-content */
-  padding: 40px;
-  background: white; /* خلفية بيضاء للمحتوى الرئيسي */
-  border-radius: 12px;
+  padding: 30px 40px; /* توسعة البادينغ قليلا */
 }
 
 /* العناوين */
-h3 {
+h2 {
   margin-bottom: 25px;
   color: #333;
-  font-size: 24px;
+  font-size: 26px;
+  font-weight: bold;
 }
 
 /* الـ Form */
+.profile-form {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+  max-width: 600px;
+  margin-left: 20%;
+}
+
 .form-group {
   margin-bottom: 20px;
   display: flex;
@@ -80,12 +55,12 @@ label {
 input[type="text"],
 textarea,
 select {
-  padding: 10px;
-  font-size: 15px;
+  padding: 12px;
+  font-size: 16px;
   border-radius: 6px;
   border: 1px solid #ccc;
   transition: border-color 0.3s;
-  width: 50%;
+  width: 100%;
 }
 
 input:focus,
@@ -95,28 +70,31 @@ select:focus {
   outline: none;
 }
 
-/* زر الـ Submit */
+/* أزرار الفورم */
 .submit-btn {
   background-color: #007bff;
   color: white;
-  padding: 12px 20px;
+  padding: 12px 25px;
   font-size: 16px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s;
+  margin-right: 10px;
 }
 
 .submit-btn:hover {
   background-color: #0056b3;
+  transform: scale(1.05);
 }
 
-/* التنبيهات */
+/* تنسيقات التنبيهات */
 .success-alert,
 .error-alert {
-  padding: 15px;
+  padding: 15px 20px;
   margin-top: 20px;
   border-radius: 6px;
+  font-size: 15px;
 }
 
 .success-alert {
@@ -129,25 +107,39 @@ select:focus {
   color: #c62828;
 }
 
-/* الاستجابة للأجهزة المحمولة */
+.formbold-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  padding: 1rem 2.5rem;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 999px;
+  width: 50%;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+  transition: transform 0.3s, box-shadow 0.3s;
+  margin-left: 28%;
+}
+
+.formbold-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 25px rgba(102, 126, 234, 0.4);
+}
+
+
+/* Responsive Layout */
 @media (max-width: 768px) {
+  .sidebar {
+    display: none;
+  }
+
+  .main {
+    margin-left: 0;
+    padding: 20px;
+  }
   .container-d {
     flex-direction: column;
     padding: 10px;
-  }
-  .sidebar {
-    width: 100%;
-    border-right: none;
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 20px;
-  }
-  .main-content {
-    max-width: 100%;
-    padding: 20px;
-    margin: 0;
-  }
-  .d-flex-header {
-    flex-direction: column;
-    gap: 15px;
   }
 }
