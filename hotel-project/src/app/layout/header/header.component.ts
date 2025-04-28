@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from '../../auth/components/login/login.component';
+import { RequestServiceComponent } from '../../customer/pages/request-service/request-service.component';
+import { MyReservationsComponent } from '../../customer/pages/my-reservations/my-reservations.component';
 @Component({
   selector: 'app-header',
   standalone: false,
@@ -9,6 +11,8 @@ import { LoginComponent } from '../../auth/components/login/login.component';
   styleUrl: './header.component.scss'
 })
 export class HeaderComponent implements OnInit {
+
+
   isLoggedIn = false;
   profileLink = '/'; // رابط يوجه حسب نوع المستخدم
 
@@ -42,5 +46,19 @@ export class HeaderComponent implements OnInit {
 
     this.isLoggedIn = false;
   }
-
+reqestService() {
+    this.dialog.open(RequestServiceComponent, {
+      width: '500px',  // عرض المودال
+      height: '500px'  // ارتفاع المودال
+    });
+  }
+  myReservations() {
+    this.dialog.open(MyReservationsComponent, {
+      width: '65vw',      // خلي العرض نسبة من الشاشة
+      maxWidth: '95vw',   // لازم تحكي للديالوج أنه يقبل
+      height: '55vh',     // ارتفاع
+      maxHeight: '90vh',  // لازم تحكي يقبل
+      panelClass: 'custom-dialog-container' // اختياري لو بدك كمان تعدلي CSS زيادة
+    });
+    }
 }

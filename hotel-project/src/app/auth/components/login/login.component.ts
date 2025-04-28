@@ -6,6 +6,8 @@ import { User } from '../../../models/user.model';
 import { CustomerService } from '../../../customer/services/customer.service';
 import { MatDialog } from '@angular/material/dialog';
 import { PolicyComponent } from '../../../policy/policy.component';
+import { MatDialogRef } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-login',
@@ -20,14 +22,21 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private customerService: CustomerService,
     private router: Router,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private dialogRef: MatDialogRef<LoginComponent>
   ) {}
-
+  get email() {
+    return this.loginForm.get('email')!;
+  }
+  
+  get password() {
+    return this.loginForm.get('password')!;
+  }
+  
   ngOnInit(): void {
     this.loginForm = new FormGroup({
       email: new FormControl('', [Validators.required, Validators.email]),
       password: new FormControl('', Validators.required),
-      // acceptTerms: new FormControl(false, Validators.requiredTrue) // أضفنا هذا الحقل
     });
   }
   // openPolicyModal() {
@@ -60,11 +69,17 @@ export class LoginComponent implements OnInit {
               this.router.navigate(['/customer']);
               localStorage.setItem('customer', JSON.stringify(customer));
           }
+          this.dialogRef.close(); // يسكر البوب اب
         })
         .catch(error => {
           console.error(error);
           alert('Email or password is incorrect');
         });
     }
+  }
+  navigateToSignup() {
+    this.router.navigate(['/signup']); 
+    this.dialogRef.close(); 
+
   }
 }

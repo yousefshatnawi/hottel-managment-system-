@@ -113,6 +113,55 @@
 /* رسالة الخطأ */
 .error {
   color: red;
-  font-size: 0.85rem;
-  margin-top: 0.5rem;
+  font-size: 14px;
+    font-weight: bold;
+    margin: -9px 0px 0px
+}
+
+.divider {
+  position: relative;
+  text-align: center;
+  margin: 1.5rem 0;
+  font-weight: 500;
+  color: #666;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    width: 40%;
+    height: 1px;
+    background-color: #ccc;
+  }
+
+  &::before {
+    left: 0;
+  }
+
+  &::after {
+    right: 0;
+  }
+}
+
+.signup-link {
+  text-align: center;
+  font-size: 0.95rem;
+  color: #555;
+
+  p {
+    margin-top: 1rem;
+  }
+
+  a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: #0056b3;
+      text-decoration: underline;
+    }
+  }
 }
