@@ -27,7 +27,7 @@ import { NgChartsModule } from 'ng2-charts';
     AddRoomComponent,
     RoomsListComponent,
     CustomerListComponent,
-    ReservationsReviewComponent ,
+    ReservationsReviewComponent 
   
   ],
   imports: [
@@ -39,9 +39,8 @@ import { NgChartsModule } from 'ng2-charts';
     MatDatepickerModule,
     MatNativeDateModule,
     SharedModule,
-    NgChartsModule
-    
+    NgChartsModule,
 
-  ]
+  ],
 })
 export class AdminModule { }
