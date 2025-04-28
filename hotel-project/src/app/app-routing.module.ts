@@ -7,7 +7,6 @@ import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { RoomListComponent } from './customer/pages/room-list/room-list.component';
 import { PolicyComponent } from './policy/policy.component';
-import { BlogComponent } from './blog/blog.component';
 
 const routes: Routes = [
 
@@ -20,7 +19,6 @@ const routes: Routes = [
   {    path:'contact-us', component: ContactComponent},
   {    path:'room',  component: RoomListComponent},
   {    path:'policy',  component: PolicyComponent},
-  {    path:'blog',  component: BlogComponent},
   {
       path: 'employee', 
       loadChildren: () => import('./employee/employee.module').then(m => m.EmployeeModule) 
