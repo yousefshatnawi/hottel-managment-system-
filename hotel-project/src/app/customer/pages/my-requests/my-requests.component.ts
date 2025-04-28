@@ -22,25 +22,32 @@ export class MyRequestsComponent implements OnInit{
   ) {}
 
   ngOnInit(): void {
-    const updataStatus = JSON.parse(localStorage.getItem('updatedRequest') || '{}');
-
-    this.myRequests = this.requestService.getRequestsByEmployee();
+    const updatedStatus = 
+    JSON.parse(localStorage.getItem('updatedRequest')
+     || 'null'); // أفضل خليها null مش {}
     
-    if (updataStatus && updataStatus.id) {
-      const idx = this.myRequests.findIndex(r => r.id === updataStatus.id);
+    this.myRequests = this.requestService.getRequestsByEmployee();
+  
+    if (updatedStatus && updatedStatus.id) {
+      const idx = this.myRequests.findIndex(r => r.id === updatedStatus.id);
       if (idx !== -1) {
-        this.myRequests[idx] = updataStatus;
+        this.myRequests[idx] = updatedStatus;
       } else {
-        this.myRequests.push(updataStatus);
+        this.myRequests.push(updatedStatus);
       }
     }
-    const Employee=this.requestService.getAllEmployee();
-    this.myRequests= this.myRequests.map((app:EmployeeRequest)=>{
+  
+    const allEmployees = this.requestService.getAllEmployee();
+  
+    this.myRequests = this.myRequests.map((app: EmployeeRequest) => {
+      const employee = allEmployees.find((e) => e.id === app.employeeId); // صحح المقارنة هنا
       return {
         ...app,
-        employee:Employee.find((Employee) => Employee.id === app.id)
-      }
-    })
+        employee: employee
+      };
+    });
+  }
+  
 
     /*
     const customers=this.customerService.getAllCustomers();
@@ -59,7 +66,7 @@ export class MyRequestsComponent implements OnInit{
   }
 
  
-}
+
 
 
       

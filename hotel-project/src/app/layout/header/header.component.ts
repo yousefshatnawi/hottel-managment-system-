@@ -4,6 +4,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from '../../auth/components/login/login.component';
 import { RequestServiceComponent } from '../../customer/pages/request-service/request-service.component';
 import { MyReservationsComponent } from '../../customer/pages/my-reservations/my-reservations.component';
+import { MyRequestsComponent } from '../../customer/pages/my-requests/my-requests.component';
 @Component({
   selector: 'app-header',
   standalone: false,
@@ -47,8 +48,8 @@ export class HeaderComponent implements OnInit {
     this.isLoggedIn = false;
   }
 reqestService() {
-    this.dialog.open(RequestServiceComponent, {
-      width: '500px',  // عرض المودال
+    this.dialog.open(MyRequestsComponent, {
+      width: '1600px',  // عرض المودال
       height: '500px'  // ارتفاع المودال
     });
   }

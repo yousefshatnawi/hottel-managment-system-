@@ -1,13 +1,17 @@
 .section-title {
   font-size: 24px;
   font-weight: 600;
-  margin-bottom: 20px;
+  margin-top: 20px;
   color: #19191a;
 }
-
+.table-responsive{
+  width: 100%;
+}
 .table {
   background-color: white;
   border-radius: 10px;
+  width: 90%;
+  margin: 10px 20px;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
 
@@ -22,21 +26,21 @@
   }
 
   span {
-    padding: 5px 10px;
+    padding: 15px 10px;
     border-radius: 20px;
     font-weight: 500;
     color: white;
 
-    &.approved {
-      background-color: #28a745;
+    &.pending {
+      background-color: #2883a7;
     }
 
-    &.pending {
+    &.progres {
       background-color: #ffc107;
     }
 
-    &.rejected {
-      background-color: #dc3545;
+    &.done {
+      background-color: #3bdc35;
     }
   }
 }

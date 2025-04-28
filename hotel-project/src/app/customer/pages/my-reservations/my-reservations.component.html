@@ -26,7 +26,8 @@
         <td>
           <button class="site-btn mt-3"
             [ngClass]="res.approvalStatus" 
-            [disabled]="res.approvalStatus !== 'approved'">
+            [disabled]="res.approvalStatus !== 'approved'"
+            (click)="reqestService()">
            Request service
           </button>
         </td>
