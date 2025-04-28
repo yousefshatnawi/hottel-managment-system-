@@ -6,6 +6,8 @@ import { User } from '../../../models/user.model';
 import { CustomerService } from '../../../customer/services/customer.service';
 import { MatDialog } from '@angular/material/dialog';
 import { PolicyComponent } from '../../../policy/policy.component';
+import { MatDialogRef } from '@angular/material/dialog';
+
 
 @Component({
   selector: 'app-login',
@@ -20,7 +22,8 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private customerService: CustomerService,
     private router: Router,
-    private dialog: MatDialog
+    private dialog: MatDialog,
+    private dialogRef: MatDialogRef<LoginComponent>
   ) {}
 
   ngOnInit(): void {
@@ -60,6 +63,7 @@ export class LoginComponent implements OnInit {
               this.router.navigate(['/customer']);
               localStorage.setItem('customer', JSON.stringify(customer));
           }
+          this.dialogRef.close(); // يسكر البوب اب
         })
         .catch(error => {
           console.error(error);
