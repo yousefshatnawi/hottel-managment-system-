@@ -6,7 +6,6 @@
       <tr>
         <th>ID request</th>
         <th>Employee name </th>
-
         <th>Request Type</th>
         <th>Date</th>
         <th>Status</th>
@@ -18,7 +17,16 @@
         <td>{{ req.employee?.name }}</td>
         <td>{{ req.requestType }}</td>
         <td>{{ req.date }}</td>
-        <td>{{ req.requestStatus }}</td>
+        <td>
+          <span 
+            [ngClass]="{
+              'pending': req.requestStatus === 'pending',
+              'progres': req.requestStatus === 'progres',
+              'done': req.requestStatus === 'done'
+            }">
+            {{ req.requestStatus }}
+          </span>
+        </td>
       </tr>
     </tbody>
   </table>

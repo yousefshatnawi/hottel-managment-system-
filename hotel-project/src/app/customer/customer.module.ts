@@ -14,6 +14,7 @@ import { RoomListComponent } from './pages/room-list/room-list.component';
 import { RoomDetailsComponent } from './pages/room-details/room-details.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { SharedModule } from '../layout/shared.module';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { SharedModule } from '../layout/shared.module';
     ReactiveFormsModule,
     AuthRoutingModule,
     CommonModule,
-    SharedModule
+    SharedModule,
+    MatDialogModule
     
   ],
   exports: [

@@ -95,8 +95,9 @@ export class CustomerService {
     const newRequest = {
       ...request,
       id: newId,
-    
-    };
+      employee:employees.find((employee) => employee.id === request.employeeId)
+      };
+    localStorage.setItem('updatedRequest', JSON.stringify(newRequest));
 
     this.requestsEmp.push(newRequest);
     console.log('تمت إضافة الطلب:', newRequest);

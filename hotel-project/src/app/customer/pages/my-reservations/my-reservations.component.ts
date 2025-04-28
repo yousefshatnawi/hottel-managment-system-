@@ -5,6 +5,8 @@ import { CustomerModule } from '../../customer.module';
 import { customers } from '../../../shared/dataBase/customer';
 import { Customer } from '../../../models/customer.model';
 import { CustomerService } from '../../services/customer.service';
+import { RequestServiceComponent } from '../request-service/request-service.component';
+import { MatDialog } from '@angular/material/dialog';
 
 
 
@@ -15,7 +17,11 @@ import { CustomerService } from '../../services/customer.service';
   styleUrl: './my-reservations.component.scss'
 })
 export class MyReservationsComponent implements OnInit {
-constructor(private requestService: CustomerService){}
+
+constructor(private requestService: CustomerService
+  ,    private dialog: MatDialog  // ✨ أضفناه هون
+
+){}
  myReservations: RoomAppointment[] = [];
   ngOnInit(): void {
 
@@ -28,5 +34,10 @@ const newReservtion = JSON.parse(localStorage.getItem('new-reservations') || '{}
   
 }
 }
+reqestService() {
+  this.dialog.open(RequestServiceComponent, {
+        width: '500px',  // عرض المودال
+        height: '500px'  // ارتفاع المودال
+      });}
 
 }

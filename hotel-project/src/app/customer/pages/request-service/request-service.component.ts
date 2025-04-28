@@ -26,7 +26,7 @@ export class RequestServiceComponent implements OnInit{
     });
   }
   submitRequest() {
-    const randomEmployeeId = Math.floor(Math.random() * 10) + 1;
+    const randomEmployeeId = Math.floor(Math.random() * 5) + 1;
     const user = JSON.parse(localStorage.getItem('user') || '{}');
     const customer = JSON.parse(localStorage.getItem('customer') || '{}');
 
@@ -42,6 +42,8 @@ export class RequestServiceComponent implements OnInit{
       };
   
       this.customerService.addRequestemps(formData);
+      this.requestForm.reset();
+
     }
   }
 }
