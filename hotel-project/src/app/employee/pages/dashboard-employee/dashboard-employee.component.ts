@@ -21,12 +21,20 @@ todaysRequests: EmployeeRequest[] = [];
 notifications: any[] = [];
 activityLog: any[] = [];
 
+
 today: string = new Date().toISOString().split('T')[0];
+
+
+selectedStatus: string = '';
+filteredRequests: any[] = [];
 
 constructor(private employeeService: EmployeeService, private router: Router) {}
 
 ngOnInit(): void {
   this.employee = JSON.parse(localStorage.getItem('employee') || '{}');
+  
+
+
   this.loadRequests();
 }
 
@@ -40,11 +48,12 @@ loadRequests() {
   this.todaysRequests = allRequests.filter(req => {
     const reqDate = new Date(req.date).toISOString().split('T')[0];
     return reqDate === this.today;
-  }
-  );
+  });
 
   this.generateNotifications(allRequests);
   this.generateActivityLog(allRequests);
+  this.filteredRequests = this.recentRequests;
+
 }
 
 generateNotifications(requests: EmployeeRequest[]) {
@@ -95,6 +104,16 @@ getChipColor(status: string): string {
       return 'primary';
     default:
       return '';
+  }
+}
+
+
+filterRequests() {
+  if (this.selectedStatus === '') {
+    
+    this.filteredRequests = this.recentRequests;
+  } else {
+    this.filteredRequests = this.recentRequests.filter(request => request.requestStatus === this.selectedStatus);
   }
 }
 }

@@ -132,6 +132,25 @@ addEmployee(employee: Employee) {
 }
 
 
+// updateEmployee(employeeUpdate: Employee): Promise<Employee> {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       const employeeIndex = employees.findIndex(emp => emp.id === employeeUpdate.id);
+
+//       if (employeeIndex !== -1) {
+//         employees[employeeIndex] = { ...employeeUpdate };
+
+      
+//         localStorage.setItem('employee', JSON.stringify(employees[employeeIndex]));
+        
+//         resolve(employees[employeeIndex]);
+//       } else {
+//         reject('Employee not found');
+//       }
+//     }, 1500);
+//   });
+// }
+
 updateEmployee(employeeUpdate: Employee): Promise<Employee> {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -140,7 +159,10 @@ updateEmployee(employeeUpdate: Employee): Promise<Employee> {
       if (employeeIndex !== -1) {
         employees[employeeIndex] = { ...employeeUpdate };
 
-      
+        // تحديث نسخة الموظفين في localStorage
+        localStorage.setItem('EMPLOYEES_KEY', JSON.stringify(employees));
+
+        // تحديث بيانات الموظف الحالي المسجل دخول
         localStorage.setItem('employee', JSON.stringify(employees[employeeIndex]));
         
         resolve(employees[employeeIndex]);
