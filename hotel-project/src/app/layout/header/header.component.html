@@ -19,7 +19,11 @@
               </div>
   
               <!-- <a *ngIf="!isLoggedIn" routerLink="/auth/login" class="bk-btn">Login</a> -->
-              <a *ngIf="!isLoggedIn" (click)="openLoginDialog()" class="bk-btn">Login</a>
+              <!-- <a *ngIf="!isLoggedIn" (click)="openLoginDialog()" class="bk-btn">Login</a> -->
+              <button *ngIf="!isLoggedIn" (click)="openLoginDialog()" class="bk-btn">
+                Login
+              </button>
+              
 
               <a *ngIf="isLoggedIn" routerLink='/customer/profile' class="bk-btn">My Profile</a>
   

@@ -71,4 +71,9 @@ export class LoginComponent implements OnInit {
         });
     }
   }
+  navigateToSignup() {
+    this.router.navigate(['/signup']); 
+    this.dialogRef.close(); 
+
+  }
 }
