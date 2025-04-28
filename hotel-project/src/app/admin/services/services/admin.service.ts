@@ -30,11 +30,23 @@ export class AdminService {
   } 
 
 
- getEmployees(): Promise<Employee[]> {
+//  getEmployees(): Promise<Employee[]> {
+//   return new Promise((resolve) => {
+//     resolve(this.employeeList);
+//   });
+// }
+
+getEmployees(): Promise<Employee[]> {
   return new Promise((resolve) => {
-    resolve(this.employeeList);
+    const localEmployees = JSON.parse(localStorage.getItem('EMPLOYEES_KEY') || '[]');
+    if (localEmployees.length > 0) {
+      resolve(localEmployees);
+    } else {
+      resolve(this.employeeList);
+    }
   });
 }
+
 
 
      addEmployee(newEmp: Employee): void {

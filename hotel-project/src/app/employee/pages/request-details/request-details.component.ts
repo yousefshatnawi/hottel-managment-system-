@@ -27,8 +27,10 @@ export class RequestDetailsComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.requestId = +params.get('id')!;
       this.loadRequestDetails();
-      const employee = JSON.parse(localStorage.getItem('employee') || '{}');
-
+      const employeeData = localStorage.getItem('employee');
+      if (employeeData) {
+        this.employee = JSON.parse(employeeData);
+      }
     });
   }
 
