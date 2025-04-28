@@ -39,7 +39,7 @@ import { MatDialog, MatDialogConfig, MatDialogModule } from '@angular/material/d
 AdminModule   ,
 CustomerModule,
 SharedModule,
-ReactiveFormsModule
+ReactiveFormsModule,
 
     AdminModule   ,
     CustomerModule,
