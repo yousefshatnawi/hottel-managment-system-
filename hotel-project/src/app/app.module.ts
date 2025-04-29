@@ -13,6 +13,7 @@ import { CustomerModule } from './customer/customer.module';
 import { SharedModule } from './layout/shared.module';
 import { PolicyComponent } from './policy/policy.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ForbiddenComponent } from './forbidden/forbidden.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
@@ -24,8 +25,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     AboutComponent,
     ContactComponent,
     PolicyComponent,
-  
-   
+    ForbiddenComponent,
   ],
   imports: [
     BrowserModule,
