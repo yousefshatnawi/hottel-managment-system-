@@ -13,6 +13,8 @@ import { CustomerModule } from './customer/customer.module';
 import { SharedModule } from './layout/shared.module';
 import { PolicyComponent } from './policy/policy.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 
 
 @NgModule({
@@ -34,10 +36,10 @@ AdminModule   ,
 CustomerModule,
 SharedModule,
 ReactiveFormsModule,
-
     AdminModule   ,
     CustomerModule,
     SharedModule,
+    MatProgressSpinnerModule
     
   ],
   exports: [
