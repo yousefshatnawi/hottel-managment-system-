@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Router } from '@angular/router';
 import { Employee } from '../../models/employee.model';
 import { AuthService } from '../../auth/services/auth.service';
@@ -9,6 +9,8 @@ import { AuthService } from '../../auth/services/auth.service';
   templateUrl: './header-dash.component.html',
   styleUrl: './header-dash.component.scss'
 })
+
+
 export class HeaderDashComponent {
     employeeData: Employee = { id: 0, name: '', role: '',email:'' }; 
    currentUser: any = null;
@@ -30,4 +32,6 @@ export class HeaderDashComponent {
     localStorage.clear();
     this.router.navigate(['/home'])
   }
+  @Input() pageTitle: string = 'Dashboard';
+
 }
