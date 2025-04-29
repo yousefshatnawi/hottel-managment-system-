@@ -18,7 +18,7 @@
         <td>{{ req.requestType }}</td>
         <td>{{ req.date }}</td>
         <td>
-          <span 
+          <span  id="span-status"
             [ngClass]="{
               'pending': req.requestStatus === 'pending',
               'progres': req.requestStatus === 'progres',
