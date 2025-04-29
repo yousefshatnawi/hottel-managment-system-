@@ -13,46 +13,6 @@ import { PageEvent } from '@angular/material/paginator';
   styleUrl: './reservations-review.component.scss'
 })
 export class ReservationsReviewComponent { 
-//    appointments: RoomAppointment[] = [];
-   
-// pagedAppointments: any[] = [];
-// pageSize = 5;
-// currentPage = 0;
-
-
-//   constructor(private adminService: AdminService , private router: Router,  private customerService:CustomerService ) {}
-
-//   ngOnInit(): void {
-  
-//   const newReservtion = JSON.parse(localStorage.getItem('new-reservations') || '{}');
-//     this.appointments = this.adminService.getAppointments();
-//     if (newReservtion && newReservtion.id) {
-//       {
-//         this.appointments.push(newReservtion);
-//       }
-//   }
-//  const customers=this.customerService.getAllCustomers();
-
-//  this.appointments= this.appointments.map((app:RoomAppointment)=>{
-//     return {
-//       ...app,
-//       customer:customers.find((customer) => customer.id === app.customerId)
-//     }
-//   })
-  
-//   console.log(this.appointments)
-// }
-
-//   approveReservation(id: number): void {
-//     this.adminService.updateApprovalStatus(id, 'approved');
-    
-//   }
-
-//   rejectReservation(id: number): void {
-//     this.adminService.updateApprovalStatus(id, 'rejected');
-//   }
- 
-// }
 
 
 appointments: RoomAppointment[] = [];

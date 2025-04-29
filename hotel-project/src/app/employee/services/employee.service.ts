@@ -31,17 +31,8 @@ export class EmployeeService {
     // const allCustomers = JSON.parse(localStorage.getItem('customers') || '[]');
     const requests = allRequests.filter(req => req.employeeId === currentUser.id);
     return requests;
-    // const allCustomers :Customer[]= customers;
-    // //customers ->customer  
-  
     
-    // return requests.map(req => {
-    //   const customer = allCustomers.find((c: any) => c.id === req.customerId);
-    //   return {
-    //     ...req,
-    //     customerName: customer ? customer.name : 'Unknown'
-    //   };
-    // });
+  
   }
   
 
@@ -74,30 +65,7 @@ export class EmployeeService {
     }
   }
   
-  // updateRequestStatus(
-  //   requestId: number,
-  //   newStatus: 'pending' | 'progress' | 'done',
-  //   employeeId: number
-  // ) {
-  //   const index = this.requests.findIndex((r: EmployeeRequest) => r.id === requestId);
-    
-  //   if (index !== -1) {
-  //     this.requests[index].requestStatus = newStatus;
-  
-  //     // نجيب كل الطلبات الخاصة بالموظف
-  //     const currentRequests = this.requests.filter(r => r.employeeId === employeeId);
-  
-  //     // نحدث الـ localStorage مع الكل
-  //     localStorage.setItem('employeeRequest', JSON.stringify([...currentRequests]));
-  
-  //     console.log('Updated request:', this.requests[index]);
-  //     return true;
-  //   } else {
-  //     console.error('Request not found:', requestId);
-  //     return false;
-  //   }
-  // }
-  
+ 
 
   getAllRequests(): EmployeeRequest[] {
     return this.requests;
@@ -131,25 +99,6 @@ addEmployee(employee: Employee) {
   console.log('Employee added:', newEmployee);
 }
 
-
-// updateEmployee(employeeUpdate: Employee): Promise<Employee> {
-//   return new Promise((resolve, reject) => {
-//     setTimeout(() => {
-//       const employeeIndex = employees.findIndex(emp => emp.id === employeeUpdate.id);
-
-//       if (employeeIndex !== -1) {
-//         employees[employeeIndex] = { ...employeeUpdate };
-
-      
-//         localStorage.setItem('employee', JSON.stringify(employees[employeeIndex]));
-        
-//         resolve(employees[employeeIndex]);
-//       } else {
-//         reject('Employee not found');
-//       }
-//     }, 1500);
-//   });
-// }
 
 updateEmployee(employeeUpdate: Employee): Promise<Employee> {
   return new Promise((resolve, reject) => {
