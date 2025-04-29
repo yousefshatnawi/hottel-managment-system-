@@ -13,6 +13,7 @@ import { MyRequestsComponent } from '../../customer/pages/my-requests/my-request
 })
 export class HeaderComponent implements OnInit {
 
+  showMyRequest: boolean = false;
 
   isLoggedIn = false;
   profileLink = '/'; // رابط يوجه حسب نوع المستخدم
@@ -31,7 +32,9 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
+
     const user = JSON.parse(localStorage.getItem('user') || 'null');
+    this.showMyRequest = user !== null;
     if (user) {
       this.isLoggedIn = true;
       if (user.userType === 'customer') {
@@ -53,13 +56,13 @@ reqestService() {
       height: '500px'  // ارتفاع المودال
     });
   }
-  myReservations() {
-    this.dialog.open(MyReservationsComponent, {
-      width: '65vw',      // خلي العرض نسبة من الشاشة
-      maxWidth: '95vw',   // لازم تحكي للديالوج أنه يقبل
-      height: '55vh',     // ارتفاع
-      maxHeight: '90vh',  // لازم تحكي يقبل
-      panelClass: 'custom-dialog-container' // اختياري لو بدك كمان تعدلي CSS زيادة
-    });
-    }
+  // myReservations() {
+  //   this.dialog.open(MyReservationsComponent, {
+  //     width: '65vw',      // خلي العرض نسبة من الشاشة
+  //     maxWidth: '95vw',   // لازم تحكي للديالوج أنه يقبل
+  //     height: '55vh',     // ارتفاع
+  //     maxHeight: '90vh',  // لازم تحكي يقبل
+  //     panelClass: 'custom-dialog-container' // اختياري لو بدك كمان تعدلي CSS زيادة
+  //   });
+  //   }
 }

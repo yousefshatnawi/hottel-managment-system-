@@ -31,14 +31,26 @@ export class BookRoomComponent implements OnInit {
   }
 
   submitBooking() {
+    const user = JSON.parse(localStorage.getItem('customer') || 'null');
+  
     if (this.bookingForm.valid) {
+      const formValue = this.bookingForm.value; 
+      console.log("testttttttttttttttt",formValue.roomId)
+      console.log(this.rooms)
+      const selectedRoom = this.rooms.find(room => room.id == formValue.roomId);
+      console.log("selected ",selectedRoom)
+      
       const formData = {
-        ...this.bookingForm.value,
-        customerId: 1,
+        ...formValue,
+        customerId: user.id,
         approvalStatus: 'pending',
-        paymentStatus: 'unpaid'
+        paymentStatus: 'unpaid',
+        room: selectedRoom   
       };
+      
+  
       console.log('Booking Submitted:', formData);
+  
       this.roomService.addRoomAppointment(formData)
         .then((newBooking) => {
           console.log('Booking successfully added:', newBooking);
@@ -49,4 +61,5 @@ export class BookRoomComponent implements OnInit {
         });
     }
   }
+  
 }
