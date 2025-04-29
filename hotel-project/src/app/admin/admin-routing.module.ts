@@ -16,17 +16,17 @@ const routes: Routes = [
     path: '',
     canActivate: [AuthGuard],
     data: { role: 'admin' }, 
-    children: [      // lazyloding
+    children: [      
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
       { path: 'dashboard', component: DashboardComponent },
       { path: 'employees', component: EmployeeListComponent },
       { path: 'add-employee', component: AddEmployeeComponent },
-      {path:'edit/:id', component: AddEmployeeComponent},
+      { path:'edit/:id', component: AddEmployeeComponent},
       { path: 'rooms', component: RoomsListComponent},
       { path: 'add-room', component: AddRoomComponent },
-      {path:'editRoom/:id', component: AddRoomComponent},
+      { path:'editRoom/:id', component: AddRoomComponent},
       { path: 'custmouer-list', component: CustomerListComponent},
-      {path: 'reservations-review', component: ReservationsReviewComponent}
+      { path: 'reservations-review', component: ReservationsReviewComponent}
     ]
   }
 ]

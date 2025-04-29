@@ -6,12 +6,13 @@
     <app-main-layout></app-main-layout>
   </div>
 
-  <div class="main-content">
-    <div class="header">
-      <h2>📋 Room / Hall List</h2>
       
-    </div>
 
+  <div class="main-content">
+    <div>
+      <app-header-dash [pageTitle]="'Room / Hall List'"></app-header-dash>
+      </div>
+   
     <div class="card-grid" *ngIf="rooms.length > 0">
       <div class="room-card" *ngFor="let room of pagedRooms"      >
         <h3>🏷️ {{ room.title }}</h3>

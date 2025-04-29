@@ -18,14 +18,14 @@
         <td>{{ req.requestType }}</td>
         <td>{{ req.date }}</td>
         <td>
-          <span  id="span-status"
+          <p  id="span-status"
             [ngClass]="{
               'pending': req.requestStatus === 'pending',
               'progres': req.requestStatus === 'progres',
               'done': req.requestStatus === 'done'
             }">
             {{ req.requestStatus }}
-          </span>
+          </p>
         </td>
       </tr>
     </tbody>

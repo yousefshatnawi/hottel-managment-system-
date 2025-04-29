@@ -1,24 +1,21 @@
+<ng-container *ngIf="currentUser as user">
+  <header class="admin-header" *ngIf="user.userType === 'admin'">
+    <h1 class="admin-title">{{ pageTitle }}</h1>
+    <button class="logout-btn" (click)="logout()">
+      <i class="fas fa-sign-out-alt"></i>
+      Logout
+    </button>
+  </header>
 
-       
-            <ng-container *ngIf="currentUser as user">
-                <div class="header d-flex-header" *ngIf="user.userType === 'admin'">
-                    <h1>Admin Dashboard</h1>
-                    <span>
-                      <button class="logout-btn" (click)="logout()">
-                        <i class="fas fa-sign-out-alt"></i> Logout
-                      </button>
-                    </span>
-                  </div>
-                
-                
-                
-                  <div class="d-flex-header" *ngIf="user.userType === 'employee'">
-                    <h1> <span><i class="fas fa-user-circle"></i> Hello, {{ employeeData.name }}</span></h1>
-                    <span>
-                      <button class="logout-btn" (click)="logout()">
-                        <i class="fas fa-sign-out-alt"></i> Logout
-                      </button>
-                    </span>
-                  </div>
-                </ng-container>
-   
+  <header class="admin-header" *ngIf="user.userType === 'employee'">
+    <!-- <h1 class="admin-title">
+      <i class="fas fa-user-circle"></i> Hello, {{ employeeData.name }}
+    </h1> -->
+    <h1 class="admin-title">{{ pageTitle }}</h1>
+
+    <button class="logout-btn" (click)="logout()">
+      <i class="fas fa-sign-out-alt"></i>
+      Logout
+    </button>
+  </header>
+</ng-container>
