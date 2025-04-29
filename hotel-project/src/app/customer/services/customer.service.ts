@@ -33,24 +33,25 @@ export class CustomerService {
   }
   addRoomAppointment(appointmentData: any): Promise<RoomAppointment> {
     const allRooms: RoomAppointment[] = this.getAllRoomsApp();
-
+  
     return new Promise((resolve, reject) => {
       try {
+  
         const newAppointment: RoomAppointment = {
           ...appointmentData,
-          id: allRooms.length + 1  
+          id: allRooms.length + 1
         };
-
+        console.log(newAppointment)
         allRooms.push(newAppointment);
-        localStorage.setItem('new-reservations', JSON.stringify(newAppointment))
-
-        console.log('all rooms',allRooms)
+        localStorage.setItem('new-reservations', JSON.stringify(newAppointment));
+  
         resolve(newAppointment);
       } catch (error) {
         reject('Failed to add appointment');
       }
     });
   }
+  
   getcustomerById(id: number): Customer | undefined {
     return customers.find(customers => customers.id === id);
   }
@@ -118,7 +119,6 @@ export class CustomerService {
  
   getResrvtionByCustomer(): RoomAppointment[] {
     const customerString = localStorage.getItem('customer');
-    
     if (!customerString) {
       return [];
     }
@@ -126,8 +126,9 @@ export class CustomerService {
     try {
       const customer = JSON.parse(customerString);
       const id = customer.id;
-  
+  console.log(roomAppointments)
       return roomAppointments.filter(req => req.customerId === id);
+
     } catch (error) {
       console.error('Error parsing user from localStorage:', error);
       return [];

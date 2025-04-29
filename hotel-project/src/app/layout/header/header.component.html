@@ -1,4 +1,3 @@
-
 <header class="header-section">
     <div class="top-nav">
       <div class="container">
@@ -50,10 +49,17 @@
                 <ul>
                   <li ><a routerLink="/home" routerLinkActive="active">Home</a></li>
                   <li ><a routerLink="/room" routerLinkActive="active">Rooms</a></li>
-                  <li ><a   (click)="reqestService()" routerLinkActive="active">My Request</a></li>
-                  <li ><a (click)="myReservations()" routerLinkActive="active">My Reservations</a></li>
-                  <!-- <li ><a routerLink="/blog" routerLinkActive="active">blog</a></li> -->
                   <li ><a routerLink="/about-us" routerLinkActive="active">About Us</a></li>
+                  <li ><a (click)="reqestService()" routerLinkActive="active" *ngIf="showMyRequest">My Request</a></li>
+                  <li ><a  routerLink="/customer/my-reservations"  routerLinkActive="active" *ngIf="showMyRequest">Reservations</a></li>
+                  <!-- <li><a href="./pages">Pages</a>
+                    <ul class="dropdown">
+                      <li ><a   (click)="reqestService()" routerLinkActive="active">Request Service</a></li>
+                      <li ><a (click)="myReservations()" routerLinkActive="active">Reservations</a></li>
+                        
+                    </ul>
+                </li> -->
+
                   <li ><a routerLink="/contact-us" routerLinkActive="active">Contact Us</a></li>
                 </ul>
               </nav>
@@ -64,4 +70,3 @@
     </div>
   </header>
   <!-- Header End -->
-  

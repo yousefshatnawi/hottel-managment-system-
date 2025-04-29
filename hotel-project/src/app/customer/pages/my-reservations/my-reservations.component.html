@@ -1,4 +1,5 @@
 
+<app-header></app-header>
 <div class="table-responsive">
    <h3 class="section-title">My Reservations</h3>
 
@@ -17,8 +18,9 @@
     </thead>
     <tbody>
       <tr *ngFor="let res of myReservations">
-        <td>{{ res.roomType }}</td>
-        <td>{{ res.roomName }}</td>
+        <td>{{ res.roomType }} {{ res.room?.roomType}}</td>
+
+        <td>{{ res.roomName || res.room?.title }} </td>
         <td>{{ res.date }}</td>
         <td>
           <span [ngClass]="res.approvalStatus">{{ res.approvalStatus }}</span>
@@ -39,3 +41,4 @@
     </tbody>
   </table>
 </div>
+<app-footer></app-footer>

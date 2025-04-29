@@ -1,5 +1,6 @@
 import { Customer } from "./customer.model";
 import { Employee } from "./employee.model";
+import { Room } from "./room.model";
 
 export interface RoomAppointment {
     id: number;
@@ -11,5 +12,6 @@ export interface RoomAppointment {
     paymentStatus: boolean;
     paymentAmount: number;
     roomName? :string;
-    employees ?:Employee
+    employees ?:Employee;
+    room?:Room;
   }

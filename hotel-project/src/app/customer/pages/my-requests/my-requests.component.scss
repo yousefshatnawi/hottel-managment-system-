@@ -7,6 +7,7 @@
 .table-responsive{
   width: 100%;
 }
+
 .table {
   background-color: white;
   border-radius: 10px;
@@ -25,22 +26,25 @@
     font-size: 14px;
   }
 
+  
   span {
-    padding: 15px 10px;
-    border-radius: 20px;
-    font-weight: 500;
-    color: white;
+    padding: 5px 10px;
+  border-radius: 20px;
+  font-weight: 500;
+  color: white;
+  width: 500% !important;
+  
 
     &.pending {
-      background-color: #2883a7;
+      background-color: #dfa700;
     }
 
     &.progres {
-      background-color: #ffc107;
+      background-color: #076aff;
     }
 
     &.done {
-      background-color: #3bdc35;
+      background-color: #059600;
     }
   }
 }
