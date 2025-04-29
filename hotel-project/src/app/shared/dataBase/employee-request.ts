@@ -23,7 +23,9 @@ export let employeeRequests: EmployeeRequest[] = [
   { id: 20, date: '2024-01-13T11:00:00Z', customerId: 5, employeeId: 2, requestType: 'tv maintenance', requestStatus: 'done' },
   { id: 21, date: '2024-01-14T12:00:00Z', customerId: 5, employeeId: 4, requestType: 'bathroom maintenance', requestStatus: 'progres' },
   { id: 22, date: '2024-01-15T13:00:00Z', customerId: 5, employeeId: 5, requestType: 'cleaning', requestStatus: 'pending' },
-  { id: 23, date: '2024-01-13T11:00:00Z', customerId: 6, employeeId: 2, requestType: 'tv maintenance', requestStatus: 'done' },
-  { id: 24, date: '2024-01-14T12:00:00Z', customerId: 6, employeeId: 4, requestType: 'bathroom maintenance', requestStatus: 'progres' },
-  { id: 25, date: '2024-01-15T13:00:00Z', customerId: 6, employeeId: 5, requestType: 'cleaning', requestStatus: 'pending' }
+  { id: 23, date: '2024-01-13T11:00:00Z', customerId: 7, employeeId: 2, requestType: 'tv maintenance', requestStatus: 'done' },
+  { id: 24, date: '2024-01-14T12:00:00Z', customerId: 8, employeeId: 4, requestType:  'bathroom maintenance', requestStatus: 'progres' },
+  { id: 25, date: '2024-01-15T13:00:00Z', customerId: 9, employeeId: 5, requestType: 'cleaning', requestStatus: 'pending' },
+    { id: 26, date: '2024-01-15T13:00:00Z', customerId: 10, employeeId: 5, requestType: 'cleaning', requestStatus: 'pending' }
+
 ];
