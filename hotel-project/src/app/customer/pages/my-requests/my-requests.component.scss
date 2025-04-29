@@ -27,12 +27,10 @@
   }
 
   
-  span {
+  p {
     padding: 5px 10px;
   border-radius: 20px;
-  font-weight: 500;
   color: white;
-  width: 500% !important;
   
 
     &.pending {
@@ -44,7 +42,7 @@
     }
 
     &.done {
-      background-color: #059600;
+      background-color: #054702d8;
     }
   }
 }
