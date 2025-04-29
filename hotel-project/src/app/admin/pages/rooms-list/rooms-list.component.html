@@ -4,9 +4,9 @@
   </div>
 
   <div class="main-content">
-   <app-header-dash></app-header-dash>
+   <app-header-dash [pageTitle]="'Room / Hall List'"></app-header-dash>
 
-    <h2>📋 Room / Hall List</h2>
+    <!-- <h2>📋 Room / Hall List</h2> -->
 
     <div class="card-grid" *ngIf="rooms.length > 0">
       <div class="room-card" *ngFor="let room of rooms">

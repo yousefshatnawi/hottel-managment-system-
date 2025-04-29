@@ -13,6 +13,7 @@ import { CustomerModule } from './customer/customer.module';
 import { SharedModule } from './layout/shared.module';
 import { PolicyComponent } from './policy/policy.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ForbiddenComponent } from './forbidden/forbidden.component';
 
 
 @NgModule({
@@ -22,8 +23,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AboutComponent,
     ContactComponent,
     PolicyComponent,
-  
-   
+    ForbiddenComponent,
   ],
   imports: [
     BrowserModule,
