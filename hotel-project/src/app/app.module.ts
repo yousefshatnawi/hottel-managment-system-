@@ -6,19 +6,15 @@ import { AppComponent } from './app.component';
 import { EmployeeModule } from './employee/employee.module';
 import { AuthModule } from './auth/auth.module';
 import { HomeComponent } from './home/home.component';
-// import { HeaderComponent } from './layout/header/header.component';
-// import { FooterComponent } from './layout/footer/footer.component';
 import { AboutComponent } from './about/about.component';
 import { ContactComponent } from './contact/contact.component';
 import { AdminModule } from './admin/admin.module';
 import { CustomerModule } from './customer/customer.module';
 import { SharedModule } from './layout/shared.module';
 import { PolicyComponent } from './policy/policy.component';
-import { BlogComponent } from './blog/blog.component';
 import { ReactiveFormsModule } from '@angular/forms';
-// import { TermsPopupComponent } from './components/terms-popup/terms-popup.component';
-import { MatButtonModule } from '@angular/material/button';
-import { MatDialog, MatDialogConfig, MatDialogModule } from '@angular/material/dialog';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+
 
 
 @NgModule({
@@ -28,7 +24,7 @@ import { MatDialog, MatDialogConfig, MatDialogModule } from '@angular/material/d
     AboutComponent,
     ContactComponent,
     PolicyComponent,
-    BlogComponent,
+  
    
   ],
   imports: [
@@ -40,10 +36,10 @@ AdminModule   ,
 CustomerModule,
 SharedModule,
 ReactiveFormsModule,
-
     AdminModule   ,
     CustomerModule,
     SharedModule,
+    MatProgressSpinnerModule
     
   ],
   exports: [

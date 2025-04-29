@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { EmployeeRequest } from '../../../models/employee-request.model';
 import { EmployeeService } from '../../services/employee.service';
 import { Router } from '@angular/router';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-dashboard-employee',
@@ -20,13 +21,13 @@ recentRequests: EmployeeRequest[] = [];
 todaysRequests: EmployeeRequest[] = [];
 notifications: any[] = [];
 activityLog: any[] = [];
-
-
 today: string = new Date().toISOString().split('T')[0];
-
-
 selectedStatus: string = '';
-filteredRequests: any[] = [];
+filteredRequests: EmployeeRequest[] = [];
+displayedColumns: string[] = ['id', 'requestType', 'status', 'actions'];
+pageSize = 5;
+currentPage = 0;
+
 
 constructor(private employeeService: EmployeeService, private router: Router) {}
 
@@ -89,7 +90,6 @@ viewRequestDetails(requestId: number) {
 
 
 
-displayedColumns: string[] = ['id', 'requestType', 'status', 'actions'];
 
 getChipColor(status: string): string {
   switch (status) {
@@ -113,4 +113,9 @@ filterRequests() {
     this.filteredRequests = this.recentRequests.filter(request => request.requestStatus === this.selectedStatus);
   }
 }
+onPageChange(event: PageEvent) {
+  this.currentPage = event.pageIndex;
+  this.pageSize = event.pageSize;
+}
+
 }

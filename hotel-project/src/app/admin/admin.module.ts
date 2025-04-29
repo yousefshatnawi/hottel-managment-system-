@@ -10,13 +10,15 @@ import { RoomsListComponent } from './pages/rooms-list/rooms-list.component';
 import { CustomerListComponent } from './pages/customer-list/customer-list.component';
 import { ReservationsReviewComponent } from './pages/reservations-review/reservations-review.component';
 import { FormsModule } from '@angular/forms'; 
-
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { SharedModule } from '../layout/shared.module';
 import { NgChartsModule } from 'ng2-charts';
+import {MatCardModule} from '@angular/material/card';
 
 
 @NgModule({
@@ -40,6 +42,10 @@ import { NgChartsModule } from 'ng2-charts';
     MatNativeDateModule,
     SharedModule,
     NgChartsModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatCardModule,
+   
 
   ],
 })

@@ -3,6 +3,7 @@ import Swiper from 'swiper';
 import { Room } from '../models/room.model';
 import { Rooms } from '../shared/dataBase/room';
 
+
 @Component({
   selector: 'app-home',
   standalone: false,
@@ -12,6 +13,7 @@ import { Rooms } from '../shared/dataBase/room';
 export class HomeComponent implements OnInit, AfterViewInit {
 room :Room []= Rooms
   Math = Math;
+  loading = true;
   @ViewChild('hotelVideo') hotelVideo!: ElementRef<HTMLVideoElement>;
 
   heroImages = [
@@ -56,7 +58,11 @@ room :Room []= Rooms
 
     setInterval(() => {
       this.currentTestimonialIndex = (this.currentTestimonialIndex + 1) % this.testimonials.length;
-    }, 4000); // Testimonial slider
+    }, 4000); 
+    setTimeout(() => {
+      this.loading = false;
+    }, 2000); // 2 ثوانٍ
+  
   }
 
   ngAfterViewInit(): void {

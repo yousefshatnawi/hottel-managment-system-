@@ -1,4 +1,4 @@
-<div class="page-container">
+<!-- <div class="page-container">
   <div class="sidebar">
     <app-main-layout></app-main-layout>
   </div>
@@ -6,9 +6,9 @@
   <div class="main-content">
    <app-header-dash></app-header-dash>
 
-    <h2>📋 Room / Hall List</h2>
+    <h2>📋 Room / Hall List</h2> -->
 
-    <div class="card-grid" *ngIf="rooms.length > 0">
+    <!-- <div class="card-grid" *ngIf="rooms.length > 0">
       <div class="room-card" *ngFor="let room of rooms">
         <h3>🏷️ {{ room.title }}</h3>
         <p><strong>🏢 Building:</strong> {{ room.building }}</p>
@@ -45,6 +45,71 @@
           ✏️ Edit Room
         </button>
       </div>
-    </div>
+    </div> -->
+ 
+ 
+
+
+<div class="page-container">
+  <div class="sidebar">
+    <app-main-layout></app-main-layout>
   </div>
+
+  <div class="main-content">
+    <div class="header">
+      <h2>📋 Room / Hall List</h2>
+      
+    </div>
+
+    <div class="card-grid" *ngIf="rooms.length > 0">
+      <div class="room-card" *ngFor="let room of pagedRooms"      >
+        <h3>🏷️ {{ room.title }}</h3>
+        <p><strong>🏢 Building:</strong> {{ room.building }}</p>
+        <p><strong>📍 Floor:</strong> {{ room.floor }}</p>
+        <p><strong>📝 Amount :</strong> {{ room.paymentAmount }} $</p>
+        <p><strong>📝 Details:</strong> {{ room.details }}</p>
+
+        <p><strong>📌 Status:</strong>
+          <span [class.booked]="room.bookedStatus" [class.available]="!room.bookedStatus">
+            {{ room.bookedStatus ? 'Booked' : 'Available' }}
+          </span>
+        </p>
+
+        <button 
+          [disabled]="room.bookedStatus"
+          (click)="bookRoom(room.id)"
+          [ngClass]="{ 'booked-btn': room.bookedStatus, 'available-btn': !room.bookedStatus }"
+          (click)="bookRoom(room.id)">
+          🛎️ Book Room
+        </button>
+
+        <button (click)="makeAvailable(room.id)"
+        [disabled]="!room.bookedStatus"
+        class="action-btn warning"
+        [ngClass]="{ 'booked-btn':!room.bookedStatus, 'available-btn': room.bookedStatus }"
+
+        >♻️ Make Available</button>
+
+        <button  
+          [disabled]="room.bookedStatus"
+          (click)="goToEditRoom(room.id)" 
+          class="action-btn edit"
+          >
+          ✏️ Edit Room
+        </button>
+      </div>
+      
+    </div>
+    <mat-paginator 
+    [length]="rooms.length"
+    [pageSize]="pageSize"
+    [pageSizeOptions]="[5, 10, 20]" 
+    showFirstLastButtons 
+    (page)="onPageChange($event)">
+  </mat-paginator>
+
 </div>
+
+
+
+

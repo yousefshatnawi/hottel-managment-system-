@@ -1,3 +1,7 @@
+<div *ngIf="loading" class="spinner-container">
+    <mat-spinner diameter="50" color="primary"></mat-spinner>
+</div>
+<div *ngIf="!loading">
 <app-header></app-header>
 
     <!-- Hero Section Begin -->
@@ -258,7 +262,7 @@
         </div>
     </section>
     
-<section class="testimonial-section spad">
+<!-- <section class="testimonial-section spad">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
@@ -286,7 +290,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
   
     <!-- Testimonial Section End -->
 
@@ -352,3 +356,5 @@
     </section>
     <!-- Blog Section End -->
 <app-footer></app-footer>
+
+</div>
