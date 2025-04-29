@@ -7,7 +7,7 @@
     <app-header-dash></app-header-dash>
 
     
-      <h2>👥 Customer List</h2>
+      <!-- <h2>👥 Customer List</h2>
       <div class="table-container">
         <table>
           <thead>
@@ -27,6 +27,57 @@
             </tr>
           </tbody>
         </table>
+      </div> -->
+    
+      <div class="customer-table-wrapper">
+
+        <!-- Table Header Section -->
+        <div class="table-header">
+          <h2>👥 Customer List</h2>
+      
+          <!-- Search Field -->
+          <mat-form-field appearance="outline" class="search-field">
+            <mat-label>Search</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Search by name or email">
+          </mat-form-field>
+        </div>
+      
+        <!-- Customer Table -->
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 customer-table">
+          
+          <!-- Name Column -->
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> 👤 Name </th>
+            <td mat-cell *matCellDef="let customer"> {{ customer.name }} </td>
+          </ng-container>
+      
+          <!-- Phone Column -->
+          <ng-container matColumnDef="phone">
+            <th mat-header-cell *matHeaderCellDef> 📞 Phone </th>
+            <td mat-cell *matCellDef="let customer"> {{ customer.phone }} </td>
+          </ng-container>
+      
+          <!-- Email Column -->
+          <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef> 📧 Email </th>
+            <td mat-cell *matCellDef="let customer"> {{ customer.email }} </td>
+          </ng-container>
+      
+          <!-- Address Column -->
+          <ng-container matColumnDef="address">
+            <th mat-header-cell *matHeaderCellDef> 🏠 Address </th>
+            <td mat-cell *matCellDef="let customer"> {{ customer.address }} </td>
+          </ng-container>
+      
+          <!-- Table Rows -->
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+      
+        <!-- Paginator -->
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+      
       </div>
+      
     </div>
   </div>

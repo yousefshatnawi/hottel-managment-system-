@@ -8,7 +8,7 @@
     <app-header-dash></app-header-dash>
     <h2>📋 All Reservations</h2>
 
-    <div class="card-grid" *ngIf="appointments.length > 0">
+    <!-- <div class="card-grid" *ngIf="appointments.length > 0">
       <div class="reservation-card" *ngFor="let a of appointments">
         <p><strong>🆔 ID:</strong> {{ a.id }}</p>
         <p><strong>📅 Date:</strong> {{ a.date | date: 'medium' }}</p>
@@ -28,5 +28,37 @@
         </div>
       </div>
     </div>
+ -->
 
 
+
+
+ <div class="card-grid" *ngIf="appointments.length > 0">
+  <div class="reservation-card" *ngFor="let a of pagedAppointments">
+    <p><strong>🆔 ID:</strong> {{ a.id }}</p>
+    <p><strong>📅 Date:</strong> {{ a.date | date: 'medium' }}</p>
+    <p><strong>👤 Customer :</strong> {{ a.customer?.name }}</p>
+    <p><strong>💰 Amount:</strong> {{ a.paymentAmount }}</p>
+    <p><strong>✅ Status:</strong> {{ a.approvalStatus }}</p>
+    <p>
+      <strong>💳 Payment:</strong> 
+      <span [class.paid]="a.paymentStatus" [class.unpaid]="!a.paymentStatus">
+        {{ a.paymentStatus ? 'Paid' : 'Unpaid' }}
+      </span>
+    </p>
+
+    <div class="actions" *ngIf="a.approvalStatus === 'pending'">
+      <button class="approve-btn" (click)="approveReservation(a.id)">✅ Approve</button>
+      <button class="reject-btn" (click)="rejectReservation(a.id)">❌ Reject</button>
+    </div>
+  </div>
+</div>
+
+<!-- ✅ أضف هذا في الأسفل -->
+<mat-paginator
+  [length]="appointments.length"
+  [pageSize]="pageSize"
+  [pageSizeOptions]="[5, 10, 20]"
+  showFirstLastButtons
+  (page)="onPageChange($event)">
+</mat-paginator>

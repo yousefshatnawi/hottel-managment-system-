@@ -243,3 +243,22 @@
   transform: translateY(-5px); /* Slight movement when hovered */
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Adding a shadow effect on hover */
 }
+
+mat-cell button {
+  padding: 6px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
+
+mat-cell button:hover {
+  background-color: #1565c0; /* أزرق أغمق عند التحويم */
+}
+
+mat-cell button i {
+  margin-right: 5px;
+}

@@ -55,16 +55,91 @@
 </div>
 
  
-  
+ 
 
-  <div class="requests-section">
+
+<div class="requests-section">
+  <div class="requests-container">
+    <div class="requests-card left">
+      <div class="requests-header">
+        <div class="d-flex align-items-center justify-content-between">
+          <h2 class="mb-4">📋 Recent Requests</h2>
+
+          <!-- Filter Dropdown -->
+          <div class="filter-section">
+            <label for="statusFilter" class="mr-2"><i class="fas fa-filter"></i> Filter Requests:</label>
+            <mat-form-field appearance="fill">
+             
+              <mat-select [(ngModel)]="selectedStatus" (selectionChange)="filterRequests()">
+                <mat-option value="">All</mat-option>
+                <mat-option value="pending">Pending</mat-option>
+                <mat-option value="progres">In Progress</mat-option>
+                <mat-option value="done">Completed</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+
+      <!-- Table -->
+      <mat-table [dataSource]="filteredRequests" class="requests-table">
+        <ng-container matColumnDef="id">
+          <mat-header-cell *matHeaderCellDef> Request ID </mat-header-cell>
+          <mat-cell *matCellDef="let request"> {{ request.id }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="requestType">
+          <mat-header-cell *matHeaderCellDef> Request Type </mat-header-cell>
+          <mat-cell *matCellDef="let request"> {{ request.requestType }} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="status">
+          <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
+          <mat-cell *matCellDef="let request">
+            <span class="status-badge" [ngClass]="{
+              'pending': request.requestStatus === 'pending',
+              'progres': request.requestStatus === 'progres',
+              'done': request.requestStatus === 'done'
+            }">
+              {{ request.requestStatus }}
+            </span>
+          </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
+          <mat-cell *matCellDef="let request">
+            <button mat-button [routerLink]="['/employee/request-details', request.id]">
+              <i class="fas fa-eye"></i> View
+            </button>
+          </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+
+      <!-- Paginator -->
+      <mat-paginator [length]="filteredRequests.length" [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" (page)="onPageChange($event)">
+      </mat-paginator>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+  <!-- <div class="requests-section">
     <div class="requests-container">
       <div class="requests-card left">
         <div class="requests-header">
           <div class="d-flex align-items-center justify-content-between">
             <h2 class="mb-4">📋 Recent Requests</h2>
             
-            <!-- Filter Dropdown -->
+           
             <div class="filter-section">
               <label for="statusFilter" class="mr-2"><i class="fas fa-filter"></i> Filter Requests:</label>
               <select id="statusFilter" [(ngModel)]="selectedStatus" (change)="filterRequests()">
@@ -109,5 +184,7 @@
         </table>
       </div>
     </div>
+
+
   </div>
-  
+   -->
