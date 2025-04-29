@@ -8,15 +8,12 @@ import { MatDialog } from '@angular/material/dialog';
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.css'
 })
-export class FooterComponent implements OnInit {
+export class FooterComponent  {
 
   constructor(
     private dialog: MatDialog
   ) {}
 
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
 
   openModal() {
     this.dialog.open(PolicyComponent, {

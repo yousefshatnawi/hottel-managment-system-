@@ -22,43 +22,46 @@ room :Room []= Rooms
     'assets/img/hero/hero-3.jpg'
   ];
   currentHeroIndex = 0;
-
-  testimonials = [
-    {
-      text: 'After a construction project took longer than expected... we absolutely love our vacation at casa serene Hotel.',
-      author: 'yousef shatnawi',
-      rating: 4.5,
-      image: 'assets/img/room/avatar/avatar-1.jpg'
-    },
-    {
-      text: 'Great experience, lovely view and friendly staff. Will visit again!',
-      author: 'Reema Bshara',
-      rating: 5,
-      image: 'assets/img/room/avatar/avatar-2.jpg'
-    },
-    {
-      text: 'After a construction project took longer than expected... we absolutely love our vacation at casa serene Hotel.',
-      author: 'Duaa Mehdawi',
-      rating: 4.5,
-      image: 'assets/img/room/avatar/avatar-2.jpg'
-    },
-    {
-      text: 'Great experience, lovely view and friendly staff. Will visit again!',
-      author: 'Anagheem Alraba',
-      rating: 5,
-      image: 'assets/img/room/avatar/avatar-2.jpg'
-    }
-  ];
-  currentTestimonialIndex = 0;
+  
+    blogs = [
+      {
+        image: 'assets/img/blog/blog-1.jpg',
+        tag: 'Travel Trip',
+        title: 'Tremblant In Canada',
+        date: '15th April, 2019',
+      },
+      {
+        image: 'assets/img/blog/blog-2.jpg',
+        tag: 'Camping',
+        title: 'Choosing A Static Caravan',
+        date: '15th April, 2019',
+      },
+      {
+        image: 'assets/img/blog/blog-3.jpg',
+        tag: 'Event',
+        title: 'Copper Canyon',
+        date: '21st April, 2019',
+      },
+      {
+        image: 'assets/img/blog/blog-wide.jpg',
+        tag: 'Event',
+        title: 'Trip To Iqaluit In Nunavut A Canadian Arctic City',
+        date: '08th April, 2019',
+      },
+      {
+        image: 'assets/img/blog/blog-10.jpg',
+        tag: 'Travel',
+        title: 'Traveling To Barcelona',
+        date: '12th April, 2019',
+      },
+    ];
+  
 
   ngOnInit(): void {
     setInterval(() => {
       this.currentHeroIndex = (this.currentHeroIndex + 1) % this.heroImages.length;
     }, 3000); // Hero slider
 
-    setInterval(() => {
-      this.currentTestimonialIndex = (this.currentTestimonialIndex + 1) % this.testimonials.length;
-    }, 4000); 
     setTimeout(() => {
       this.loading = false;
     }, 2000); // 2 ثوانٍ
