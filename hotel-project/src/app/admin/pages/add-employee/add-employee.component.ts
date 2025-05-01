@@ -55,7 +55,6 @@ this.adminService.getEmployees()
 
   this.adminService.getEmployees()
     .then(employees => {
-      console.log('Employees:', employees);
 
       const newId = employees.length > 0
         ? Math.max(...employees.map((e: Employee) => e.id || 0)) + 1
@@ -63,6 +62,7 @@ this.adminService.getEmployees()
 
       this.newEmployee.id = newId;
       this.adminService.addEmployee(this.newEmployee);
+      console.log(this.newEmployee)
       this.router.navigate(['/admin/employees']);
     })
     .catch(error => {

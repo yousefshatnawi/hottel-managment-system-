@@ -8,6 +8,7 @@
         <th>Employee name </th>
         <th>Request Type</th>
         <th>Date</th>
+        <th>Note</th>
         <th>Status</th>
       </tr>
     </thead>
@@ -16,6 +17,8 @@
         <td>{{ req.id }}</td>
         <td>{{ req.employee?.name }}</td>
         <td>{{ req.requestType }}</td>
+        <td>{{ req.note }}</td>
+
         <td>{{ req.date }}</td>
         <td>
           <p  id="span-status"

@@ -7,6 +7,7 @@ import { Employee } from '../../../models/employee.model';
 import { employees } from '../../../shared/dataBase/employee';
 import { customers } from '../../../shared/dataBase/customer';
 import { CustomerService } from '../../../customer/services/customer.service';
+import { roomAppointments } from '../../../shared/dataBase/room-appointment';
 
 @Component({
   selector: 'app-my-requests',
@@ -41,7 +42,10 @@ export class MyRequestsComponent implements OnInit {
       this.requests = this.requests.map((emp: EmployeeRequest) => {
         return {
           ...emp,
-          customer: customers.find((customer) => customer.id === emp.customerId)
+          customer: customers.find((customer) => customer.id === emp.customerId),
+          employee: employees.find((employee) => employee.id === emp.employeeId),
+          room: roomAppointments.find((room) => room.customerId  === emp.customerId)
+
         }
       });
         console.log(this.requests)

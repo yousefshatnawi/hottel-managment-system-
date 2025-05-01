@@ -5,6 +5,7 @@ import { Customer } from '../../models/customer.model';
 import { customers } from '../../shared/dataBase/customer';
 import { employees } from '../../shared/dataBase/employee';
 import { employeeRequests } from '../../shared/dataBase/employee-request';
+import { roomAppointments } from '../../shared/dataBase/room-appointment';
 
 
 
@@ -51,8 +52,17 @@ export class EmployeeService {
   }
  
   getRequestById(id: number): EmployeeRequest | undefined {
-    return this.requests.find(request => request.id === id);
+    const emp = this.requests.find(request => request.id === id);
+    if (!emp) return undefined;
+  
+    return {
+      ...emp,
+      customer: customers.find(customer => customer.id === emp.customerId),
+      employee: employees.find(employee => employee.id === emp.employeeId),
+      room: roomAppointments.find(room => room.customerId === emp.customerId)
+    };
   }
+  
   updateRequestStatus(
     requestId: number,
     newStatus: 'pending' | 'progres' | 'done',

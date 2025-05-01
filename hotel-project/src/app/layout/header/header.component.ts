@@ -51,9 +51,9 @@ export class HeaderComponent implements OnInit {
   }
 reqestService() {
     this.dialog.open(MyRequestsComponent, {
-      // width: '65vw', 
-      // maxWidth: '90vw',
-      // height: '400px'  // ارتفاع المودال
+      width: '65vw', 
+      maxWidth: '90vw',
+      height: '400px'  // ارتفاع المودال
     });
   }
   // myReservations() {

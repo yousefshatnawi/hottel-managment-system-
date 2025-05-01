@@ -7,29 +7,53 @@
     <app-header-dash [pageTitle]="'My Requests'"></app-header-dash>
    
   
-      <div class="cards">
-        <div class="card" *ngFor="let request of requests; let i = index">
-          <div class="card-content">
+    <div class="cards">
+      <div class="card" *ngFor="let request of requests; let i = index">
+        <div class="card-content">
+          <div class="info-group">
             <p><strong>Request ID:</strong> {{ request.id }}</p>
+          <p><strong>Request Date:</strong> {{ request.date }}</p>
+          </div>
+          <!-- معلومات العميل -->
+          <div class="info-group">
             <p><strong>Customer Name:</strong> {{ request.customer?.name }}</p>
-
-            <p><strong>Type:</strong> {{ request.requestType }}</p>
-            <p class="request-status">
-              <strong>Status:</strong>
-              <span class="status-badge"
-                [ngClass]="{
-                  'pending': request.requestStatus === 'pending',
-                  'progres': request.requestStatus === 'progres',
-                  'done': request.requestStatus === 'done'
-                }">
-                {{ request.requestStatus }}
-              </span>
-            </p>
-            <div class="card-actions">
-              <button class="btn btn-sm btn-primary" [routerLink]="['/employee/request-details', request.id]">Details</button>
-            </div>
+            <p><strong>Customer Email:</strong> {{ request.customer?.email }}</p>
+          </div>
+    
+          <!-- معلومات الموظف -->
+          <div class="info-group">
+            <p><strong>Employee Name:</strong> {{ request.employee?.name }}</p>
+          </div>
+    
+          <!-- معلومات الغرفة -->
+          <div class="info-group">
+            <p><strong>Room Name:</strong> {{ request.room?.roomName }}</p>
+          
+    
+          <!-- نوع الطلب والحالة -->
+          <p><strong>Type:</strong> {{ request.requestType }}</p>
+        </div>
+        <div class="card-footer" style="background-color: rgb(255 255 255 / 3%);">
+          <p class="request-status">
+            <strong style="margin: 0px 15px 0px 0px;">Status:  </strong>
+            <span class="status-badge"
+              [ngClass]="{
+                'pending': request.requestStatus === 'pending',
+                'progres': request.requestStatus === 'progres',
+                'done': request.requestStatus === 'done'
+              }">
+                             {{ request.requestStatus }}
+            </span>
+          </p>
+        
+          <div class="card-actions">
+            <button class="btn btn-sm btn-primary" [routerLink]="['/employee/request-details', request.id]">Details</button>
           </div>
         </div>
+        
+        </div>
       </div>
+    </div>
+    
     </div>
   
