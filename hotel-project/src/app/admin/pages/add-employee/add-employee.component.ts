@@ -11,14 +11,18 @@ import { Employee } from '../../../models/employee.model';
 })
 export class AddEmployeeComponent { 
  id: number | null = null;
-  newEmployee: Employee = { id: 0, name: '', role: '', email:'' };
+  newEmployee: Employee = { id: 0, name: '', role: '', email:'',password:'' };
+  showPassword: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
     private adminService: AdminService,
     private router: Router
   ) {}
-
+  togglePassword() {
+    this.showPassword = !this.showPassword;
+  }
+  
   ngOnInit(): void {
     const idParam = this.route.snapshot.paramMap.get('id');
     if (idParam) {

@@ -11,9 +11,9 @@ import { MatTableDataSource } from '@angular/material/table';
   templateUrl: './employee-list.component.html',
   styleUrl: './employee-list.component.scss'
 })
-export class EmployeeListComponent implements OnInit ,AfterViewInit {
+export class EmployeeListComponent implements OnInit, AfterViewInit {
   employees: Employee[] = [];
-  displayedColumns: string[] = ['id', 'name', 'role'];
+  displayedColumns: string[] = ['id', 'name', 'role', 'email', 'password'];
   dataSource = new MatTableDataSource<Employee>([]);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -24,8 +24,7 @@ export class EmployeeListComponent implements OnInit ,AfterViewInit {
     this.loadEmployees();
   }
 
-  ngAfterViewInit() {
-    // ربط البيجنيتور سيتم بعد تحميل الداتا
+  ngAfterViewInit(): void {
     if (this.dataSource) {
       this.dataSource.paginator = this.paginator;
     }
@@ -33,18 +32,19 @@ export class EmployeeListComponent implements OnInit ,AfterViewInit {
 
   async loadEmployees(): Promise<void> {
     this.employees = await this.adminService.getEmployees();
-    this.dataSource.data = this.employees; // هنا نربط الداتا بعد ما تجي
+    this.dataSource.data = this.employees;
     if (this.paginator) {
       this.dataSource.paginator = this.paginator;
     }
   }
 
-  applyFilter(event: Event) {
+  applyFilter(event: Event): void {
     const filterValue = (event.target as HTMLInputElement).value.trim().toLowerCase();
     this.dataSource.filter = filterValue;
   }
- 
-  
 
- 
+  // Toggle the password visibility
+  togglePassword(emp: any): void {
+    emp.showPassword = !emp.showPassword;
+  }
 }

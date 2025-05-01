@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrl: './profile.component.scss'
 })
 export class ProfileComponent implements OnInit {
-  employeeData: Employee = { id: 0, name: '', role: '',email:'' }; 
+  employeeData: Employee = { id: 0, name: '', role: '',email:'', password:'' }; 
   isEditing = false;
   loading = false;
   success = '';

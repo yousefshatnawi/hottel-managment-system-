@@ -12,7 +12,7 @@ import { AuthService } from '../../auth/services/auth.service';
 
 
 export class HeaderDashComponent {
-    employeeData: Employee = { id: 0, name: '', role: '',email:'' }; 
+    employeeData: Employee = { id: 0, name: '', role: '',email:'',password:'' }; 
    currentUser: any = null;
   
    

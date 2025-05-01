@@ -1,53 +1,89 @@
-
 <div class="app-container">
   <div class="sidebar">
     <app-main-layout></app-main-layout>
   </div>
+
   <main class="main-section">
-  
-    
     <app-header-dash [pageTitle]="'Add New Employee'"></app-header-dash>
 
     <section class="content">
       <div class="form-wrapper">
         <div class="form-card">
-      <h2>➕ Add New Employee</h2>
-      <p>Please fill in the employee details below.</p>
+          <h2>➕ Add New Employee</h2>
+          <p>Please fill in the employee details below.</p>
 
-      <form (ngSubmit)="addEmployee()" class="forms">
-        <div class="formbold-mb-3">
-          <label for="name" class="formbold-form-label">👤 Full Name</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            [(ngModel)]="newEmployee.name"
-            placeholder="Enter full Name"
-            class="formbold-form-input"
-            required
-          />
-        </div>
+          <form (ngSubmit)="addEmployee()" class="forms">
+            <!-- Full Name -->
+            <div class="formbold-mb-3">
+              <label for="name" class="formbold-form-label">👤 Full Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                [(ngModel)]="newEmployee.name"
+                placeholder="Enter full name"
+                class="formbold-form-input"
+                required
+              />
+            </div>
 
-        <div class="formbold-mb-3">
-          <label for="role" class="formbold-form-label">🛠️ Role</label>
-          <select
-            id="role"
-            name="role"
-            [(ngModel)]="newEmployee.role"
-            class="formbold-form-input"
-            required
-          >
-            <option value="" disabled selected>Choose role</option>
-            <option value="employee">Employee</option>
-            <option value="admin">Admin</option>
-          </select>
-        </div>
+            <!-- Email -->
+            <div class="formbold-mb-3">
+              <label for="email" class="formbold-form-label">📧 Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                [(ngModel)]="newEmployee.email"
+                placeholder="Enter email"
+                class="formbold-form-input"
+                required
+              />
+            </div>
 
-        <div class="formbold-mb-3 formbold-pt-3">
-          <button type="submit" class="formbold-btn">➕ Add Employee</button>
+            <!-- Password -->
+            <div class="formbold-mb-3 password-wrapper">
+              <label for="password" class="formbold-form-label">🔐 Password</label>
+              <div class="password-field">
+                <input
+                  [type]="showPassword ? 'text' : 'password'"
+                  id="password"
+                  name="password"
+                  [(ngModel)]="newEmployee.password"
+                  placeholder="Enter password"
+                  class="formbold-form-input"
+                  required
+                />
+                <button type="button" (click)="togglePassword()" class="toggle-password-btn">
+                  {{ showPassword ? '🙈' : '👁️' }}
+                </button>
+              </div>
+            </div>
+            
+
+            <!-- Role -->
+            <div class="formbold-mb-3">
+              <label for="role" class="formbold-form-label">🛠️ Role</label>
+              <select
+                id="role"
+                name="role"
+                [(ngModel)]="newEmployee.role"
+                class="formbold-form-input"
+                required
+              >
+                <option value="" disabled selected>Choose role</option>
+                <option value="employee">Employee</option>
+                <option value="admin">Admin</option>
+              </select>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="formbold-mb-3 formbold-pt-3">
+              <button type="submit" class="formbold-btn">➕ Add Employee</button>
+            </div>
+          </form>
         </div>
-      </form>
-    </div>
       </div>
     </section>
-  
+  </main>
+</div>

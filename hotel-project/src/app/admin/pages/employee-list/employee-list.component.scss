@@ -68,3 +68,11 @@ h2 {
     transition: background-color 0.3s;
   }
 }
+.password-toggle {
+  cursor: pointer;
+  color: #007bff;
+  user-select: none;
+}
+.password-toggle:hover {
+  text-decoration: underline;
+}

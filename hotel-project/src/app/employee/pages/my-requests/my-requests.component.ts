@@ -16,7 +16,7 @@ import { CustomerService } from '../../../customer/services/customer.service';
 })
 export class MyRequestsComponent implements OnInit {
  
-  employeeData: Employee = { id: 0, name: '', role: '',email:'' };
+  employeeData: Employee = { id: 0, name: '', role: '',email:'', password:'' };
     requests: EmployeeRequest[] = [];
     loading: boolean = true;
   
