@@ -16,6 +16,9 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent implements OnInit {
+navigateToForgotPassword() {
+throw new Error('Method not implemented.');
+}
   loginForm!: FormGroup;
   showPassword: boolean = false;
 
