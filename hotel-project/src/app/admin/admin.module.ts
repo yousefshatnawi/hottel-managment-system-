@@ -44,8 +44,7 @@ import {MatCardModule} from '@angular/material/card';
     NgChartsModule,
     MatTableModule,
     MatPaginatorModule,
-    MatCardModule,
-   
+    MatCardModule  
 
   ],
 })

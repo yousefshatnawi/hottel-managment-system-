@@ -17,6 +17,8 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
+  showPassword: boolean = false;
+
 
   constructor(
     private authService: AuthService,
@@ -81,5 +83,8 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/signup']); 
     this.dialogRef.close(); 
 
+  }
+  togglePassword(): void {
+    this.showPassword = !this.showPassword;
   }
 }

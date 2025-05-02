@@ -20,13 +20,18 @@
     </div>
 
     <!-- Password Field -->
-    <label for="password">Password:</label>
-    <input
-      id="password"
-      type="password"
-      formControlName="password"
-      placeholder="Enter your password"
-    />
+    <div class="input-icon-wrapper">
+      <input
+        id="password"
+        [type]="showPassword ? 'text' : 'password'"
+        formControlName="password"
+        placeholder="Enter your password"
+      />
+      <span class="icon" (click)="togglePassword()" tabindex="0" role="button" aria-label="Toggle password">
+        <i class="fa-solid" [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"></i>
+      </span>
+      
+    </div>    
     <div class="error" *ngIf="password.invalid && (password.dirty || password.touched)">
       <div *ngIf="password.errors?.['required']">Password is required.</div>
     </div>
