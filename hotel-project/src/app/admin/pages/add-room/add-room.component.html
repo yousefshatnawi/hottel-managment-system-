@@ -1,67 +1,115 @@
-
 <div class="app-container">
+  <!-- Sidebar -->
   <aside class="sidebar">
     <app-main-layout></app-main-layout>
   </aside>
 
+  <!-- Main Content -->
   <main class="main-section">
-    <app-header-dash [pageTitle]="'Add Room'"></app-header-dash>
+    <app-header-dash [pageTitle]="isEditMode ? 'Edit Room' : 'Add Room'"></app-header-dash>
 
     <section class="content">
       <div class="form-wrapper">
         <div class="form-card">
-          <h3>➕ {{ isEditMode ? 'Edit' : 'Add' }} Room</h3>
-          <p>Fill in the details below</p>
+          <h3>{{ isEditMode ? '✏️ Edit Room' : '➕ Add Room' }}</h3>
+          <p>Please fill in the room details below.</p>
+
           <form (ngSubmit)="saveRoom()">
+            <!-- Room Title -->
             <div class="field">
               <label for="title">🏷️ Title</label>
-              <input id="title" type="text" name="title" [(ngModel)]="room.title" placeholder="Conference 101" required />
+              <input
+                id="title"
+                type="text"
+                name="title"
+                [(ngModel)]="room.title"
+                placeholder="e.g., Conference 101"
+                required
+              />
             </div>
 
+            <!-- Room Type -->
             <div class="field">
               <label for="type">🏷️ Room Type</label>
-              <select id="type" name="roomType" [(ngModel)]="room.roomType">
+              <select id="type" name="roomType" [(ngModel)]="room.roomType" required>
                 <option value="room">Room</option>
                 <option value="hall">Hall</option>
               </select>
             </div>
 
+            <!-- Building & Floor -->
             <div class="field two-cols">
               <div>
                 <label for="building">🏢 Building</label>
-                <input id="building" type="text" name="building" [(ngModel)]="room.building" placeholder="Main Tower" required />
+                <input
+                  id="building"
+                  type="text"
+                  name="building"
+                  [(ngModel)]="room.building"
+                  placeholder="e.g., Main Tower"
+                  required
+                />
               </div>
               <div>
                 <label for="floor">📍 Floor</label>
-                <input id="floor" type="text" name="floor" [(ngModel)]="room.floor" placeholder="3rd Floor" required />
+                <input
+                  id="floor"
+                  type="text"
+                  name="floor"
+                  [(ngModel)]="room.floor"
+                  placeholder="e.g., 3rd Floor"
+                  required
+                />
               </div>
             </div>
-            <div class="form-group">
-              <label>📝  payment Amount</label>
-              <input [(ngModel)]="room.paymentAmount" name=" paymentAmount" />
-            </div>
-            <div class="form-group">
-              <label>📝 Details:</label>
-              <textarea [(ngModel)]="room.details" name="details" rows="3"></textarea>
+
+            <!-- Payment Amount -->
+            <div class="field">
+              <label for="payment">💰 Payment Amount</label>
+              <input
+                id="payment"
+                type="number"
+                name="paymentAmount"
+                [(ngModel)]="room.paymentAmount"
+                placeholder="e.g., 100"
+                required
+              />
             </div>
 
+            <!-- Details -->
+            <div class="field">
+              <label for="details">📝 Details</label>
+              <textarea
+                id="details"
+                name="details"
+                [(ngModel)]="room.details"
+                rows="3"
+                placeholder="Additional information..."
+              ></textarea>
+            </div>
 
-            <div class="form-group">
-              <label>📌 Status:</label>
+            <!-- Status Toggle -->
+            <div class="field">
+              <label>📌 Status</label>
               <div class="status-buttons">
-                <button type="button"
-                        [class.active-available]="room.bookedStatus === false"
-                        (click)="room.bookedStatus = false">
+                <button
+                  type="button"
+                  [class.active-available]="room.bookedStatus === false"
+                  (click)="room.bookedStatus = false"
+                >
                   ✅ Available
                 </button>
-                <button type="button"
-                        [class.active-booked]="room.bookedStatus === true"
-                        (click)="room.bookedStatus = true">
+                <button
+                  type="button"
+                  [class.active-booked]="room.bookedStatus === true"
+                  (click)="room.bookedStatus = true"
+                >
                   🚫 Booked
                 </button>
               </div>
             </div>
 
+            <!-- Submit Button -->
             <div class="formbold-mb-3 formbold-pt-3">
               <button type="submit" class="formbold-btn">
                 {{ isEditMode ? '💾 Save Changes' : '➕ Add Room' }}

@@ -46,7 +46,13 @@ export class DashboardComponent {
       },
     }
   };
-
+  summaryData = [
+    { title: 'Total Employees', count: this.employeeCount },
+    { title: 'Customers', count: this.customerCount },
+    { title: 'Rooms', count: this.roomCount },
+    { title: 'Users', count: this.userCount }
+  ];
+  
   constructor(private route: ActivatedRoute, private router: Router, private adminService: AdminService) {}
 
   ngOnInit(): void {

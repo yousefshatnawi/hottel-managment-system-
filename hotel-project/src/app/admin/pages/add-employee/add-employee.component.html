@@ -1,49 +1,49 @@
 <div class="app-container">
-  <div class="sidebar">
+  <!-- Sidebar -->
+  <aside class="sidebar">
     <app-main-layout></app-main-layout>
-  </div>
+  </aside>
 
+  <!-- Main Section -->
   <main class="main-section">
     <app-header-dash [pageTitle]="'Add New Employee'"></app-header-dash>
 
     <section class="content">
       <div class="form-wrapper">
         <div class="form-card">
-          <h2>➕ Add New Employee</h2>
+          <h3>➕ Add New Employee</h3>
           <p>Please fill in the employee details below.</p>
 
           <form (ngSubmit)="addEmployee()" class="forms">
             <!-- Full Name -->
-            <div class="formbold-mb-3">
-              <label for="name" class="formbold-form-label">👤 Full Name</label>
+            <div class="form-group">
+              <label for="name">👤 Full Name</label>
               <input
-                type="text"
                 id="name"
+                type="text"
                 name="name"
                 [(ngModel)]="newEmployee.name"
                 placeholder="Enter full name"
-                class="formbold-form-input"
                 required
               />
             </div>
 
             <!-- Email -->
-            <div class="formbold-mb-3">
-              <label for="email" class="formbold-form-label">📧 Email</label>
+            <div class="form-group">
+              <label for="email">📧 Email</label>
               <input
-                type="email"
                 id="email"
+                type="email"
                 name="email"
                 [(ngModel)]="newEmployee.email"
                 placeholder="Enter email"
-                class="formbold-form-input"
                 required
               />
             </div>
 
             <!-- Password -->
-            <div class="formbold-mb-3 password-wrapper">
-              <label for="password" class="formbold-form-label">🔐 Password</label>
+            <div class="form-group password-wrapper">
+              <label for="password">🔐 Password</label>
               <div class="password-field">
                 <input
                   [type]="showPassword ? 'text' : 'password'"
@@ -51,25 +51,27 @@
                   name="password"
                   [(ngModel)]="newEmployee.password"
                   placeholder="Enter password"
-                  class="formbold-form-input"
                   required
                 />
-                <span class="icon" (click)="togglePassword()" tabindex="0" role="button" aria-label="Toggle password">
+                <span
+                  class="icon"
+                  (click)="togglePassword()"
+                  tabindex="0"
+                  role="button"
+                  aria-label="Toggle password"
+                >
                   <i class="fa-solid" [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"></i>
                 </span>
-                
               </div>
             </div>
-            
 
             <!-- Role -->
-            <div class="formbold-mb-3">
-              <label for="role" class="formbold-form-label">🛠️ Role</label>
+            <div class="form-group">
+              <label for="role">🛠️ Role</label>
               <select
                 id="role"
                 name="role"
                 [(ngModel)]="newEmployee.role"
-                class="formbold-form-input"
                 required
               >
                 <option value="" disabled selected>Choose role</option>
@@ -78,7 +80,7 @@
               </select>
             </div>
 
-            <!-- Submit Button -->
+            <!-- Submit -->
             <div class="formbold-mb-3 formbold-pt-3">
               <button type="submit" class="formbold-btn">➕ Add Employee</button>
             </div>
