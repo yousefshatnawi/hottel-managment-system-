@@ -17,7 +17,7 @@ export class ReservationsReviewComponent {
 
 appointments: RoomAppointment[] = [];
 pagedAppointments: RoomAppointment[] = [];
-pageSize = 5;
+pageSize = 6;
 currentPage = 0;
 
 constructor(
