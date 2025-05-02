@@ -86,9 +86,25 @@ export class DashboardComponent {
       this.roomCount,
       this.userCount
     ];
-    this.barChartData.datasets[0].data = data;
-    this.doughnutChartData.datasets[0].data = data;
+  
+    this.barChartData = {
+      labels: ['Employees', 'Customers', 'Rooms', 'Users'],
+      datasets: [{
+        label: 'Counts',
+        data: data,
+        backgroundColor: ['#42A5F5', '#66BB6A', '#FFA726', '#AB47BC']
+      }]
+    };
+  
+    this.doughnutChartData = {
+      labels: ['Employees', 'Customers', 'Rooms', 'Users'],
+      datasets: [{
+        data: data,
+        backgroundColor: ['#42A5F5', '#66BB6A', '#FFA726', '#AB47BC']
+      }]
+    };
   }
+  
 
   updateSummaryData() {
     this.summaryData = [
