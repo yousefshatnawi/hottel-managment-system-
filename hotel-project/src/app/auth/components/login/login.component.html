@@ -35,15 +35,17 @@
       <div *ngIf="password.errors?.['required']">Password is required.</div>
     </div>
 
-    <!-- Forgot Password Link -->
-    <div class="forgot-password">
-      <a href="javascript:void(0)" (click)="navigateToForgotPassword()">Forgot your password?</a>
-    </div>
+    
 
     <div class="form-actions">
       <button type="submit" [disabled]="!loginForm.valid" class="primary-btn">
         Login
       </button>
+    </div>
+    
+    <!-- Forgot Password Link -->
+    <div class="forgot-password">
+      <a href="javascript:void(0)" (click)="navigateToForgotPassword()">Forgot your password?</a>
     </div>
 
     <div class="divider">OR</div>
