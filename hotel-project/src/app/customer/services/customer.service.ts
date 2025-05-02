@@ -64,7 +64,7 @@ export class CustomerService {
   
         if (index !== -1) {
           customer[index] = { ...customerUpdate };
-          localStorage.setItem(CUSTOMERS_KEY, JSON.stringify(customer));
+          localStorage.setItem('user', JSON.stringify(customer[index]));
           
           resolve(customer[index]);
           console.log(customer[index])

@@ -44,12 +44,7 @@ throw new Error('Method not implemented.');
       password: new FormControl('', Validators.required),
     });
   }
-  // openPolicyModal() {
-  //   this.dialog.open(PolicyComponent, {
-  //     width: '800px',  // عرض المودال
-  //     height: '650px'  // ارتفاع المودال
-  //   });
-  // }
+  
 
   login() {
     if (this.loginForm.valid) {

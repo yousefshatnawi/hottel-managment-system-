@@ -94,7 +94,6 @@ saveProfile() {
 
   const user = JSON.parse(localStorage.getItem('user') || '{}');
 
-  // لو المستخدم ناوي يغيّر الباسورد
   const isChangingPassword = this.customerData.newPassword || this.customerData.confirmPassword;
 
   if (isChangingPassword) {
@@ -116,11 +115,9 @@ saveProfile() {
       return;
     }
 
-    // ✅ كل شيء تمام: نحط الباسورد الجديدة
     this.customerData.password = this.customerData.newPassword;
   }
 
-  // ❌ حذف الحقول المؤقتة (ما بنرسلهم للسيرفر)
   delete this.customerData.oldPassword;
   delete this.customerData.newPassword;
   delete this.customerData.confirmPassword;
