@@ -9,7 +9,13 @@ import { NgChartsModule } from 'ng2-charts';
 import { ChartComponent } from './chart/chart.component';
 import {  MatDialogModule } from '@angular/material/dialog';
 import { HeaderDashComponent } from './header-dash/header-dash.component';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
+export function HttpLoaderFactory(http: HttpClient) {
+return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -23,7 +29,15 @@ import { HeaderDashComponent } from './header-dash/header-dash.component';
     CommonModule,
     RouterModule,
     NgChartsModule,
-    MatDialogModule
+    MatDialogModule,
+     HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }), 
   ],
   exports: [
     HeaderComponent,  

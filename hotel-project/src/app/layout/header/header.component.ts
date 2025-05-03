@@ -5,6 +5,8 @@ import { LoginComponent } from '../../auth/components/login/login.component';
 import { RequestServiceComponent } from '../../customer/pages/request-service/request-service.component';
 import { MyReservationsComponent } from '../../customer/pages/my-reservations/my-reservations.component';
 import { MyRequestsComponent } from '../../customer/pages/my-requests/my-requests.component';
+import { TranslateService } from '@ngx-translate/core';
+
 @Component({
   selector: 'app-header',
   standalone: false,
@@ -15,10 +17,13 @@ export class HeaderComponent implements OnInit {
 
   showMyRequest: boolean = false;
 
+menuOpen = false;
+isDarkTheme = false;
+    currentLang = 'en';
   isLoggedIn = false;
   profileLink = '/'; // رابط يوجه حسب نوع المستخدم
 
-  constructor(private dialog: MatDialog) {}
+  constructor(private dialog: MatDialog,private translate: TranslateService) {}
 
   openLoginDialog(): void {
     const dialogRef = this.dialog.open(LoginComponent, {
@@ -43,7 +48,28 @@ export class HeaderComponent implements OnInit {
     } else {
       this.isLoggedIn = false;
     }
-  }
+    
+     const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+  document.body.classList.add('dark-theme');}
+  } 
+  toggleMenu() {
+  this.menuOpen = !this.menuOpen;
+}
+toggleDarkTheme() {
+  this.isDarkTheme = !this.isDarkTheme;
+  localStorage.setItem('theme', this.isDarkTheme ? 'dark' : 'light');
+  
+  const body = document.body;
+  body.classList.toggle('dark-theme');
+}
+ 
+ switchLanguage() {
+  this.currentLang = this.currentLang === 'en' ? 'ar' : 'en';
+  this.translate.use(this.currentLang);
+  localStorage.setItem('lang', this.currentLang);
+}
+  
   logout(): void {
     localStorage.clear();
 

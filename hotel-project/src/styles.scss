@@ -12,3 +12,41 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+body.dark-theme,
+body.dark-theme * {
+  background-color: #121212 !important;
+  color: #ffffff !important;
+  border-color: #444 !important;
+}
+
+/* عناصر HTML الأساسية */
+body.dark-theme input,
+body.dark-theme textarea,
+body.dark-theme select,
+body.dark-theme button {
+  background-color: #1e1e1e !important;
+  color: #fff !important;
+  border: 1px solid #555 !important;
+}
+
+/* إصلاح لون النص داخل بعض العناصر */
+body.dark-theme .mat-form-field-label,
+body.dark-theme .mat-input-element,
+body.dark-theme .mat-select-value,
+body.dark-theme .mat-option-text {
+  color: #ffffff !important;
+}
+
+/* الروابط */
+body.dark-theme a {
+  color: #90caf9 !important;
+}
+
+/* إزالة الشادو */
+body.dark-theme .mat-card,
+body.dark-theme .mat-toolbar,
+body.dark-theme .mat-elevation-z4,
+body.dark-theme .mat-elevation-z8 {
+  box-shadow: none !important;
+}
