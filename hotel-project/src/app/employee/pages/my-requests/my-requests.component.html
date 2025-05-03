@@ -15,22 +15,18 @@
           <p><strong>Request Date:</strong> {{ request.date }}</p>
           </div>
          
-          <div class="info-group">
             <p><strong>Customer Name:</strong> {{ request.customer?.name }}</p>
             <p><strong>Customer Email:</strong> {{ request.customer?.email }}</p>
           </div> -->
     
-         
-          <div class="info-group">
-            <p><strong>Employee Name:</strong> {{ request.employee?.name }}</p>
-          </div>
+          
     
        
-          <div class="info-group">
+          <!-- <div class="info-group"> -->
             <!-- <p><strong>Room Name:</strong> {{ request.room?.roomName }}</p> -->
           
     
-          
+<!--           
           <p><strong>Type:</strong> {{ request.requestType }}</p>
         </div>
         <div class="card-footer" style="background-color: rgb(255 255 255 / 3%);">
@@ -47,7 +43,7 @@
           </p>
         
           <div class="card-actions">
-            <button class="btn btn-sm btn-primary" [routerLink]="['/employee/request-details', request.id]">Details</button>
+            <button class="btn btn-sm btn-primary" [routerLink]="['/employee/request-details', requests.id]">Details</button>
           </div>
         </div>
         
@@ -55,8 +51,8 @@
       </div>
     </div>
     
-    </div>
    -->
+  
 
 
    <div class="sidebar">
