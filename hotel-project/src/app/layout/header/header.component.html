@@ -19,9 +19,28 @@
   
               <!-- <a *ngIf="!isLoggedIn" routerLink="/auth/login" class="bk-btn">Login</a> -->
               <!-- <a *ngIf="!isLoggedIn" (click)="openLoginDialog()" class="bk-btn">Login</a> -->
-              <button *ngIf="!isLoggedIn" (click)="openLoginDialog()" class="bk-btn">
-                Login
-              </button>
+   <div class="menu-container position-relative">
+  <!-- زر الهامبرغر -->
+  <button class="hamburger btn btn-outline-secondary" (click)="toggleMenu()">
+    ☰
+  </button>
+
+  <!-- القائمة المنسدلة -->
+  <div class="dropdown-menu-custom" *ngIf="menuOpen">
+    <!-- استبدال زر تسجيل الدخول بنص ثابت -->
+    <div class="dropdown-item" (click)="openLoginDialog()">🔐 Login</div>
+    
+    <div class="dropdown-item" (click)="toggleDarkTheme()">
+      {{ isDarkTheme ? '☀️ Light Theme' : '🌙 Dark Theme' }}
+    </div>
+
+    <!-- إذا كنت لا تحتاج لتحويل اللغة، يمكنك إزالته -->
+    <div class="dropdown-item" (click)="switchLanguage()">
+      🌐 {{ currentLang === 'en' ? 'العربية 🇸🇦' : 'English 🇺🇸' }}
+    </div>
+  </div>
+</div>
+
               
 
               <a *ngIf="isLoggedIn" routerLink='/customer/profile' class="bk-btn">My Profile</a>

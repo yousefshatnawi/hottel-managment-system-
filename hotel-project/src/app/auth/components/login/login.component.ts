@@ -16,6 +16,7 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrl: './login.component.scss'
 })
 export class LoginComponent implements OnInit {
+
   loginForm!: FormGroup;
   showPassword: boolean = false;
 
@@ -34,6 +35,10 @@ export class LoginComponent implements OnInit {
   get password() {
     return this.loginForm.get('password')!;
   }
+    
+navigateToForgotPassword() {
+  throw new Error('Method not implemented.');
+  }
   
   ngOnInit(): void {
     this.loginForm = new FormGroup({
@@ -41,12 +46,7 @@ export class LoginComponent implements OnInit {
       password: new FormControl('', Validators.required),
     });
   }
-  // openPolicyModal() {
-  //   this.dialog.open(PolicyComponent, {
-  //     width: '800px',  // عرض المودال
-  //     height: '650px'  // ارتفاع المودال
-  //   });
-  // }
+  
 
   login() {
     if (this.loginForm.valid) {

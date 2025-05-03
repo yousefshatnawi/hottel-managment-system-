@@ -92,18 +92,55 @@ saveProfile() {
   this.success = '';
   this.loading = true;
 
+  const user = JSON.parse(localStorage.getItem('user') || '{}');
+
+  const isChangingPassword = this.customerData.newPassword || this.customerData.confirmPassword;
+
+  if (isChangingPassword) {
+    if (this.customerData.newPassword !== this.customerData.confirmPassword) {
+      this.errors.push('Passwords do not match.');
+      this.loading = false;
+      return;
+    }
+
+    if (!this.customerData.oldPassword) {
+      this.errors.push('Please enter your current password.');
+      this.loading = false;
+      return;
+    }
+
+    if (this.customerData.oldPassword !== user?.password) {
+      this.errors.push('Current password is incorrect.');
+      this.loading = false;
+      return;
+    }
+
+    this.customerData.password = this.customerData.newPassword;
+  }
+
+  delete this.customerData.oldPassword;
+  delete this.customerData.newPassword;
+  delete this.customerData.confirmPassword;
+
   this.customerService.updateCustomer(this.customerData)
     .then((updated: Customer) => {
       this.customer = updated;
       this.success = 'Customer updated successfully!';
       this.isEditing = false;
       this.loading = false;
+
+      // مسح الفيلدات من الفورم (لو ضلي منهم اشي)
+      this.customerData.oldPassword = '';
+      this.customerData.newPassword = '';
+      this.customerData.confirmPassword = '';
     })
     .catch((err: any) => {
-      this.errors.push(err);
+      this.errors.push(err.message || 'Update failed.');
       this.loading = false;
     });
 }
+
+
 onFileSelected(event: any): void {
   const file = event.target.files[0];
   if (file) {

@@ -30,17 +30,22 @@
       <span class="icon" (click)="togglePassword()" tabindex="0" role="button" aria-label="Toggle password">
         <i class="fa-solid" [ngClass]="showPassword ? 'fa-eye-slash' : 'fa-eye'"></i>
       </span>
-      
-    </div>    
+    </div>
     <div class="error" *ngIf="password.invalid && (password.dirty || password.touched)">
       <div *ngIf="password.errors?.['required']">Password is required.</div>
     </div>
 
     
+
     <div class="form-actions">
       <button type="submit" [disabled]="!loginForm.valid" class="primary-btn">
         Login
       </button>
+    </div>
+    
+    <!-- Forgot Password Link -->
+    <div class="forgot-password">
+      <a href="javascript:void(0)" (click)="navigateToForgotPassword()">Forgot your password?</a>
     </div>
 
     <div class="divider">OR</div>
