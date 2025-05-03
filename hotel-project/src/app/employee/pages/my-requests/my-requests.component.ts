@@ -16,11 +16,12 @@ import { roomAppointments } from '../../../shared/dataBase/room-appointment';
   styleUrl: './my-requests.component.scss'
 })
 export class MyRequestsComponent implements OnInit {
- 
+
   employeeData: Employee = { id: 0, name: '', role: '',email:'', password:'' };
     requests: EmployeeRequest[] = [];
     loading: boolean = true;
-  
+    selectedRequest: EmployeeRequest | null = null;
+
     constructor(
       private employeeService: EmployeeService,
       private authService: AuthService,
@@ -52,6 +53,27 @@ export class MyRequestsComponent implements OnInit {
       this.loading = false;
     }
   
+
+    openPopup(request: EmployeeRequest) {
+      this.selectedRequest = request;
+    }
+  
+    // 🟢 دالة إغلاق التفاصيل
+    closePopup() {
+      this.selectedRequest = null;
+    }
+  
+   updateStatus(newStatus: 'pending' | 'progres' | 'done') {
+  if (this.selectedRequest) {
+    this.selectedRequest.requestStatus = newStatus;
+    this.employeeService.updateRequestStatus(
+      this.selectedRequest.id,
+      newStatus,
+      this.selectedRequest.employeeId
+    );
+  }
+}
+
     
     
   }

@@ -1,4 +1,4 @@
-
+<!-- 
    <div class="sidebar">
     <app-main-layout></app-main-layout> 
    </div>
@@ -14,23 +14,23 @@
             <p><strong>Request ID:</strong> {{ request.id }}</p>
           <p><strong>Request Date:</strong> {{ request.date }}</p>
           </div>
-          <!-- معلومات العميل -->
+         
           <div class="info-group">
             <p><strong>Customer Name:</strong> {{ request.customer?.name }}</p>
             <p><strong>Customer Email:</strong> {{ request.customer?.email }}</p>
           </div>
     
-          <!-- معلومات الموظف -->
+         
           <div class="info-group">
             <p><strong>Employee Name:</strong> {{ request.employee?.name }}</p>
           </div>
     
-          <!-- معلومات الغرفة -->
+       
           <div class="info-group">
             <p><strong>Room Name:</strong> {{ request.room?.roomName }}</p>
           
     
-          <!-- نوع الطلب والحالة -->
+          
           <p><strong>Type:</strong> {{ request.requestType }}</p>
         </div>
         <div class="card-footer" style="background-color: rgb(255 255 255 / 3%);">
@@ -56,4 +56,82 @@
     </div>
     
     </div>
+   -->
+
+
+   <div class="sidebar">
+    <app-main-layout></app-main-layout> 
+  </div>
+  
+  <div class="main">
+    <app-header-dash [pageTitle]="'My Requests'"></app-header-dash>
+  
+    <div class="cards">
+      <div class="card" *ngFor="let request of requests">
+        <div class="card-content">
+          <div class="info-group">
+            <p><strong>Request ID:</strong> {{ request.id }}</p>
+            <p><strong>Request Date:</strong> {{ request.date }}</p>
+          </div>
+          <div class="info-group">
+            <p><strong>Customer Name:</strong> {{ request.customer?.name }}</p>
+            <p><strong>Customer Email:</strong> {{ request.customer?.email }}</p>
+          </div>
+          <div class="info-group">
+            <p><strong>Employee Name:</strong> {{ request.employee?.name }}</p>
+          </div>
+          <div class="info-group">
+            <p><strong>Room Name:</strong> {{ request.room?.roomName }}</p>
+          </div>
+          <p><strong>Type:</strong> {{ request.requestType }}</p>
+  
+          <div class="card-footer">
+            <p class="request-status">
+              <strong>Status:</strong> 
+              <span class="status-badge" [ngClass]="{
+                'pending': request.requestStatus === 'pending',
+                'progres': request.requestStatus === 'progres',
+                'done': request.requestStatus === 'done'
+              }">{{ request.requestStatus }}</span>
+            </p>
+  
+            <div class="card-actions">
+              <button class="btn btn-sm btn-primary" (click)="openPopup(request)">Details</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 🟢 Popup التفاصيل -->
+  <div class="popup-overlay" *ngIf="selectedRequest">
+    <div class="popup-content">
+      <h3>Request Details</h3>
+      <p><strong>Customer Name:</strong> {{ selectedRequest.customer?.name }}</p>
+      <p><strong>Request Type:</strong> {{ selectedRequest.requestType }}</p>
+      <p><strong>Date:</strong> {{ selectedRequest.date }}</p>
+      <p><strong>Status:</strong> 
+         <span class="status-badge" [ngClass]="{
+          'pending': selectedRequest.requestStatus === 'pending',
+          'progres': selectedRequest.requestStatus === 'progres',
+          'done': selectedRequest.requestStatus === 'done'
+        }">{{ selectedRequest.requestStatus }}</span>
+      </p>
+  
+      <div class="action-buttons">
+        <button class="action-btn pending-btn" (click)="updateStatus('pending')" [disabled]="selectedRequest.requestStatus === 'pending'">
+          <i class="fas fa-clock"></i> Pending
+        </button>
+        <button class="action-btn progress-btn" (click)="updateStatus('progres')" [disabled]="selectedRequest.requestStatus === 'progres'">
+          <i class="fas fa-spinner"></i> In Progress
+        </button>
+        <button class="action-btn done-btn" (click)="updateStatus('done')" [disabled]="selectedRequest.requestStatus === 'done'">
+          <i class="fas fa-check"></i> Done
+        </button>
+      </div>
+  
+      <button class="close-btn" (click)="closePopup()">Close</button>
+    </div>
+  </div>
   

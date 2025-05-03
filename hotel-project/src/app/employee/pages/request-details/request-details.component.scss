@@ -366,12 +366,12 @@ strong {
 /* Action Buttons */
 .action-buttons {
   display: flex;
-  flex-wrap: wrap;
+  
   gap: 15px;
   justify-content: center;
   margin-top: 20px;
-  
-    width: 50%;
+  margin-bottom: 2%;
+    width: 95%;
 
 }
 .action-btn {

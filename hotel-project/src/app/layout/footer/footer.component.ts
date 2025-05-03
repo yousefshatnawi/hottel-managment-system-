@@ -17,8 +17,8 @@ export class FooterComponent  {
 
   openModal() {
     this.dialog.open(PolicyComponent, {
-          width: '1000px',  // عرض المودال
-          height: '650px'  // ارتفاع المودال
+          width: '1000px',  
+          height: '650px' 
         });
   }
   
