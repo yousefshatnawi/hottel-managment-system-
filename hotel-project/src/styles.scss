@@ -31,22 +31,69 @@ body.dark-theme button {
 }
 
 /* إصلاح لون النص داخل بعض العناصر */
-body.dark-theme .mat-form-field-label,
-body.dark-theme .mat-input-element,
-body.dark-theme .mat-select-value,
-body.dark-theme .mat-option-text {
-  color: #ffffff !important;
+/* الأساسيات */
+
+
+/* الوضع الليلي */
+.dark-theme {
+  background-color: #1a1a1a !important;
+  color: #e0e0e0;
 }
 
-/* الروابط */
-body.dark-theme a {
-  color: #90caf9 !important;
+/* الحاويات المهمة فقط */
+.dark-theme header,
+.dark-theme nav,
+.dark-theme footer,
+.dark-theme .card,
+.dark-theme .container,
+.dark-theme .content,
+.dark-theme .mat-toolbar,
+.dark-theme .mat-card {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark-theme input,
+.dark-theme textarea,
+.dark-theme select,
+.dark-theme button {
+  background-color: #1a1a1a;
+  color: #ffffff;
+  border: 1px solid #555;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+/* روابط */
+.dark-theme a {
+  color: #90caf9;
+  transition: color 0.3s ease;
+}
+
+/* عناصر Angular Material */
+.dark-theme .mat-form-field-label,
+.dark-theme .mat-input-element,
+.dark-theme .mat-select-value,
+.dark-theme .mat-option-text {
+  color: #ffffff;
 }
 
 /* إزالة الشادو */
-body.dark-theme .mat-card,
-body.dark-theme .mat-toolbar,
-body.dark-theme .mat-elevation-z4,
-body.dark-theme .mat-elevation-z8 {
-  box-shadow: none !important;
+.dark-theme .mat-card,
+.dark-theme .mat-toolbar,
+.dark-theme .mat-elevation-z4,
+.dark-theme .mat-elevation-z8 {
+  box-shadow: none;
 }
+
+/* أيقونات أو حدود ثانوية */
+.dark-theme hr,
+.dark-theme .border,
+.dark-theme .divider {
+  border-color: #444;
+}
+.dark-theme .no-dark,
+.dark-theme .no-dark * {
+  background-color: revert !important;
+}
+

@@ -6,10 +6,10 @@
 
     <!-- Hero Section Begin -->
     <section class="hero-section">
-        <div class="container">
+        <div class="container no-dark">
             <div class="row">
                 <div class="col-lg-7">
-                    <div class="hero-text">
+                    <div class="hero-text ">
                         <h1>Casa Serene A Luxury Hotel</h1>
                         <p>Here are the best hotel booking sites, including recommendations for international
                             travel and for finding low-priced hotel rooms.</p>
@@ -143,7 +143,7 @@
                 <div class="row">
                     <div class="col-lg-3 col-md-6"*ngFor="let room of room.slice(0,4); let i = index" >
                         <div class="hp-room-item" [ngStyle]="{'background-image': 'url(assets/img/room/room-b' + (i + 1) + '.jpg)' }">
-                            <div class="hr-text">
+                            <div class="hr-text no-dark">
                                 <h3>{{ room.title }}</h3>
                                 <h2>{{ room.paymentAmount }}<span>/Pernight</span></h2>
                                 <table>
@@ -379,7 +379,7 @@
           class="blog-item"
           [ngStyle]="{ 'background-image': 'url(' + blog.image + ')' }"
         >
-          <div class="bi-text">
+          <div class="bi-text no-dark">
             <span class="b-tag">{{ blog.tag }}</span>
             <h4><a href="#">{{ blog.title }}</a></h4>
             <div class="b-time">
@@ -394,7 +394,7 @@
           class="blog-item small-size"
           [ngStyle]="{ 'background-image': 'url(' + blogs[3].image + ')' }"
         >
-          <div class="bi-text">
+          <div class="bi-text no-dark">
             <span class="b-tag">{{ blogs[3].tag }}</span>
             <h4><a href="#">{{ blogs[3].title }}</a></h4>
             <div class="b-time">
@@ -409,7 +409,7 @@
           class="blog-item small-size"
           [ngStyle]="{ 'background-image': 'url(' + blogs[4].image + ')' }"
         >
-          <div class="bi-text">
+          <div class="bi-text no-dark">
             <span class="b-tag">{{ blogs[4].tag }}</span>
             <h4><a href="#">{{ blogs[4].title }}</a></h4>
             <div class="b-time">
