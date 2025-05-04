@@ -1,4 +1,4 @@
-
+<!-- 
 <app-header></app-header>
     <div class="breadcrumb-section">
         <div class="container">
@@ -15,9 +15,6 @@
             </div>
         </div>
     </div>
-    <!-- Breadcrumb Section End -->
-
-    <!-- About Us Page Section Begin -->
     <section class="aboutus-page-section spad">
         <div class="container">
             <div class="about-page-text">
@@ -68,9 +65,6 @@
             </div>
         </div>
     </section>
-    <!-- About Us Page Section End -->
-
-    <!-- Video Section Begin -->
     <section class="video-section">
         <video #hotelVideo autoplay muted loop playsinline class="w-100" style="height: 500px; object-fit: cover;">
           <source src="assets\img\video-about.mp4" type="video/mp4" />
@@ -78,9 +72,6 @@
      
       </section>
       
-    <!-- Video Section End -->
-
-    <!-- Gallery Section Begin -->
     <section class="gallery-section spad">
         <div class="container">
             <div class="row">
@@ -128,4 +119,129 @@
 
     
 
-    <app-footer></app-footer>
+    <app-footer></app-footer> -->
+
+
+
+    <app-header></app-header>
+
+<div class="breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breadcrumb-text">
+                    <h2>{{ 'NAV_ABOUT_US' | translate }}</h2>
+                    <div class="bt-option">
+                        <a routerLink="/home" routerLinkActive="active">{{ 'NAV_HOME' | translate }}</a>
+                        <span>{{ 'NAV_ABOUT_US' | translate }}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="aboutus-page-section spad">
+    <div class="container">
+        <div class="about-page-text">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="ap-title">
+                        <h2>{{ 'ABOUT_TITLE' | translate }} Casa Serene</h2>
+                        <p>{{ 'ABOUT_DESCRIPTION' | translate }}</p>
+                    </div>
+                </div>
+                <div class="col-lg-5 offset-lg-1">
+                    <ul class="ap-services">
+                        <li><i class="icon_check"></i> {{ 'DISCOUNT_ACCOMMODATION' | translate }}</li>
+                        <li><i class="icon_check"></i> {{ 'COMPLIMENTARY_BREAKFAST' | translate }}</li>
+                        <li><i class="icon_check"></i> {{ 'LAUNDRY_SERVICE' | translate }}</li>
+                        <li><i class="icon_check"></i> {{ 'FREE_WIFI' | translate }}</li>
+                        <li><i class="icon_check"></i> {{ 'DISCOUNT_FNB' | translate }}</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="about-page-services">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="ap-service-item set-bg" data-setbg="assets/img/about/about-p1.jpg">
+                    <div class="api-text no-dark">
+                        <h3>{{ 'RESTAURANT_SERVICES' | translate }}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="ap-service-item set-bg" data-setbg="assets/img/about/about-p2.jpg">
+                    <div class="api-text no-dark">
+                        <h3>{{ 'TRAVEL_CAMPING' | translate }}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="ap-service-item set-bg" data-setbg="assets/img/about/about-p3.jpg">
+                    <div class="api-text no-dark">
+                        <h3>{{ 'EVENT_PARTY' | translate }}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="video-section">
+    <video #hotelVideo autoplay muted loop playsinline class="w-100" style="height: 500px; object-fit: cover;">
+        <source src="assets/img/video-about.mp4" type="video/mp4" />
+    </video>
+</section>
+
+<section class="gallery-section spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-title">
+                    <span>{{ 'OUR_GALLERY' | translate }}</span>
+                    <h2>{{ 'DISCOVER_OUR_WORK' | translate }}</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="gallery-item set-bg" data-setbg="assets/img/gallery/gallery-1.jpg">
+                    <div class="gi-text">
+                        <h3>{{ 'ROOM_LUXURY' | translate }}</h3>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="gallery-item set-bg" data-setbg="assets/img/gallery/gallery-3.jpg">
+                            <div class="gi-text">
+                                <h3>{{ 'ROOM_LUXURY' | translate }}</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="gallery-item set-bg" data-setbg="assets/img/gallery/gallery-4.jpg">
+                            <div class="gi-text">
+                                <h3>{{ 'ROOM_LUXURY' | translate }}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="gallery-item large-item set-bg" data-setbg="assets/img/gallery/gallery-2.jpg">
+                    <div class="gi-text">
+                        <h3>{{ 'ROOM_LUXURY' | translate }}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<app-footer></app-footer>

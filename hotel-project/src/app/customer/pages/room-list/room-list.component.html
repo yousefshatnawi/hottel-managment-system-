@@ -1,4 +1,4 @@
-
+<!-- 
   
   <app-header></app-header>
   <div class="breadcrumb-section">
@@ -34,7 +34,6 @@
       <div class="row">
         <div class="col-lg-4 col-md-6" *ngFor="let room of roomList; let i = index">
           <div class="room-item">
-            <!-- استخدام صور ثابتة من assets/img/room/room-1.jpg إلى room-6.jpg -->
             <img [src]="'assets/img/room/room-' + (i + 1) + '.jpg'" alt="{{ room.title }}" />  
             <div class="ri-text">
               <h4>{{ room.title }}</h4>
@@ -82,4 +81,104 @@
       </div>
     </div>
   </section>
+  <app-footer></app-footer> -->
+
+
+  <app-header></app-header>
+
+  <div class="breadcrumb-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="breadcrumb-text">
+            <h2>{{ 'OUR_ROOMS' | translate }}</h2>
+            <div>
+              <span
+                class="clickable"
+                (click)="filterdata('')"
+                [ngClass]="{ 'active': selectedType === '' }">
+                {{ 'ALL' | translate }} >
+              </span>
+              <span
+                (click)="filterdata('room')"
+                class="clickable"
+                [ngClass]="{ 'active': selectedType === 'room' }">
+                {{ 'ROOMS' | translate }} >
+              </span>
+              <span
+                (click)="filterdata('hall')"
+                class="clickable"
+                [ngClass]="{ 'active': selectedType === 'hall' }">
+                {{ 'HALLS' | translate }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <section class="rooms-section spad">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6" *ngFor="let room of paginatedRoomList; let i = index">
+          <div class="room-item">
+            <img [src]="'assets/img/room/room-' + (i + 1) + '.jpg'" alt="{{ room.title }}" />
+            <div class="ri-text">
+              <h4>{{ room.title }}</h4>
+  
+              <table>
+                <tbody>
+                  <tr>
+                    <td class="r-o">{{ 'TYPE' | translate }}:</td>
+                    <td>{{ room.roomType }}</td>
+                  </tr>
+                  <tr>
+                    <td class="r-o">{{ 'FLOOR' | translate }}:</td>
+                    <td>{{ room.floor }}</td>
+                  </tr>
+                  <tr>
+                    <td class="r-o">{{ 'BUILDING' | translate }}:</td>
+                    <td>{{ room.building }}</td>
+                  </tr>
+                  <tr>
+                    <td class="r-o">{{ 'AMOUNT' | translate }}:</td>
+                    <td>{{ room.paymentAmount }} $</td>
+                  </tr>
+                  <tr>
+                    <td class="r-o">{{ 'DETAILS' | translate }}:</td>
+                    <td>{{ room.details }}</td>
+                  </tr>
+                  <tr>
+                    <td class="r-o">{{ 'STATUS' | translate }}:</td>
+                    <td>
+                      <span [ngClass]="{ 'booked': room.bookedStatus, 'available': !room.bookedStatus }"
+                        [ngStyle]="{ 'color': room.bookedStatus ? 'red' : 'green' }"
+                        style="font-weight: bold;">
+                        {{ room.bookedStatus ? ('BOOKED' | translate) : ('AVAILABLE' | translate) }}
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+  
+              <a [routerLink]="['/customer/room', room.id]" [queryParams]="{ img: i + 1 }" class="primary-btn">
+                {{ 'MORE_DETAILS' | translate }}
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+      <!-- إضافة paginator هنا -->
+      <mat-paginator [length]="length"
+                     [pageSize]="pageSize"
+                     [pageSizeOptions]="[3, 6, 9]"
+                     (page)="onPageChange($event)">
+      </mat-paginator>
+  
+    </div>
+  </section>
+  
   <app-footer></app-footer>
+  

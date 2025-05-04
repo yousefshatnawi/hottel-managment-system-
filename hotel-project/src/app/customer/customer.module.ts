@@ -13,8 +13,11 @@ import { CustomerService } from './services/customer.service';
 import { RoomListComponent } from './pages/room-list/room-list.component';
 import { RoomDetailsComponent } from './pages/room-details/room-details.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { SharedModule } from '../layout/shared.module';
+import { HttpLoaderFactory, SharedModule } from '../layout/shared.module';
 import { MatDialogModule } from '@angular/material/dialog';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 
 @NgModule({
@@ -35,7 +38,16 @@ import { MatDialogModule } from '@angular/material/dialog';
     AuthRoutingModule,
     CommonModule,
     SharedModule,
-    MatDialogModule
+    MatPaginatorModule,
+    MatDialogModule,
+    HttpClientModule,
+   TranslateModule.forRoot({
+     loader: {
+       provide: TranslateLoader,
+       useFactory: HttpLoaderFactory,
+       deps: [HttpClient]
+     }
+   }), 
     
   ],
   exports: [

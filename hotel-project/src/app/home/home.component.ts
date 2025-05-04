@@ -2,6 +2,8 @@ import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angula
 import Swiper from 'swiper';
 import { Room } from '../models/room.model';
 import { Rooms } from '../shared/dataBase/room';
+import { TranslateService } from '@ngx-translate/core';
+import { LanguageService } from '../services/language.service';
 
 
 @Component({
@@ -11,6 +13,10 @@ import { Rooms } from '../shared/dataBase/room';
   styleUrl: './home.component.scss'
 })
 export class HomeComponent implements OnInit, AfterViewInit {
+  constructor(
+    private languageService: LanguageService,
+    private translate: TranslateService
+  ) {}
 room :Room []= Rooms
   Math = Math;
   loading = true;
@@ -60,23 +66,28 @@ room :Room []= Rooms
   ngOnInit(): void {
     setInterval(() => {
       this.currentHeroIndex = (this.currentHeroIndex + 1) % this.heroImages.length;
-    }, 3000); // Hero slider
+    }, 3000); 
 
     setTimeout(() => {
       this.loading = false;
-    }, 2000); // 2 ثوانٍ
+    }, 2000); 
+
+
+    this.languageService.currentLanguage.subscribe(language => {
+      this.translate.use(language);
+    });
   
   }
 
   ngAfterViewInit(): void {
-    // إعداد الخلفيات
+    
     const elements = document.querySelectorAll('.set-bg');
     elements.forEach((el: any) => {
       const bg = el.getAttribute('data-setbg');
       el.style.backgroundImage = `url(${bg})`;
     });
 
-    // إعداد سلايدر Swiper
+    
     new Swiper('.testimonial-slider', {
       loop: true,
       autoplay: {
@@ -91,10 +102,9 @@ room :Room []= Rooms
     });
     const videoElement = this.hotelVideo.nativeElement;
 
-    // تغيير سرعة التشغيل
-    videoElement.playbackRate =3.5; // أو 2 مثلاً حسب رغبتك
+    videoElement.playbackRate =3.5;
 
-    // في حال احتجت تتأكد من التشغيل
+   
     videoElement.play().catch(error => {
       console.error('Video failed to play:', error);
     });

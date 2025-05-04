@@ -1,4 +1,4 @@
-// import { Room } from "../../models/room.model";
+
 
 import { Room } from "../../models/room.model";
 
@@ -45,7 +45,7 @@ export const Rooms: Room[] = [
         roomType: 'room',
         floor: '1st',
         building: 'Main Building',
-        details: 'Two single beds, garden view, non-smoking.',
+        details: 'Two single beds, garden view',
         bookedStatus: true,
         booked: undefined,
         paymentAmount: 90,
