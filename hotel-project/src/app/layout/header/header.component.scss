@@ -37,34 +37,6 @@
   background-color: #dfa974;
 }
 
-// .dropdown-menu {
-//   position: absolute;
-//   top: 50px;
-//   right: 0;
-//   background-color: white;
-//   border-radius: 12px;
-//   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-//   overflow: hidden;
-//   z-index: 999;
-//   min-width: 180px;
-//   display: flex;
-//   flex-direction: column;
-// }
-
-// .dropdown-menu button {
-//   background: none;
-//   border: none;
-//   padding: 12px 16px;
-//   text-align: left;
-//   font-size: 16px;
-//   cursor: pointer;
-//   transition: background-color 0.2s;
-// }
-
-// .dropdown-menu button:hover {
-//   background-color: #f0f0f0;
-// }
-
 
 
 .dropdown-menu-custom {
@@ -122,31 +94,20 @@ body.light-theme {
   background-color: #ffffff;
   color: black;
 }
-  
-//   .nav-menu {
-//     display: flex;
-//     margin-right: 0;
-//     padding-right: 0;
-//   }
-  
-//   .mainmenu ul {
-//     display: flex;
-//     justify-content: flex-end; // يدفع الناف الى أقصى اليمين
-//     gap: 3px; // مسافة بين الروابط
-//     list-style: none;
-//     padding: px;
-//     margin: 0;
-//   }
-  
-//   .mainmenu ul li a {
-//     color: #a37809; // أو أي لون نص بدك اياه
-//     text-decoration: none;
-//     font-weight: 500;
-//     padding: 1px 5px;
-//     transition: color 0.3s ease;
-  
-//     &:hover {
-//       color: #dfa974; // لون عند التحويم
-//     }
-//   }
-  
+.language-dropdown {
+  margin-left: 20px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 5px;
+  box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+}
+
+.language-dropdown .dropdown-item {
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.language-dropdown .dropdown-item:hover {
+  background-color: #f1f1f1;
+}

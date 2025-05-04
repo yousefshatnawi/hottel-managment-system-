@@ -1,10 +1,9 @@
-<div *ngIf="loading" class="spinner-container">
+<!-- <div *ngIf="loading" class="spinner-container">
     <mat-spinner diameter="50" color="primary"></mat-spinner>
 </div>
 <div *ngIf="!loading">
 <app-header></app-header>
-
-    <!-- Hero Section Begin -->
+    
     <section class="hero-section">
         <div class="container no-dark">
             <div class="row">
@@ -17,19 +16,13 @@
                     </div>
                 </div>
                 
-<!-- <div class="col-xl-4 col-lg-5 offset-xl-2 offset-lg-1">
-    
-                <app-book-room></app-book-room>
-</div> -->
+
             </div>
         </div>
         <div class="hero-slider" [style.backgroundImage]="'url(' + heroImages[currentHeroIndex] + ')'">
            
         </div>
     </section>
-    <!-- Hero Section End -->
-
-    <!-- About Us Section Begin -->
     <section class="aboutus-section spad">
         <div class="container">
             <div class="row">
@@ -62,14 +55,13 @@
             </div>
         </div>
     </section>
-    <!-- About Us Section End -->
   <section class="video-section">
         <video #hotelVideo autoplay muted loop playsinline class="w-100" style="height: 500px; object-fit: cover;">
             <source src="assets/img/hoom-video.mp4" type="video/mp4" />
         </video>
         
       </section>
-    <!-- Services Section End -->
+   
     <section class="services-section spad">
         <div class="container">
             <div class="row">
@@ -134,9 +126,6 @@
             </div>
         </div>
     </section>
-    <!-- Services Section End -->
-  
-    <!-- Home Room Section Begin -->
     <section class="hp-room-section" style="margin: 100px;">
         <div class="container-fluid">
             <div class="hp-room-items">
@@ -158,206 +147,19 @@
                                             <td class="r-o">Floor:</td>
                                             <td>{{room.floor}}</td>
                                         </tr>
-                                        <!-- <tr>
-                                            <td class="r-o">Building:</td>
-                                            <td>{{room.building}}</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="r-o"><Details></Details>:</td>
-                                            <td>{{room.details}}</td>
-                                        </tr> -->
+                                      
                                     </tbody>
                                 </table>
                                 <a routerLink="/customer/room" class="primary-btn">More Details</a>
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="col-lg-3 col-md-6">
-                        <div class="hp-room-item set-bg" data-setbg="assets/img/room/room-b2.jpg">
-                            <div class="hr-text">
-                                <h3>Premium King Room</h3>
-                                <h2>159$<span>/Pernight</span></h2>
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <td class="r-o">Size:</td>
-                                            <td>30 ft</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="r-o">Capacity:</td>
-                                            <td>Max persion 5</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="r-o">Bed:</td>
-                                            <td>King Beds</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="r-o">Services:</td>
-                                            <td>Wifi, Television, Bathroom,...</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <a routerLink="/customer/room" class="primary-btn">More Details</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="hp-room-item set-bg" data-setbg="assets/img/room/room-b3.jpg">
-                            <div class="hr-text">
-                                <h3>Deluxe Room</h3>
-                                <h2>198$<span>/Pernight</span></h2>
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <td class="r-o">Size:</td>
-                                            <td>30 ft</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="r-o">Capacity:</td>
-                                            <td>Max persion 5</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="r-o">Bed:</td>
-                                            <td>King Beds</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="r-o">Services:</td>
-                                            <td>Wifi, Television, Bathroom,...</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <a routerLink="/customer/room" class="primary-btn">More Details</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="hp-room-item set-bg" data-setbg="assets/img/room/room-b4.jpg">
-                            <div class="hr-text">
-                                <h3>Family Room</h3>
-                                <h2>299$<span>/Pernight</span></h2>
-                                <table>
-                                    <tbody>
-                                        <tr>
-                                            <td class="r-o">Size:</td>
-                                            <td>30 ft</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="r-o">Capacity:</td>
-                                            <td>Max persion 5</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="r-o">Bed:</td>
-                                            <td>King Beds</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="r-o">Services:</td>
-                                            <td>Wifi, Television, Bathroom,...</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <a routerLink="/customer/room" class="primary-btn">More Details</a>
-                            </div>
-                        </div>
-                    </div> -->
+                    
                 </div>
             </div>
         </div>
     </section>
-    
-<!-- <section class="testimonial-section spad">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="section-title">
-            <span>Testimonials</span>
-            <h2>What Customers Say?</h2>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-8 offset-lg-2 text-center">
-          <div class="ts-item">
-            <p>{{ testimonials[currentTestimonialIndex].text }}</p>
-            <div class="ti-author">
-              <div class="rating">
-                <ng-container *ngFor="let star of [].constructor(5); let i = index">
-                  <i class="icon_star" *ngIf="i < Math.floor(testimonials[currentTestimonialIndex].rating)"></i>
-                  <i class="icon_star-half_alt" *ngIf="i < testimonials[currentTestimonialIndex].rating && i >= Math.floor(testimonials[currentTestimonialIndex].rating)"></i>
-                </ng-container>
-              </div>
-              <h5> - {{ testimonials[currentTestimonialIndex].author }}</h5>
-            </div>
-            <img class="img" [src]="testimonials[currentTestimonialIndex].image" alt="Testimonial">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
-  
-    <!-- Testimonial Section End -->
-
-    <!-- Blog Section Begin -->
-    <!-- <section class="blog-section spad">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-title">
-                        <span>Hotel News</span>
-                        <h2>Our Blog & Event</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="blog-item set-bg" data-setbg="assets/img/blog/blog-1.jpg">
-                        <div class="bi-text">
-                            <span class="b-tag">Travel Trip</span>
-                            <h4><a href="#">Tremblant In Canada</a></h4>
-                            <div class="b-time"><i class="icon_clock_alt"></i> 15th April, 2019</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="blog-item set-bg" data-setbg="assets/img/blog/blog-2.jpg">
-                        <div class="bi-text">
-                            <span class="b-tag">Camping</span>
-                            <h4><a href="#">Choosing A Static Caravan</a></h4>
-                            <div class="b-time"><i class="icon_clock_alt"></i> 15th April, 2019</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="blog-item set-bg" data-setbg="assets/img/blog/blog-3.jpg">
-                        <div class="bi-text">
-                            <span class="b-tag">Event</span>
-                            <h4><a href="#">Copper Canyon</a></h4>
-                            <div class="b-time"><i class="icon_clock_alt"></i> 21th April, 2019</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-8">
-                    <div class="blog-item small-size set-bg" data-setbg="assets/img/blog/blog-wide.jpg">
-                        <div class="bi-text">
-                            <span class="b-tag">Event</span>
-                            <h4><a href="#">Trip To Iqaluit In Nunavut A Canadian Arctic City</a></h4>
-                            <div class="b-time"><i class="icon_clock_alt"></i> 08th April, 2019</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="blog-item small-size set-bg" data-setbg="assets/img/blog/blog-10.jpg">
-                        
-                        <div class="bi-text">
-                            <span class="b-tag">Travel</span>
-                            <h4><a href="#">Traveling To Barcelona</a></h4>
-                            <div class="b-time"><i class="icon_clock_alt"></i> 12th April, 2019</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-    <!-- Blog Section End -->
+ 
 
     <section class="blog-section spad">
   <div class="container">
@@ -424,4 +226,205 @@
 
 <app-footer></app-footer>
 
+</div> -->
+
+
+
+
+<div *ngIf="loading" class="spinner-container">
+    <mat-spinner diameter="50" color="primary"></mat-spinner>
+</div>
+<div *ngIf="!loading">
+    <app-header></app-header>
+    
+    <section class="hero-section">
+        <div class="container no-dark">
+            <div class="row">
+                <div class="col-lg-7">
+                    <div class="hero-text">
+                        <h1> Casa Serene</h1>
+                        <h1> {{ 'home.hero.title' | translate }} </h1>
+                        <p>{{ 'home.hero.description' | translate }}</p>
+                        <a routerLink="/about-us" class="primary-btn">{{ 'home.hero.button' | translate }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-slider" [style.backgroundImage]="'url(' + heroImages[currentHeroIndex] + ')'"></div>
+    </section>
+    
+    <section class="aboutus-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="about-text">
+                        <div class="section-title">
+                            <span>{{ 'home.about.subtitle' | translate }}</span>
+                            <h2>{{ 'home.about.title' | translate }}</h2>
+                        </div>
+                        <p class="f-para">{{ 'home.about.description1' | translate }}</p>
+                        <p class="s-para">{{ 'home.about.description2' | translate }}</p>
+                        <a routerLink="/about-us" class="primary-btn about-btn">{{ 'home.about.button' | translate }}</a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-pic">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <img src="assets/img/about/about-1.jpg" alt="">
+                            </div>
+                            <div class="col-sm-6">
+                                <img src="assets/img/about/about-2.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="video-section">
+        <video #hotelVideo autoplay muted loop playsinline class="w-100" style="height: 500px; object-fit: cover;">
+            <source src="assets/img/hoom-video.mp4" type="video/mp4" />
+        </video>
+    </section>
+   
+    <section class="services-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <span>{{ 'home.services.subtitle' | translate }}</span>
+                        <h2>{{ 'home.services.title' | translate }}</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-sm-6">
+                    <div class="service-item">
+                        <i class="flaticon-036-parking"></i>
+                        <h4>{{ 'home.services.travel_plan.title' | translate }}</h4>
+                        <p>{{ 'home.services.travel_plan.description' | translate }}</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="service-item">
+                        <i class="flaticon-033-dinner"></i>
+                        <h4>{{ 'home.services.catering.title' | translate }}</h4>
+                        <p>{{ 'home.services.catering.description' | translate }}</p>
+                    </div>                    
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="service-item">
+                        <i class="flaticon-026-bed"></i>
+                        <h4>{{ 'home.services.babysitting.title' | translate }}</h4>
+                        <p>{{ 'home.services.babysitting.description' | translate }}</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="service-item">
+                        <i class="flaticon-024-towel"></i>
+                        <h4>{{ 'home.services.laundry.title' | translate }}</h4>
+                        <p>{{ 'home.services.laundry.description' | translate }}</p>
+                    </div>                    
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="service-item">
+                        <i class="flaticon-044-clock-1"></i>
+                        <h4>{{ 'home.services.driver.title' | translate }}</h4>
+                        <p>{{ 'home.services.driver.description' | translate }}</p>
+                    </div>                    
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="service-item">
+                        <i class="flaticon-012-cocktail"></i>
+                        <h4>{{ 'home.services.bar.title' | translate }}</h4>
+                        <p>{{ 'home.services.bar.description' | translate }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="hp-room-section" style="margin: 100px;">
+        <div class="container-fluid">
+            <div class="hp-room-items">
+                <div class="row">
+                    <div class="col-lg-3 col-md-6"*ngFor="let room of room.slice(0,4); let i = index" >
+                        <div class="hp-room-item" [ngStyle]="{'background-image': 'url(assets/img/room/room-b' + (i + 1) + '.jpg)' }">
+                            <div class="hr-text no-dark">
+                                <h3>{{ room.title }}</h3>
+                                <h2>{{ room.paymentAmount }}<span>/Pernight</span></h2>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td class="r-o">Room Type</td>
+                                            <td>
+                                                {{room.roomType}}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="r-o">Floor:</td>
+                                            <td>{{room.floor}}</td>
+                                        </tr>
+                                      
+                                    </tbody>
+                                </table>
+                                <a routerLink="/customer/room" class="primary-btn">More Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+    <section class="blog-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <span>{{ 'home.blog.subtitle' | translate }}</span>
+                        <h2>{{ 'home.blog.title' | translate }}</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4" *ngFor="let blog of blogs.slice(0, 3)">
+                    <div class="blog-item" [ngStyle]="{ 'background-image': 'url(' + blog.image + ')' }">
+                        <div class="bi-text no-dark">
+                            <span class="b-tag">{{ blog.tag }}</span>
+                            <h4><a href="#">{{ blog.title }}</a></h4>
+                            <div class="b-time">
+                                <i class="icon_clock_alt"></i> {{ blog.date }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="blog-item small-size" [ngStyle]="{ 'background-image': 'url(' + blogs[3].image + ')' }">
+                        <div class="bi-text no-dark">
+                            <span class="b-tag">{{ blogs[3].tag }}</span>
+                            <h4><a href="#">{{ blogs[3].title }}</a></h4>
+                            <div class="b-time">
+                                <i class="icon_clock_alt"></i> {{ blogs[3].date }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="blog-item small-size" [ngStyle]="{ 'background-image': 'url(' + blogs[4].image + ')' }">
+                        <div class="bi-text no-dark">
+                            <span class="b-tag">{{ blogs[4].tag }}</span>
+                            <h4><a href="#">{{ blogs[4].title }}</a></h4>
+                            <div class="b-time">
+                                <i class="icon_clock_alt"></i> {{ blogs[4].date }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <app-footer></app-footer>
 </div>

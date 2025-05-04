@@ -1,14 +1,130 @@
 {
-    "HOME": "Home",
-    "ROOMS": "Camere",
-    "ABOUT_US": "Chi siamo",
-    "MY_REQUEST": "Le mie richieste",
-    "RESERVATIONS": "Prenotazioni",
-    "CONTACT_US": "Contattaci",
-    "LOGIN": "Accedi",
-    "MY_PROFILE": "Il mio profilo",
-    "LOGOUT": "Disconnettersi",
-    "DARK_THEME": "Tema scuro",
-    "LIGHT_THEME": "Tema chiaro"
+  "Arabic": "Arabic",
+  "LOGIN": "Accedi",
+  "LOGOUT": "Disconnetti",
+  "LIGHT_THEME": "☀️ Tema Chiaro",
+  "DARK_THEME": "🌙 Tema Scuro",
+  "MY_PROFILE": "Il Mio Profilo",
+  "NAV_HOME": "Home",
+  "NAV_ROOMS": "Camere",
+  "NAV_ABOUT_US": "Chi Siamo",
+  "NAV_MY_REQUEST": "Le Mie Richieste",
+  "NAV_RESERVATIONS": "Prenotazioni",
+  "NAV_CONTACT_US": "Contattaci",
+  "ABOUT_TITLE": "Benvenuti a ",
+  "ABOUT_DESCRIPTION": "Costruito nel 1910 durante il periodo Belle Époque, questo hotel si trova nel centro di Parigi, con facile accesso alle attrazioni turistiche della città. Offre camere decorate con gusto.",
+  "DISCOUNT_ACCOMMODATION": "Sconto del 20% sulla sistemazione",
+  "COMPLIMENTARY_BREAKFAST": "Colazione gratuita ogni giorno",
+  "LAUNDRY_SERVICE": "Lavaggio 3 pezzi al giorno",
+  "FREE_WIFI": "Wi-Fi gratuito",
+  "DISCOUNT_FNB": "Sconto del 20% su cibo e bevande",
+  "RESTAURANT_SERVICES": "Servizi ristorante",
+  "TRAVEL_CAMPING": "Viaggi e campeggio",
+  "EVENT_PARTY": "Eventi e feste",
+  "ROOM_LUXURY": "Camere di lusso",
+  "DISCOVER_OUR_WORK": "Scopri il nostro lavoro",
+  "OUR_GALLERY": "La nostra galleria",
+
+  "CONTACT_INFORMATION": "Informazioni di contatto",
+  "CONTACT_DESCRIPTION": "Contattaci tramite i seguenti dettagli o utilizza il modulo di contatto per inviarci un messaggio direttamente.",
+  "ADDRESS": "Indirizzo",
+  "ADDRESS_DETAIL": "Via Wasfi al-Tall, Amman, Giordania",
+  "PHONE": "Telefono",
+  "PHONE_DETAIL": "+962 799959225",
+  "EMAIL": "Email",
+  "EMAIL_DETAIL": "Contactus@CASAHOTEL.com",
+  "FAX": "Fax",
+  "FAX_DETAIL": "+962 799959225",
+  "COMPLAINTS_SUGGESTIONS": "Reclami e suggerimenti",
+  "YOUR_NAME": "Il tuo nome",
+  "YOUR_EMAIL": "La tua email",
+  "YOUR_MESSAGE": "Il tuo messaggio",
+  "SUBMIT_NOW": "Invia ora",
+
+  "OUR_ROOMS": "Le nostre stanze",
+  "ALL": "Tutto",
+  "ROOMS": "Camere",
+  "HALLS": "Sale",
+  "TYPE": "Tipo",
+  "FLOOR": "Piano",
+  "BUILDING": "Edificio",
+  "AMOUNT": "Importo",
+  "DETAILS": "Dettagli",
+  "STATUS": "Stato",
+  "BOOKED": "Prenotato",
+  "AVAILABLE": "Disponibile",
+  "MORE_DETAILS": "Più dettagli",
+
+
+  "footer": {
+  "about_description": "Ispiriamo e raggiungiamo milioni di viaggiatori su 90 siti web locali",
+  "contact_us": "Contattaci",
+  "phone": "+962799959225",
+  "email": "contactus@CASAHOTEL.com",
+  "address": "Via Wasfi altall, Amman, Giordania",
+  "newsletter": "Newsletter",
+  "newsletter_description": "Ricevi le ultime novità e offerte.",
+  "email_placeholder": "Email",
+  "contact_link": "Contatto",
+  "about_link": "Chi siamo",
+  "room_link": "Camere",
+  "environmental_policy_link": "Politica ambientale",
+  "environmental_policy_title": "Politica ambientale",
+  "environmental_policy_content": "Qui puoi inserire i dettagli della tua politica ambientale.",
+  "close": "Chiudi",
+  "copyright":
+    "Tutti i diritti riservati | Realizzato con "
+},
+  "home": {
+    "hero": {
+      "title": " Un Hotel di Lusso",
+      "description": "Qui troverai i migliori siti per prenotare hotel, inclusi consigli per viaggi internazionali e per trovare camere d'albergo a basso prezzo.",
+      "button": "Scopri Ora"
+    },
+    "about": {
+      "subtitle": "Chi Siamo",
+      "title": "Intercontinental LA Westlake Hotel",
+      "description1": "casa serene.com è un sito leader di prenotazione di alloggi online. Siamo appassionati di viaggi. Ogni giorno ispiriamo e raggiungiamo milioni di viaggiatori su 90 siti locali in 41 lingue.",
+      "description2": "Quindi, quando si tratta di prenotare l'hotel perfetto, la casa vacanze, il resort, l'appartamento, la guest house o la casa sull’albero, noi ci siamo.",
+      "button": "Leggi di più"
+    },
+    "services": {
+      "subtitle": "Cosa Facciamo",
+      "title": "Scopri i Nostri Servizi",
+      "travel_plan": {
+        "title": "Piano di Viaggio",
+        "description": "Offriamo piani di viaggio personalizzati su misura per le tue preferenze, garantendo un viaggio fluido e indimenticabile dall'inizio alla fine."
+      },
+      "catering": {
+        "title": "Servizio Catering",
+        "description": "Goditi opzioni di catering di alta qualità pensate per soddisfare ogni gusto — perfette per eventi, conferenze e occasioni speciali."
+      },
+      "babysitting": {
+        "title": "Baby-sitting",
+        "description": "Il nostro servizio di babysitting affidabile offre cura sicura, premurosa e professionale per i tuoi bambini mentre ti godi il soggiorno."
+      },
+      "laundry": {
+        "title": "Lavanderia",
+        "description": "Approfitta del nostro servizio lavanderia rapido e affidabile, garantendo vestiti puliti, freschi e consegnati in tempo."
+      },
+      "driver": {
+        "title": "Autista Privato",
+        "description": "Goditi trasporti comodi e sicuri con il nostro servizio di autista professionale, disponibile su richiesta in base ai tuoi orari."
+      },
+      "bar": {
+        "title": "Bar & Drink",
+        "description": "Rilassati e goditi la nostra ampia selezione di drink e cocktail premium, serviti in un ambiente elegante e accogliente."
+      }
+    },
+    "rooms": {
+      "per_night": "/Per notte",
+      "room_type": "Tipo di Camera",
+      "floor": "Piano",
+      "button": "Altri Dettagli"
+    },
+    "blog": {
+      "subtitle": "Notizie sull’Hotel",
+      "title": "Il Nostro Blog & Eventi"
+    }
   }
-  
+}

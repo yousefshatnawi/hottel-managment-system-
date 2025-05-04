@@ -97,3 +97,10 @@ body.dark-theme button {
   background-color: revert !important;
 }
 
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="ltr"] {
+  text-align: left;
+}

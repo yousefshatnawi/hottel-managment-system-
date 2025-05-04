@@ -1,13 +1,134 @@
 {
-  "HOME": "Home",
-  "ROOMS": "Rooms",
-  "ABOUT_US": "About Us",
-  "MY_REQUEST": "My Request",
-  "RESERVATIONS": "Reservations",
-  "CONTACT_US": "Contact Us",
+  "Arabic": "Arabic",
   "LOGIN": "Login",
-  "MY_PROFILE": "My Profile",
   "LOGOUT": "Logout",
-  "DARK_THEME": "Dark Theme",
-  "LIGHT_THEME": "Light Theme"
+  "LIGHT_THEME": "☀️ Light Theme",
+  "DARK_THEME": "🌙 Dark Theme",
+  "MY_PROFILE": "My Profile",
+  "NAV_HOME": "Home",
+  "NAV_ROOMS": "Rooms",
+  "NAV_ABOUT_US": "About Us",
+  "NAV_MY_REQUEST": "My Requests",
+  "NAV_RESERVATIONS": "Reservations",
+  "NAV_CONTACT_US": "Contact Us",
+ 
+    "ABOUT_TITLE": "Welcome To ",
+  "ABOUT_DESCRIPTION": "Built in 1910 during the Belle Epoque period, this hotel is located in the center of Paris, with easy access to the city’s tourist attractions. It offers tastefully decorated rooms.",
+  "DISCOUNT_ACCOMMODATION": "20% Off On Accommodation",
+  "COMPLIMENTARY_BREAKFAST": "Complimentary Daily Breakfast",
+  "LAUNDRY_SERVICE": "3 Pcs Laundry Per Day",
+  "FREE_WIFI": "Free Wifi",
+  "DISCOUNT_FNB": "Discount 20% On F&B",
+  "RESTAURANT_SERVICES": "Restaurant Services",
+  "TRAVEL_CAMPING": "Travel & Camping",
+  "EVENT_PARTY": "Event & Party",
+  "ROOM_LUXURY": "Room Luxury",
+  "DISCOVER_OUR_WORK": "Discover Our Work",
+  "OUR_GALLERY": "Our Gallery",
+
+"CONTACT_INFORMATION": "Contact Information",
+  "CONTACT_DESCRIPTION": "Get in touch with us through the following details or use the contact form to send us a message directly.",
+  "ADDRESS": "Address",
+  "ADDRESS_DETAIL": "wasfi al-tall St., Amman, Jordan",
+  "PHONE": "Phone",
+  "PHONE_DETAIL": "+962 799959225",
+  "EMAIL": "Email",
+  "EMAIL_DETAIL": "Contactus@CASAHOTEL.com",
+  "FAX": "Fax",
+  "FAX_DETAIL": "+962 799959225",
+  "COMPLAINTS_SUGGESTIONS": "Complaints & Suggestions",
+  "YOUR_NAME": "Your Name",
+  "YOUR_EMAIL": "Your Email",
+  "YOUR_MESSAGE": "Your Message",
+  "SUBMIT_NOW": "Submit Now",
+
+
+
+
+  "OUR_ROOMS": "Our Rooms",
+  "ALL": "All",
+  "ROOMS": "Rooms",
+  "HALLS": "Halls",
+  "TYPE": "Type",
+  "FLOOR": "Floor",
+  "BUILDING": "Building",
+  "AMOUNT": "Amount",
+  "DETAILS": "Details",
+  "STATUS": "Status",
+  "BOOKED": "Booked",
+  "AVAILABLE": "Available",
+  "MORE_DETAILS": "More Details",
+
+  "footer": {
+  "about_description": "We inspire and reach millions of travelers across 90 local websites",
+  "contact_us": "Contact Us",
+  "phone": "+962799959225",
+  "email": "contactus@CASAHOTEL.com",
+  "address": "Wasfi altall St, Amman, Jordan",
+  "newsletter": "Newsletter",
+  "newsletter_description": "Get the latest updates and offers.",
+  "email_placeholder": "Email",
+  "contact_link": "Contact",
+  "about_link": "About",
+  "room_link": "Room",
+  "environmental_policy_link": "Environmental Policy",
+  "environmental_policy_title": "Environmental Policy",
+  "environmental_policy_content": "Here you can place the details of your Environmental Policy.",
+  "close": "Close",
+  "copyright":
+    "All rights reserved | Made with "
+},
+  "home": {
+    "hero": {
+      "title": " A Luxury Hotel",
+      "description": "Here are the best hotel booking sites, including recommendations for international travel and for finding low-priced hotel rooms.",
+      "button": "Discover Now"
+    },
+    "about": {
+      "subtitle": "About Us",
+      "title": "Intercontinental LA Westlake Hotel",
+      "description1": "casa serene.com is a leading online accommodation site. We’re passionate about travel. Every day, we inspire and reach millions of travelers across 90 local websites in 41 languages.",
+      "description2": "So when it comes to booking the perfect hotel, vacation rental, resort, apartment, guest house, or tree house, we’ve got you covered.",
+      "button": "Read More"
+    },
+    "services": {
+      "subtitle": "What We Do",
+      "title": "Discover Our Services",
+      "travel_plan": {
+        "title": "Travel Plan",
+        "description": "We offer personalized travel plans tailored to your preferences, ensuring a smooth and unforgettable journey from start to finish."
+      },
+      "catering": {
+        "title": "Catering Service",
+        "description": "Enjoy premium catering options crafted to satisfy every taste — perfect for events, conferences, and special occasions."
+      },
+      "babysitting": {
+        "title": "Babysitting",
+        "description": "Our trusted babysitting service provides safe, caring, and professional care for your children while you enjoy your stay."
+      },
+      "laundry": {
+        "title": "Laundry",
+        "description": "Take advantage of our fast and reliable laundry service, ensuring your clothes are cleaned, fresh, and delivered on time."
+      },
+      "driver": {
+        "title": "Hire Driver",
+        "description": "Enjoy convenient and safe transportation with our professional driver service, available on-demand to fit your schedule."
+      },
+      "bar": {
+        "title": "Bar & Drink",
+        "description": "Relax and unwind with our wide selection of premium drinks and cocktails, served in a stylish and welcoming atmosphere."
+      }
+    },
+    "rooms": {
+      "per_night": "/Per night",
+      "room_type": "Room Type",
+      "floor": "Floor",
+      "button": "More Details"
+    },
+    "blog": {
+      "subtitle": "Hotel News",
+      "title": "Our Blog & Events"
+    }
+  }
+  
 }

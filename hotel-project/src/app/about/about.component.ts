@@ -1,4 +1,6 @@
-import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
+import { LanguageService } from '../services/language.service';
 
 @Component({
   selector: 'app-about',
@@ -6,8 +8,17 @@ import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
   templateUrl: './about.component.html',
   styleUrl: './about.component.scss'
 })
-export class AboutComponent implements AfterViewInit {
+export class AboutComponent implements AfterViewInit ,OnInit {
+ constructor(
+    private languageService: LanguageService,
+    private translate: TranslateService
+  ) {}
   @ViewChild('hotelVideo') hotelVideo!: ElementRef<HTMLVideoElement>;
+  ngOnInit(): void {
+    this.languageService.currentLanguage.subscribe(language => {
+      this.translate.use(language);
+    });
+  }
   ngAfterViewInit(): void {
    
     const elements = document.querySelectorAll('.set-bg');

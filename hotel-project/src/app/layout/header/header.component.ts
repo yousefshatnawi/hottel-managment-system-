@@ -6,6 +6,7 @@ import { RequestServiceComponent } from '../../customer/pages/request-service/re
 import { MyReservationsComponent } from '../../customer/pages/my-reservations/my-reservations.component';
 import { MyRequestsComponent } from '../../customer/pages/my-requests/my-requests.component';
 import { TranslateService } from '@ngx-translate/core';
+import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-header',
@@ -17,13 +18,15 @@ export class HeaderComponent implements OnInit {
 
   showMyRequest: boolean = false;
 
-menuOpen = false;
+  menuOpen: boolean = false;
+  languageMenuOpen: boolean = false;
 isDarkTheme = false;
-    currentLang = 'en';
+    // currentLang = 'en';
   isLoggedIn = false;
   profileLink = '/'; // رابط يوجه حسب نوع المستخدم
 
-  constructor(private dialog: MatDialog,private translate: TranslateService) {}
+  constructor(private dialog: MatDialog,private languageService: LanguageService,
+    private translate: TranslateService) {}
 
   openLoginDialog(): void {
     const dialogRef = this.dialog.open(LoginComponent, {
@@ -55,6 +58,12 @@ if (savedTheme === 'dark') {
   } 
   toggleMenu() {
   this.menuOpen = !this.menuOpen;
+  if (!this.menuOpen) {
+    this.languageMenuOpen = false; 
+  }
+}
+toggleLanguageMenu() {
+  this.languageMenuOpen = !this.languageMenuOpen;
 }
 toggleDarkTheme() {
   this.isDarkTheme = !this.isDarkTheme;
@@ -64,11 +73,11 @@ toggleDarkTheme() {
   body.classList.toggle('dark-theme');
 }
  
- switchLanguage() {
-  this.currentLang = this.currentLang === 'en' ? 'ar' : 'en';
-  this.translate.use(this.currentLang);
-  localStorage.setItem('lang', this.currentLang);
-}
+//  switchLanguage() {
+//   this.currentLang = this.currentLang === 'en' ? 'ar' : 'en';
+//   this.translate.use(this.currentLang);
+//   localStorage.setItem('lang', this.currentLang);
+// }
   
   logout(): void {
     localStorage.clear();
@@ -91,4 +100,15 @@ reqestService() {
   //     panelClass: 'custom-dialog-container' // اختياري لو بدك كمان تعدلي CSS زيادة
   //   });
   //   }
+  changeLanguage(language: string) {
+    this.languageService.changeLanguage(language);
+    this.translate.use(language);
+    if (language === 'ar') {
+      document.documentElement.setAttribute('dir', 'rtl');
+    } else {
+      document.documentElement.setAttribute('dir', 'ltr');
+    }
+    this.languageMenuOpen = false;
+  }
+  
 }
