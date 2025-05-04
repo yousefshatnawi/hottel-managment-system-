@@ -7,7 +7,7 @@ export interface EmployeeRequest {
     date: string;
     customerId: number;
     employeeId: number;
-    requestType: 'cleaning' | 'tv maintenance' | 'bathroom maintenance';
+    requestType: 'cleaning' | 'tv maintenance' | 'bathroom maintenance'|'Laundry'|'Hire Driver' |'Bar & Drink'|'Catering Service' |'Babysitting'|'Travel Plan';
     requestStatus: 'pending' | 'progres' | 'done';
     employee?:Employee
     note?:string,

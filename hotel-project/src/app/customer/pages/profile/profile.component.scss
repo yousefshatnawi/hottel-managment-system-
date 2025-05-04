@@ -11,7 +11,6 @@ $border-color: #ebebeb;
   display: flex;
   justify-content: center;
   align-items: center;
-
   .avatar-img {
     width: 120px;
     height: 120px;
@@ -96,6 +95,8 @@ $border-color: #ebebeb;
       border-radius: 8px;
       font-size: 15px;
       transition: all 0.2s ease;
+      color: black;
+
 
       &:focus {
         border-color: $primary-color;

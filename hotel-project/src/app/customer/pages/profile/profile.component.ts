@@ -15,6 +15,7 @@ loading = false;
 loadingForGet = false;
 success: string = '';
 errors: string[] = [];
+showPasswordFields = false;
 
 showRequests = false;
   showReservations = false;

@@ -246,8 +246,8 @@ ul, ol {
 	color: #19191a;
 	font-weight: 500;
 	padding: 14px 0 12px;
-	margin-right: 64px;
-	position: relative;
+    margin: 0px 0px 0px 41px;
+		position: relative;
 }
 .top-nav .tn-left li:after {
 	position: absolute;

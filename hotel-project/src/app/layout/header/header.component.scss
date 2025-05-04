@@ -28,6 +28,8 @@
   font-size: 21px;
   border: none;
   padding: 0px 6px;
+  margin-left: -153px;
+
   border-radius: 10px;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -70,7 +72,7 @@
 .dropdown-menu-custom {
   position: absolute;
   top: 50px;
-  right: 0;
+  right: 89%;
   background-color: #ffffff;
   border: 1px solid #ddd;
   border-radius: 8px;

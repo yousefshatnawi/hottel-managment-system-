@@ -1,77 +1,83 @@
 <header class="header-section">
-    <div class="top-nav">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6">
-            <ul class="tn-left">
-              <li><i class="fa fa-phone"></i> +962799959225</li>
-              <li><i class="fa fa-envelope"></i> Contactus&#64;CASAHOTEL.com</li>
-            </ul>
-          </div>
-          <div class="col-lg-6">
-            <div class="tn-right d-flex justify-content-end align-items-center gap-3">
-              <div class="top-social">
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-tripadvisor"></i></a>
-                <a href="#"><i class="fa fa-instagram"></i></a>
+  <div class="top-nav">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <ul class="tn-left">
+            <button class="hamburger btn btn-outline-secondary" (click)="toggleMenu()">
+              ☰
+            </button>
+            <div class="dropdown-menu-custom" *ngIf="menuOpen">
+              <!-- استبدال زر تسجيل الدخول بنص ثابت -->
+              <div class="dropdown-item" (click)="openLoginDialog()" *ngIf="!isLoggedIn">🔐 Login</div>
+
+              <div class="dropdown-item" (click)="toggleDarkTheme()">
+                {{ isDarkTheme ? '☀️ Light Theme' : '🌙 Dark Theme' }}
               </div>
-  
-              <!-- <a *ngIf="!isLoggedIn" routerLink="/auth/login" class="bk-btn">Login</a> -->
-              <!-- <a *ngIf="!isLoggedIn" (click)="openLoginDialog()" class="bk-btn">Login</a> -->
-   <div class="menu-container position-relative">
-  <!-- زر الهامبرغر -->
-  <button class="hamburger btn btn-outline-secondary" (click)="toggleMenu()">
-    ☰
-  </button>
 
-  <!-- القائمة المنسدلة -->
-  <div class="dropdown-menu-custom" *ngIf="menuOpen">
-    <!-- استبدال زر تسجيل الدخول بنص ثابت -->
-    <div class="dropdown-item" (click)="openLoginDialog()">🔐 Login</div>
-    
-    <div class="dropdown-item" (click)="toggleDarkTheme()">
-      {{ isDarkTheme ? '☀️ Light Theme' : '🌙 Dark Theme' }}
-    </div>
-
-    <!-- إذا كنت لا تحتاج لتحويل اللغة، يمكنك إزالته -->
-    <div class="dropdown-item" (click)="switchLanguage()">
-      🌐 {{ currentLang === 'en' ? 'العربية 🇸🇦' : 'English 🇺🇸' }}
-    </div>
-  </div>
-</div>
-
-              
-
-              <a *ngIf="isLoggedIn" routerLink='/customer/profile' class="bk-btn">My Profile</a>
-  
-              <a *ngIf="isLoggedIn" (click)="logout()" class="fa fa-sign-out ms-3" style="font-size: 28px; padding: 10px;" title="Logout"></a>
+              <!-- إذا كنت لا تحتاج لتحويل اللغة، يمكنك إزالته -->
+              <div class="dropdown-item" (click)="switchLanguage()">
+                🌐 {{ currentLang === 'en' ? 'العربية 🇸🇦' : 'English 🇺🇸' }}
+              </div>
             </div>
+            <li><i class="fa fa-phone"></i> +962799959225</li>
+            <li><i class="fa fa-envelope"></i> Contactus&#64;CASAHOTEL.com</li>
+          </ul>
+        </div>
+        <div class="col-lg-6">
+          <div class="tn-right d-flex justify-content-end align-items-center gap-3">
+            <div class="top-social">
+              <a href="#"><i class="fa fa-facebook"></i></a>
+              <a href="#"><i class="fa fa-twitter"></i></a>
+              <a href="#"><i class="fa fa-tripadvisor"></i></a>
+              <a href="#"><i class="fa fa-instagram"></i></a>
+            </div>
+
+            <!-- <a *ngIf="!isLoggedIn" routerLink="/auth/login" class="bk-btn">Login</a> -->
+            <!-- <a *ngIf="!isLoggedIn" (click)="openLoginDialog()" class="bk-btn">Login</a> -->
+            <div class="menu-container position-relative">
+              <!-- زر الهامبرغر -->
+
+
+              <!-- القائمة المنسدلة -->
+             
+            </div>
+
+
+
+            <a *ngIf="isLoggedIn" routerLink='/customer/profile' class="bk-btn">My Profile</a>
+
+            <a *ngIf="isLoggedIn" (click)="logout()" class="fa fa-sign-out ms-3" style="font-size: 28px; padding: 10px;"
+              title="Logout"></a>
+              
           </div>
+          
         </div>
       </div>
     </div>
-  
-    <div class="menu-item">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-2">
-            <div class="logo">
-              <a routerLink="/home">
-                <img src="assets/img/logo2.png" alt="Casa Hotel Logo" />
-              </a>
-            </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-2">
+          <div class="logo">
+            <a routerLink="/home">
+              <img src="assets/img/logo2.png" alt="Casa Hotel Logo" />
+            </a>
           </div>
-          <div class="col-lg-10">
-            <div class="nav-menu">
-              <nav class="mainmenu active">
-                <ul>
-                  <li ><a routerLink="/home" routerLinkActive="active">Home</a></li>
-                  <li ><a routerLink="/room" routerLinkActive="active">Rooms</a></li>
-                  <li ><a routerLink="/about-us" routerLinkActive="active">About Us</a></li>
-                  <li ><a (click)="reqestService()" routerLinkActive="active" *ngIf="showMyRequest">My Request</a></li>
-                  <li ><a  routerLink="/customer/my-reservations"  routerLinkActive="active" *ngIf="showMyRequest">Reservations</a></li>
-                  <!-- <li><a href="./pages">Pages</a>
+        </div>
+        <div class="col-lg-10">
+          <div class="nav-menu">
+            <nav class="mainmenu active">
+              <ul>
+                <li><a routerLink="/home" routerLinkActive="active">Home</a></li>
+                <li><a routerLink="/room" routerLinkActive="active">Rooms</a></li>
+                <li><a routerLink="/about-us" routerLinkActive="active">About Us</a></li>
+                <li><a (click)="reqestService()" routerLinkActive="active" *ngIf="showMyRequest">My Request</a></li>
+                <li><a routerLink="/customer/my-reservations" routerLinkActive="active"
+                    *ngIf="showMyRequest">Reservations</a></li>
+                <!-- <li><a href="./pages">Pages</a>
                     <ul class="dropdown">
                       <li ><a   (click)="reqestService()" routerLinkActive="active">Request Service</a></li>
                       <li ><a (click)="myReservations()" routerLinkActive="active">Reservations</a></li>
@@ -79,13 +85,13 @@
                     </ul>
                 </li> -->
 
-                  <li ><a routerLink="/contact-us" routerLinkActive="active">Contact Us</a></li>
-                </ul>
-              </nav>
-            </div>
+                <li><a routerLink="/contact-us" routerLinkActive="active">Contact Us</a></li>
+              </ul>
+            </nav>
           </div>
         </div>
       </div>
     </div>
-  </header>
-  <!-- Header End -->
+  </div>
+</header>
+<!-- Header End -->

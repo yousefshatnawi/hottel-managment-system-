@@ -13,7 +13,7 @@ const CUSTOMERS_KEY = 'CUSTOMERS_KEY';
 export class RequestServiceComponent implements OnInit{
 
   requestForm!: FormGroup;
-  requestTypes = ['cleaning', 'tv maintenance', 'bathroom maintenance'];
+  requestTypes = ['cleaning' , 'tv maintenance' , 'bathroom maintenance','Laundry','Hire Driver' ,'Bar & Drink','Catering Service' ,'Babysitting','Travel Plan'];
 
   constructor(private fb: FormBuilder , 
       private customerService: CustomerService,
