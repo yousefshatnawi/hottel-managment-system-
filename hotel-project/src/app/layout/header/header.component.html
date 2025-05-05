@@ -1,163 +1,172 @@
 <!-- <header class="header-section">
-    <div class="top-nav">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6">
-            <ul class="tn-left">
-              <li><i class="fa fa-phone"></i> ‪+962799959225‬</li>
-              <li><i class="fa fa-envelope"></i> Contactus&#64;CASAHOTEL.com</li>
-            </ul>
-          </div>
-          <div class="col-lg-6">
-            <div class="tn-right d-flex justify-content-end align-items-center gap-3">
-              <div class="top-social">
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-tripadvisor"></i></a>
-                <a href="#"><i class="fa fa-instagram"></i></a>
+  <div class="top-nav">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <ul class="tn-left">
+            <li class="menu-container position-relative">
+              <button class="hamburger" (click)="toggleMenu()">☰</button>
+              <ul class="dropdown-menu-custom" *ngIf="menuOpen">
+                <li class="dropdown-item" (click)="openLoginDialog()">
+                  🔐 {{ 'LOGIN' | translate }}
+                </li>
+                <li class="dropdown-item" (click)="toggleDarkTheme()">
+                  {{ !isDarkTheme ? ('DARK_THEME' | translate) : ('LIGHT_THEME' | translate) }}
+                </li>
+              </ul>
+            </li>
+            <li><i class="fa fa-phone"></i> +962799959225</li>
+            <li><i class="fa fa-envelope"></i> Contactus&#64;CASAHOTEL.com</li>
+          </ul>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="tn-right d-flex justify-content-end align-items-center gap-3">
+            <div class="language-option position-relative">
+              <img src="assets/img/flag.jpg" alt="Flag" width="24" height="16">
+              <span (click)="toggleLanguageMenu()">EN <i class="fa fa-angle-down"></i></span>
+              <div class="flag-dropdown" *ngIf="languageMenuOpen">
+                <ul>
+                  <li><a (click)="changeLanguage('en')">🇬🇧 English</a></li>
+                  <li><a (click)="changeLanguage('it')">🇮🇹 Italiano</a></li>
+                  <li><a (click)="changeLanguage('ar')">🇸🇦 Arabic</a></li>
+                </ul>
               </div>
-  
-   <div class="menu-container position-relative">
-  
-  <button class="hamburger btn btn-outline-secondary" (click)="toggleMenu()">
-    ☰
-  </button>
+            </div>
 
-  <div class="dropdown-menu-custom" *ngIf="menuOpen">
-    <div class="dropdown-item" (click)="openLoginDialog()">🔐 Login</div>
-    
-    <div class="dropdown-item" (click)="toggleDarkTheme()">
-      {{ isDarkTheme ? '☀ Light Theme' : '🌙 Dark Theme' }}
+            <div class="top-social">
+              <a href="#"><i class="fa fa-facebook"></i></a>
+              <a href="#"><i class="fa fa-twitter"></i></a>
+              <a href="#"><i class="fa fa-tripadvisor"></i></a>
+              <a href="#"><i class="fa fa-instagram"></i></a>
+            </div>
+
+            <a *ngIf="isLoggedIn" routerLink="/customer/profile" class="bk-btn">{{ 'MY_PROFILE' | translate }}</a>
+            <a *ngIf="isLoggedIn" (click)="logout()" class="fa fa-sign-out logout-icon" title="{{ 'LOGOUT' | translate }}"></a>
+          </div>
+        </div>
+      </div>
     </div>
-
-   
-    <select (change)="changeLanguage($any($event.target).value)">
-      <option value="en">English</option>
-      <option value="ar">{{ 'Arabic' | translate }}</option>
-      <option value="it">Italiano</option>
-    </select>
   </div>
-</div>
 
-              
-
-              <a *ngIf="isLoggedIn" routerLink='/customer/profile' class="bk-btn">My Profile</a>
-  
-              <a *ngIf="isLoggedIn" (click)="logout()" class="fa fa-sign-out ms-3" style="font-size: 28px; padding: 10px;" title="Logout"></a>
-            </div>
+  <div class="menu-item">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-2">
+          <div class="logo">
+            <a routerLink="/home">
+              <img src="assets/img/logo2.png" alt="Casa Hotel Logo">
+            </a>
+          </div>
+        </div>
+        <div class="col-lg-10">
+          <div class="nav-menu">
+            <nav class="mainmenu active">
+              <ul>
+                <li><a routerLink="/home" routerLinkActive="active">{{ 'NAV_HOME' | translate }}</a></li>
+                <li><a routerLink="/room" routerLinkActive="active">{{ 'NAV_ROOMS' | translate }}</a></li>
+                <li><a routerLink="/about-us" routerLinkActive="active">{{ 'NAV_ABOUT_US' | translate }}</a></li>
+                <li *ngIf="showMyRequest"><a (click)="reqestService()" routerLinkActive="active">{{ 'NAV_MY_REQUEST' | translate }}</a></li>
+                <li *ngIf="showMyRequest"><a routerLink="/customer/my-reservations" routerLinkActive="active">{{ 'NAV_RESERVATIONS' | translate }}</a></li>
+                <li><a routerLink="/contact-us" routerLinkActive="active">{{ 'NAV_CONTACT_US' | translate }}</a></li>
+              </ul>
+            </nav>
           </div>
         </div>
       </div>
     </div>
-  
-    <div class="menu-item">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-2">
-            <div class="logo">
-              <a routerLink="/home">
-                <img src="assets/img/logo2.png" alt="Casa Hotel Logo" />
-              </a>
-            </div>
-          </div>
-          <div class="col-lg-10">
-            <div class="nav-menu">
-              <nav class="mainmenu active">
+  </div>
+</header> -->
+
+
+
+<header class="header-section">
+  <div class="top-nav">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <ul class="tn-left">
+            <li><i class="fa fa-phone"></i> +962799959225</li>
+            <li><i class="fa fa-envelope"></i> Contactus&#64;CASAHOTEL.com</li>
+          </ul>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="tn-right d-flex justify-content-end align-items-center gap-3">
+
+            <!-- 🌐 Language Selector -->
+            <div class="language-option position-relative">
+              <img src="assets/img/flag.jpg" alt="Flag" width="24" height="16">
+              <span (click)="toggleLanguageMenu()">EN <i class="fa fa-angle-down"></i></span>
+              <div class="flag-dropdown" *ngIf="languageMenuOpen">
                 <ul>
-                  <li ><a routerLink="/home" routerLinkActive="active">Home</a></li>
-                  <li ><a routerLink="/room" routerLinkActive="active">Rooms</a></li>
-                  <li ><a routerLink="/about-us" routerLinkActive="active">About Us</a></li>
-                  <li ><a (click)="reqestService()" routerLinkActive="active" *ngIf="showMyRequest">My Request</a></li>
-                  <li ><a  routerLink="/customer/my-reservations"  routerLinkActive="active" *ngIf="showMyRequest">Reservations</a></li>
-                
-
-                  <li ><a routerLink="/contact-us" routerLinkActive="active">Contact Us</a></li>
+                  <li><a (click)="changeLanguage('en')">🇬🇧 English</a></li>
+                  <li><a (click)="changeLanguage('it')">🇮🇹 Italiano</a></li>
+                  <li><a (click)="changeLanguage('ar')">🇸🇦 Arabic</a></li>
                 </ul>
-              </nav>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </header> -->
-
-
-  <header class="header-section">
-    <div class="top-nav">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-6">
-            <ul class="tn-left">
-              
-             <div class="menu-container position-relative">
-                <button class="hamburger btn btn-outline-secondary" (click)="toggleMenu()">☰</button>
-              
-                <div class="dropdown-menu-custom" *ngIf="menuOpen">
-                  <div class="dropdown-item" (click)="openLoginDialog()">🔐 {{ 'LOGIN' | translate }}</div>
-              
-                  <div class="dropdown-item" (click)="toggleDarkTheme()">
-                    {{ !isDarkTheme ? ('LIGHT_THEME' | translate) : ('DARK_THEME' | translate) }}
-                  </div>
-              
-                  <!-- Language Selector -->
-                  <div class="dropdown-item language-item" (click)="toggleLanguageMenu()">
-                    🌐 {{ 'LANGUAGE' | translate }}
-                  </div>
-                  <div class="language-dropdown" *ngIf="languageMenuOpen">
-                    <div class="dropdown-item" (click)="changeLanguage('en')">🇬🇧 English</div>
-                    <div class="dropdown-item" (click)="changeLanguage('ar')">🇸🇦 العربية</div>
-                    <div class="dropdown-item" (click)="changeLanguage('it')">🇮🇹 Italiano</div>
-                  </div>
-                </div>
               </div>
-              <li><i class="fa fa-phone"></i> ‪+962799959225‬</li>
-              <li><i class="fa fa-envelope"></i> Contactus&#64;CASAHOTEL.com</li>
-            </ul>
-          </div>
-          <div class="col-lg-6">
-            <div class="tn-right d-flex justify-content-end align-items-center gap-3">
-              <div class="top-social">
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-tripadvisor"></i></a>
-                <a href="#"><i class="fa fa-instagram"></i></a>
-              </div>
-  
-              
-              <a *ngIf="isLoggedIn" routerLink='/customer/profile' class="bk-btn">{{ 'MY_PROFILE' | translate }}</a>
-  
-              <a *ngIf="isLoggedIn" (click)="logout()" class="fa fa-sign-out ms-3" style="font-size: 28px; padding: 10px;" title="{{ 'LOGOUT' | translate }}"></a>
             </div>
+
+            <div class="user-controls d-flex align-items-center gap-2">
+
+              <!-- 🌙🌞 Toggle Theme -->
+              <button class="icon-btn" (click)="toggleDarkTheme()" [title]="isDarkTheme ? 'Light Mode' : 'Dark Mode'">
+                <i class="fa" [ngClass]="isDarkTheme ? 'fa-sun-o' : 'fa-moon-o'"></i>
+              </button>
+            
+              <!-- 🚪 Login -->
+              <button class="icon-btn" (click)="openLoginDialog()" title="Login">
+                <i class="fa fa-sign-in"></i>
+              </button>
+            
+            </div>
+            
+
+            <!-- Social Icons -->
+            <div class="top-social">
+              <a href="#"><i class="fa fa-facebook"></i></a>
+              <a href="#"><i class="fa fa-twitter"></i></a>
+              <a href="#"><i class="fa fa-tripadvisor"></i></a>
+              <a href="#"><i class="fa fa-instagram"></i></a>
+            </div>
+
+            <!-- Profile & Logout -->
+            <a *ngIf="isLoggedIn" routerLink="/customer/profile" class="bk-btn">
+              {{ 'MY_PROFILE' | translate }}
+            </a>
+            <a *ngIf="isLoggedIn" (click)="logout()" class="fa fa-sign-out ms-3" style="font-size: 28px; padding: 10px;" title="{{ 'LOGOUT' | translate }}"></a>
+
           </div>
         </div>
       </div>
     </div>
-  
-    <div class="menu-item">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-2">
-            <div class="logo">
-              <a routerLink="/home">
-                <img src="assets/img/logo2.png" alt="Casa Hotel Logo" />
-              </a>
-            </div>
+  </div>
+
+  <div class="menu-item">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-2">
+          <div class="logo">
+            <a routerLink="/home">
+              <img src="assets/img/logo2.png" alt="Casa Hotel Logo" />
+            </a>
           </div>
-          <div class="col-lg-10">
-            <div class="nav-menu">
-              <nav class="mainmenu active">
-                <ul>
-                  <li><a routerLink="/home" routerLinkActive="active">{{ 'NAV_HOME' | translate }}</a></li>
-                  <li><a routerLink="/room" routerLinkActive="active">{{ 'NAV_ROOMS' | translate }}</a></li>
-                  <li><a routerLink="/about-us" routerLinkActive="active">{{ 'NAV_ABOUT_US' | translate }}</a></li>
-                  <li *ngIf="showMyRequest"><a (click)="reqestService()" routerLinkActive="active">{{ 'NAV_MY_REQUEST' | translate }}</a></li>
-                  <li *ngIf="showMyRequest"><a routerLink="/customer/my-reservations" routerLinkActive="active">{{ 'NAV_RESERVATIONS' | translate }}</a></li>
-                  <li><a routerLink="/contact-us" routerLinkActive="active">{{ 'NAV_CONTACT_US' | translate }}</a></li>
-                </ul>
-              </nav>
-            </div>
+        </div>
+        <div class="col-lg-10">
+          <div class="nav-menu">
+            <nav class="mainmenu active">
+              <ul>
+                <li><a routerLink="/home" routerLinkActive="active">{{ 'NAV_HOME' | translate }}</a></li>
+                <li><a routerLink="/room" routerLinkActive="active">{{ 'NAV_ROOMS' | translate }}</a></li>
+                <li><a routerLink="/about-us" routerLinkActive="active">{{ 'NAV_ABOUT_US' | translate }}</a></li>
+                <li *ngIf="showMyRequest"><a (click)="reqestService()" routerLinkActive="active">{{ 'NAV_MY_REQUEST' | translate }}</a></li>
+                <li *ngIf="showMyRequest"><a routerLink="/customer/my-reservations" routerLinkActive="active">{{ 'NAV_RESERVATIONS' | translate }}</a></li>
+                <li><a routerLink="/contact-us" routerLinkActive="active">{{ 'NAV_CONTACT_US' | translate }}</a></li>
+              </ul>
+            </nav>
           </div>
         </div>
       </div>
     </div>
-  </header>
+  </div>
+</header>
