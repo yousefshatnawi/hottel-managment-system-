@@ -23,9 +23,5 @@ export class RoomDetailsComponent {
       this.i= +params['img'];
       });
   }
-/**
- this.route.queryParams.subscribe(params => {
-      this.i= +params['img'];
-      });
- */
+
 }

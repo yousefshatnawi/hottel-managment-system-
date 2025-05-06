@@ -26,23 +26,11 @@ export class EmployeeService {
   
   getRequestsByEmployee(): EmployeeRequest[] {
     const currentUser = JSON.parse(localStorage.getItem('employee') || '{}');// loggedInUser ->user
-    // const allRequests: EmployeeRequest[] = JSON.parse(localStorage.getItem('employeeRequests') || '[]');
     const allRequests: EmployeeRequest[] = employeeRequests;
-    //localStorage  ->database
-    // const allCustomers = JSON.parse(localStorage.getItem('customers') || '[]');
+ 
     const requests = allRequests.filter(req => req.employeeId === currentUser.id);
     return requests;
-    // const allCustomers :Customer[]= customers;
-    // //customers ->customer  
-  
-    
-    // return requests.map(req => {
-    //   const customer = allCustomers.find((c: any) => c.id === req.customerId);
-    //   return {
-    //     ...req,
-    //     customerName: customer ? customer.name : 'Unknown'
-    //   };
-    // });
+
   }
   
 
@@ -83,31 +71,7 @@ export class EmployeeService {
       return false;
     }
   }
-  
-  // updateRequestStatus(
-  //   requestId: number,
-  //   newStatus: 'pending' | 'progress' | 'done',
-  //   employeeId: number
-  // ) {
-  //   const index = this.requests.findIndex((r: EmployeeRequest) => r.id === requestId);
-    
-  //   if (index !== -1) {
-  //     this.requests[index].requestStatus = newStatus;
-  
-  //     // نجيب كل الطلبات الخاصة بالموظف
-  //     const currentRequests = this.requests.filter(r => r.employeeId === employeeId);
-  
-  //     // نحدث الـ localStorage مع الكل
-  //     localStorage.setItem('employeeRequest', JSON.stringify([...currentRequests]));
-  
-  //     console.log('Updated request:', this.requests[index]);
-  //     return true;
-  //   } else {
-  //     console.error('Request not found:', requestId);
-  //     return false;
-  //   }
-  // }
-  
+
 
   getAllRequests(): EmployeeRequest[] {
     return this.requests;

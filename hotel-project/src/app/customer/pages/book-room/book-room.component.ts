@@ -22,11 +22,9 @@ export class BookRoomComponent implements OnInit {
 
   ngOnInit(): void {
     this.rooms = Rooms;
-    // هنا استخدمنا FormGroup و FormControl بدون FormBuilder
     this.bookingForm = new FormGroup({
       roomId: new FormControl('', Validators.required),
       date: new FormControl('', Validators.required),
-      // paymentAmount: new FormControl('', [Validators.required, Validators.min(1)])
     });
   }
 
