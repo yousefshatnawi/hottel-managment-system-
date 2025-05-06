@@ -130,7 +130,6 @@ saveProfile() {
       this.isEditing = false;
       this.loading = false;
 
-      // مسح الفيلدات من الفورم (لو ضلي منهم اشي)
       this.customerData.oldPassword = '';
       this.customerData.newPassword = '';
       this.customerData.confirmPassword = '';

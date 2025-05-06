@@ -36,6 +36,7 @@ export class MyRequestsComponent implements OnInit{
     JSON.parse(localStorage.getItem('updatedRequest')
      || 'null'); 
     
+     || 'null');    
     this.myRequests = this.requestService.getRequestsByEmployee();
   
     if (updatedStatus && updatedStatus.id) {
@@ -50,7 +51,7 @@ export class MyRequestsComponent implements OnInit{
     const allEmployees = this.requestService.getAllEmployee();
   
     this.myRequests = this.myRequests.map((app: EmployeeRequest) => {
-      const employee = allEmployees.find((e) => e.id === app.employeeId); // صحح المقارنة هنا
+      const employee = allEmployees.find((e) => e.id === app.employeeId); 
       return {
         ...app,
         employee: employee
@@ -60,17 +61,5 @@ export class MyRequestsComponent implements OnInit{
   }
 
 
-    /*
-    const customers=this.customerService.getAllCustomers();
-    
-     this.appointments= this.appointments.map((app:RoomAppointment)=>{
-        return {
-          ...app,
-          customer:customers.find((customer) => customer.id === app.customerId)
-        }
-      })
-      co
-    
-    */
     
   }
