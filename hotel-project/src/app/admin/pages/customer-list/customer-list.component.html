@@ -9,7 +9,6 @@
 
       <div class="customer-list-page">
 
-        <!-- Header and Search -->
         <div class="header-section no-dark">
           <h2 class="page-title">👥 Customer List</h2>
 
@@ -19,41 +18,34 @@
           </mat-form-field>
         </div>
 
-        <!-- Table Section -->
         <div class="table-section mat-elevation-z8 ">
           <table mat-table [dataSource]="dataSource" class="customer-table">
 
-            <!-- Name -->
             <ng-container matColumnDef="name">
               <th mat-header-cell *matHeaderCellDef> 👤 Name </th>
               <td mat-cell *matCellDef="let customer"> {{ customer.name }} </td>
             </ng-container>
 
-            <!-- Phone -->
             <ng-container matColumnDef="phone">
               <th mat-header-cell *matHeaderCellDef> 📞 Phone </th>
               <td mat-cell *matCellDef="let customer"> {{ customer.phone }} </td>
             </ng-container>
 
-            <!-- Email -->
             <ng-container matColumnDef="email">
               <th mat-header-cell *matHeaderCellDef> 📧 Email </th>
               <td mat-cell *matCellDef="let customer"> {{ customer.email }} </td>
             </ng-container>
 
-            <!-- Address -->
             <ng-container matColumnDef="address">
               <th mat-header-cell *matHeaderCellDef> 🏠 Address </th>
               <td mat-cell *matCellDef="let customer"> {{ customer.address }} </td>
             </ng-container>
 
-            <!-- Rows -->
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
           </table>
         </div>
 
-        <!-- Pagination -->
         <div class="paginator-section">
           <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
         </div>

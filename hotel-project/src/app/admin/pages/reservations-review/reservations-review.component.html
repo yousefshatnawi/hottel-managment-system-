@@ -6,7 +6,6 @@
   <div class="main-content">
     <app-header-dash [pageTitle]="'All Reservations'"></app-header-dash>
     
-    <!-- Reservations Cards -->
     <div class="card-grid" *ngIf="appointments.length > 0">
       <div class="reservation-card" *ngFor="let a of pagedAppointments">
         <p><strong>🆔 ID:</strong> {{ a.id }}</p>
@@ -28,7 +27,6 @@
       </div>
     </div>
 
-    <!-- Pagination -->
     <mat-paginator
       [length]="appointments.length"
       [pageSize]="pageSize"

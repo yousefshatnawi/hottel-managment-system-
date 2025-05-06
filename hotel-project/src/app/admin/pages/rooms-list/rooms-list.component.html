@@ -6,7 +6,6 @@
   <div class="main-content">
       <app-header-dash [pageTitle]="'Room / Hall List'"></app-header-dash>
 
-    <!-- Room Cards -->
     <div class="card-grid" *ngIf="rooms.length > 0">
       <div class="room-card" *ngFor="let room of pagedRooms">
         <h3>🏷️ {{ room.title }}</h3>
@@ -44,7 +43,6 @@
       </div>
     </div>
 
-    <!-- Pagination -->
     <mat-paginator 
       [length]="rooms.length"
       [pageSize]="pageSize"

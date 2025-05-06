@@ -4,7 +4,6 @@
     <app-main-layout></app-main-layout>
   </aside>
 
-  <!-- Main Section -->
   <div class="main-section">
     <app-header-dash [pageTitle]="'Add New Employee'"></app-header-dash>
 
@@ -15,7 +14,6 @@
           <p>Please fill in the employee details below.</p>
 
           <form (ngSubmit)="addEmployee()" class="forms">
-            <!-- Full Name -->
             <div class="form-group">
               <label for="name">👤 Full Name</label>
               <input
@@ -28,7 +26,6 @@
               />
             </div>
 
-            <!-- Email -->
             <div class="form-group">
               <label for="email">📧 Email</label>
               <input
@@ -41,7 +38,6 @@
               />
             </div>
 
-            <!-- Password -->
             <div class="form-group password-wrapper">
               <label for="password">🔐 Password</label>
               <div class="password-field">
@@ -65,7 +61,6 @@
               </div>
             </div>
 
-            <!-- Role -->
             <div class="form-group">
               <label for="role">🛠️ Role</label>
               <select
@@ -80,7 +75,6 @@
               </select>
             </div>
 
-            <!-- Submit -->
             <div class="formbold-mb-3 formbold-pt-3">
               <button type="submit" class="formbold-btn">➕ Add Employee</button>
             </div>

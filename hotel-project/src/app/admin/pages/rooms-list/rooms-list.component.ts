@@ -14,7 +14,7 @@ export class RoomsListComponent  {
 
 rooms: Room[] = [];
 editingRoom: Room | null = null;
-pagedRooms: any[] = [];    // الغرف المعروضة حسب الصفحة
+pagedRooms: any[] = [];   
 pageSize = 4;
 currentPage = 0;
 
@@ -35,7 +35,7 @@ ngOnInit(): void {
     }
   }
 
-  this.updatePagedRooms(); // ⬅️ نحدث قائمة العرض
+  this.updatePagedRooms(); 
 }
 
 onPageChange(event: PageEvent): void {
@@ -68,12 +68,13 @@ cancelEdit(): void {
 bookRoom(id: number): void {
   this.adminService.bookRoomById(id);
   this.rooms = this.adminService.getRooms();
-  this.updatePagedRooms(); // ⬅️ نحدث القائمة بعد التعديل
+  this.updatePagedRooms();
 }
 
 makeAvailable(roomId: number): void {
   this.adminService.releaseRoom(roomId);
   this.rooms = this.adminService.getRooms();
-  this.updatePagedRooms(); // ⬅️ نحدث القائمة بعد التعديل
+  this.updatePagedRooms(); 
+  
 }
 }
