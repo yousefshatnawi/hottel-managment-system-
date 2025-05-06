@@ -68,10 +68,6 @@ ngOnInit(): void {
     } else if (true){
       console.log('customer is');
     }
-    //  else if (Object.keys(customer).length > 0) {
-    //   console.log('customer is', customer);
-    //   this.customerData = customer;
-    // }
   }
   
 }
@@ -148,10 +144,9 @@ onFileSelected(event: any): void {
     reader.onload = () => {
       const base64Image = reader.result as string;
       localStorage.setItem('profileImage', base64Image);
-      this.profileImage = base64Image; // لتحديث العرض مباشرة
+      this.profileImage = base64Image; 
         };
     reader.readAsDataURL(file);
   }
 }
 }
-

@@ -3,7 +3,6 @@ import { RoomAppointment } from '../../../models/room-appointment.model';
 import { AdminService } from '../../services/services/admin.service';
 import { Router } from '@angular/router';
 import { CustomerService } from '../../../customer/services/customer.service';
-import { customers } from '../../../shared/dataBase/customer';
 import { PageEvent } from '@angular/material/paginator';
 
 @Component({

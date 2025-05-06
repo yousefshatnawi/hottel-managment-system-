@@ -1,9 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { RoomAppointment } from '../../../models/room-appointment.model';
-import { roomAppointments } from '../../../shared/dataBase/room-appointment';
-import { CustomerModule } from '../../customer.module';
-import { customers } from '../../../shared/dataBase/customer';
-import { Customer } from '../../../models/customer.model';
 import { CustomerService } from '../../services/customer.service';
 import { RequestServiceComponent } from '../request-service/request-service.component';
 import { MatDialog } from '@angular/material/dialog';
@@ -43,10 +39,7 @@ const newReservtion = JSON.parse(localStorage.getItem('new-reservations') || '{}
 }
 reqestService() {
   this.dialog.open(RequestServiceComponent, {
-        width: '500px',  // عرض المودال
-        height: '500px'  // ارتفاع المودال
+        width: '500px',  
+        height: '500px'  
       });}
-
-
-      
 }

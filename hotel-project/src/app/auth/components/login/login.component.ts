@@ -5,8 +5,8 @@ import { AuthService } from '../../services/auth.service';
 import { User } from '../../../models/user.model';
 import { CustomerService } from '../../../customer/services/customer.service';
 import { MatDialog } from '@angular/material/dialog';
-import { PolicyComponent } from '../../../policy/policy.component';
 import { MatDialogRef } from '@angular/material/dialog';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -71,11 +71,16 @@ navigateToForgotPassword() {
               this.router.navigate(['/customer']);
               localStorage.setItem('customer', JSON.stringify(customer));
           }
-          this.dialogRef.close(); // يسكر البوب اب
+          this.dialogRef.close(); 
         })
         .catch(error => {
           console.error(error);
-          alert('Email or password is incorrect');
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Email or password is incorrect',
+            confirmButtonColor: '#c0392b'
+          });
         });
     }
   }

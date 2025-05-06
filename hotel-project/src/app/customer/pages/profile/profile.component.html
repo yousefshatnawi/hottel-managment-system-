@@ -37,7 +37,6 @@
       <div *ngFor="let error of errors">{{ error }}</div>
     </div>
   
-    <!-- Profile Image Upload -->
     <div class="form-group text-center">
       <label for="avatarUpload" class="d-block mb-2 font-weight-bold">Profile Image:</label>
       <div class="text-center mb-3">
@@ -48,7 +47,6 @@
       </div>
     </div>
   
-    <!-- Inputs -->
     <div class="form-group">
       <label for="name">Name:</label>
       <input id="name" [(ngModel)]="customerData.name" />
@@ -69,12 +67,10 @@
       <input id="address" [(ngModel)]="customerData.address" />
     </div>
   
-    <!-- Toggle Password Fields -->
     <button class="btn btn-outline-secondary mb-3" (click)="showPasswordFields = !showPasswordFields" *ngIf="!showPasswordFields">
       Change Password
     </button>
   
-    <!-- Password Fields -->
     <div *ngIf="showPasswordFields">
       <div class="form-group">
         <label for="oldPassword">Old Password:</label>
@@ -94,13 +90,6 @@
   <br>
     <button class="btn btn-outline-secondary mb-3" (click)="saveProfile()">Save</button>
   </div>
-  
-  
-
- 
-  
-
-
 </div>
 
 <div>

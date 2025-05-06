@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { CustomerService } from '../../services/customer.service';
-import { StorageService } from '../../../shared/service/storage.service';
+
 const CUSTOMERS_KEY = 'CUSTOMERS_KEY';
 
 @Component({

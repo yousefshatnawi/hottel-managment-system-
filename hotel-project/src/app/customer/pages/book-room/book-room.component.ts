@@ -33,7 +33,6 @@ export class BookRoomComponent implements OnInit {
   
     if (this.bookingForm.valid) {
       const formValue = this.bookingForm.value; 
-      console.log("testttttttttttttttt",formValue.roomId)
       console.log(this.rooms)
       const selectedRoom = this.rooms.find(room => room.id == formValue.roomId);
       console.log("selected ",selectedRoom)

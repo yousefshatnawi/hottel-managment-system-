@@ -1,9 +1,7 @@
-import { ChangeDetectorRef, Component, HostListener, OnInit } from '@angular/core';
-import { employeeRequests } from '../../../shared/dataBase/employee-request';
+import { Component,  OnInit } from '@angular/core';
 import { CustomerService } from '../../services/customer.service';
 import { EmployeeRequest } from '../../../models/employee-request.model';
 
-import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { LanguageService } from '../../../services/language.service';
 import { TranslateService } from '@ngx-translate/core';
 
@@ -59,7 +57,4 @@ export class MyRequestsComponent implements OnInit{
     });
 
   }
-
-
-    
-  }
+}

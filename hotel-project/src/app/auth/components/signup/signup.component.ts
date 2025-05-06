@@ -5,6 +5,7 @@ import { User } from '../../../models/user.model';
 import { AuthService } from '../../services/auth.service';
 import { PolicyComponent } from '../../../policy/policy.component';
 import { MatDialog } from '@angular/material/dialog';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class SignupComponent implements OnInit {
 
   openPolicyModal(): void {
     const dialogRef = this.dialog.open(PolicyComponent, {
-      width: '500px',  // 
+      width: '500px',  
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -83,7 +84,13 @@ export class SignupComponent implements OnInit {
           this.router.navigate(['/auth/login']);
         })
         .catch(error => {
-          alert(error);
+          console.error(error);
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something it was a wrong',
+            confirmButtonColor: '#c0392b'
+          });
         });
     }
   }

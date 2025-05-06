@@ -41,10 +41,7 @@ export class AddRoomComponent {
       }
     }
     const updatedRoom = JSON.parse(localStorage.getItem('updateRoom') || '{}');
-    // if (newCustomers) {
-    //   {
-    //     this.customers.push(newCustomers);
-    //   }
+    
   }
 
   saveRoom(): void {

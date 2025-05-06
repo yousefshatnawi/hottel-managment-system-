@@ -2328,3 +2328,8 @@ box-shadow: 18px -20px 17px 17px rgba(16, 35, 16, 0.25); */
 		margin-bottom: 10px;
 	}
 }
+.custom-backdrop {
+	background-color: rgba(0, 0, 0, 0.3); 
+	backdrop-filter: blur(4px); 
+  }
+  

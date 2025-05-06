@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from '../../auth/components/login/login.component';
-import { RequestServiceComponent } from '../../customer/pages/request-service/request-service.component';
-import { MyReservationsComponent } from '../../customer/pages/my-reservations/my-reservations.component';
+
 import { MyRequestsComponent } from '../../customer/pages/my-requests/my-requests.component';
 import { TranslateService } from '@ngx-translate/core';
 import { LanguageService } from '../../services/language.service';
@@ -21,9 +19,8 @@ export class HeaderComponent implements OnInit {
   menuOpen: boolean = false;
   languageMenuOpen: boolean = false;
 isDarkTheme = false;
-    // currentLang = 'en';
   isLoggedIn = false;
-  profileLink = '/'; // رابط يوجه حسب نوع المستخدم
+  profileLink = '/'; 
   selectedLanguage: string = 'en';
   selectedFlag: string = 'assets/img/flag.jpg';
   
@@ -33,11 +30,11 @@ isDarkTheme = false;
 
   openLoginDialog(): void {
     const dialogRef = this.dialog.open(LoginComponent, {
-      width: '400px',  // يمكنك تحديد عرض النافذة المنبثقة
+      width: '400px',  
+      backdropClass: 'custom-backdrop'
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      // التعامل مع النتيجة بعد إغلاق النافذة المنبثقة إذا لزم الأمر
       console.log('The dialog was closed');
     });
   }

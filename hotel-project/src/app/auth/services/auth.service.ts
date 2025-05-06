@@ -7,43 +7,6 @@ import { users } from '../../shared/dataBase/users';
 })
 export class AuthService {
 
-  // private users: User[] = JSON.parse(localStorage.getItem('users') || '[]');
-
-  
-//   private User: User[] =users;
-//   loginUser(email: string, password: string): Promise<User> {
-//     return new Promise((resolve, reject) => {
-//       setTimeout(() => {
-//         const user = this.User.find((u: User) => u.email === email && u.password === password);
-//         if (user) {
-//           resolve(user);
-//         } else {
-//           reject('Incorrect email address or password');
-//         }
-//       }, 1500);
-//     });
-//   }
-//   registerUser(newUser: User): Promise<void> {
-//     return new Promise((resolve, reject) => {
-//       const user: User[] = users;
-  
-//       const userExists = user.some(user => user.email === newUser.email);
-//       if (userExists) {
-//         reject('Email already exists');
-//         return;
-//       }
-  
-//       users.push(newUser);
-//       localStorage.setItem('users', JSON.stringify(users));
-//       localStorage.setItem('user', JSON.stringify(newUser)); // لحفظ المستخدم الحالي كـ جلسة
-  
-//       resolve();
-//     });
-//   }
-  
-// }
-
-
 private User: User[] = users;
 
 loginUser(email: string, password: string): Promise<User> {
@@ -51,7 +14,7 @@ loginUser(email: string, password: string): Promise<User> {
     setTimeout(() => {
       const user = this.User.find((u: User) => u.email === email && u.password === password);
       if (user) {
-        localStorage.setItem('user', JSON.stringify(user)); // تخزين المستخدم الحالي في localStorage
+        localStorage.setItem('user', JSON.stringify(user)); 
         resolve(user);
       } else {
         reject('Incorrect email address or password');
@@ -72,7 +35,7 @@ registerUser(newUser: User): Promise<void> {
 
     users.push(newUser);
     localStorage.setItem('users', JSON.stringify(users));
-    localStorage.setItem('user', JSON.stringify(newUser)); // لحفظ المستخدم الحالي كـ جلسة
+    localStorage.setItem('user', JSON.stringify(newUser)); 
 
     resolve();
   });
