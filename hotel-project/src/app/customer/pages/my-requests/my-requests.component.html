@@ -1,4 +1,4 @@
-<h3 class="section-title">My Previous Requests</h3>
+<!-- <h3 class="section-title">My Previous Requests</h3>
 
 <div class="table-responsive">
   <table class="table table-bordered text-center">
@@ -29,6 +29,43 @@
               'done': req.requestStatus === 'done'
             }">
             {{ req.requestStatus }}
+          </p>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+ -->
+
+
+<h3 class="section-title">{{ 'TITLE' | translate }}</h3>
+<div class="table-responsive">
+  <table class="table table-bordered text-center">
+    <thead class="thead-light">
+      <tr>
+        <th>{{ 'ID' | translate }}</th>
+        <th>{{ 'EMPLOYEE_NAME' | translate }}</th>
+        <th>{{ 'REQUEST_TYPE' | translate }}</th>
+        <th>{{ 'DATE' | translate }}</th>
+        <th>{{ 'NOTE' | translate }}</th>
+        <th>{{ 'STATUS' | translate }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let req of myRequests">
+        <td>{{ req.id }}</td>
+        <td>{{ req.employee?.name }}</td>
+        <td>{{ req.requestType }}</td>
+        <td>{{ req.date }}</td>
+        <td>{{ req.note }}</td>
+        <td>
+          <p id="span-status"
+             [ngClass]="{
+              'pending': req.requestStatus === 'pending',
+              'progres': req.requestStatus === 'progres',
+              'done': req.requestStatus === 'done'
+             }">
+            {{ req.requestStatus | uppercase | translate }}
           </p>
         </td>
       </tr>

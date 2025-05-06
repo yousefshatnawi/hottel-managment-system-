@@ -54,8 +54,42 @@
   "BOOKED": "Prenotato",
   "AVAILABLE": "Disponibile",
   "MORE_DETAILS": "Più dettagli",
+"TITLE": "Le mie richieste precedenti",
 
+  "ID": "ID richiesta",
+  "EMPLOYEE_NAME": "Nome dipendente",
+  "REQUEST_TYPE": "Tipo richiesta",
+  "DATE": "Data",
+  "NOTE": "Nota",
+  "PENDING": "In attesa",
+  "PROGRES": "In corso",
+  "DONE": "Completata",
 
+  "MY_RESERVATIONS": "Le mie prenotazioni",
+  "ROOM_HALL": "Stanza / Sala",
+  "ROOM_NAME": "Nome della stanza",
+  "REQUEST_SERVICE": "Richiedi servizio",
+  "PAYMENT": "Pagamento",
+  "APPROVED": "Approvato",
+  "REJECTED": "Rifiutato",
+
+  "HOME_BLOG_SUBTITLE": "Dal nostro blog",
+  "HOME_BLOG_TITLE": "Ultime notizie e aggiornamenti",
+
+  "Travel Trip": "Viaggio",
+  "Tremblant In Canada": "Tremblant in Canada",
+
+  "Camping": "Campeggio",
+  "Choosing A Static Caravan": "Scegliere una roulotte fissa",
+
+  "Event": "Evento",
+  "Copper Canyon": "Canyon del Rame",
+
+  "Trip To Iqaluit In Nunavut A Canadian Arctic City": "Viaggio a Iqaluit a Nunavut una città artica canadese",
+
+  "Travel": "Viaggio",
+  "Traveling To Barcelona": "Viaggio a Barcellona",
+  
   "footer": {
   "about_description": "Ispiriamo e raggiungiamo milioni di viaggiatori su 90 siti web locali",
   "contact_us": "Contattaci",
