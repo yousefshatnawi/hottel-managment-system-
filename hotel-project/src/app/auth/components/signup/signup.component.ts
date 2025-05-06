@@ -23,10 +23,9 @@ export class SignupComponent implements OnInit {
 
   openPolicyModal(): void {
     const dialogRef = this.dialog.open(PolicyComponent, {
-      width: '500px',  // يمكنك تغيير العرض حسب الحاجة
+      width: '500px',  // 
     });
 
-    // التعامل مع النتائج بعد إغلاق النافذة المنبثقة إذا لزم الأمر
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
@@ -69,9 +68,9 @@ export class SignupComponent implements OnInit {
   
   register() {
     if (this.registerForm.invalid) {
-      this.registerForm.markAllAsTouched(); // ⭐ تلمس كل الحقول اجباري
-      return; // ⛔ ما تكمل التسجيل اذا الفورم مش صحيح
-    }
+      this.registerForm.markAllAsTouched(); 
+      return; 
+       }
     if (this.registerForm.valid) {
       
       const customerData: User = {

@@ -57,6 +57,41 @@
   "AVAILABLE": "متاح",
   "MORE_DETAILS": "المزيد من التفاصيل",
 
+  "TITLE": "طلباتي السابقة",
+  "ID": "رقم الطلب",
+  "EMPLOYEE_NAME": "اسم الموظف",
+  "REQUEST_TYPE": "نوع الطلب",
+  "DATE": "التاريخ",
+  "NOTE": "ملاحظة",
+  "PENDING": "قيد الانتظار",
+  "PROGRES": "قيد التنفيذ",
+  "DONE": "تم",
+
+  "MY_RESERVATIONS": "حجوزاتي",
+  "ROOM_HALL": "غرفة / قاعة",
+  "ROOM_NAME": "اسم الغرفة",
+  "REQUEST_SERVICE": "طلب خدمة",
+  "PAYMENT": "الدفع",
+  "APPROVED": "موافق عليه",
+  "REJECTED": "مرفوض",
+  
+
+  "HOME_BLOG_SUBTITLE": "من مدونتنا",
+  "HOME_BLOG_TITLE": "آخر الأخبار والتحديثات",
+
+  "Travel Trip": "رحلة سفر",
+  "Tremblant In Canada": "تريمبلانت في كندا",
+
+  "Camping": "تخييم",
+  "Choosing A Static Caravan": "اختيار قافلة ثابتة",
+
+  "Event": "حدث",
+  "Copper Canyon": "وادي كوبر",
+
+  "Trip To Iqaluit In Nunavut A Canadian Arctic City": "رحلة إلى إيكالويت في نونافوت مدينة قطبية كندية",
+
+  "Travel": "سفر",
+  "Traveling To Barcelona": "السفر إلى برشلونة",
 
   "footer": {
   "about_description": "نلهم ونصل إلى ملايين المسافرين عبر 90 موقعًا محليًا",
@@ -75,7 +110,7 @@
   "environmental_policy_content": "هنا يمكنك وضع تفاصيل سياسة البيئة الخاصة بك.",
   "close": "إغلاق",
   "copyright":
-    "جميع الحقوق محفوظة | تم الإنشاء بحب "
+    "جميع الحقوق محفوظة | تم الإنشاء  بواسطه ريما بشاره , دعاء مهداوي , يوسف شطناوي و اناغيم الرباع "
 },
   "home": {
     "hero": {

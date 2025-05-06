@@ -1,4 +1,4 @@
-
+<!-- 
 <app-header></app-header>
 
 <div class="table-responsive">
@@ -42,4 +42,48 @@
     </tbody>
   </table>
 </div>
+<app-footer></app-footer> -->
+
+
+
+<app-header></app-header>
+
+<div class="table-responsive">
+  <h3 class="section-title">{{ 'MY_RESERVATIONS' | translate }}</h3>
+
+  <table class="table table-bordered text-center">
+    <thead class="thead-light">
+      <tr>
+        <th>{{ 'ROOM_HALL' | translate }}</th>
+        <th>{{ 'ROOM_NAME' | translate }}</th>
+        <th>{{ 'DATE' | translate }}</th>
+        <th>{{ 'STATUS' | translate }}</th>
+        <th>{{ 'REQUEST_SERVICE' | translate }}</th>
+        <th>{{ 'PAYMENT' | translate }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let res of myReservations">
+        <td>{{ res.roomType }} {{ res.room?.roomType }}</td>
+        <td>{{ res.roomName || res.room?.title }}</td>
+        <td>{{ res.date }}</td>
+        <td>
+          <span [ngClass]="res.approvalStatus">{{ res.approvalStatus | uppercase | translate }}</span>
+        </td>
+        <td>
+          <button class="site-btn mt-3"
+                  [ngClass]="res.approvalStatus"
+                  [disabled]="res.approvalStatus !== 'approved'"
+                  (click)="reqestService()">
+            {{ 'REQUEST_SERVICE' | translate }}
+          </button>
+        </td>
+        <td [ngStyle]="{ color: res.paymentStatus ? 'green' : 'red' }">
+          {{ res.paymentStatus ? '✅' : '❌' }}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
 <app-footer></app-footer>

@@ -8,9 +8,7 @@
   </header>
 
   <header class="admin-header" *ngIf="user.userType === 'employee'">
-    <!-- <h1 class="admin-title">
-      <i class="fas fa-user-circle"></i> Hello, {{ employeeData.name }}
-    </h1> -->
+  
     <h1 class="admin-title">{{ pageTitle }}</h1>
 
     <button class="logout-btn" (click)="logout()">

@@ -7,6 +7,8 @@ import { Customer } from '../../../models/customer.model';
 import { CustomerService } from '../../services/customer.service';
 import { RequestServiceComponent } from '../request-service/request-service.component';
 import { MatDialog } from '@angular/material/dialog';
+import { TranslateService } from '@ngx-translate/core';
+import { LanguageService } from '../../../services/language.service';
 
 
 
@@ -19,11 +21,16 @@ import { MatDialog } from '@angular/material/dialog';
 export class MyReservationsComponent implements OnInit {
 
 constructor(private requestService: CustomerService
-  ,    private dialog: MatDialog  // ✨ أضفناه هون
+  ,    private dialog: MatDialog  ,
+   private languageService: LanguageService,
+        private translate: TranslateService
 
 ){}
  myReservations: RoomAppointment[] = [];
   ngOnInit(): void {
+    this.languageService.currentLanguage.subscribe(language => {
+      this.translate.use(language);
+    });
 
 const newReservtion = JSON.parse(localStorage.getItem('new-reservations') || '{}');
  this.myReservations = this.requestService.getResrvtionByCustomer();  
@@ -40,4 +47,6 @@ reqestService() {
         height: '500px'  // ارتفاع المودال
       });}
 
+
+      
 }

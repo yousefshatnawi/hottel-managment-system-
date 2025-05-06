@@ -28,11 +28,8 @@ export class AboutComponent implements AfterViewInit ,OnInit {
     });
     const videoElement = this.hotelVideo.nativeElement;
 
-    // تغيير سرعة التشغيل
-    videoElement.playbackRate =3; // أو 2 مثلاً حسب رغبتك
-
-    // في حال احتجت تتأكد من التشغيل
-    videoElement.play().catch(error => {
+    videoElement.playbackRate =3; 
+       videoElement.play().catch(error => {
       console.error('Video failed to play:', error);
     });
   }

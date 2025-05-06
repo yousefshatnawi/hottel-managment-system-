@@ -18,7 +18,6 @@ export class RoomListComponent implements OnInit {
   roomList: Room[] = Rooms;
   selectedType: string = '';
 
-  // متغيرات للـ pagination
   paginatedRoomList: Room[] = [];
   pageSize = 6;
   pageIndex = 0;
@@ -52,7 +51,6 @@ export class RoomListComponent implements OnInit {
       this.translate.use(language);
     });
 
-    // تحديث طول البيانات وتجهيز أول صفحة
     this.length = this.roomList.length;
     this.updatePaginatedData();
   }
@@ -65,14 +63,12 @@ export class RoomListComponent implements OnInit {
     this.updatePaginatedData();
   }
 
-  // دالة لتحديث العناصر المعروضة بناءً على الصفحة
   updatePaginatedData() {
     const startIndex = this.pageIndex * this.pageSize;
     const endIndex = startIndex + this.pageSize;
     this.paginatedRoomList = this.roomList.slice(startIndex, endIndex);
   }
 
-  // دالة التعامل مع تغيير الصفحة
   onPageChange(event: PageEvent) {
     this.pageIndex = event.pageIndex;
     this.pageSize = event.pageSize;

@@ -59,6 +59,44 @@
   "AVAILABLE": "Available",
   "MORE_DETAILS": "More Details",
 
+
+  "TITLE": "My Previous Requests",
+  "ID": "ID request",
+  "EMPLOYEE_NAME": "Employee name",
+  "REQUEST_TYPE": "Request Type",
+  "DATE": "Date",
+  "NOTE": "Note",
+  "PENDING": "Pending",
+  "PROGRES": "In Progress",
+  "DONE": "Done",
+
+
+  "MY_RESERVATIONS": "My Reservations",
+  "ROOM_HALL": "Room / Hall",
+  "ROOM_NAME": "Room Name",
+  "REQUEST_SERVICE": "Request service",
+  "PAYMENT": "Payment",
+  "APPROVED": "Approved",
+  "REJECTED": "Rejected",
+
+"HOME_BLOG_SUBTITLE": "From our Blog",
+  "HOME_BLOG_TITLE": "Latest News & Updates",
+
+  "Travel Trip": "Travel Trip",
+  "Tremblant In Canada": "Tremblant In Canada",
+
+  "Camping": "Camping",
+  "Choosing A Static Caravan": "Choosing A Static Caravan",
+
+  "Event": "Event",
+  "Copper Canyon": "Copper Canyon",
+
+  "Trip To Iqaluit In Nunavut A Canadian Arctic City": "Trip To Iqaluit In Nunavut A Canadian Arctic City",
+
+  "Travel": "Travel",
+  "Traveling To Barcelona": "Traveling To Barcelona",
+
+
   "footer": {
   "about_description": "We inspire and reach millions of travelers across 90 local websites",
   "contact_us": "Contact Us",
