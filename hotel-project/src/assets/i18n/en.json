@@ -12,6 +12,8 @@
   "NAV_RESERVATIONS": "Reservations",
   "NAV_CONTACT_US": "Contact Us",
  
+
+  
     "ABOUT_TITLE": "Welcome To ",
   "ABOUT_DESCRIPTION": "Built in 1910 during the Belle Epoque period, this hotel is located in the center of Paris, with easy access to the city’s tourist attractions. It offers tastefully decorated rooms.",
   "DISCOUNT_ACCOMMODATION": "20% Off On Accommodation",
@@ -167,6 +169,9 @@
       "subtitle": "Hotel News",
       "title": "Our Blog & Events"
     }
+    
   }
+
+  
   
 }

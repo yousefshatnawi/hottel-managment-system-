@@ -23,8 +23,7 @@ import { MatDialog, MatDialogConfig, MatDialogModule } from '@angular/material/d
     // MatButtonModule,
     ReactiveFormsModule,
     MatDialogModule
-    // MatDialog,
-    // MatDialogConfig
+    
   ],
   exports :[
     AuthRoutingModule
