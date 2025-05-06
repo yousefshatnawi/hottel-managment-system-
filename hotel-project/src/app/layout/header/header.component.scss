@@ -40,7 +40,7 @@
   }
 }
 
-// قائمة الخيارات المنسدلة (تسجيل الدخول، الوضع، اللغة)
+// قائمة الخيارات المنسدلة
 .dropdown-menu-custom {
   position: absolute;
   top: 34px;
@@ -74,7 +74,7 @@
   }
 }
 
-// أزرار الوضع الليلي واللوق إن (شكل دائري أيقوني)
+// أزرار الأيقونات (تسجيل الخروج، الوضع الليلي، اللغة)
 .user-controls {
   display: flex;
   align-items: center;
@@ -93,6 +93,8 @@
     justify-content: center;
     transition: all 0.3s ease;
     cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
 
     i {
       transition: transform 0.3s ease;
@@ -101,6 +103,8 @@
     &:hover {
       background-color: #dfa974;
       color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 
       i {
         transform: scale(1.1);
@@ -109,6 +113,43 @@
 
     &:focus {
       outline: none;
+      box-shadow: 0 0 0 2px rgba(223, 169, 116, 0.5);
+    }
+
+    &::after {
+      content: attr(title);
+      position: absolute;
+      bottom: -35px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #333;
+      color: #fff;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 12px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    &:hover::after {
+      opacity: 1;
+    }
+
+    &.logout {
+      background-color: #e74c3c;
+      border-color: #e74c3c;
+      color: #fff;
+
+      &:hover {
+        background-color: color.adjust(#c0392b, $lightness: -10%);
+        color: #fff;
+      }
+
+      &::after {
+        background-color: #e74c3c;
+      }
     }
   }
 
@@ -150,6 +191,7 @@
     padding: 0.5rem 0;
     z-index: 1000;
     min-width: 120px;
+    animation: fadeIn 0.3s ease-in-out;
 
     ul {
       list-style: none;
@@ -187,6 +229,16 @@ body.dark-theme {
         background-color: #ffffffcc;
         color: #121212;
       }
+
+      &.logout {
+        background-color: #c0392b;
+        border-color: #c0392b;
+
+        &:hover {
+          background-color: color.scale(#c0392b, $lightness: -21.7%);
+          color: white;
+        }
+      }
     }
   }
 }
@@ -195,4 +247,16 @@ body.dark-theme {
 body.light-theme {
   background-color: #ffffff;
   color: black;
+}
+
+// أنيميشن
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

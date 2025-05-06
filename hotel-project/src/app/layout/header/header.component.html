@@ -94,6 +94,14 @@
         <div class="col-lg-6">
           <div class="tn-right d-flex justify-content-end align-items-center gap-3">
 
+            <!-- Social Icons -->
+            <div class="top-social">
+              <a href="#"><i class="fa fa-facebook"></i></a>
+              <a href="#"><i class="fa fa-twitter"></i></a>
+              <a href="#"><i class="fa fa-tripadvisor"></i></a>
+              <a href="#"><i class="fa fa-instagram"></i></a>
+            </div>
+
             <!-- 🌐 Language Selector -->
             <div class="language-option position-relative">
               <img src="assets/img/flag.jpg" alt="Flag" width="24" height="16">
@@ -107,35 +115,27 @@
               </div>
             </div>
 
-            <div class="user-controls d-flex align-items-center gap-2">
-
-              <!-- 🌙🌞 Toggle Theme -->
-              <button class="icon-btn" (click)="toggleDarkTheme()" [title]="isDarkTheme ? 'Light Mode' : 'Dark Mode'">
-                <i class="fa" [ngClass]="isDarkTheme ? 'fa-sun-o' : 'fa-moon-o'"></i>
+            <div class="user-controls">
+              <!-- زر تسجيل الدخول -->
+              <button *ngIf="!isLoggedIn" class="icon-btn" (click)="openLoginDialog()" title="{{ 'LOGIN' | translate }}">
+                <i class="fa fa-door-open"></i>
               </button>
             
-              <!-- 🚪 Login -->
-              <button class="icon-btn" (click)="openLoginDialog()" title="Login">
-                <i class="fa fa-sign-in"></i>
+              <!-- زر البروفايل -->
+              <a *ngIf="isLoggedIn" routerLink="/customer/profile" class="icon-btn" title="{{ 'MY_PROFILE' | translate }}">
+                <i class="fa fa-user-circle"></i>
+              </a>
+            
+              <!-- الوضع الليلي/النهاري -->
+              <button class="icon-btn" (click)="toggleDarkTheme()" title="{{ isDarkTheme ? ('LIGHT_THEME' | translate) : ('DARK_THEME' | translate) }}">
+                <i class="fa" [ngClass]="isDarkTheme ? 'fa-sun' : 'fa-moon'"></i>
               </button>
             
+              <!-- زر تسجيل الخروج -->
+              <button *ngIf="isLoggedIn" (click)="logout()" class="icon-btn" title="{{ 'LOGOUT' | translate }}">
+                <i class="fa fa-sign-out"></i>
+              </button>
             </div>
-            
-
-            <!-- Social Icons -->
-            <div class="top-social">
-              <a href="#"><i class="fa fa-facebook"></i></a>
-              <a href="#"><i class="fa fa-twitter"></i></a>
-              <a href="#"><i class="fa fa-tripadvisor"></i></a>
-              <a href="#"><i class="fa fa-instagram"></i></a>
-            </div>
-
-            <!-- Profile & Logout -->
-            <a *ngIf="isLoggedIn" routerLink="/customer/profile" class="bk-btn">
-              {{ 'MY_PROFILE' | translate }}
-            </a>
-            <a *ngIf="isLoggedIn" (click)="logout()" class="fa fa-sign-out ms-3" style="font-size: 28px; padding: 10px;" title="{{ 'LOGOUT' | translate }}"></a>
-
           </div>
         </div>
       </div>
