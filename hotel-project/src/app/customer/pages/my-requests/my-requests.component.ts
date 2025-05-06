@@ -36,7 +36,7 @@ export class MyRequestsComponent implements OnInit{
     JSON.parse(localStorage.getItem('updatedRequest')
      || 'null'); 
     
-     || 'null');    
+    
     this.myRequests = this.requestService.getRequestsByEmployee();
   
     if (updatedStatus && updatedStatus.id) {
