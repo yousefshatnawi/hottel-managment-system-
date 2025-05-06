@@ -1,10 +1,8 @@
 <div class="app-container">
-  <!-- Sidebar -->
   <aside class="sidebar">
     <app-main-layout></app-main-layout>
   </aside>
 
-  <!-- Main Content -->
   <main class="main-section">
     <app-header-dash [pageTitle]="isEditMode ? 'Edit Room' : 'Add Room'"></app-header-dash>
 
@@ -15,7 +13,6 @@
           <p>Please fill in the room details below.</p>
 
           <form (ngSubmit)="saveRoom()">
-            <!-- Room Title -->
             <div class="field">
               <label for="title">🏷️ Title</label>
               <input
@@ -28,7 +25,6 @@
               />
             </div>
 
-            <!-- Room Type -->
             <div class="field">
               <label for="type">🏷️ Room Type</label>
               <select id="type" name="roomType" [(ngModel)]="room.roomType" required>
@@ -37,7 +33,6 @@
               </select>
             </div>
 
-            <!-- Building & Floor -->
             <div class="field two-cols">
               <div>
                 <label for="building">🏢 Building</label>
@@ -63,7 +58,6 @@
               </div>
             </div>
 
-            <!-- Payment Amount -->
             <div class="field">
               <label for="payment">💰 Payment Amount</label>
               <input
@@ -76,7 +70,6 @@
               />
             </div>
 
-            <!-- Details -->
             <div class="field">
               <label for="details">📝 Details</label>
               <textarea
@@ -88,7 +81,6 @@
               ></textarea>
             </div>
 
-            <!-- Status Toggle -->
             <div class="field">
               <label>📌 Status</label>
               <div class="status-buttons">
@@ -109,7 +101,6 @@
               </div>
             </div>
 
-            <!-- Submit Button -->
             <div class="formbold-mb-3 formbold-pt-3">
               <button type="submit" class="formbold-btn">
                 {{ isEditMode ? '💾 Save Changes' : '➕ Add Room' }}

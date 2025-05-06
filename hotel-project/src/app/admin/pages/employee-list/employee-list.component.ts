@@ -43,7 +43,6 @@ export class EmployeeListComponent implements OnInit, AfterViewInit {
     this.dataSource.filter = filterValue;
   }
 
-  // Toggle the password visibility
   togglePassword(emp: any): void {
     emp.showPassword = !emp.showPassword;
   }

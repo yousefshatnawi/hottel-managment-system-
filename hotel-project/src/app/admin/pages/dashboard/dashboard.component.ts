@@ -19,10 +19,8 @@ export class DashboardComponent {
   newTask: string = '';
   isDashboardPage: boolean = false;
 
-  // تعريف summaryData لحل الخطأ
   summaryData: { title: string, count: number }[] = [];
 
-  // بيانات الرسم البياني
   barChartData: ChartData<'bar'> = {
     labels: ['Employees', 'Customers', 'Rooms', 'Users'],
     datasets: [{
@@ -61,7 +59,6 @@ export class DashboardComponent {
       "View Employee",
     ];
 
-    // جلب البيانات من السيرفيس
     const employees = await this.adminService.getEmployees();
     this.employeeCount = employees.length;
 
@@ -74,7 +71,6 @@ export class DashboardComponent {
     const users = await this.adminService.getAllUser();
     this.userCount = users.length;
 
-    // تحديث الرسوم البيانية والـ summary
     this.updateCharts();
     this.updateSummaryData();
   }

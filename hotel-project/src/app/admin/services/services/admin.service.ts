@@ -30,11 +30,7 @@ export class AdminService {
   } 
 
 
-//  getEmployees(): Promise<Employee[]> {
-//   return new Promise((resolve) => {
-//     resolve(this.employeeList);
-//   });
-// }
+
 
 getEmployees(): Promise<Employee[]> {
   return new Promise((resolve) => {
