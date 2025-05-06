@@ -10,7 +10,7 @@ export const users: User[] = [
       {
         email: 'reema@gmail.com',
         password: '123456',
-        userType: 'employee' // تطابق مع موظف باسم 'reema'
+        userType: 'employee' 
       },
       {
         email: 'yousef@gmail.com',
@@ -25,7 +25,7 @@ export const users: User[] = [
       {
         email: 'reema@gmail.com',
         password: '123456',
-        userType: 'employee' // تطابق مع موظف باسم 'reema'
+        userType: 'employee' 
       },
       {
         email: 'yousef@gmail.com',
@@ -33,12 +33,12 @@ export const users: User[] = [
         userType: 'admin'
       },
       {
-        email: 'duaa@gmail.com', // تطابق مع عميل باسم 'duaa khaled'
+        email: 'duaa@gmail.com', 
         password: '1722001',
         userType: 'customer'
       },
       {
-        email: 'reema2@gmail.com', // تطابق مع عميل باسم 'reema'
+        email: 'reema2@gmail.com', 
         password: '123456',
         userType: 'customer'
       },

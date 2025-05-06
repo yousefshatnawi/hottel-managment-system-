@@ -74,8 +74,4 @@ export class RoomListComponent implements OnInit {
     this.pageSize = event.pageSize;
     this.updatePaginatedData();
   }
-
-  // filterRooms():Room{
-  //   const room=this.serviceCustomer.getAllRoomsApp();
-  // }
 }

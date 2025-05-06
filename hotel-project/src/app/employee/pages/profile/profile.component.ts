@@ -16,7 +16,7 @@ export class ProfileComponent implements OnInit {
   success = '';
   errors: string[] = [];
 
-  constructor(private employeeService: EmployeeService , private router: Router) {}
+  constructor(private employeeService: EmployeeService ) {}
 
   ngOnInit(): void {
     const employee = JSON.parse(localStorage.getItem('employee') || '{}');

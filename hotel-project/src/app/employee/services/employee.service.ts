@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Employee } from '../../models/employee.model';
 import { EmployeeRequest } from '../../models/employee-request.model';
-import { Customer } from '../../models/customer.model';
 import { customers } from '../../shared/dataBase/customer';
 import { employees } from '../../shared/dataBase/employee';
 import { employeeRequests } from '../../shared/dataBase/employee-request';
@@ -9,7 +8,6 @@ import { roomAppointments } from '../../shared/dataBase/room-appointment';
 
 
 
-const EMPLOYEES_KEY = 'EMPLOYEES_KEY';
 
 @Injectable({
   providedIn: 'root'
@@ -25,7 +23,7 @@ export class EmployeeService {
 
   
   getRequestsByEmployee(): EmployeeRequest[] {
-    const currentUser = JSON.parse(localStorage.getItem('employee') || '{}');// loggedInUser ->user
+    const currentUser = JSON.parse(localStorage.getItem('employee') || '{}');
     const allRequests: EmployeeRequest[] = employeeRequests;
  
     const requests = allRequests.filter(req => req.employeeId === currentUser.id);
@@ -115,10 +113,8 @@ updateEmployee(employeeUpdate: Employee): Promise<Employee> {
       if (employeeIndex !== -1) {
         employees[employeeIndex] = { ...employeeUpdate };
 
-        // تحديث نسخة الموظفين في localStorage
         localStorage.setItem('EMPLOYEES_KEY', JSON.stringify(employees));
 
-        // تحديث بيانات الموظف الحالي المسجل دخول
         localStorage.setItem('employee', JSON.stringify(employees[employeeIndex]));
         
         resolve(employees[employeeIndex]);

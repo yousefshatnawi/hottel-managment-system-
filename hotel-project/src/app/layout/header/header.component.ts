@@ -80,7 +80,6 @@ if (savedTheme === 'dark') {
 toggleLanguageMenu() {
   this.languageMenuOpen = !this.languageMenuOpen;
 }
- // تجهيز اللغة والعلم
 
 toggleDarkTheme() {
   this.isDarkTheme = !this.isDarkTheme;
@@ -104,29 +103,18 @@ reqestService() {
       height: '400px', 
     });
   }
-  // changeLanguage(language: string) {
-  //   this.languageService.changeLanguage(language);
-  //   this.translate.use(language);
-  //   if (language === 'ar') {
-  //     document.documentElement.setAttribute('dir', 'rtl');
-  //   } else {
-  //     document.documentElement.setAttribute('dir', 'ltr');
-  //   }
-  //   this.languageMenuOpen = false;
-  // }
+ 
   changeLanguage(language: string) {
     this.languageService.changeLanguage(language);
     this.translate.use(language);
-    localStorage.setItem('selectedLanguage', language); // نحفظ اللغة
+    localStorage.setItem('selectedLanguage', language); 
   
-    // نضبط اتجاه الصفحة
     if (language === 'ar') {
-      document.documentElement.setAttribute('dir', 'rtl');
+      document.documentElement.setAttribute('dir', 'ltr');
     } else {
       document.documentElement.setAttribute('dir', 'ltr');
     }
   
-    // نحدث صورة العلم المختار
     switch (language) {
       case 'en':
         this.selectedFlag = 'assets/img/flag.jpg';

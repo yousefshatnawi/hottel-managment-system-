@@ -8,7 +8,6 @@
   <app-header-dash [pageTitle]="'Dashboard'"></app-header-dash>
 
   
-  <!-- Cards -->
   <div class="cards">
     <div class="card">
       <h3>Pending Requests</h3>
@@ -65,7 +64,6 @@
         <div class="d-flex align-items-center justify-content-between">
           <h2 class="mb-4">📋 Recent Requests</h2>
 
-          <!-- Filter Dropdown -->
           <div class="filter-section">
             <label for="statusFilter" class="mr-2"><i class="fas fa-filter"></i> Filter Requests:</label>
             <mat-form-field appearance="fill">
@@ -81,7 +79,6 @@
         </div>
       </div>
 
-      <!-- Table -->
       <mat-table [dataSource]="filteredRequests" class="requests-table">
         <ng-container matColumnDef="id">
           <mat-header-cell *matHeaderCellDef> Request ID </mat-header-cell>
@@ -119,7 +116,6 @@
         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
       </mat-table>
 
-      <!-- Paginator -->
       <mat-paginator [length]="filteredRequests.length" [pageSize]="5" [pageSizeOptions]="[5, 10, 20]" (page)="onPageChange($event)">
       </mat-paginator>
     </div>

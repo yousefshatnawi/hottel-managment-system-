@@ -2333,3 +2333,19 @@ box-shadow: 18px -20px 17px 17px rgba(16, 35, 16, 0.25); */
 	backdrop-filter: blur(4px); 
   }
   
+  @font-face {
+	font-family: 'Alilato';
+	src: url('/assets/fonts/Alilato-ExtraLight.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+  }
+
+  body[lang='ar'] {
+	font-family: 'Alilato', sans-serif;
+	direction: rtl;
+  }
+
+  body[lang='en'] {
+	font-family: 'Arial', sans-serif;
+	direction: ltr;
+  }

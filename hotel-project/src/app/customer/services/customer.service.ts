@@ -11,7 +11,6 @@ import { employees } from '../../shared/dataBase/employee';
 import { EmployeeService } from '../../employee/services/employee.service';
 import { Rooms } from '../../shared/dataBase/room';
 import { Room } from '../../models/room.model';
-const CUSTOMERS_KEY = 'CUSTOMERS_KEY';
 
 @Injectable({
   providedIn: 'root'
@@ -91,7 +90,6 @@ export class CustomerService {
     };
 
     this.requests.push(newRequest);
-    console.log('تمت إضافة الطلب:', newRequest , typeof(newRequest));
   }
   private requestsEmp: EmployeeRequest[] = employeeRequests;
 
@@ -107,7 +105,6 @@ export class CustomerService {
     localStorage.setItem('updatedRequest', JSON.stringify(newRequest));
 
     this.requestsEmp.push(newRequest);
-    console.log('تمت إضافة الطلب:', newRequest);
   }
   getAllEmployeeRequests() {
     return this.requests;

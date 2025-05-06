@@ -9,10 +9,8 @@ import { RequestServiceComponent } from './pages/request-service/request-service
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MyRequestsComponent } from './pages/my-requests/my-requests.component';
 import { AuthRoutingModule } from '../auth/auth-routing.module';
-import { CustomerService } from './services/customer.service';
 import { RoomListComponent } from './pages/room-list/room-list.component';
 import { RoomDetailsComponent } from './pages/room-details/room-details.component';
-import { BrowserModule } from '@angular/platform-browser';
 import { HttpLoaderFactory, SharedModule } from '../layout/shared.module';
 import { MatDialogModule } from '@angular/material/dialog';
 import { HttpClientModule, HttpClient } from '@angular/common/http';

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import 'chart.js/auto';  // يضمن تسجيل جميع عناصر Chart.js
+import 'chart.js/auto';  
 import { ChartData, ChartOptions, ChartType } from 'chart.js';
 import { Router } from '@angular/router';
 import { EmployeeService } from '../../employee/services/employee.service';
@@ -33,8 +33,7 @@ constructor(private employeeService: EmployeeService, private router: Router) {}
     }
   };
 
-  // Doughnut Chart
-  public doughnutChartType = 'doughnut' as const;    // حرفي لضمان التوافق
+  public doughnutChartType = 'doughnut' as const;    
   public doughnutChartData: ChartData<'doughnut'> = {
     labels: ['Pending', 'In Progres', 'Completed'],
     datasets: [{
@@ -55,22 +54,18 @@ constructor(private employeeService: EmployeeService, private router: Router) {}
       this.employee = JSON.parse(userData);
     }
   
-    // جلب كل الطلبات المرتبطة بالموظف من السيرفيس
     const requests = this.employeeService.getRequestsByEmployee();
   
-    // الحسابات
     this.pendingCount    = requests.filter(r => r.requestStatus === 'pending').length;
     this.inProgresCount = requests.filter(r => r.requestStatus === 'progres').length;
     this.completedCount  = requests.filter(r => r.requestStatus === 'done').length;
   
-    // الألوان
     const colors = [
       this.pendingCount    > 5 ? '#f59e0b' : '#fde68a',
       this.inProgresCount > 5 ? '#2563eb' : '#bfdbfe',
       this.completedCount  > 5 ? '#059669' : '#bbf7d0'
     ];
   
-    // تحديث الرسم البياني
     this.barChartData.datasets[0].data = [this.pendingCount, this.inProgresCount, this.completedCount];
     this.barChartData.datasets[0].backgroundColor = colors;
   

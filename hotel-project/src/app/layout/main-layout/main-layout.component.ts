@@ -13,7 +13,7 @@ export class MainLayoutComponent {
   currentUser: any = null;
 
   constructor(private authService: AuthService) {
-    this.currentUser = this.authService.getCurrentUser(); // جلب المستخدم الحالي من localStorage
+    this.currentUser = this.authService.getCurrentUser(); 
   }
 
   toggleSidebar() {

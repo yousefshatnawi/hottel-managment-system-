@@ -34,8 +34,6 @@ constructor(private employeeService: EmployeeService, private router: Router) {}
 ngOnInit(): void {
   this.employee = JSON.parse(localStorage.getItem('employee') || '{}');
   
-
-
   this.loadRequests();
 }
 

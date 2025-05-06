@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { EmployeeRequest } from '../../../models/employee-request.model';
 import { EmployeeService } from '../../services/employee.service';
-import { Router } from '@angular/router';
-import { AuthService } from '../../../auth/services/auth.service';
+
 import { Employee } from '../../../models/employee.model';
 import { employees } from '../../../shared/dataBase/employee';
 import { customers } from '../../../shared/dataBase/customer';
-import { CustomerService } from '../../../customer/services/customer.service';
 import { roomAppointments } from '../../../shared/dataBase/room-appointment';
 
 @Component({
@@ -24,9 +22,7 @@ export class MyRequestsComponent implements OnInit {
 
     constructor(
       private employeeService: EmployeeService,
-      private authService: AuthService,
-      private router: Router
-    ) {}
+        ) {}
   
     ngOnInit(): void {
 
@@ -58,7 +54,6 @@ export class MyRequestsComponent implements OnInit {
       this.selectedRequest = request;
     }
   
-    // 🟢 دالة إغلاق التفاصيل
     closePopup() {
       this.selectedRequest = null;
     }

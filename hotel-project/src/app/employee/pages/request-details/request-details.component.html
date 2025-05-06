@@ -4,15 +4,10 @@
   </div>
 <div class="main">
   <app-header-dash [pageTitle]="'Request-details'"></app-header-dash>
-    
-      
- 
-
-    
     <div class="cards">
       <div class="card" *ngIf="request">
         <div class="card-content">
-<div class="info-group">
+        <div class="info-group">
 
          <p><strong>Request ID:</strong> {{ request.id }}</p>
           <p><strong>Request Date:</strong> {{ request.date }}</p>
@@ -22,14 +17,12 @@
                     <p><strong>Customer Name:</strong> {{ request.customer?.name }}</p>
           <p><strong>Customer Email:</strong> {{ request.customer?.email }}</p>
     
-          <!-- معلومات الموظف -->
           <p><strong>Employee Name:</strong> {{ request.employee?.name }}</p>
         </div>
 <div class="info-group">
 
          <p><strong>Room Name:</strong> {{ request.room?.roomName }}</p>
     </div> 
-          <!-- الحالة الحالية -->
           <p class="request-status">
             <strong>Status:</strong>
             <span class="status-badge"
@@ -42,7 +35,6 @@
             </span>
           </p>
     
-          <!-- الأزرار الخاصة بتغيير الحالة -->
           <div class="action-buttons">
             <button class="action-btn pending-btn" 
                     (click)="updateRequestStatus(request.id, 'pending')" 
@@ -61,7 +53,6 @@
             </button>
           </div>
     
-          <!-- زر رجوع -->
           <div class="back-button">
             <button class="btn btn-secondary" routerLink="/employee/requests">Back to Requests</button>
           </div>
