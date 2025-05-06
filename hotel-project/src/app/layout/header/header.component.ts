@@ -24,6 +24,9 @@ isDarkTheme = false;
     // currentLang = 'en';
   isLoggedIn = false;
   profileLink = '/'; // رابط يوجه حسب نوع المستخدم
+  selectedLanguage: string = 'en';
+  selectedFlag: string = 'assets/img/flag.jpg';
+  
 
   constructor(private dialog: MatDialog,private languageService: LanguageService,
     private translate: TranslateService) {}
@@ -65,6 +68,26 @@ if (savedTheme === 'dark') {
 toggleLanguageMenu() {
   this.languageMenuOpen = !this.languageMenuOpen;
 }
+changeLanguage2(lang: string): void {
+  this.selectedLanguage = lang;
+  this.languageMenuOpen = false;
+
+  switch (lang) {
+    case 'en':
+      this.selectedFlag = 'assets/img/flag.jpg'; // علم بريطانيا مثلاً
+      break;
+    case 'it':
+      this.selectedFlag = 'assets/img/italy.png'; // علم إيطاليا
+      break;
+    case 'ar':
+      this.selectedFlag = 'assets/img/qatar.png'; // علم قطر أو السعودية حسب اختيارك
+      break;
+  }
+
+  // لو عندك ترجمة:
+  this.translate.use(lang);
+}
+
 toggleDarkTheme() {
   this.isDarkTheme = !this.isDarkTheme;
   sessionStorage.setItem('theme', this.isDarkTheme ? 'dark' : 'light');

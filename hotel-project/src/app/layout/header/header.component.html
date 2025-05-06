@@ -21,18 +21,22 @@
               <a href="#"><i class="fa fa-instagram"></i></a>
             </div>
 
-            <!-- 🌐 Language Selector -->
             <div class="language-option position-relative">
-              <img src="assets/img/flag.jpg" alt="Flag" width="24" height="16">
-              <span (click)="toggleLanguageMenu()">EN <i class="fa fa-angle-down" ></i></span>
+              <img [src]="selectedFlag" alt="Flag" width="24" height="16">
+              <span (click)="toggleLanguageMenu()">
+                {{ selectedLanguage.toUpperCase() }} <i class="fa fa-angle-down"></i>
+              </span>
+            
               <div class="flag-dropdown" *ngIf="languageMenuOpen">
                 <ul>
-                  <li><a (click)="changeLanguage('en')">🇬🇧 English</a></li>
-                  <li><a (click)="changeLanguage('it')">🇮🇹 Italiano</a></li>
-                  <li><a (click)="changeLanguage('ar')">🇸🇦 Arabic</a></li>
+                  <li><a (click)="changeLanguage2('en')">🇬🇧 English</a></li>
+                  <li><a (click)="changeLanguage2('it')">🇮🇹 Italiano</a></li>
+                  <li><a (click)="changeLanguage2('ar')">🇶🇦 Arabic</a></li>
                 </ul>
               </div>
             </div>
+            
+            
 
             <div class="user-controls">
               <button *ngIf="!isLoggedIn" class="icon-btn" (click)="openLoginDialog()" title="{{ 'LOGIN' | translate }}">
