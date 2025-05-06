@@ -79,6 +79,7 @@
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  margin-left: 1.5rem; // ⬅️ أضف هذه السطر
 
   .icon-btn {
     background-color: transparent;
@@ -177,7 +178,7 @@
 
   img {
     vertical-align: middle;
-    border-radius: 3px;
+    border-radius: 17px;
   }
 
   .flag-dropdown {

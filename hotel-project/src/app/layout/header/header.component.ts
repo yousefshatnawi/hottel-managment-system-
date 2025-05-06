@@ -67,7 +67,7 @@ toggleLanguageMenu() {
 }
 toggleDarkTheme() {
   this.isDarkTheme = !this.isDarkTheme;
-  localStorage.setItem('theme', this.isDarkTheme ? 'dark' : 'light');
+  sessionStorage.setItem('theme', this.isDarkTheme ? 'dark' : 'light');
   
   const body = document.body;
   body.classList.toggle('dark-theme');
@@ -88,7 +88,7 @@ reqestService() {
     this.dialog.open(MyRequestsComponent, {
       width: '65vw', 
       maxWidth: '90vw',
-      height: '400px'  // ارتفاع المودال
+      height: '400px',  // ارتفاع المودال
     });
   }
   // myReservations() {
