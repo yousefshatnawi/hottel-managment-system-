@@ -41,6 +41,21 @@ isDarkTheme = false;
 
   ngOnInit() {
 
+    const savedLang = localStorage.getItem('selectedLanguage') || 'en';
+    this.selectedLanguage = savedLang;
+   
+    switch (savedLang) {
+      case 'en':
+        this.selectedFlag = 'assets/img/flag.jpg';
+        break;
+      case 'it':
+        this.selectedFlag = 'assets/img/italy.png';
+        break;
+      case 'ar':
+        this.selectedFlag = 'assets/img/qatar.png';
+        break;
+    }
+   
     const user = JSON.parse(localStorage.getItem('user') || 'null');
     this.showMyRequest = user !== null;
     if (user) {
@@ -65,25 +80,7 @@ if (savedTheme === 'dark') {
 toggleLanguageMenu() {
   this.languageMenuOpen = !this.languageMenuOpen;
 }
-changeLanguage2(lang: string): void {
-  this.selectedLanguage = lang;
-  this.languageMenuOpen = false;
-
-  switch (lang) {
-    case 'en':
-      this.selectedFlag = 'assets/img/flag.jpg'; // علم بريطانيا مثلاً
-      break;
-    case 'it':
-      this.selectedFlag = 'assets/img/italy.png'; // علم إيطاليا
-      break;
-    case 'ar':
-      this.selectedFlag = 'assets/img/qatar.png'; // علم قطر أو السعودية حسب اختيارك
-      break;
-  }
-
-  // لو عندك ترجمة:
-  this.translate.use(lang);
-}
+ // تجهيز اللغة والعلم
 
 toggleDarkTheme() {
   this.isDarkTheme = !this.isDarkTheme;
@@ -93,11 +90,7 @@ toggleDarkTheme() {
   body.classList.toggle('dark-theme');
 }
  
-//  switchLanguage() {
-//   this.currentLang = this.currentLang === 'en' ? 'ar' : 'en';
-//   this.translate.use(this.currentLang);
-//   localStorage.setItem('lang', this.currentLang);
-// }
+
   
   logout(): void {
     localStorage.clear();
@@ -108,26 +101,44 @@ reqestService() {
     this.dialog.open(MyRequestsComponent, {
       width: '65vw', 
       maxWidth: '90vw',
-      height: '400px',  // ارتفاع المودال
+      height: '400px', 
     });
   }
-  // myReservations() {
-  //   this.dialog.open(MyReservationsComponent, {
-  //     width: '65vw',      // خلي العرض نسبة من الشاشة
-  //     maxWidth: '95vw',   // لازم تحكي للديالوج أنه يقبل
-  //     height: '55vh',     // ارتفاع
-  //     maxHeight: '90vh',  // لازم تحكي يقبل
-  //     panelClass: 'custom-dialog-container' // اختياري لو بدك كمان تعدلي CSS زيادة
-  //   });
+  // changeLanguage(language: string) {
+  //   this.languageService.changeLanguage(language);
+  //   this.translate.use(language);
+  //   if (language === 'ar') {
+  //     document.documentElement.setAttribute('dir', 'rtl');
+  //   } else {
+  //     document.documentElement.setAttribute('dir', 'ltr');
   //   }
+  //   this.languageMenuOpen = false;
+  // }
   changeLanguage(language: string) {
     this.languageService.changeLanguage(language);
     this.translate.use(language);
+    localStorage.setItem('selectedLanguage', language); // نحفظ اللغة
+  
+    // نضبط اتجاه الصفحة
     if (language === 'ar') {
       document.documentElement.setAttribute('dir', 'rtl');
     } else {
       document.documentElement.setAttribute('dir', 'ltr');
     }
+  
+    // نحدث صورة العلم المختار
+    switch (language) {
+      case 'en':
+        this.selectedFlag = 'assets/img/flag.jpg';
+        break;
+      case 'it':
+        this.selectedFlag = 'assets/img/italy.png';
+        break;
+      case 'ar':
+        this.selectedFlag = 'assets/img/qatar.png';
+        break;
+    }
+  
     this.languageMenuOpen = false;
   }
   

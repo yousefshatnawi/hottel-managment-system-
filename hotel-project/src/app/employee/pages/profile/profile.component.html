@@ -1,4 +1,4 @@
-<div class="container-d">
+
   <!-- الـ Sidebar -->
   <div class="sidebar">
     <app-main-layout></app-main-layout>
@@ -20,7 +20,7 @@
 
         <div class="form-group ">
           <label><i class="fas fa-briefcase"></i> Role</label>
-          <input [(ngModel)]="employeeData.role" name="role" type="text" [readonly]="!isEditing" required />
+          <input [(ngModel)]="employeeData.role" name="role" type="text"  [readonly]="true" class="disabled-input" required />
         </div>
 
         <div class="formbold-mb-3 formbold-pt-3">
@@ -45,4 +45,3 @@
       </div>
     </div>
   </div>
-</div>
