@@ -41,6 +41,30 @@ isDarkTheme = false;
 
   ngOnInit() {
 
+
+    const user = JSON.parse(localStorage.getItem('user') || 'null');
+    this.showMyRequest = user !== null;
+    
+  if (user) {
+    this.isLoggedIn = true;
+    if (user.userType === 'customer') {
+      this.profileLink = '/customer/profile';
+      this.showMyRequest = true;   
+    } else {
+      this.showMyRequest = false;  
+    }
+  } else {
+    this.isLoggedIn = false;
+    this.showMyRequest = false;
+  }
+    // if (user) {
+    //   this.isLoggedIn = true;
+    //   if (user.userType === 'customer') {
+    //     this.profileLink = '/customer/profile';
+    //   }
+    // } else {
+    //   this.isLoggedIn = false;
+    // }
     const savedLang = localStorage.getItem('selectedLanguage') || 'en';
     this.selectedLanguage = savedLang;
    
@@ -56,16 +80,7 @@ isDarkTheme = false;
         break;
     }
    
-    const user = JSON.parse(localStorage.getItem('user') || 'null');
-    this.showMyRequest = user !== null;
-    if (user) {
-      this.isLoggedIn = true;
-      if (user.userType === 'customer') {
-        this.profileLink = '/customer/profile';
-      }
-    } else {
-      this.isLoggedIn = false;
-    }
+   
     
      const savedTheme = localStorage.getItem('theme');
 if (savedTheme === 'dark') {
@@ -92,8 +107,11 @@ toggleDarkTheme() {
 
   
   logout(): void {
-
+    localStorage.removeItem('user');
+  
     this.isLoggedIn = false;
+    
+    location.reload();
   }
 reqestService() {
     this.dialog.open(MyRequestsComponent, {

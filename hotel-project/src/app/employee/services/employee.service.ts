@@ -23,6 +23,7 @@ export class EmployeeService {
 
   
   getRequestsByEmployee(): EmployeeRequest[] {
+    this.requests = [...employeeRequests];
     const currentUser = JSON.parse(localStorage.getItem('employee') || '{}');
     const allRequests: EmployeeRequest[] = employeeRequests;
  
@@ -34,6 +35,7 @@ export class EmployeeService {
 
 
   getRequestsByEmployeeId(employeeId: number): EmployeeRequest[] {
+    this.requests = [...employeeRequests]; 
     return employeeRequests.filter(req => req.employeeId === employeeId);
   }
  
@@ -86,6 +88,7 @@ addRequest(request: EmployeeRequest) {
   };
 
   employeeRequests.push(newRequest);
+  
   console.log('Request added:', newRequest);
 }
 

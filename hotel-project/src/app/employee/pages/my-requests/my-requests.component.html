@@ -4,6 +4,7 @@
   </div>
 
   <div class="main">
+    <app-header-dash [pageTitle]="'my-requests'"></app-header-dash>
     <div class="cards">
       <div class="card" *ngFor="let request of requests; let i = index">
         <div class="card-content">

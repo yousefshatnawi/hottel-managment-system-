@@ -81,6 +81,7 @@ navigateToForgotPassword() {
             text: 'Email or password is incorrect',
             confirmButtonColor: '#c0392b'
           });
+          location.reload(); 
         });
     }
   }
