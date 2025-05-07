@@ -76,9 +76,9 @@
               <ul>
                 <li><a routerLink="/home" routerLinkActive="active">{{ 'NAV_HOME' | translate }}</a></li>
                 <li><a routerLink="/room" routerLinkActive="active">{{ 'NAV_ROOMS' | translate }}</a></li>
-                <li><a routerLink="/about-us" routerLinkActive="active">{{ 'NAV_ABOUT_US' | translate }}</a></li>
                 <li *ngIf="showMyRequest"><a (click)="reqestService()" routerLinkActive="active">{{ 'NAV_MY_REQUEST' | translate }}</a></li>
                 <li *ngIf="showMyRequest"><a routerLink="/customer/my-reservations" routerLinkActive="active">{{ 'NAV_RESERVATIONS' | translate }}</a></li>
+                <li><a routerLink="/about-us" routerLinkActive="active">{{ 'NAV_ABOUT_US' | translate }}</a></li>
                 <li><a routerLink="/contact-us" routerLinkActive="active">{{ 'NAV_CONTACT_US' | translate }}</a></li>
               </ul>
             </nav>

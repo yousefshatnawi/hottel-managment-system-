@@ -60,17 +60,28 @@ constructor(private employeeService: EmployeeService, private router: Router) {}
     this.inProgresCount = requests.filter(r => r.requestStatus === 'progres').length;
     this.completedCount  = requests.filter(r => r.requestStatus === 'done').length;
   
-    const colors = [
-      this.pendingCount    > 5 ? '#f59e0b' : '#fde68a',
-      this.inProgresCount > 5 ? '#2563eb' : '#bfdbfe',
-      this.completedCount  > 5 ? '#059669' : '#bbf7d0'
+    const strongColors = ['#e67e22', '#2980b9', '#27ae60'];
+
+    // const colors = [
+    //   this.pendingCount    > 5 ? '#f39c12' : '#fceacb', // برتقالي مائل للذهبي
+    //   this.inProgresCount > 5 ? '#3498db' : '#d6eaf8', // أزرق متناسق مع الـ sidebar
+    //   this.completedCount  > 5 ? '#2ecc71' : '#d5f5e3'  // أخضر هادئ
+    // ];
+    
+  
+    this.barChartData.datasets[0].data = [
+      this.pendingCount, 
+      this.inProgresCount, 
+      this.completedCount
     ];
+    this.barChartData.datasets[0].backgroundColor = strongColors;
   
-    this.barChartData.datasets[0].data = [this.pendingCount, this.inProgresCount, this.completedCount];
-    this.barChartData.datasets[0].backgroundColor = colors;
-  
-    this.doughnutChartData.datasets[0].data = [this.pendingCount, this.inProgresCount, this.completedCount];
-    this.doughnutChartData.datasets[0].backgroundColor = colors;
+    this.doughnutChartData.datasets[0].data = [
+      this.pendingCount, 
+      this.inProgresCount, 
+      this.completedCount
+    ];
+    this.doughnutChartData.datasets[0].backgroundColor = strongColors;
   }
   
   

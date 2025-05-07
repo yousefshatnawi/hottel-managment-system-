@@ -83,12 +83,14 @@ export class DashboardComponent {
       this.userCount
     ];
   
+    const strongColors = ['#007bff', '#28a745', '#ff7f0e', '#8e44ad'];
+
     this.barChartData = {
       labels: ['Employees', 'Customers', 'Rooms', 'Users'],
       datasets: [{
         label: 'Counts',
         data: data,
-        backgroundColor: ['#42A5F5', '#66BB6A', '#FFA726', '#AB47BC']
+        backgroundColor: strongColors
       }]
     };
   
@@ -96,7 +98,7 @@ export class DashboardComponent {
       labels: ['Employees', 'Customers', 'Rooms', 'Users'],
       datasets: [{
         data: data,
-        backgroundColor: ['#42A5F5', '#66BB6A', '#FFA726', '#AB47BC']
+        backgroundColor: strongColors
       }]
     };
   }
