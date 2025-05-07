@@ -25,7 +25,7 @@ ngOnInit(): void {
   this.rooms = this.adminService.getRooms();
   const newRom = JSON.parse(localStorage.getItem('newRom') || '{}');
   if(newRom && newRom.id){
-    this.rooms.push(newRom);
+    // this.rooms.push(newRom);
   }
   const updatedRoom = JSON.parse(localStorage.getItem('updateRoom') || '{}');
   if ( updatedRoom.id) {
