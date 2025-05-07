@@ -14,15 +14,17 @@
           <p><strong>Request Type:</strong> {{ request.requestType }}</p>
         </div> 
         <div class="info-group">
-                    <p><strong>Customer Name:</strong> {{ request.customer?.name }}</p>
+          <p><strong>Customer Name:</strong> {{ request.customer?.name }}</p>
           <p><strong>Customer Email:</strong> {{ request.customer?.email }}</p>
-    
-          <p><strong>Employee Name:</strong> {{ request.employee?.name }}</p>
-        </div>
+          </div>
+          
 <div class="info-group">
-
          <p><strong>Room Name:</strong> {{ request.room?.roomName }}</p>
     </div> 
+    <div class="info-group">
+      <p><strong>Request note:</strong> {{ request.note }}</p>
+
+    </div>
           <p class="request-status">
             <strong>Status:</strong>
             <span class="status-badge"
@@ -41,21 +43,28 @@
                     [disabled]="request.requestStatus === 'pending'">
               <i class="fas fa-hourglass-half"></i> Set to Pending
             </button>
+          
             <button class="action-btn progres-btn" 
                     (click)="updateRequestStatus(request.id, 'progres')" 
                     [disabled]="request.requestStatus === 'progres'">
               <i class="fas fa-spinner"></i> Set to Progress
             </button>
+          
             <button class="action-btn done-btn" 
                     (click)="updateRequestStatus(request.id, 'done')" 
                     [disabled]="request.requestStatus === 'done'">
               <i class="fas fa-check-circle"></i> Set to Done
             </button>
           </div>
-    
+          
           <div class="back-button">
-            <button class="btn btn-secondary" routerLink="/employee/requests">Back to Requests</button>
+            <button class="btn btn-secondary" routerLink="/employee/my-requests">
+              <i class="fas fa-arrow-left"></i> Back to Requests
+            </button>
           </div>
+          
+    
+          
         </div>
       </div>
     </div>

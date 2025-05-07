@@ -1,50 +1,54 @@
-
-
-   <div class="sidebar">
-    <app-main-layout></app-main-layout> 
+<div class="page-container">
+  <div class="sidebar">
+    <app-main-layout></app-main-layout>
   </div>
-  
+
   <div class="main">
-    <app-header-dash [pageTitle]="'My Requests'"></app-header-dash>
-  
     <div class="cards">
-      <div class="card" *ngFor="let request of requests">
+      <div class="card" *ngFor="let request of requests; let i = index">
         <div class="card-content">
           <div class="info-group">
             <p><strong>Request ID:</strong> {{ request.id }}</p>
-            <p><strong>Request Date:</strong> {{ request.date }}</p>
+          <p><strong>Request Date:</strong> {{ request.date }}</p>
           </div>
+         
+    
           <div class="info-group">
-            <p><strong>Customer Name:</strong> {{ request.customer?.name }}</p>
-            <p><strong>Customer Email:</strong> {{ request.customer?.email }}</p>
+            <p><strong>customer Name:</strong> {{ request.customer?.name }}</p>
           </div>
-          <div class="info-group">
-            <p><strong>Employee Name:</strong> {{ request.employee?.name }}</p>
-          </div>
+    
           <div class="info-group">
             <p><strong>Room Name:</strong> {{ request.room?.roomName }}</p>
-          </div>
+          
+    
           <p><strong>Type:</strong> {{ request.requestType }}</p>
-  
-          <div class="card-footer">
-            <p class="request-status">
-              <strong>Status:</strong> 
-              <span class="status-badge" [ngClass]="{
+        </div>
+        <div class="card-footer" style="background-color: rgb(255 255 255 / 3%);">
+          <p class="request-status">
+            <strong style="margin: 0px 15px 0px 0px;">Status:  </strong>
+            <span class="status-badge"
+              [ngClass]="{
                 'pending': request.requestStatus === 'pending',
                 'progres': request.requestStatus === 'progres',
                 'done': request.requestStatus === 'done'
-              }">{{ request.requestStatus }}</span>
-            </p>
-  
-            <div class="card-actions">
-              <button class="btn btn-sm btn-primary" (click)="openPopup(request)">Details</button>
-            </div>
+              }">
+                             {{ request.requestStatus }}
+            </span>
+          </p>
+        
+          <div class="card-actions">
+            <button class="btn btn-sm btn-primary" 
+            [routerLink]="['/employee/request-details', request.id]">Details</button>
           </div>
+        </div>
+        
         </div>
       </div>
     </div>
+    
   </div>
-  
+
+<!--   
   <div class="popup-overlay" *ngIf="selectedRequest">
     <div class="popup-content">
       <h3>Request Details</h3>
@@ -73,5 +77,5 @@
   
       <button class="close-btn" (click)="closePopup()">Close</button>
     </div>
-  </div>
+  </div> -->
   

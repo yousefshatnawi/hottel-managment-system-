@@ -252,17 +252,17 @@ button:hover:not([disabled]) {
 }
 
 .pending {
-  background-color: orange;
+  background-color: #4070a0;
   margin: 5%;
 }
 
 .progres {
-  background-color: #007bff;
+  background-color: #ffb443;
   margin: 5%;
 }
 
 .done {
-  background-color: green;
+  background-color:#10b981;
   margin: 5%;
 }
 
@@ -440,4 +440,77 @@ strong {
   .action-buttons {
     flex-direction: column;
   }
+}
+.action-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin: 30px 0 20px;
+  padding: 10px;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 20px;
+}
+
+.action-btn {
+  padding: 12px 24px;
+  font-size: 15px;
+  font-weight: 500;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  min-width: 160px;
+  justify-content: center;
+  text-align: center;
+}
+
+.action-btn:disabled {
+  background: #d1d5db;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.pending-btn {
+  background: linear-gradient(90deg, #fbbf24, #f59e0b);
+}
+
+.progres-btn {
+  background: linear-gradient(90deg, #60a5fa, #3b82f6);
+}
+
+.done-btn {
+  background: linear-gradient(90deg, #34d399, #10b981);
+}
+
+.action-btn:not(:disabled):hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.back-button {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 12px 24px;
+  border-radius: 10px;
+  border: none;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+  transform: scale(1.05);
 }

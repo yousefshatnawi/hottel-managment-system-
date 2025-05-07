@@ -6,6 +6,8 @@ import { Employee } from '../../../models/employee.model';
 import { employees } from '../../../shared/dataBase/employee';
 import { customers } from '../../../shared/dataBase/customer';
 import { roomAppointments } from '../../../shared/dataBase/room-appointment';
+import { MatDialog } from '@angular/material/dialog';
+import { LoginComponent } from '../../../auth/components/login/login.component';
 
 @Component({
   selector: 'app-my-requests',
@@ -15,6 +17,7 @@ import { roomAppointments } from '../../../shared/dataBase/room-appointment';
 })
 export class MyRequestsComponent implements OnInit {
 
+
   employeeData: Employee = { id: 0, name: '', role: '',email:'', password:'' };
     requests: EmployeeRequest[] = [];
     loading: boolean = true;
@@ -22,7 +25,7 @@ export class MyRequestsComponent implements OnInit {
 
     constructor(
       private employeeService: EmployeeService,
-        ) {}
+       private dialog: MatDialog ) {}
   
     ngOnInit(): void {
 
@@ -68,7 +71,6 @@ export class MyRequestsComponent implements OnInit {
     );
   }
 }
-
-    
+ 
     
   }

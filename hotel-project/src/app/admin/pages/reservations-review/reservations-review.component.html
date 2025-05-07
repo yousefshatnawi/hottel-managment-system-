@@ -10,7 +10,7 @@
       <div class="reservation-card" *ngFor="let a of pagedAppointments">
         <p><strong>🆔 ID:</strong> {{ a.id }}</p>
         <p><strong>📅 Date:</strong> {{ a.date | date: 'medium' }}</p>
-        <p><strong>👤 Customer :</strong> {{ a.customer?.name }}</p>
+        <p><strong>👤 Customer ID:</strong> {{ a.customerId }}</p>
         <p><strong>💰 Amount:</strong> {{ a.paymentAmount }}</p>
         <p><strong>✅ Status:</strong> {{ a.approvalStatus }}</p>
         <p>

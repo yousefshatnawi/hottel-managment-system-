@@ -60,9 +60,15 @@ updatePagedAppointments(): void {
 
 approveReservation(id: number): void {
   this.adminService.updateApprovalStatus(id, 'approved');
+  const target = this.appointments.find(a => a.id === id);
+  if (target) target.approvalStatus = 'approved';
+  this.updatePagedAppointments(); 
 }
 
 rejectReservation(id: number): void {
   this.adminService.updateApprovalStatus(id, 'rejected');
+  const target = this.appointments.find(a => a.id === id);
+  if (target) target.approvalStatus = 'rejected';
+  this.updatePagedAppointments(); 
 }
 }

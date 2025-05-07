@@ -54,15 +54,15 @@
     }
 
     .pending {
-      background-color: #f59e0b;
+      background-color: #4070a0;
     }
-
+    
     .progres {
-      background-color: #3b82f6;
+      background-color: #ffb443;
     }
-
+    
     .done {
-      background-color: #10b981;
+      background-color:#10b981;
     }
     .info-group {
       margin-top: 10px;
@@ -89,6 +89,8 @@
         button {
           width: auto;
           padding: 6px 12px;
+          margin-bottom: -19%;
+
         }
       }
     }
