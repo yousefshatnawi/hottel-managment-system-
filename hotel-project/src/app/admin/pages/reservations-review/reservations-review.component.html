@@ -8,9 +8,9 @@
     
     <div class="card-grid" *ngIf="appointments.length > 0">
       <div class="reservation-card" *ngFor="let a of pagedAppointments">
-        <p><strong>🆔 ID:</strong> {{ a.id }}</p>
         <p><strong>📅 Date:</strong> {{ a.date | date: 'medium' }}</p>
-        <p><strong>👤 Customer ID:</strong> {{ a.customerId }}</p>
+        <p><strong>👤 Customer Name:</strong> {{ a.customer?.name}}</p>
+        <p style="font-weight: bolder;"><strong>👤 Room name :</strong> {{ a.room?.title}}</p>
         <p><strong>💰 Amount:</strong> {{ a.paymentAmount }}</p>
         <p><strong>✅ Status:</strong> {{ a.approvalStatus }}</p>
         <p>

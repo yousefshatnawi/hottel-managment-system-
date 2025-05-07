@@ -29,7 +29,6 @@ export class HeaderDashComponent {
   
   }
   logout() {
-    localStorage.clear();
     this.router.navigate(['/home'])
   }
   @Input() pageTitle: string = 'Dashboard';

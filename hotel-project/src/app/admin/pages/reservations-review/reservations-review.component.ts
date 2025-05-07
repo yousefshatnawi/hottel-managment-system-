@@ -4,6 +4,7 @@ import { AdminService } from '../../services/services/admin.service';
 import { Router } from '@angular/router';
 import { CustomerService } from '../../../customer/services/customer.service';
 import { PageEvent } from '@angular/material/paginator';
+import { Rooms } from '../../../shared/dataBase/room';
 
 @Component({
   selector: 'app-reservations-review',
@@ -38,7 +39,9 @@ ngOnInit(): void {
   this.appointments = this.appointments.map((app: RoomAppointment) => {
     return {
       ...app,
-      customer: customers.find((customer) => customer.id === app.customerId)
+      customer: customers.find((customer) => customer.id === app.customerId),
+      room: Rooms.find((room) => room.title === app.roomName)
+
     };
   });
 

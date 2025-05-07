@@ -92,7 +92,6 @@ toggleDarkTheme() {
 
   
   logout(): void {
-    localStorage.clear();
 
     this.isLoggedIn = false;
   }
