@@ -42,12 +42,19 @@ body.dark-theme .mat-card ,
 .dark-theme .ap-title h2,
 .dark-theme .contact-text h2,
 .dark-theme .mb-4 ,
-.dark-theme .contianer form label{
+.dark-theme .contianer form label,
+.dark-theme .top-nav .tn-right .language-option span,
+.dark-theme .mat-mdc-paginator,
+.dark-theme .mat-mdc-paginator .mat-mdc-select,
+.dark-theme .mat-mdc-paginator-icon  {
+
   // background-color: #1a1a1a !important;
   color: #ffffff !important;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
-
+.dark-theme .mat-mdc-paginator-container {
+background-color: #1E1E1E;
+}
 .dark-theme .contianer form ,
 .dark-theme .profile-details {
 background-color: #1E1E1E !important;
