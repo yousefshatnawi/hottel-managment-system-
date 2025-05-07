@@ -57,14 +57,7 @@ isDarkTheme = false;
     this.isLoggedIn = false;
     this.showMyRequest = false;
   }
-    // if (user) {
-    //   this.isLoggedIn = true;
-    //   if (user.userType === 'customer') {
-    //     this.profileLink = '/customer/profile';
-    //   }
-    // } else {
-    //   this.isLoggedIn = false;
-    // }
+   
     const savedLang = localStorage.getItem('selectedLanguage') || 'en';
     this.selectedLanguage = savedLang;
    

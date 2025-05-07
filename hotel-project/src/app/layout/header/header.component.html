@@ -38,11 +38,11 @@
             
 
             <div class="user-controls">
-              <button *ngIf="!isLoggedIn" class="icon-btn" (click)="openLoginDialog()" title="{{ 'LOGIN' | translate }}">
+              <button *ngIf="!isLoggedIn && !showMyRequest" class="icon-btn" (click)="openLoginDialog()" title="{{ 'LOGIN' | translate }}">
                 <i class="fa fa-user-lock"></i>
               </button>
             
-              <a *ngIf="isLoggedIn" routerLink="/customer/profile" class="icon-btn" title="{{ 'MY_PROFILE' | translate }}">
+              <a *ngIf="isLoggedIn && showMyRequest" routerLink="/customer/profile" class="icon-btn" title="{{ 'MY_PROFILE' | translate }}">
                 <i class="fa fa-user-circle"></i>
               </a>
             
