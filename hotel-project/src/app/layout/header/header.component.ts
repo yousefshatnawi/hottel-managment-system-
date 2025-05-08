@@ -115,15 +115,14 @@ reqestService() {
   }
  
   changeLanguage(language: string) {
+    this.selectedLanguage = language; // ✅ أضف هذا السطر
     this.languageService.changeLanguage(language);
     this.translate.use(language);
     localStorage.setItem('selectedLanguage', language); 
   
-    if (language === 'ar') {
+    
       document.documentElement.setAttribute('dir', 'ltr');
-    } else {
-      document.documentElement.setAttribute('dir', 'ltr');
-    }
+    
   
     switch (language) {
       case 'en':
@@ -139,5 +138,6 @@ reqestService() {
   
     this.languageMenuOpen = false;
   }
+  
   
 }
