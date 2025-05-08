@@ -46,7 +46,8 @@ body.dark-theme .mat-card ,
 .dark-theme .top-nav .tn-right .language-option span,
 .dark-theme .mat-mdc-paginator,
 .dark-theme .mat-mdc-paginator .mat-mdc-select,
-.dark-theme .mat-mdc-paginator-icon  {
+.dark-theme .mat-mdc-paginator-icon,
+.dark-theme .section-title   {
 
   // background-color: #1a1a1a !important;
   color: #ffffff !important;
@@ -54,6 +55,10 @@ body.dark-theme .mat-card ,
 }
 .dark-theme .mat-mdc-paginator-container {
 background-color: #1E1E1E;
+}
+.mdc-dialog--open .mat-mdc-dialog-surface{
+  background-color: #1E1E1E;
+
 }
 .dark-theme .contianer form ,
 .dark-theme .profile-details {
