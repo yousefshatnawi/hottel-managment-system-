@@ -1,0 +1,24 @@
+{
+  "hosting": {
+  "public": "dist/hotel-project/browser",
+  "ignore": [
+    "firebase.json",
+    "**/.*",
+    "**/node_modules/**"
+  ],
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/home",
+      "type": 301
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "**",
+      "destination": "/index.html"
+    }
+  ]
+}
+
+}
