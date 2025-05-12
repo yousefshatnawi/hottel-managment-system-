@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { LoginComponent } from '../../auth/components/login/login.component';
 
@@ -85,6 +85,7 @@ if (savedTheme === 'dark') {
     this.languageMenuOpen = false; 
   }
 }
+
 toggleLanguageMenu() {
   this.languageMenuOpen = !this.languageMenuOpen;
 }
@@ -138,6 +139,11 @@ reqestService() {
   
     this.languageMenuOpen = false;
   }
-  
-  
+  @HostListener('window:resize', [])
+
+  onResize() {
+  if (window.innerWidth >= 992 && this.menuOpen) {
+    this.menuOpen = false;
+  }
+}
 }
