@@ -70,3 +70,8 @@
     color: #666;
     margin-bottom: 30px;
   }
+@media only screen and (max-width: 479px) {
+	.booking-form{
+		width: 74%;
+	}
+}

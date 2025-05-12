@@ -2296,6 +2296,9 @@ box-shadow: 18px -20px 17px 17px rgba(16, 35, 16, 0.25); */
 /* Small Mobile: 320px */
 
 @media only screen and (max-width: 479px) {
+	.booking-form{
+		width: 74%;
+	}
 	.footer-section .copyright-option ul li {
 		margin-bottom: 5px;
 	}
@@ -2355,3 +2358,7 @@ box-shadow: 18px -20px 17px 17px rgba(16, 35, 16, 0.25); */
 	font-family: 'Arial', sans-serif;
 	direction: ltr;
   }
+  @media only screen and (max-width: 767px) {
+    .hp-room-items {
+        width: 150%;}}
+		

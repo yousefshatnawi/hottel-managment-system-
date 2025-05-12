@@ -108,12 +108,16 @@ toggleDarkTheme() {
     location.reload();
   }
 reqestService() {
-    this.dialog.open(MyRequestsComponent, {
-      width: '65vw', 
-      maxWidth: '90vw',
-      height: '400px', 
-    });
-  }
+  const isMobile = window.innerWidth < 768;
+
+  this.dialog.open(MyRequestsComponent, {
+    width: isMobile ? '95vw' : '65vw',
+    maxWidth: isMobile ? '95vw' : '90vw',
+    height: isMobile ? '60vh' : '400px',
+    panelClass: 'custom-dialog'
+  });
+}
+
  
   changeLanguage(language: string) {
     this.selectedLanguage = language; // ✅ أضف هذا السطر

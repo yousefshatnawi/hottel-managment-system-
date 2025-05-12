@@ -57,8 +57,13 @@ body.dark-theme .mat-card ,
   color: #ffffff !important;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
-.dark-theme .mat-mdc-paginator-container {
-background-color: #1E1E1E;
+.dark-theme .mat-mdc-paginator-container,
+.dark-theme .dropdown-menu-custom ,
+.dark-theme .flag-dropdown{
+background-color: #1E1E1E !important;
+}
+.dark-theme .flag-dropdown :hover{
+  background-color: revert !important;
 }
 .dark-theme .mdc-dialog--open .mat-mdc-dialog-surface,
 .dark-theme .top-nav .tn-right .language-option:hover .flag-dropdown {
