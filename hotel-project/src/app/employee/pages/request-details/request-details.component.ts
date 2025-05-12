@@ -32,13 +32,23 @@ export class RequestDetailsComponent implements OnInit {
     });
   }
 
-  loadRequestDetails(): void {
-    this.request = this.employeeService.getRequestById(this.requestId);
-    this.loading = false;
-    if (!this.request) {
-      this.errorMessage = `Request with ID ${this.requestId} not found.`;
+loadRequestDetails(): void {
+  this.request = this.employeeService.getRequestById(this.requestId);
+
+  if (!this.request) {
+    const newReq = JSON.parse(localStorage.getItem('updatedRequest') || '{}');
+    if (newReq && newReq.id === this.requestId) {
+      this.request = newReq;
     }
   }
+
+  this.loading = false;
+
+  if (!this.request) {
+    this.errorMessage = `Request with ID ${this.requestId} not found.`;
+  }
+}
+
 
   updateRequestStatus(requestId: number | undefined, newStatus: 'pending' | 'progres' | 'done') {
     const employee = JSON.parse(localStorage.getItem('employee') || '{}');

@@ -23,10 +23,16 @@ export class EmployeeService {
 
   
   getRequestsByEmployee(): EmployeeRequest[] {
-    this.requests = [...employeeRequests];
     const currentUser = JSON.parse(localStorage.getItem('employee') || '{}');
+     const newreq = JSON.parse(localStorage.getItem('updatedRequest') || '{}');
+
     const allRequests: EmployeeRequest[] = employeeRequests;
- 
+ if (newreq && newreq.id) {
+    const alreadyExists = allRequests.some(req => req.id === newreq.id);
+    if (!alreadyExists) {
+      allRequests.push(newreq);
+    }
+  }
     const requests = allRequests.filter(req => req.employeeId === currentUser.id);
     return requests;
 
