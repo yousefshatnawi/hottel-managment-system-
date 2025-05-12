@@ -22,7 +22,7 @@ export class RoomListComponent implements OnInit {
   pageSize = 6;
   pageIndex = 0;
   length = 0;
-
+  randomNum=[2,5,4,6,1,3,8,9,10,11,7]
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(
@@ -74,4 +74,9 @@ export class RoomListComponent implements OnInit {
     this.pageSize = event.pageSize;
     this.updatePaginatedData();
   }
+  getImageNumberByPagination(i: number): number {
+  const globalIndex = this.pageIndex * this.pageSize + i;
+  return this.randomNum[globalIndex % this.randomNum.length];
+}
+
 }

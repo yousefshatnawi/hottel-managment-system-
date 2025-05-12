@@ -34,7 +34,6 @@ registerUser(newUser: User): Promise<void> {
     }
 
     users.push(newUser);
-    localStorage.setItem('users', JSON.stringify(users));
     localStorage.setItem('user', JSON.stringify(newUser)); 
 
     resolve();

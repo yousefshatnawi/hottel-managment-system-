@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Customer } from '../../../models/customer.model';
 import { CustomerService } from '../../services/customer.service';
+import { TranslateService } from '@ngx-translate/core';
+import { LanguageService } from '../../../services/language.service';
 
 @Component({
   selector: 'app-profile',
@@ -28,12 +30,16 @@ previewUrl: string | ArrayBuffer | null = null;
 
 constructor(
   private route: ActivatedRoute,
-  private customerService: CustomerService
+  private customerService: CustomerService ,
+   private languageService: LanguageService,
+    private translate: TranslateService
 ) {}
 
 ngOnInit(): void {
   this.loadingForGet = true;
-
+ this.languageService.currentLanguage.subscribe(language => {
+      this.translate.use(language);
+    });
   const storedImage = localStorage.getItem('profileImage');
   if (storedImage) {
     this.profileImage = storedImage;
@@ -114,6 +120,7 @@ saveProfile() {
 
     this.customerData.password = this.customerData.newPassword;
   }
+  this.customerData.profileImage = this.profileImage;
 
   delete this.customerData.oldPassword;
   delete this.customerData.newPassword;
@@ -131,7 +138,7 @@ saveProfile() {
       this.customerData.confirmPassword = '';
     })
     .catch((err: any) => {
-      this.errors.push(err.message || 'Update failed.');
+      // this.errors.push(err.message || 'Update failed.');
       this.loading = false;
     });
 }

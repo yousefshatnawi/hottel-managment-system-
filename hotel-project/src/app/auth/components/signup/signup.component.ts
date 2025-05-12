@@ -24,7 +24,8 @@ export class SignupComponent implements OnInit {
 
   openPolicyModal(): void {
     const dialogRef = this.dialog.open(PolicyComponent, {
-      width: '500px',  
+      width: '700px', 
+      height:'600px' 
     });
 
     dialogRef.afterClosed().subscribe(result => {
@@ -81,7 +82,7 @@ export class SignupComponent implements OnInit {
       localStorage.setItem('newCustomer', JSON.stringify(customerData));
       this.authService.registerUser(customerData)
         .then(() => {
-          this.router.navigate(['/auth/login']);
+          this.router.navigate(['/home']);
         })
         .catch(error => {
           console.error(error);
